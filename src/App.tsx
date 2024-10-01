@@ -2,6 +2,7 @@ import { createTheme, CssBaseline, GlobalStyles, PaletteMode, ThemeProvider, use
 import { CustomFooter } from './components/CustomFooter'
 import { CustomToolbar } from './components/CustomToolbar'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
+import { JsonLd } from './components/JsonLd'
 import { useEffect, useMemo, useState } from 'react'
 import { useLoadingContext } from './contexts/useLoadingContext'
 import Papa from 'papaparse'
@@ -17,7 +18,7 @@ interface Row {
   barAdmissionDate: string
 }
 
-const App = () => {
+export const App = () => {
   const { isLoading, setIsLoading } = useLoadingContext()
   const [licenseTypes, setLicenseTypes] = useState<string[]>([])
   const [rows, setRows] = useState<Row[]>([])
@@ -105,6 +106,8 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
+      <JsonLd />
+
       {/* Apply color scheme to all browser elements. See: https://github.com/mui/material-ui/issues/25016 */}
       <GlobalStyles styles={{ html: { colorScheme: paletteMode } }} />
 
@@ -126,5 +129,3 @@ const App = () => {
     </ThemeProvider>
   )
 }
-
-export default App
