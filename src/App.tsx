@@ -62,6 +62,7 @@ const App = () => {
       createTheme({
         palette: { mode: paletteMode },
         components: {
+          MuiButtonBase: { defaultProps: { disableRipple: true } },
           MuiDataGrid: {
             styleOverrides: {
               // Column management elements are rendered in a Popper element and cannot be styled via DataGrid.sx.
