@@ -1,4 +1,4 @@
-import { Box, Typography, Switch, PaletteMode } from '@mui/material'
+import { Box, Typography, Switch, PaletteMode, Skeleton } from '@mui/material'
 import { FC } from 'react'
 import {
   GridToolbarColumnsButton,
@@ -7,6 +7,7 @@ import {
   GridToolbarFilterButton,
   GridToolbarQuickFilter
 } from '@mui/x-data-grid'
+import { useLoadingContext } from '../contexts/useLoadingContext'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
 
@@ -16,6 +17,8 @@ interface CustomToolbarProps {
 }
 
 export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteMode }) => {
+  const { isLoading } = useLoadingContext()
+
   const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
 
   return (
@@ -37,15 +40,20 @@ export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteM
       </Box>
 
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'space-between', width: '100%' }}>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-          <GridToolbarColumnsButton />
+        {isLoading ? (
+          <Skeleton sx={{ height: { xs: 28, sm: 30 }, m: 0.25, width: 300 }} />
+        ) : (
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+            <GridToolbarColumnsButton />
 
-          <GridToolbarFilterButton />
+            <GridToolbarFilterButton />
 
-          <GridToolbarExport />
-        </Box>
+            <GridToolbarExport />
+          </Box>
+        )}
 
         <GridToolbarQuickFilter
+          disabled={isLoading}
           sx={{
             width: { xs: 'auto', md: 250, lg: 300, xl: 400 },
             '& .MuiInputBase-root': { fontSize: { xs: 14, md: 16 } }

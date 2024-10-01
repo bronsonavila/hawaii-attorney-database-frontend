@@ -3,6 +3,7 @@ import { CustomFooter } from './components/CustomFooter'
 import { CustomToolbar } from './components/CustomToolbar'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import { useEffect, useMemo, useState } from 'react'
+import { useLoadingContext } from './contexts/useLoadingContext'
 import Papa from 'papaparse'
 
 interface Row {
@@ -17,6 +18,7 @@ interface Row {
 }
 
 const App = () => {
+  const { isLoading, setIsLoading } = useLoadingContext()
   const [licenseTypes, setLicenseTypes] = useState<string[]>([])
   const [rows, setRows] = useState<Row[]>([])
 
@@ -93,6 +95,7 @@ const App = () => {
 
         setLicenseTypes(uniqueLicenseTypes)
       })
+      .finally(() => setIsLoading(false))
   }, [])
 
   // Render
@@ -111,7 +114,7 @@ const App = () => {
         disableRowSelectionOnClick
         ignoreDiacritics
         initialState={{ pagination: { paginationModel: { page: 0, pageSize: 100 } } }}
-        loading={rows.length === 0}
+        loading={isLoading}
         rows={rows}
         slotProps={{ toolbar: { showQuickFilter: true } }}
         slots={{
