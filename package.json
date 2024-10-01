@@ -1,7 +1,9 @@
 {
   "name": "hawaii-attorney-database",
   "private": true,
-  "version": "0.0.0",
+  "description": "A web application that provides a searchable and filterable database of attorneys licensed in Hawaii.",
+  "version": "1.0.0",
+  "author": "Bronson Avila",
   "type": "module",
   "scripts": {
     "dev": "vite",
