@@ -65,7 +65,7 @@ const App = () => {
               // Column management elements are rendered in a Popper element and cannot be styled via DataGrid.sx.
               columnsManagement: { padding: '12px 24px' },
               columnsManagementHeader: { display: 'none' },
-              root: { border: 'none', height: '100vh', width: '100vw' }
+              root: { border: 'none', height: '100dvh', width: '100dvw' }
             }
           }
         }
@@ -101,7 +101,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      {/* Fix color scheme on date inputs, scrollbars, etc. See: https://github.com/mui/material-ui/issues/25016 */}
+      {/* Apply color scheme to all browser elements. See: https://github.com/mui/material-ui/issues/25016 */}
       <GlobalStyles styles={{ html: { colorScheme: paletteMode } }} />
 
       <DataGrid
@@ -113,7 +113,7 @@ const App = () => {
         initialState={{ pagination: { paginationModel: { page: 0, pageSize: 100 } } }}
         loading={rows.length === 0}
         rows={rows}
-        slotProps={{ toolbar: { showQuickFilter: true, paletteMode, setPaletteMode } }}
+        slotProps={{ toolbar: { showQuickFilter: true } }}
         slots={{
           toolbar: props => <CustomToolbar {...props} paletteMode={paletteMode} setPaletteMode={setPaletteMode} />,
           footer: CustomFooter
