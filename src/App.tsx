@@ -25,7 +25,7 @@ export const App = () => {
 
   const columns: GridColDef[] = useMemo(
     () => [
-      { field: 'jdNumber', headerName: 'JD Number', width: 125 },
+      { field: 'jdNumber', headerName: 'JD Number', width: 150 },
       { field: 'name', headerName: 'Name', width: 200 },
       {
         field: 'licenseType',
@@ -36,7 +36,7 @@ export const App = () => {
       },
       { field: 'employer', headerName: 'Employer', width: 200 },
       { field: 'location', headerName: 'Location', width: 350 },
-      { field: 'emailDomain', headerName: 'Email Domain', width: 150 },
+      { field: 'emailDomain', headerName: 'Email Domain', width: 175 },
       { field: 'lawSchool', headerName: 'Law School', width: 200 },
       {
         field: 'barAdmissionDate',
@@ -44,7 +44,7 @@ export const App = () => {
         type: 'date',
         valueFormatter: (value: Date | null) => (value instanceof Date ? value.toLocaleDateString() : ''),
         valueGetter: (value: string | null) => (value ? new Date(value) : null),
-        width: 150
+        width: 175
       }
     ],
     [licenseTypes]
