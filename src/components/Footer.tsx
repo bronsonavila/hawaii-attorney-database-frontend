@@ -1,5 +1,5 @@
-import { Button, Dialog, DialogActions, DialogContent, Link, Skeleton, Stack, Typography } from '@mui/material'
-import { FC, useState } from 'react'
+import { Button, Dialog, DialogActions, DialogContent, Divider, Link, Skeleton, Stack, Typography } from '@mui/material'
+import { FC, ReactNode, useState } from 'react'
 import {
   gridFilteredTopLevelRowCountSelector,
   GridFooterContainer,
@@ -8,6 +8,13 @@ import {
 } from '@mui/x-data-grid-pro'
 import { useLoadingContext } from '../contexts/useLoadingContext'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
+
+const ExternalLink: FC<{ children: ReactNode; href: string }> = ({ children, href }) => (
+  <Link href={href} rel="noopener noreferrer" sx={{ alignItems: 'center', display: 'inline-flex' }} target="_blank">
+    {children}
+    <OpenInNewIcon sx={{ fontSize: 'inherit', ml: 0.5 }} />
+  </Link>
+)
 
 export const Footer: FC = () => {
   const [open, setOpen] = useState(false)
@@ -43,18 +50,23 @@ export const Footer: FC = () => {
             <Stack spacing={1.5}>
               <Typography variant="body2">
                 Data source:{' '}
-                <Link
-                  href="https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx"
-                  rel="noopener noreferrer"
-                  sx={{ alignItems: 'center', display: 'inline-flex' }}
-                  target="_blank"
-                >
+                <ExternalLink href="https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx">
                   HSBA Member Directory
-                  <OpenInNewIcon sx={{ fontSize: 'inherit', ml: 0.5 }} />
-                </Link>
+                </ExternalLink>
               </Typography>
 
-              <Typography variant="body2">Maintained by: Bronson Avila</Typography>
+              <Typography variant="body2">
+                License types:{' '}
+                <ExternalLink href="https://hsba.org/images/HSBA/MembershipStatus.pdf">
+                  HSBA Membership Status
+                </ExternalLink>
+              </Typography>
+            </Stack>
+
+            <Divider sx={{ my: 2.5 }} />
+
+            <Stack spacing={1.5}>
+              <Typography variant="body2">Independently maintained by: Bronson Avila</Typography>
 
               <Typography variant="body2">Last updated: Sep. 30, 2024</Typography>
             </Stack>
