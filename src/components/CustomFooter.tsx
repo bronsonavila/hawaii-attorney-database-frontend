@@ -20,7 +20,9 @@ export const CustomFooter: FC = () => {
   const handleClose = () => setOpen(false)
 
   return (
-    <GridFooterContainer sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 1 }}>
+    <GridFooterContainer
+      sx={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between', pl: 1.25, pr: 1, py: 1 }}
+    >
       {isLoading ? (
         <Skeleton sx={{ height: 24, ml: 0.25, width: 125 }} />
       ) : (

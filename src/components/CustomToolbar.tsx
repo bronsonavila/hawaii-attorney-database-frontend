@@ -22,15 +22,22 @@ export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteM
   const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
 
   return (
-    <GridToolbarContainer sx={{ p: 0.5 }}>
+    <GridToolbarContainer sx={{ pr: 0, py: 0.5 }}>
       <Box
-        sx={{ alignItems: 'center', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' }}
+        sx={{
+          alignItems: 'center',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          px: 0.5,
+          width: '100%'
+        }}
       >
-        <Typography sx={{ fontSize: { xs: 18, sm: 20 }, pl: 0.5 }} variant="h6">
+        <Typography sx={{ fontSize: { xs: 18, sm: 20 }, pl: 0.25 }} variant="h6">
           Hawaii Attorney Database
         </Typography>
 
-        <Box sx={{ alignItems: 'center', display: 'flex', gap: 0.5 }}>
+        <Box sx={{ alignItems: 'center', display: 'flex', gap: 0.5, pr: 0.25 }}>
           <DarkModeIcon sx={{ fontSize: { xs: 16, sm: 20 }, opacity: paletteMode === 'dark' ? 1 : 0.25 }} />
 
           <Switch checked={paletteMode === 'light'} onChange={handleModeToggle} size="small" />
@@ -39,7 +46,7 @@ export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteM
         </Box>
       </Box>
 
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'space-between', width: '100%' }}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'space-between', pl: 0.25, width: '100%' }}>
         {isLoading ? (
           <Skeleton sx={{ height: { xs: 28, sm: 30 }, m: 0.25, width: 300 }} />
         ) : (
