@@ -26,7 +26,7 @@ export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteM
       <Box
         sx={{ alignItems: 'center', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' }}
       >
-        <Typography sx={{ fontSize: { xs: 16, sm: 20 }, pl: 0.5 }} variant="h6">
+        <Typography sx={{ fontSize: { xs: 18, sm: 20 }, pl: 0.5 }} variant="h6">
           Hawaii Attorney Database
         </Typography>
 
@@ -54,10 +54,7 @@ export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteM
 
         <GridToolbarQuickFilter
           disabled={isLoading}
-          sx={{
-            width: { xs: 'auto', md: 250, lg: 300, xl: 400 },
-            '& .MuiInputBase-root': { fontSize: { xs: 14, md: 16 } }
-          }}
+          sx={{ width: { xs: 300, xl: 400 }, '& .MuiInputBase-root': { fontSize: { xs: 14, md: 16 } } }}
         />
       </Box>
     </GridToolbarContainer>
