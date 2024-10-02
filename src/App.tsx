@@ -24,7 +24,16 @@ export const App = () => {
 
   const columns: GridColDef[] = useMemo(
     () => [
-      { field: 'jdNumber', headerName: 'JD Number', width: 150 },
+      {
+        align: 'left',
+        field: 'jdNumber',
+        headerAlign: 'left',
+        headerName: 'JD Number',
+        type: 'number',
+        valueFormatter: (value: number | null) => (value == null ? '' : value.toString().padStart(6, '0')),
+        valueGetter: (value: string | null) => (value ? Number(value) : null),
+        width: 150
+      },
       { field: 'name', headerName: 'Name', width: 200 },
       {
         field: 'licenseType',
