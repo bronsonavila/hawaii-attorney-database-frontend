@@ -1,7 +1,7 @@
 import { createTheme, CssBaseline, GlobalStyles, PaletteMode, ThemeProvider, useMediaQuery } from '@mui/material'
-import { CustomFooter } from './components/CustomFooter'
-import { CustomToolbar } from './components/CustomToolbar'
+import { Footer } from './components/Footer'
 import { GridColDef, DataGridPro } from '@mui/x-data-grid-pro'
+import { Toolbar } from './components/Toolbar'
 import { useEffect, useMemo, useState } from 'react'
 import { useLoadingContext } from './contexts/useLoadingContext'
 import Papa from 'papaparse'
@@ -125,8 +125,8 @@ export const App = () => {
         rows={rows}
         slotProps={{ toolbar: { showQuickFilter: true } }}
         slots={{
-          toolbar: props => <CustomToolbar {...props} paletteMode={paletteMode} setPaletteMode={setPaletteMode} />,
-          footer: CustomFooter
+          footer: Footer,
+          toolbar: props => <Toolbar {...props} paletteMode={paletteMode} setPaletteMode={setPaletteMode} />
         }}
       />
     </ThemeProvider>

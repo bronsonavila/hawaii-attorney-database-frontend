@@ -1,6 +1,5 @@
 import { Button, Dialog, DialogActions, DialogContent, Link, Skeleton, Stack, Typography } from '@mui/material'
 import { FC, useState } from 'react'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import {
   gridFilteredTopLevelRowCountSelector,
   GridFooterContainer,
@@ -8,8 +7,9 @@ import {
   useGridSelector
 } from '@mui/x-data-grid-pro'
 import { useLoadingContext } from '../contexts/useLoadingContext'
+import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 
-export const CustomFooter: FC = () => {
+export const Footer: FC = () => {
   const [open, setOpen] = useState(false)
   const { isLoading } = useLoadingContext()
   const apiRef = useGridApiContext()

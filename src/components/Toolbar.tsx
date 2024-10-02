@@ -14,12 +14,12 @@ import { useLoadingContext } from '../contexts/useLoadingContext'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
 
-interface CustomToolbarProps {
+interface ToolbarProps {
   paletteMode: PaletteMode
   setPaletteMode: (paletteMode: PaletteMode) => void
 }
 
-export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteMode }) => {
+export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
   const { isLoading } = useLoadingContext()
   const apiRef = useGridApiContext()
 
