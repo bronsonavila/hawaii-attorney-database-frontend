@@ -22,18 +22,11 @@ export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteM
   const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
 
   return (
-    <GridToolbarContainer sx={{ pr: 0, py: 0.5 }}>
+    <GridToolbarContainer sx={{ pb: 0.5 }}>
       <Box
-        sx={{
-          alignItems: 'center',
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          px: 0.5,
-          width: '100%'
-        }}
+        sx={{ alignItems: 'center', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' }}
       >
-        <Typography sx={{ fontSize: { xs: 18, sm: 20 }, pl: 0.25 }} variant="h6">
+        <Typography sx={{ fontSize: { xs: 18, sm: 20 }, pl: 0.75 }} variant="h6">
           Hawaii Attorney Database
         </Typography>
 
