@@ -42,7 +42,7 @@ export const App = () => {
         headerAlign: 'left',
         headerName: 'JD Number',
         type: 'number',
-        valueFormatter: (value: number | null) => (value == null ? '' : value.toString().padStart(6, '0')),
+        valueFormatter: (value: number | null) => (value === null ? '' : value.toString().padStart(6, '0')),
         valueGetter: (value: string | null) => (value ? Number(value) : null),
         width: 150
       },
