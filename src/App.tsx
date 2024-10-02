@@ -2,7 +2,6 @@ import { createTheme, CssBaseline, GlobalStyles, PaletteMode, ThemeProvider, use
 import { CustomFooter } from './components/CustomFooter'
 import { CustomToolbar } from './components/CustomToolbar'
 import { GridColDef, DataGridPro } from '@mui/x-data-grid-pro'
-import { JsonLd } from './components/JsonLd'
 import { useEffect, useMemo, useState } from 'react'
 import { useLoadingContext } from './contexts/useLoadingContext'
 import Papa from 'papaparse'
@@ -105,8 +104,6 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
-      <JsonLd />
 
       {/* Apply color scheme to all browser elements. See: https://github.com/mui/material-ui/issues/25016 */}
       <GlobalStyles styles={{ html: { colorScheme: paletteMode } }} />
