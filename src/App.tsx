@@ -17,6 +17,18 @@ interface Row {
   barAdmissionDate: string
 }
 
+const DATA_GRID_THEME_OVERRIDES = {
+  MuiButtonBase: { defaultProps: { disableRipple: true } },
+  MuiDataGrid: {
+    styleOverrides: {
+      // Column management elements are rendered in a Popper element and cannot be styled via DataGridPro.sx.
+      columnsManagement: { padding: '12px 24px' },
+      columnsManagementHeader: { display: 'none' },
+      root: { border: 'none', height: '100dvh', width: '100dvw' }
+    }
+  }
+}
+
 export const App = () => {
   const { isLoading, setIsLoading } = useLoadingContext()
   const [licenseTypes, setLicenseTypes] = useState<string[]>([])
@@ -67,21 +79,7 @@ export const App = () => {
   )
 
   const theme = useMemo(
-    () =>
-      createTheme({
-        palette: { mode: paletteMode },
-        components: {
-          MuiButtonBase: { defaultProps: { disableRipple: true } },
-          MuiDataGrid: {
-            styleOverrides: {
-              // Column management elements are rendered in a Popper element and cannot be styled via DataGridPro.sx.
-              columnsManagement: { padding: '12px 24px' },
-              columnsManagementHeader: { display: 'none' },
-              root: { border: 'none', height: '100dvh', width: '100dvw' }
-            }
-          }
-        }
-      }),
+    () => createTheme({ components: DATA_GRID_THEME_OVERRIDES, palette: { mode: paletteMode } }),
     [paletteMode]
   )
 
