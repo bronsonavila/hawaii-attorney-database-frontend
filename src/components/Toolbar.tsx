@@ -4,6 +4,7 @@ import { FC } from 'react'
 import {
   GridCsvGetRowsToExportParams,
   gridExpandedSortedRowIdsSelector,
+  GridFilterModel,
   GridToolbarColumnsButton,
   GridToolbarContainer,
   GridToolbarFilterButton,
@@ -19,13 +20,44 @@ interface ToolbarProps {
   setPaletteMode: (paletteMode: PaletteMode) => void
 }
 
+const generateExportFilename = (filterModel: GridFilterModel) => {
+  let filename = 'hawaii-attorney-database'
+
+  const quickFilterValues = filterModel.quickFilterValues || []
+
+  if (quickFilterValues.length > 0) {
+    filename += `--${quickFilterValues.join('-')}`
+  }
+
+  const columnFilters = filterModel.items || []
+
+  const formattedColumnFilters = columnFilters.map(filter =>
+    filter.value instanceof Date ? { ...filter, value: filter.value.toISOString().slice(0, 10) } : filter
+  )
+
+  formattedColumnFilters.forEach(filter => {
+    if (filter.value !== undefined && filter.value !== '') {
+      filename += `--${filter.field}-${filter.value}`
+    }
+  })
+
+  return filename.toLowerCase().replace(/\s+/g, '-')
+}
+
 export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
   const { isLoading } = useLoadingContext()
   const apiRef = useGridApiContext()
 
   const getFilteredRows = ({ apiRef }: GridCsvGetRowsToExportParams) => gridExpandedSortedRowIdsSelector(apiRef)
 
-  const handleExport = () => apiRef.current.exportDataAsCsv({ getRowsToExport: getFilteredRows })
+  const handleExport = () => {
+    const filterModel = apiRef.current.state.filter.filterModel
+
+    apiRef.current.exportDataAsCsv({
+      getRowsToExport: getFilteredRows,
+      fileName: generateExportFilename(filterModel)
+    })
+  }
 
   const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
 
