@@ -54,9 +54,9 @@ export const Footer: FC = () => {
                 </Link>
               </Typography>
 
-              <Typography variant="body2">Last updated: Sep. 30, 2024</Typography>
+              <Typography variant="body2">Maintained by: Bronson Avila</Typography>
 
-              <Typography variant="body2">Created and maintained by Bronson Avila.</Typography>
+              <Typography variant="body2">Last updated: Sep. 30, 2024</Typography>
             </Stack>
           </DialogContent>
 
