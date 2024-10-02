@@ -1,7 +1,7 @@
 import { createTheme, CssBaseline, GlobalStyles, PaletteMode, ThemeProvider, useMediaQuery } from '@mui/material'
 import { CustomFooter } from './components/CustomFooter'
 import { CustomToolbar } from './components/CustomToolbar'
-import { DataGrid, GridColDef } from '@mui/x-data-grid'
+import { GridColDef, DataGridPro } from '@mui/x-data-grid-pro'
 import { JsonLd } from './components/JsonLd'
 import { useEffect, useMemo, useState } from 'react'
 import { useLoadingContext } from './contexts/useLoadingContext'
@@ -66,7 +66,7 @@ export const App = () => {
           MuiButtonBase: { defaultProps: { disableRipple: true } },
           MuiDataGrid: {
             styleOverrides: {
-              // Column management elements are rendered in a Popper element and cannot be styled via DataGrid.sx.
+              // Column management elements are rendered in a Popper element and cannot be styled via DataGridPro.sx.
               columnsManagement: { padding: '12px 24px' },
               columnsManagementHeader: { display: 'none' },
               root: { border: 'none', height: '100dvh', width: '100dvw' }
@@ -111,7 +111,7 @@ export const App = () => {
       {/* Apply color scheme to all browser elements. See: https://github.com/mui/material-ui/issues/25016 */}
       <GlobalStyles styles={{ html: { colorScheme: paletteMode } }} />
 
-      <DataGrid
+      <DataGridPro
         autosizeOptions={{ includeHeaders: true, includeOutliers: true, outliersFactor: 1000 }}
         columns={columns}
         density="compact"

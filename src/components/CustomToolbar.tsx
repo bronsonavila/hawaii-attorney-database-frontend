@@ -6,7 +6,7 @@ import {
   GridToolbarExport,
   GridToolbarFilterButton,
   GridToolbarQuickFilter
-} from '@mui/x-data-grid'
+} from '@mui/x-data-grid-pro'
 import { useLoadingContext } from '../contexts/useLoadingContext'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'

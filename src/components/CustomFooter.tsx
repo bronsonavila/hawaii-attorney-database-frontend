@@ -1,29 +1,42 @@
-import { Box, Typography, Dialog, DialogContent, DialogActions, Link, Button, Stack } from '@mui/material'
-import { CustomPagination } from './CustomPagination'
+import { Button, Dialog, DialogActions, DialogContent, Link, Skeleton, Stack, Typography } from '@mui/material'
 import { FC, useState } from 'react'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
+import {
+  gridFilteredTopLevelRowCountSelector,
+  GridFooterContainer,
+  useGridApiContext,
+  useGridSelector
+} from '@mui/x-data-grid-pro'
+import { useLoadingContext } from '../contexts/useLoadingContext'
 
 export const CustomFooter: FC = () => {
   const [open, setOpen] = useState(false)
+  const { isLoading } = useLoadingContext()
+  const apiRef = useGridApiContext()
+  const totalRowCount = useGridSelector(apiRef, gridFilteredTopLevelRowCountSelector)
 
   const handleClickOpen = () => setOpen(true)
 
   const handleClose = () => setOpen(false)
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <CustomPagination />
+    <GridFooterContainer sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 1 }}>
+      {isLoading ? (
+        <Skeleton sx={{ height: 24, ml: 0.25, width: 125 }} />
+      ) : (
+        <Typography variant="body2">Total Rows: {totalRowCount}</Typography>
+      )}
 
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 1 }}>
-        <Typography sx={{ flexShrink: 0, p: 1, fontSize: { xs: 11, sm: 12 }, textAlign: 'center' }} variant="caption">
-          Last updated: Sep. 30, 2024
-        </Typography>
-
-        <Button onClick={handleClickOpen} size="small" sx={{ borderBottomLeftRadius: 0, borderTopRightRadius: 0 }}>
+      <>
+        <Button onClick={handleClickOpen} size="small">
           About
         </Button>
 
-        <Dialog open={open} onClose={handleClose} PaperProps={{ sx: { bottom: 8, m: 0, position: 'fixed', right: 8 } }}>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          PaperProps={{ sx: { bottom: 10, m: 0, position: 'fixed', right: 8 } }}
+        >
           <DialogContent>
             <Stack spacing={1.5}>
               <Typography variant="body2">
@@ -39,6 +52,8 @@ export const CustomFooter: FC = () => {
                 </Link>
               </Typography>
 
+              <Typography variant="body2">Last updated: Sep. 30, 2024</Typography>
+
               <Typography variant="body2">Created and maintained by Bronson Avila.</Typography>
             </Stack>
           </DialogContent>
@@ -49,7 +64,7 @@ export const CustomFooter: FC = () => {
             </Button>
           </DialogActions>
         </Dialog>
-      </Box>
-    </Box>
+      </>
+    </GridFooterContainer>
   )
 }
