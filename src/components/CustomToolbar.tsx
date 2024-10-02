@@ -48,7 +48,7 @@ export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteM
 
             <GridToolbarFilterButton />
 
-            <GridToolbarExport />
+            <GridToolbarExport printOptions={{ disableToolbarButton: true }} />
           </Box>
         )}
 
