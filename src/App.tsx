@@ -118,7 +118,7 @@ export const App = () => {
       <GlobalStyles styles={{ html: { colorScheme: paletteMode } }} />
 
       <DataGridPro
-        autosizeOptions={{ includeHeaders: true, includeOutliers: true, outliersFactor: 1000 }}
+        autosizeOptions={{ includeHeaders: true, includeOutliers: true, outliersFactor: 1 }}
         columns={columns}
         density="compact"
         disableRowSelectionOnClick
