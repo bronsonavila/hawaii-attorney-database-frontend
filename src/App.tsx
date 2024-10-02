@@ -121,7 +121,6 @@ export const App = () => {
         density="compact"
         disableRowSelectionOnClick
         ignoreDiacritics
-        initialState={{ pagination: { paginationModel: { page: 0, pageSize: 100 } } }}
         loading={isLoading}
         rows={rows}
         slotProps={{ toolbar: { showQuickFilter: true } }}
