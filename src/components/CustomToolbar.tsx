@@ -1,11 +1,14 @@
-import { Box, Typography, Switch, PaletteMode, Skeleton } from '@mui/material'
+import { Box, Typography, Switch, PaletteMode, Skeleton, Button } from '@mui/material'
+import { createSvgIcon } from '@mui/material/utils'
 import { FC } from 'react'
 import {
+  GridCsvGetRowsToExportParams,
+  gridExpandedSortedRowIdsSelector,
   GridToolbarColumnsButton,
   GridToolbarContainer,
-  GridToolbarExport,
   GridToolbarFilterButton,
-  GridToolbarQuickFilter
+  GridToolbarQuickFilter,
+  useGridApiContext
 } from '@mui/x-data-grid-pro'
 import { useLoadingContext } from '../contexts/useLoadingContext'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
@@ -18,6 +21,11 @@ interface CustomToolbarProps {
 
 export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteMode }) => {
   const { isLoading } = useLoadingContext()
+  const apiRef = useGridApiContext()
+
+  const getFilteredRows = ({ apiRef }: GridCsvGetRowsToExportParams) => gridExpandedSortedRowIdsSelector(apiRef)
+
+  const handleExport = () => apiRef.current.exportDataAsCsv({ getRowsToExport: getFilteredRows })
 
   const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
 
@@ -48,7 +56,9 @@ export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteM
 
             <GridToolbarFilterButton />
 
-            <GridToolbarExport printOptions={{ disableToolbarButton: true }} />
+            <Button color="primary" size="small" startIcon={<ExportIcon />} onClick={handleExport}>
+              Export
+            </Button>
           </Box>
         )}
 
@@ -60,3 +70,8 @@ export const CustomToolbar: FC<CustomToolbarProps> = ({ paletteMode, setPaletteM
     </GridToolbarContainer>
   )
 }
+
+const ExportIcon = createSvgIcon(
+  <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2z" />,
+  'SaveAlt'
+)
