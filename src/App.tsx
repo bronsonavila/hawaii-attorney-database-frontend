@@ -106,7 +106,7 @@ export const App = () => {
 
         setLicenseTypes(uniqueLicenseTypes)
       })
-      .finally(() => setIsLoading(false))
+      .finally(() => setTimeout(() => setIsLoading(false)))
   }, [])
 
   // Render
