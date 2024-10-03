@@ -4,6 +4,13 @@ import { createRoot } from 'react-dom/client'
 import { LicenseInfo } from '@mui/x-license'
 import { LoadingProvider } from './contexts/LoadingContext.tsx'
 import { StrictMode } from 'react'
+import posthog from 'posthog-js'
+
+posthog.init('phc_R8QxIcX4GBLWqm0P2kSFCp2WtiPgJYHYbFuYA7GbVvJ', {
+  api_host: 'https://us.i.posthog.com',
+  person_profiles: 'always',
+  session_recording: { maskAllInputs: false }
+})
 
 // See: https://mui.com/x/introduction/licensing/#license-key-security
 LicenseInfo.setLicenseKey(

@@ -1,6 +1,6 @@
 import { Box, Typography, Switch, PaletteMode, Skeleton, Button } from '@mui/material'
-import { createSvgIcon } from '@mui/material/utils'
-import { FC } from 'react'
+import { createSvgIcon, debounce } from '@mui/material/utils'
+import { FC, useCallback, useRef, useEffect } from 'react'
 import {
   GridCsvGetRowsToExportParams,
   gridExpandedSortedRowIdsSelector,
@@ -14,11 +14,61 @@ import {
 import { useLoadingContext } from '../contexts/useLoadingContext'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
+import posthog from 'posthog-js'
+
+// Types
 
 interface ToolbarProps {
   paletteMode: PaletteMode
   setPaletteMode: (paletteMode: PaletteMode) => void
 }
+
+// Hooks
+
+const useQuickFilterTracking = () => {
+  const quickFilterRef = useRef<HTMLDivElement>(null)
+  const lastFilterValueRef = useRef<string>('')
+
+  const debouncedPosthogCapture = useCallback(
+    debounce((value: string) => {
+      if (value && value !== lastFilterValueRef.current) {
+        posthog.capture('quick_filter_used', { filter_value: value })
+
+        lastFilterValueRef.current = value
+      }
+    }, 1000),
+    []
+  )
+
+  useEffect(() => {
+    if (!quickFilterRef.current) return
+
+    const observer = new MutationObserver(mutations => {
+      for (const mutation of mutations) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'value') {
+          const inputElement = mutation.target as HTMLInputElement
+          const newValue = inputElement.value
+
+          debouncedPosthogCapture(newValue)
+        }
+      }
+    })
+
+    const inputElement = quickFilterRef.current.querySelector('input')
+
+    if (inputElement) observer.observe(inputElement, { attributes: true, attributeFilter: ['value'] })
+
+    return () => {
+      observer.disconnect()
+
+      debouncedPosthogCapture.clear()
+    }
+  }, [debouncedPosthogCapture])
+
+  return quickFilterRef
+}
+
+// Helpers
 
 const generateExportFilename = (filterModel: GridFilterModel) => {
   let filename = 'hawaii-attorney-database'
@@ -44,19 +94,24 @@ const generateExportFilename = (filterModel: GridFilterModel) => {
   return filename.toLowerCase().replace(/\s+/g, '-')
 }
 
+// Components
+
+const ExportIcon = createSvgIcon(
+  <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2z" />,
+  'Export'
+)
+
 export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
   const { isLoading } = useLoadingContext()
   const apiRef = useGridApiContext()
+  const quickFilterRef = useQuickFilterTracking()
 
   const getFilteredRows = ({ apiRef }: GridCsvGetRowsToExportParams) => gridExpandedSortedRowIdsSelector(apiRef)
 
   const handleExport = () => {
     const filterModel = apiRef.current.state.filter.filterModel
 
-    apiRef.current.exportDataAsCsv({
-      getRowsToExport: getFilteredRows,
-      fileName: generateExportFilename(filterModel)
-    })
+    apiRef.current.exportDataAsCsv({ fileName: generateExportFilename(filterModel), getRowsToExport: getFilteredRows })
   }
 
   const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
@@ -94,16 +149,13 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
           </Box>
         )}
 
-        <GridToolbarQuickFilter
-          disabled={isLoading}
-          sx={{ width: { xs: 300, xl: 400 }, '& .MuiInputBase-root': { fontSize: { xs: 14, md: 16 } } }}
-        />
+        <Box ref={quickFilterRef}>
+          <GridToolbarQuickFilter
+            disabled={isLoading}
+            sx={{ width: { xs: 300, xl: 400 }, '& .MuiInputBase-root': { fontSize: { xs: 14, md: 16 } } }}
+          />
+        </Box>
       </Box>
     </GridToolbarContainer>
   )
 }
-
-const ExportIcon = createSvgIcon(
-  <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2z" />,
-  'SaveAlt'
-)
