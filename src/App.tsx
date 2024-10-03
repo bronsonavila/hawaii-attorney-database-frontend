@@ -106,7 +106,8 @@ export const App = () => {
 
         setLicenseTypes(uniqueLicenseTypes)
       })
-      .finally(() => setIsLoading(false))
+      // Prevent flicker of "Total Rows: 0" on initial load. See: https://github.com/mui/mui-x/issues/12504
+      .finally(() => setTimeout(() => setIsLoading(false)))
   }, [])
 
   // Render
