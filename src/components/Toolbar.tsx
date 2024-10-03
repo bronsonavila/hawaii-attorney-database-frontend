@@ -152,7 +152,7 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
         <Box ref={quickFilterRef}>
           <GridToolbarQuickFilter
             disabled={isLoading}
-            sx={{ width: { xs: 300, xl: 400 }, '& .MuiInputBase-root': { fontSize: { xs: 14, md: 16 } } }}
+            sx={{ width: { xs: 300, md: 350, lg: 400 }, '& .MuiInputBase-root': { fontSize: { xs: 14, md: 16 } } }}
           />
         </Box>
       </Box>
