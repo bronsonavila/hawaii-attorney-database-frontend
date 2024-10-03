@@ -43,8 +43,8 @@ export const App = () => {
         headerAlign: 'left',
         headerName: 'JD Number',
         type: 'number',
-        valueFormatter: (value: number | null) => (value === null ? '' : value.toString().padStart(6, '0')),
-        valueGetter: (value: string | null) => (value ? Number(value) : null),
+        valueFormatter: (value: number) => value.toString(),
+        valueGetter: (value: string) => Number(value),
         width: 150
       },
       { field: 'name', headerName: 'Name', width: 200 },
