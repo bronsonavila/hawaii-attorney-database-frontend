@@ -36,7 +36,7 @@ export const useFilterModelTracking = () => {
     (model: GridFilterModel) => {
       const { items } = model
 
-      if (items?.length > 0) {
+      if (items.length > 0) {
         const filteredItems = items.map(({ field, operator, value }) => ({ field, operator, value }))
 
         debouncedPosthogCapture(filteredItems)
