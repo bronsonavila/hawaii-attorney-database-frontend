@@ -28,7 +28,7 @@ export const useFilterModelTracking = () => {
           filterHistoryRef.current.add(filterKey)
         }
       })
-    }, 10000),
+    }, 5000),
     []
   )
 
