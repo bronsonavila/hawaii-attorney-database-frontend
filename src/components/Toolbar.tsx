@@ -30,7 +30,7 @@ const generateExportFilename = (filterModel: GridFilterModel) => {
 
   const quickFilterValues = filterModel.quickFilterValues || []
 
-  if (quickFilterValues.length > 0) {
+  if (quickFilterValues?.length > 0) {
     filename += `--${quickFilterValues.join('-')}`
   }
 
