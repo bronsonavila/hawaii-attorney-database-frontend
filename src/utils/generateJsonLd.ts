@@ -5,6 +5,7 @@ export const generateJsonLd = () => {
     author: { '@type': 'Person', name: 'Bronson Avila' },
     dateModified: new Date().toISOString(),
     description: 'A searchable and filterable database of attorneys licensed in Hawaii.',
+    inLanguage: 'en-US',
     name: 'Hawaii Attorney Database',
     url: 'https://www.hawaiiattorneydatabase.com/'
   }
