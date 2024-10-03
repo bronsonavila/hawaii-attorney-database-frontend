@@ -123,7 +123,7 @@ export const App = () => {
         ignoreDiacritics
         loading={isLoading}
         rows={rows}
-        slotProps={{ toolbar: { showQuickFilter: true } }}
+        slotProps={{ columnsManagement: { disableShowHideToggle: true }, toolbar: { showQuickFilter: true } }}
         slots={{
           footer: Footer,
           toolbar: props => <Toolbar {...props} paletteMode={paletteMode} setPaletteMode={setPaletteMode} />
