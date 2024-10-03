@@ -1,7 +1,6 @@
 import { debounce } from '@mui/material'
 import { GridFilterModel } from '@mui/x-data-grid-pro'
-import { useCallback } from 'react'
-import { useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import posthog from 'posthog-js'
 
 interface FilterItem {
@@ -15,6 +14,8 @@ export const useFilterModelTracking = () => {
 
   const debouncedPosthogCapture = useCallback(
     debounce((items: FilterItem[]) => {
+      if (!Array.isArray(items)) return
+
       items.forEach(item => {
         const { field, operator, value } = item
 
@@ -36,7 +37,7 @@ export const useFilterModelTracking = () => {
     (model: GridFilterModel) => {
       const { items } = model
 
-      if (items.length > 0) {
+      if (Array.isArray(items) && items.length > 0) {
         const filteredItems = items.map(({ field, operator, value }) => ({ field, operator, value }))
 
         debouncedPosthogCapture(filteredItems)
