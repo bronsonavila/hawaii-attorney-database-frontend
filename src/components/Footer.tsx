@@ -6,7 +6,7 @@ import {
   useGridApiContext,
   useGridSelector
 } from '@mui/x-data-grid-pro'
-import { useLoadingContext } from '../contexts/useLoadingContext'
+import { useLoadingContext } from '../hooks/useLoadingContext'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 
 const ExternalLink: FC<{ children: ReactNode; href: string }> = ({ children, href }) => (

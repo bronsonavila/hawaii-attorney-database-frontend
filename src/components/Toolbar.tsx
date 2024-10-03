@@ -11,7 +11,7 @@ import {
   GridToolbarQuickFilter,
   useGridApiContext
 } from '@mui/x-data-grid-pro'
-import { useLoadingContext } from '../contexts/useLoadingContext'
+import { useLoadingContext } from '../hooks/useLoadingContext'
 import { useQuickFilterTracking } from '../hooks/useQuickFilterTracking'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
