@@ -1,6 +1,6 @@
 import { Box, Typography, Switch, PaletteMode, Skeleton, Button } from '@mui/material'
-import { createSvgIcon, debounce } from '@mui/material/utils'
-import { FC, useCallback, useRef, useEffect } from 'react'
+import { createSvgIcon } from '@mui/material/utils'
+import { FC } from 'react'
 import {
   GridCsvGetRowsToExportParams,
   gridExpandedSortedRowIdsSelector,
@@ -12,60 +12,15 @@ import {
   useGridApiContext
 } from '@mui/x-data-grid-pro'
 import { useLoadingContext } from '../contexts/useLoadingContext'
+import { useQuickFilterTracking } from '../hooks/useQuickFilterTracking'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
-import posthog from 'posthog-js'
 
 // Types
 
 interface ToolbarProps {
   paletteMode: PaletteMode
   setPaletteMode: (paletteMode: PaletteMode) => void
-}
-
-// Hooks
-
-const useQuickFilterTracking = () => {
-  const quickFilterRef = useRef<HTMLDivElement>(null)
-  const lastFilterValueRef = useRef<string>('')
-
-  const debouncedPosthogCapture = useCallback(
-    debounce((value: string) => {
-      if (value && value !== lastFilterValueRef.current) {
-        posthog.capture('quick_filter_used', { filter_value: value })
-
-        lastFilterValueRef.current = value
-      }
-    }, 1000),
-    []
-  )
-
-  useEffect(() => {
-    if (!quickFilterRef.current) return
-
-    const observer = new MutationObserver(mutations => {
-      for (const mutation of mutations) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'value') {
-          const inputElement = mutation.target as HTMLInputElement
-          const newValue = inputElement.value
-
-          debouncedPosthogCapture(newValue)
-        }
-      }
-    })
-
-    const inputElement = quickFilterRef.current.querySelector('input')
-
-    if (inputElement) observer.observe(inputElement, { attributes: true, attributeFilter: ['value'] })
-
-    return () => {
-      observer.disconnect()
-
-      debouncedPosthogCapture.clear()
-    }
-  }, [debouncedPosthogCapture])
-
-  return quickFilterRef
 }
 
 // Helpers

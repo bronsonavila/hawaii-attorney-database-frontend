@@ -3,6 +3,7 @@ import { Footer } from './components/Footer'
 import { GridColDef, DataGridPro } from '@mui/x-data-grid-pro'
 import { Toolbar } from './components/Toolbar'
 import { useEffect, useMemo, useState } from 'react'
+import { useFilterModelTracking } from './hooks/userFilterModelTracking'
 import { useLoadingContext } from './contexts/useLoadingContext'
 import Papa from 'papaparse'
 
@@ -70,6 +71,8 @@ export const App = () => {
     [licenseTypes]
   )
 
+  const handleFilterModelChange = useFilterModelTracking()
+
   // Theme
 
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -122,6 +125,7 @@ export const App = () => {
         disableRowSelectionOnClick
         ignoreDiacritics
         loading={isLoading}
+        onFilterModelChange={handleFilterModelChange}
         rows={rows}
         slotProps={{ columnsManagement: { disableShowHideToggle: true }, toolbar: { showQuickFilter: true } }}
         slots={{
