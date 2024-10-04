@@ -1,30 +1,54 @@
-import { Button, Dialog, DialogActions, DialogContent, Divider, Link, Skeleton, Stack, Typography } from '@mui/material'
-import { FC, ReactNode, useState } from 'react'
+import { AboutContent } from './AboutContent'
+import { Button, Dialog, Skeleton, Typography, Snackbar } from '@mui/material'
+import { captureFeedback } from '@sentry/react'
+import { FC, SyntheticEvent, useState } from 'react'
+import { FeedbackForm } from './FeedbackForm'
 import {
   gridFilteredTopLevelRowCountSelector,
   GridFooterContainer,
   useGridApiContext,
   useGridSelector
 } from '@mui/x-data-grid-pro'
+import { SnackbarCloseButton } from './SnackbarCloseButton'
 import { useLoadingContext } from '../hooks/useLoadingContext'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
-
-const ExternalLink: FC<{ children: ReactNode; href: string }> = ({ children, href }) => (
-  <Link href={href} rel="noopener noreferrer" sx={{ alignItems: 'center', display: 'inline-flex' }} target="_blank">
-    {children}
-    <OpenInNewIcon sx={{ fontSize: 'inherit', ml: 0.5 }} />
-  </Link>
-)
 
 export const Footer: FC = () => {
-  const [open, setOpen] = useState(false)
+  const [email, setEmail] = useState('')
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [isFeedbackMode, setIsFeedbackMode] = useState(false)
+  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false)
+  const [message, setMessage] = useState('')
+  const [name, setName] = useState('')
+
   const { isLoading } = useLoadingContext()
+
   const apiRef = useGridApiContext()
   const totalRowCount = useGridSelector(apiRef, gridFilteredTopLevelRowCountSelector)
 
-  const handleClickOpen = () => setOpen(true)
+  const handleClickOpen = () => setIsDialogOpen(true)
 
-  const handleClose = () => setOpen(false)
+  const handleClose = () => {
+    setEmail('')
+    setMessage('')
+    setName('')
+    setIsDialogOpen(false)
+
+    // Prevent <AboutContent> from flickering into view during <Dialog> close transition.
+    setTimeout(() => setIsFeedbackMode(false), 225)
+  }
+
+  const handleFeedbackMode = () => setIsFeedbackMode(true)
+
+  const handleSnackbarClose = (_?: SyntheticEvent | Event, reason?: string) =>
+    reason !== 'clickaway' && setIsSnackbarOpen(false)
+
+  const handleSubmitFeedback = async () => {
+    captureFeedback({ email, message, name }, { includeReplay: true })
+
+    setIsSnackbarOpen(true)
+
+    handleClose()
+  }
 
   return (
     <GridFooterContainer
@@ -36,49 +60,40 @@ export const Footer: FC = () => {
         <Typography variant="body2">Total Rows: {totalRowCount}</Typography>
       )}
 
-      <>
-        <Button onClick={handleClickOpen} size="small">
-          About
-        </Button>
+      <Button onClick={handleClickOpen} size="small">
+        About
+      </Button>
 
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          PaperProps={{ sx: { bottom: 10, m: 0, position: 'fixed', right: 8 } }}
-        >
-          <DialogContent>
-            <Stack spacing={1.5}>
-              <Typography variant="body2">
-                Data source:{' '}
-                <ExternalLink href="https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx">
-                  HSBA Member Directory
-                </ExternalLink>
-              </Typography>
+      <Dialog
+        onClose={handleClose}
+        open={isDialogOpen}
+        PaperProps={{ sx: { bottom: 10, m: 0, minWidth: { xs: 359 }, position: 'fixed', right: 8 } }}
+      >
+        {isFeedbackMode ? (
+          <FeedbackForm
+            email={email}
+            message={message}
+            name={name}
+            onCancel={handleClose}
+            onSubmit={handleSubmitFeedback}
+            setEmail={setEmail}
+            setMessage={setMessage}
+            setName={setName}
+          />
+        ) : (
+          <AboutContent onClose={handleClose} onFeedbackMode={handleFeedbackMode} />
+        )}
+      </Dialog>
 
-              <Typography variant="body2">
-                License types:{' '}
-                <ExternalLink href="https://hsba.org/images/HSBA/MembershipStatus.pdf">
-                  HSBA Membership Status
-                </ExternalLink>
-              </Typography>
-            </Stack>
-
-            <Divider sx={{ my: 2.5 }} />
-
-            <Stack spacing={1.5}>
-              <Typography variant="body2">Independently maintained by: Bronson Avila</Typography>
-
-              <Typography variant="body2">Last updated: Sep. 30, 2024</Typography>
-            </Stack>
-          </DialogContent>
-
-          <DialogActions>
-            <Button onClick={handleClose} size="small">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </>
+      <Snackbar
+        action={<SnackbarCloseButton onClose={handleSnackbarClose} />}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        autoHideDuration={6000}
+        onClose={handleSnackbarClose}
+        open={isSnackbarOpen}
+        message="Thank you for your feedback!"
+        sx={{ bottom: '10px !important', right: '8px !important' }}
+      />
     </GridFooterContainer>
   )
 }
