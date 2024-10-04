@@ -1,5 +1,5 @@
 import { Box, Typography, Switch, PaletteMode, Skeleton, Button } from '@mui/material'
-import { createSvgIcon } from '@mui/material/utils'
+import { ExportIcon } from './ExportIcon'
 import { FC } from 'react'
 import {
   GridCsvGetRowsToExportParams,
@@ -16,14 +16,10 @@ import { useQuickFilterTracking } from '../hooks/useQuickFilterTracking'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
 
-// Types
-
 interface ToolbarProps {
   paletteMode: PaletteMode
   setPaletteMode: (paletteMode: PaletteMode) => void
 }
-
-// Helpers
 
 const generateExportFilename = (filterModel: GridFilterModel) => {
   let filename = 'hawaii-attorney-database'
@@ -48,13 +44,6 @@ const generateExportFilename = (filterModel: GridFilterModel) => {
 
   return filename.toLowerCase().replace(/\s+/g, '-')
 }
-
-// Components
-
-const ExportIcon = createSvgIcon(
-  <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2z" />,
-  'Export'
-)
 
 export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
   const { isLoading } = useLoadingContext()
