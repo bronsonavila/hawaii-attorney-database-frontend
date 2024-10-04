@@ -16,16 +16,17 @@ A web application that provides a searchable and filterable database of attorney
 - React
 - TypeScript
 - Vite
-- Material-UI (MUI)
-- MUI X-Data Grid
+- Material UI (MUI)
+- MUI X - Data Grid Pro
 - Papa Parse (for CSV parsing)
+- Sentry
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js (version 14 or later recommended)
-- npm or yarn
+- yarn
 
 ### Installation
 
@@ -38,22 +39,12 @@ A web application that provides a searchable and filterable database of attorney
 
 2. Install dependencies:
    ```
-   npm install
-   ```
-   or
-   ```
    yarn install
    ```
 
 ### Development
 
 To run the development server:
-
-```
-npm run dev
-```
-
-or
 
 ```
 yarn dev
@@ -64,12 +55,6 @@ This will start the development server, typically at `http://localhost:5173`.
 ### Building for Production
 
 To create a production build:
-
-```
-npm run build
-```
-
-or
 
 ```
 yarn build
