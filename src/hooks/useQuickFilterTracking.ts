@@ -1,6 +1,6 @@
+import { captureMessage } from '@sentry/react'
 import { debounce } from '@mui/material'
 import { useCallback, useEffect, useRef } from 'react'
-import * as Sentry from '@sentry/react'
 
 export const useQuickFilterTracking = () => {
   const quickFilterRef = useRef<HTMLDivElement>(null)
@@ -9,7 +9,7 @@ export const useQuickFilterTracking = () => {
   const debouncedSentryCapture = useCallback(
     debounce((value: string) => {
       if (value && !quickFilterHistoryRef.current.has(value)) {
-        Sentry.captureMessage(`QuickFilter: ${value}`, { extra: { value }, tags: { type: 'quick_filter' } })
+        captureMessage(`QuickFilter: ${value}`, { extra: { value }, tags: { type: 'quick_filter' } })
 
         quickFilterHistoryRef.current.add(value)
       }

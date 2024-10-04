@@ -1,8 +1,8 @@
+import { captureMessage } from '@sentry/react'
 import { debounce } from '@mui/material'
 import { format } from 'date-fns'
 import { GridFilterModel } from '@mui/x-data-grid-pro'
 import { useCallback, useRef } from 'react'
-import * as Sentry from '@sentry/react'
 
 interface FilterItem {
   field: string
@@ -48,7 +48,7 @@ export const useFilterModelTracking = () => {
         if (!filterHistoryRef.current.has(filterDetails)) {
           const title = `Filter: ${filterDetails}`
 
-          Sentry.captureMessage(title, { extra: extraData, tags: { type: 'filter' } })
+          captureMessage(title, { extra: extraData, tags: { type: 'filter' } })
 
           filterHistoryRef.current.add(filterDetails)
         }
