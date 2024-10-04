@@ -65,7 +65,7 @@ export const App = () => {
         type: 'date',
         valueFormatter: (value: Date | null) => (value instanceof Date ? value.toLocaleDateString() : ''),
         valueGetter: (value: string | null) => (value ? new Date(value) : null),
-        width: 175
+        width: 200
       }
     ],
     [licenseTypes]
