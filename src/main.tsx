@@ -1,4 +1,5 @@
 import './index.css'
+import { AdBlockerProvider } from './contexts/AdBlockerContext.tsx'
 import { App } from './App.tsx'
 import { createRoot } from 'react-dom/client'
 import { LicenseInfo } from '@mui/x-license'
@@ -23,8 +24,10 @@ LicenseInfo.setLicenseKey(
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <LoadingProvider>
-      <App />
-    </LoadingProvider>
+    <AdBlockerProvider>
+      <LoadingProvider>
+        <App />
+      </LoadingProvider>
+    </AdBlockerProvider>
   </StrictMode>
 )
