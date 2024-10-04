@@ -28,20 +28,21 @@ export const useFilterModelTracking = () => {
       items.forEach(item => {
         const { field, operator, value } = item
 
-        if (value === undefined && operator !== 'isEmpty' && operator !== 'isNotEmpty') return
+        if (!value && operator !== 'isEmpty' && operator !== 'isNotEmpty') return
 
         let extraData: { field: string; operator: string; value?: unknown }
         let filterDetails: string
 
-        if (value === undefined && (operator === 'isEmpty' || operator === 'isNotEmpty')) {
-          extraData = { field, operator }
-          filterDetails = `${field} ${operator}`
-        } else {
+        if (value) {
           const sentryFormattedValue = formatValue(value)
           const titleFormattedValue = formatTitleValue(value)
 
           extraData = { field, operator, value: sentryFormattedValue }
           filterDetails = `${field} ${operator} ${titleFormattedValue}`
+        } else {
+          // Special case for isEmpty and isNotEmpty operators.
+          extraData = { field, operator }
+          filterDetails = `${field} ${operator}`
         }
 
         if (!filterHistoryRef.current.has(filterDetails)) {
