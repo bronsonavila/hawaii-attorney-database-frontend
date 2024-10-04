@@ -1,17 +1,17 @@
 import { debounce } from '@mui/material'
 import { useCallback, useEffect, useRef } from 'react'
-import posthog from 'posthog-js'
+import * as Sentry from '@sentry/react'
 
 export const useQuickFilterTracking = () => {
   const quickFilterRef = useRef<HTMLDivElement>(null)
-  const lastFilterValueRef = useRef<string>('')
+  const quickFilterHistoryRef = useRef<Set<string>>(new Set())
 
-  const debouncedPosthogCapture = useCallback(
+  const debouncedSentryCapture = useCallback(
     debounce((value: string) => {
-      if (value && value !== lastFilterValueRef.current) {
-        posthog.capture('quick_filter_used', { filter_value: value })
+      if (value && !quickFilterHistoryRef.current.has(value)) {
+        Sentry.captureMessage(`QuickFilter: ${value}`, { extra: { value }, tags: { type: 'quick_filter' } })
 
-        lastFilterValueRef.current = value
+        quickFilterHistoryRef.current.add(value)
       }
     }, 5000),
     []
@@ -24,9 +24,9 @@ export const useQuickFilterTracking = () => {
       for (const mutation of mutations) {
         if (mutation.type === 'attributes' && mutation.attributeName === 'value') {
           const inputElement = mutation.target as HTMLInputElement
-          const newValue = inputElement.value
+          const newValue = inputElement.value.toLowerCase()
 
-          debouncedPosthogCapture(newValue)
+          debouncedSentryCapture(newValue)
         }
       }
     })
@@ -38,9 +38,9 @@ export const useQuickFilterTracking = () => {
     return () => {
       observer.disconnect()
 
-      debouncedPosthogCapture.clear()
+      debouncedSentryCapture.clear()
     }
-  }, [debouncedPosthogCapture])
+  }, [debouncedSentryCapture])
 
   return quickFilterRef
 }

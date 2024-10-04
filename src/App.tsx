@@ -3,7 +3,7 @@ import { Footer } from './components/Footer'
 import { GridColDef, DataGridPro } from '@mui/x-data-grid-pro'
 import { Toolbar } from './components/Toolbar'
 import { useEffect, useMemo, useState } from 'react'
-import { useFilterModelTracking } from './hooks/userFilterModelTracking'
+import { useFilterModelTracking } from './hooks/useFilterModelTracking'
 import { useLoadingContext } from './hooks/useLoadingContext'
 import Papa from 'papaparse'
 

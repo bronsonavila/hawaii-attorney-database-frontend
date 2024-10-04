@@ -1,3 +1,4 @@
+import { sentryVitePlugin } from '@sentry/vite-plugin'
 import { defineConfig } from 'vite'
 import { generateJsonLd } from './src/utils/generateJsonLd'
 import react from '@vitejs/plugin-react'
@@ -13,5 +14,6 @@ const injectJsonLd = () => ({
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), injectJsonLd()]
+  build: { sourcemap: true },
+  plugins: [react(), injectJsonLd(), sentryVitePlugin({ org: 'bronson-avila', project: 'javascript-react' })]
 })
