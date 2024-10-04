@@ -27,7 +27,8 @@ const DATA_GRID_THEME_OVERRIDES = {
       columnsManagementHeader: { display: 'none' },
       root: { border: 'none', height: '100dvh', width: '100dvw' }
     }
-  }
+  },
+  MuiInputBase: { defaultProps: { autoComplete: 'off' } }
 }
 
 export const App = () => {
