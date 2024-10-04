@@ -4,7 +4,7 @@ A web application that provides a searchable and filterable database of attorney
 
 ## Features
 
-- Responsive data grid with sorting, filtering, and pagination
+- Responsive data grid with sorting and filtering
 - Dark/light mode toggle
 - Quick search functionality
 - Column management
