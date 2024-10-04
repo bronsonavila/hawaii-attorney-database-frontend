@@ -1,5 +1,5 @@
 import { Button, DialogActions, DialogContent, Stack, TextField } from '@mui/material'
-import { FC } from 'react'
+import { ChangeEvent, FC } from 'react'
 
 interface FeedbackFormProps {
   email: string
@@ -15,7 +15,7 @@ interface FeedbackFormProps {
 interface FieldProps {
   label: string
   multiline?: boolean
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void
   required?: boolean
   value: string
 }
