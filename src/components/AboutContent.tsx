@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { DialogContent, DialogActions, Button, Stack, Typography, Divider } from '@mui/material'
 import { ExternalLink } from './ExternalLink'
-import { useAdBlockerDetection } from '../hooks/useAdBlockerDetection'
+import { useSentryBlockDetection } from '../hooks/useSentryBlockDetection'
 
 interface AboutContentProps {
   onClose: () => void
@@ -9,7 +9,7 @@ interface AboutContentProps {
 }
 
 export const AboutContent: FC<AboutContentProps> = ({ onClose, onFeedbackMode }) => {
-  const { isAdBlockDetected } = useAdBlockerDetection()
+  const { isSentryBlocked } = useSentryBlockDetection()
 
   return (
     <>
@@ -38,7 +38,7 @@ export const AboutContent: FC<AboutContentProps> = ({ onClose, onFeedbackMode })
       </DialogContent>
 
       <DialogActions>
-        {isAdBlockDetected === false && (
+        {isSentryBlocked === false && (
           <Button onClick={onFeedbackMode} size="small">
             Leave Feedback
           </Button>

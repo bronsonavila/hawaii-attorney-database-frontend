@@ -1,5 +1,5 @@
 import './index.css'
-import { AdBlockerProvider } from './contexts/AdBlockerContext.tsx'
+import { SentryBlockProvider } from './contexts/SentryBlockContext.tsx'
 import { App } from './App.tsx'
 import { createRoot } from 'react-dom/client'
 import { LicenseInfo } from '@mui/x-license'
@@ -24,10 +24,10 @@ LicenseInfo.setLicenseKey(
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AdBlockerProvider>
+    <SentryBlockProvider>
       <LoadingProvider>
         <App />
       </LoadingProvider>
-    </AdBlockerProvider>
+    </SentryBlockProvider>
   </StrictMode>
 )
