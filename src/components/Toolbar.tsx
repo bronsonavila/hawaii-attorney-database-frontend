@@ -72,7 +72,12 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
         <Box sx={{ alignItems: 'center', display: 'flex', gap: 0.5, pr: 0.25 }}>
           <DarkModeIcon sx={{ fontSize: { xs: 16, sm: 20 }, opacity: paletteMode === 'dark' ? 1 : 0.25 }} />
 
-          <Switch checked={paletteMode === 'light'} onChange={handleModeToggle} size="small" />
+          <Switch
+            checked={paletteMode === 'light'}
+            inputProps={{ 'aria-label': `Switch to ${paletteMode === 'light' ? 'dark' : 'light'} mode` }}
+            onChange={handleModeToggle}
+            size="small"
+          />
 
           <LightModeIcon sx={{ fontSize: { xs: 16, sm: 20 }, opacity: paletteMode === 'light' ? 1 : 0.25 }} />
         </Box>
