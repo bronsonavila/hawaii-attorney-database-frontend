@@ -1,6 +1,7 @@
-import { AboutContent } from './AboutContent'
+import { AboutDialogContent } from './AboutDialogContent'
 import { Button, Dialog, Skeleton, Typography, Snackbar } from '@mui/material'
 import { captureFeedback } from '@sentry/react'
+import { CloseButton } from './CloseButton'
 import { FC, SyntheticEvent, useState } from 'react'
 import { FeedbackForm } from './FeedbackForm'
 import {
@@ -9,7 +10,6 @@ import {
   useGridApiContext,
   useGridSelector
 } from '@mui/x-data-grid-pro'
-import { SnackbarCloseButton } from './SnackbarCloseButton'
 import { useLoadingContext } from '../hooks/useLoadingContext'
 
 export const Footer: FC = () => {
@@ -25,29 +25,29 @@ export const Footer: FC = () => {
   const apiRef = useGridApiContext()
   const totalRowCount = useGridSelector(apiRef, gridFilteredTopLevelRowCountSelector)
 
-  const handleClickOpen = () => setIsDialogOpen(true)
-
-  const handleClose = () => {
+  const handleCloseDialog = () => {
     setEmail('')
     setMessage('')
     setName('')
     setIsDialogOpen(false)
 
-    // Prevent <AboutContent> from flickering into view during <Dialog> close transition.
+    // Prevent <AboutDialogContent> from flickering into view during <Dialog> close transition.
     setTimeout(() => setIsFeedbackMode(false), 225)
   }
 
+  const handleCloseSnackbar = (_?: SyntheticEvent | Event, reason?: string) =>
+    reason !== 'clickaway' && setIsSnackbarOpen(false)
+
   const handleFeedbackMode = () => setIsFeedbackMode(true)
 
-  const handleSnackbarClose = (_?: SyntheticEvent | Event, reason?: string) =>
-    reason !== 'clickaway' && setIsSnackbarOpen(false)
+  const handleOpenDialog = () => setIsDialogOpen(true)
 
   const handleSubmitFeedback = async () => {
     captureFeedback({ email, message, name }, { includeReplay: true })
 
     setIsSnackbarOpen(true)
 
-    handleClose()
+    handleCloseDialog()
   }
 
   return (
@@ -60,12 +60,12 @@ export const Footer: FC = () => {
         <Typography variant="body2">Total Rows: {totalRowCount}</Typography>
       )}
 
-      <Button onClick={handleClickOpen} size="small">
+      <Button onClick={handleOpenDialog} size="small">
         About
       </Button>
 
       <Dialog
-        onClose={handleClose}
+        onClose={handleCloseDialog}
         open={isDialogOpen}
         PaperProps={{ sx: { bottom: 10, m: 0, minWidth: { xs: 359 }, position: 'fixed', right: 8 } }}
       >
@@ -74,22 +74,22 @@ export const Footer: FC = () => {
             email={email}
             message={message}
             name={name}
-            onCancel={handleClose}
+            onCancel={handleCloseDialog}
             onSubmit={handleSubmitFeedback}
             setEmail={setEmail}
             setMessage={setMessage}
             setName={setName}
           />
         ) : (
-          <AboutContent onClose={handleClose} onFeedbackMode={handleFeedbackMode} />
+          <AboutDialogContent onClose={handleCloseDialog} onFeedbackMode={handleFeedbackMode} />
         )}
       </Dialog>
 
       <Snackbar
-        action={<SnackbarCloseButton onClose={handleSnackbarClose} />}
+        action={<CloseButton onClose={handleCloseSnackbar} />}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         autoHideDuration={6000}
-        onClose={handleSnackbarClose}
+        onClose={handleCloseSnackbar}
         open={isSnackbarOpen}
         message="Thank you for your feedback!"
         sx={{ bottom: '10px !important', right: '8px !important' }}

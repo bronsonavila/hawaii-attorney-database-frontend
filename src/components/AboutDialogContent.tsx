@@ -3,12 +3,12 @@ import { DialogContent, DialogActions, Button, Stack, Typography, Divider } from
 import { ExternalLink } from './ExternalLink'
 import { useSentryBlockDetection } from '../hooks/useSentryBlockDetection'
 
-interface AboutContentProps {
+interface AboutDialogContentProps {
   onClose: () => void
   onFeedbackMode: () => void
 }
 
-export const AboutContent: FC<AboutContentProps> = ({ onClose, onFeedbackMode }) => {
+export const AboutDialogContent: FC<AboutDialogContentProps> = ({ onClose, onFeedbackMode }) => {
   const { isSentryBlocked } = useSentryBlockDetection()
 
   return (
