@@ -1,7 +1,7 @@
 import { Box, Typography, Switch, PaletteMode, Skeleton, Button } from '@mui/material'
 import { captureMessage } from '@sentry/react'
 import { ExportIcon } from './ExportIcon'
-import { FC, useCallback, useRef } from 'react'
+import { FC, MutableRefObject, useCallback, useRef } from 'react'
 import {
   GridCsvGetRowsToExportParams,
   gridExpandedSortedRowIdsSelector,
@@ -53,7 +53,7 @@ const generateExportFilename = (filterModel: GridFilterModel) => {
 
 const handleExport = (
   apiRef: ReturnType<typeof useGridApiContext>,
-  exportHistoryRef: React.MutableRefObject<Set<string>>,
+  exportHistoryRef: MutableRefObject<Set<string>>,
   getFilteredRows: (params: GridCsvGetRowsToExportParams) => GridRowId[]
 ) => {
   const { filterModel } = apiRef.current.state.filter
