@@ -1,7 +1,7 @@
 import { Box, Typography, Switch, PaletteMode, Skeleton, Button } from '@mui/material'
 import { captureMessage } from '@sentry/react'
 import { ExportIcon } from './ExportIcon'
-import { FC } from 'react'
+import { FC, useCallback, useRef } from 'react'
 import {
   GridCsvGetRowsToExportParams,
   gridExpandedSortedRowIdsSelector,
@@ -48,19 +48,25 @@ const generateExportFilename = (filterModel: GridFilterModel) => {
 
 export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
   const { isLoading } = useLoadingContext()
+
   const apiRef = useGridApiContext()
+  const exportHistoryRef = useRef<Set<string>>(new Set())
   const quickFilterRef = useQuickFilterTracking()
 
   const getFilteredRows = ({ apiRef }: GridCsvGetRowsToExportParams) => gridExpandedSortedRowIdsSelector(apiRef)
 
-  const handleExport = () => {
+  const handleExport = useCallback(() => {
     const { filterModel } = apiRef.current.state.filter
     const filename = generateExportFilename(filterModel)
 
-    captureMessage(`Export: ${filename}`, { extra: { filename }, tags: { type: 'export' } })
+    if (!exportHistoryRef.current.has(filename)) {
+      captureMessage(`Export: ${filename}`, { extra: { filename }, tags: { type: 'export' } })
+
+      exportHistoryRef.current.add(filename)
+    }
 
     apiRef.current.exportDataAsCsv({ fileName: filename, getRowsToExport: getFilteredRows })
-  }
+  }, [apiRef])
 
   const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
 
