@@ -7,8 +7,8 @@ export const SITE_METADATA = {
   description:
     'A comprehensive, searchable database of attorneys licensed in Hawaii. Ideal for research, analysis, and public access to information on Hawaii attorneys.',
   keywords: 'Hawaii attorneys, attorney database, lawyer directory, Hawaii bar, public directory, attorney information',
-  ogImage: 'https://hawaiiattorneydatabase.com/og-image.jpg',
+  ogImage: 'https://www.hawaiiattorneydatabase.com/og-image.jpg',
   title: 'Hawaii Attorney Database',
-  twitterImage: 'https://hawaiiattorneydatabase.com/twitter-image.jpg',
+  twitterImage: 'https://www.hawaiiattorneydatabase.com/twitter-image.jpg',
   url: 'https://www.hawaiiattorneydatabase.com'
 }
