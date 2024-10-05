@@ -6,6 +6,7 @@ import {
   GridCsvGetRowsToExportParams,
   gridExpandedSortedRowIdsSelector,
   GridFilterModel,
+  GridRowId,
   GridToolbarColumnsButton,
   GridToolbarContainer,
   GridToolbarFilterButton,
@@ -17,10 +18,14 @@ import { useQuickFilterTracking } from '../hooks/useQuickFilterTracking'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
 
+// Types
+
 interface ToolbarProps {
   paletteMode: PaletteMode
   setPaletteMode: (paletteMode: PaletteMode) => void
 }
+
+// Helpers
 
 const generateExportFilename = (filterModel: GridFilterModel) => {
   let filename = 'hawaii-attorney-database'
@@ -46,6 +51,25 @@ const generateExportFilename = (filterModel: GridFilterModel) => {
   return filename.toLowerCase().replace(/\s+/g, '-')
 }
 
+const handleExport = (
+  apiRef: ReturnType<typeof useGridApiContext>,
+  exportHistoryRef: React.MutableRefObject<Set<string>>,
+  getFilteredRows: (params: GridCsvGetRowsToExportParams) => GridRowId[]
+) => {
+  const { filterModel } = apiRef.current.state.filter
+  const filename = generateExportFilename(filterModel)
+
+  if (!exportHistoryRef.current.has(filename)) {
+    captureMessage(`Export: ${filename}`, { extra: { filename }, tags: { type: 'export' } })
+
+    exportHistoryRef.current.add(filename)
+  }
+
+  apiRef.current.exportDataAsCsv({ fileName: filename, getRowsToExport: getFilteredRows })
+}
+
+// Component
+
 export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
   const { isLoading } = useLoadingContext()
 
@@ -53,20 +77,9 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
   const exportHistoryRef = useRef<Set<string>>(new Set())
   const quickFilterRef = useQuickFilterTracking()
 
+  const exportFile = useCallback(() => handleExport(apiRef, exportHistoryRef, getFilteredRows), [apiRef])
+
   const getFilteredRows = ({ apiRef }: GridCsvGetRowsToExportParams) => gridExpandedSortedRowIdsSelector(apiRef)
-
-  const handleExport = useCallback(() => {
-    const { filterModel } = apiRef.current.state.filter
-    const filename = generateExportFilename(filterModel)
-
-    if (!exportHistoryRef.current.has(filename)) {
-      captureMessage(`Export: ${filename}`, { extra: { filename }, tags: { type: 'export' } })
-
-      exportHistoryRef.current.add(filename)
-    }
-
-    apiRef.current.exportDataAsCsv({ fileName: filename, getRowsToExport: getFilteredRows })
-  }, [apiRef])
 
   const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
 
@@ -102,7 +115,7 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
 
             <GridToolbarFilterButton />
 
-            <Button color="primary" size="small" startIcon={<ExportIcon />} onClick={handleExport}>
+            <Button color="primary" size="small" startIcon={<ExportIcon />} onClick={exportFile}>
               Export
             </Button>
           </Box>
