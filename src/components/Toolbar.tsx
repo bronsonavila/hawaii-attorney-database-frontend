@@ -1,4 +1,5 @@
 import { Box, Typography, Switch, PaletteMode, Skeleton, Button } from '@mui/material'
+import { captureMessage } from '@sentry/react'
 import { ExportIcon } from './ExportIcon'
 import { FC } from 'react'
 import {
@@ -53,9 +54,12 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
   const getFilteredRows = ({ apiRef }: GridCsvGetRowsToExportParams) => gridExpandedSortedRowIdsSelector(apiRef)
 
   const handleExport = () => {
-    const filterModel = apiRef.current.state.filter.filterModel
+    const { filterModel } = apiRef.current.state.filter
+    const filename = generateExportFilename(filterModel)
 
-    apiRef.current.exportDataAsCsv({ fileName: generateExportFilename(filterModel), getRowsToExport: getFilteredRows })
+    captureMessage(`Export: ${filename}`, { extra: { filename }, tags: { type: 'export' } })
+
+    apiRef.current.exportDataAsCsv({ fileName: filename, getRowsToExport: getFilteredRows })
   }
 
   const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
