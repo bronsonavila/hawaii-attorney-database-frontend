@@ -12,5 +12,5 @@ export const SITE_METADATA = {
   ogImage: `${BASE_URL}/og-image.jpg`,
   title: 'Hawaii Attorney Database',
   twitterImage: `${BASE_URL}/twitter-image.jpg`,
-  url: BASE_URL
+  url: `${BASE_URL}/`
 }
