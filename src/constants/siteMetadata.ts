@@ -1,3 +1,5 @@
+const BASE_URL = 'https://www.hawaiiattorneydatabase.com'
+
 export const SITE_METADATA = {
   alternativeHeadline:
     'Comprehensive Directory of Licensed Attorneys in Hawaii: Insights for Legal Professionals and the General Public',
@@ -7,8 +9,8 @@ export const SITE_METADATA = {
   description:
     'A comprehensive, searchable database of attorneys licensed in Hawaii. Ideal for research, analysis, and public access to information on Hawaii attorneys.',
   keywords: 'Hawaii attorneys, attorney database, lawyer directory, Hawaii bar, public directory, attorney information',
-  ogImage: 'https://www.hawaiiattorneydatabase.com/og-image.jpg',
+  ogImage: `${BASE_URL}/og-image.jpg`,
   title: 'Hawaii Attorney Database',
-  twitterImage: 'https://www.hawaiiattorneydatabase.com/twitter-image.jpg',
-  url: 'https://www.hawaiiattorneydatabase.com'
+  twitterImage: `${BASE_URL}/twitter-image.jpg`,
+  url: BASE_URL
 }
