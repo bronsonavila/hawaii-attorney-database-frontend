@@ -10,5 +10,5 @@ export const SITE_METADATA = {
   ogImage: 'https://hawaiiattorneydatabase.com/og-image.jpg',
   title: 'Hawaii Attorney Database',
   twitterImage: 'https://hawaiiattorneydatabase.com/twitter-image.jpg',
-  url: 'https://hawaiiattorneydatabase.com'
+  url: 'https://www.hawaiiattorneydatabase.com'
 }
