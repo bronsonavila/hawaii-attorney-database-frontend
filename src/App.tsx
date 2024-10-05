@@ -124,6 +124,7 @@ export const App = () => {
         autosizeOptions={{ includeHeaders: true, includeOutliers: true, outliersFactor: 1 }}
         columns={columns}
         density="compact"
+        disableMultipleRowSelection
         disableRowSelectionOnClick
         ignoreDiacritics
         loading={isLoading}
