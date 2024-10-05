@@ -55,14 +55,14 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
 
 const Field: FC<FieldProps> = ({ label, multiline = false, onChange, required = false, value }) => (
   <TextField
-    label={label}
-    value={value}
-    onChange={onChange}
     fullWidth
-    size="small"
+    label={label}
     multiline={multiline}
-    rows={multiline ? 8 : undefined}
+    onChange={onChange}
     required={required}
+    rows={multiline ? 8 : undefined}
+    size="small"
     slotProps={{ input: { style: { fontSize: 14 } }, inputLabel: { style: { fontSize: 14 } } }}
+    value={value}
   />
 )
