@@ -4,22 +4,14 @@ import { generateMetaTags } from './src/utils/generateMetaTags'
 import { sentryVitePlugin } from '@sentry/vite-plugin'
 import react from '@vitejs/plugin-react'
 
-const injectMetadata = () => ({
-  name: 'inject-metadata',
-  transformIndexHtml(html: string) {
-    const metaTags = generateMetaTags()
-
-    return html.replace('</head>', `${metaTags}\n</head>`)
-  }
-})
-
 const injectJsonLd = () => ({
   name: 'inject-json-ld',
-  transformIndexHtml(html: string) {
-    const jsonLdScript = generateJsonLd()
+  transformIndexHtml: (html: string) => html.replace('</head>', `${generateJsonLd()}\n</head>`)
+})
 
-    return html.replace('</head>', `${jsonLdScript}\n</head>`)
-  }
+const injectMetaTags = () => ({
+  name: 'inject-meta-tags',
+  transformIndexHtml: (html: string) => html.replace('</head>', `${generateMetaTags()}\n</head>`)
 })
 
 // https://vitejs.dev/config/
@@ -27,7 +19,7 @@ export default defineConfig({
   build: { sourcemap: true },
   plugins: [
     react(),
-    injectMetadata(),
+    injectMetaTags(),
     injectJsonLd(),
     sentryVitePlugin({ org: 'bronson-avila', project: 'hawaii-attorney-database' })
   ]
