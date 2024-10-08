@@ -23,10 +23,7 @@ const DATA_GRID_THEME_OVERRIDES = {
   MuiDataGrid: {
     styleOverrides: {
       // Elements rendered in a Popper element cannot be styled via DataGridPro.sx.
-      columnsManagement: {
-        padding: '12px 24px',
-        '@media (max-width: 599px)': { gap: 4, '.MuiSvgIcon-root': { fontSize: 20 } }
-      },
+      columnsManagement: { padding: '12px 24px' },
       columnsManagementHeader: { display: 'none' },
       menu: { '.MuiButtonBase-root': { minHeight: 'auto' } },
       panelWrapper: {
