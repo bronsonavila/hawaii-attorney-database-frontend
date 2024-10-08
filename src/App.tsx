@@ -21,8 +21,8 @@ interface Row {
 const DATA_GRID_THEME_OVERRIDES = {
   MuiButtonBase: { defaultProps: { disableRipple: true } },
   MuiDataGrid: {
+    // Elements rendered in a Popper element cannot be styled via DataGridPro.sx.
     styleOverrides: {
-      // Elements rendered in a Popper element cannot be styled via DataGridPro.sx.
       columnsManagement: { padding: '12px 24px' },
       columnsManagementHeader: { display: 'none' },
       menu: { '.MuiButtonBase-root': { minHeight: 'auto' } },
@@ -43,7 +43,10 @@ const DATA_GRID_THEME_OVERRIDES = {
       root: { border: 'none', height: '100dvh', width: '100dvw' }
     }
   },
-  MuiInputBase: { defaultProps: { autoComplete: 'off' } }
+  MuiInputBase: { defaultProps: { autoComplete: 'off' } },
+  MuiList: {
+    styleOverrides: { root: { '@media (max-width: 599px)': { '.MuiButtonBase-root': { minHeight: 'auto' } } } }
+  }
 }
 
 export const App = () => {
