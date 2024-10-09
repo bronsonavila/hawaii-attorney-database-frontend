@@ -5,7 +5,7 @@ interface LoadingContextType {
   setIsLoading: Dispatch<SetStateAction<boolean>>
 }
 
-export const LoadingContext = createContext<LoadingContextType | undefined>(undefined)
+export const LoadingContext = createContext<LoadingContextType | null>(null)
 
 export const LoadingProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)

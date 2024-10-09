@@ -12,7 +12,7 @@ interface SentryRequest extends PerformanceResourceTiming {
   responseStatus?: number // Optional because it's not available in Safari.
 }
 
-export const SentryBlockContext = createContext<SentryBlockContextType | undefined>(undefined)
+export const SentryBlockContext = createContext<SentryBlockContextType | null>(null)
 
 export const SentryBlockProvider: FC<SentryBlockProviderProps> = ({ children }) => {
   const [isSentryBlocked, setIsSentryBlocked] = useState<boolean | null>(null)
