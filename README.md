@@ -64,4 +64,4 @@ The built files will be in the `dist` directory.
 
 ## Data Source
 
-The attorney data is sourced from the [Hawaii State Bar Association (HSBA) Member Directory](https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx). The data is processed using a custom Node.js application from the [HSBA Membership Data repository](https://github.com/bronsonavila/hawaii-attorney-database-backend) and stored in a CSV file (`public/processed-member-records.csv`), which is loaded by this application at runtime.
+The attorney data is sourced from the [Hawaii State Bar Association's Member Directory](https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx). The data is processed using a custom Node.js application from the [corresponding backend repository](https://github.com/bronsonavila/hawaii-attorney-database-backend) and stored in a CSV file (`public/processed-member-records.csv`), which is loaded by this application at runtime.
