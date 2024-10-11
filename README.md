@@ -1,4 +1,4 @@
-# Hawaii Attorney Database
+# Hawaii Attorney Database – Frontend
 
 A web application that provides a searchable and filterable database of attorneys licensed in Hawaii.
 
@@ -33,8 +33,8 @@ A web application that provides a searchable and filterable database of attorney
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/hawaii-attorney-database.git
-   cd hawaii-attorney-database
+   git clone https://github.com/your-username/hawaii-attorney-database-frontend.git
+   cd hawaii-attorney-database-frontend
    ```
 
 2. Install dependencies:
@@ -64,4 +64,4 @@ The built files will be in the `dist` directory.
 
 ## Data Source
 
-The attorney data is sourced from the [Hawaii State Bar Association (HSBA) Member Directory](https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx). The data is processed using a custom Node.js application from the [HSBA Membership Data repository](https://github.com/bronsonavila/hsba-membership-data) and stored in a CSV file (`public/processed-member-records.csv`), which is loaded by this application at runtime.
+The attorney data is sourced from the [Hawaii State Bar Association (HSBA) Member Directory](https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx). The data is processed using a custom Node.js application from the [HSBA Membership Data repository](https://github.com/bronsonavila/hawaii-attorney-database-backend) and stored in a CSV file (`public/processed-member-records.csv`), which is loaded by this application at runtime.

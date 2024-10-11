@@ -1,5 +1,5 @@
 {
-  "name": "hawaii-attorney-database",
+  "name": "hawaii-attorney-database-frontend",
   "private": true,
   "description": "A web application that provides a searchable and filterable database of attorneys licensed in Hawaii.",
   "version": "1.0.0",
