@@ -6,9 +6,15 @@ export default async () => {
   try {
     const blob = await store.getWithMetadata('processed-member-records')
 
-    const { data, metadata } = blob ?? {}
+    if (blob) {
+      const { data, etag, metadata } = blob
 
-    return Response.json({ data, metadata })
+      return new Response(JSON.stringify({ data, metadata }), {
+        headers: { 'Content-Type': 'application/json', ETag: etag || '' }
+      })
+    }
+
+    return Response.json({ error: 'Blob not found' }, { status: 404 })
   } catch (error) {
     console.error('Error fetching blob:', error)
 
