@@ -1,6 +1,6 @@
 import { getStore } from '@netlify/blobs'
 
-export default async () => {
+export default async (request: Request) => {
   const store = getStore('hawaii-attorney-database')
 
   try {
@@ -8,6 +8,10 @@ export default async () => {
 
     if (blob) {
       const { data, etag, metadata } = blob
+
+      const ifNoneMatch = request.headers.get('If-None-Match')
+
+      if (ifNoneMatch === etag) return new Response(null, { headers: { ETag: etag }, status: 304 })
 
       return new Response(JSON.stringify({ data, metadata }), {
         headers: { 'Content-Type': 'application/json', ETag: etag || '' }
