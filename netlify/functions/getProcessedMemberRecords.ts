@@ -14,7 +14,11 @@ export default async (request: Request) => {
       if (ifNoneMatch === etag) return new Response(null, { status: 304 })
 
       return new Response(JSON.stringify({ data, metadata }), {
-        headers: { 'Cache-Control': 'public, max-age=2592000', 'Content-Type': 'application/json', ETag: etag || '' }
+        headers: {
+          'Content-Type': 'application/json',
+          ETag: etag || '',
+          'Netlify-CDN-Cache-Control': 'public, durable, max-age=2592000'
+        }
       })
     }
 
