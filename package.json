@@ -18,7 +18,6 @@
     "@mui/material": "^6.1.1",
     "@mui/x-data-grid-pro": "^7.18.0",
     "@mui/x-license": "^7.18.0",
-    "@netlify/blobs": "^8.1.0",
     "@sentry/react": "^8.33.1",
     "@sentry/vite-plugin": "^2.22.5",
     "date-fns": "^4.1.0",

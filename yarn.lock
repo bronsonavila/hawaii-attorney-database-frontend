@@ -814,11 +814,6 @@
     "@babel/runtime" "^7.25.6"
     "@mui/utils" "^5.16.6"
 
-"@netlify/blobs@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@netlify/blobs/-/blobs-8.1.0.tgz#b870b7c90c731a787eab550704593222af8222af"
-  integrity sha512-9hIbusvAZjSGBJ42OyFC2AxsEph1LuKQahMWFcPGEIsOqIYHhMRkYA7wSUMhH7naydjNmllpcp3pJLOK4RhFaQ==
-
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
