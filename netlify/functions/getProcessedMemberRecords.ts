@@ -11,10 +11,10 @@ export default async (request: Request) => {
 
       const ifNoneMatch = request.headers.get('If-None-Match')
 
-      if (ifNoneMatch === etag) return new Response(null, { headers: { ETag: etag }, status: 304 })
+      if (ifNoneMatch === etag) return new Response(null, { status: 304 })
 
       return new Response(JSON.stringify({ data, metadata }), {
-        headers: { 'Content-Type': 'application/json', ETag: etag || '' }
+        headers: { 'Cache-Control': 'public, max-age=2592000', 'Content-Type': 'application/json', ETag: etag || '' }
       })
     }
 
