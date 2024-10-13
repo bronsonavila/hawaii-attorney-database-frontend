@@ -15,9 +15,10 @@ export default async (request: Request) => {
 
       return new Response(JSON.stringify({ data, metadata }), {
         headers: {
+          'Cache-Control': 'public, max-age=2592000',
           'Content-Type': 'application/json',
           ETag: etag || '',
-          'Netlify-CDN-Cache-Control': 'public, durable, max-age=2592000'
+          'Netlify-CDN-Cache-Control': 'public, durable, max-age=2592000, stale-while-revalidate=604800'
         }
       })
     }
