@@ -10,7 +10,11 @@ export default async () => {
       const { data, etag, metadata } = blob
 
       return new Response(JSON.stringify({ data, metadata }), {
-        headers: { 'Content-Type': 'application/json', ETag: etag || '' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=86400',
+          ETag: etag || ''
+        }
       })
     }
 
