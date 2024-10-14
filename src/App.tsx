@@ -117,7 +117,7 @@ export const App = () => {
       .then(csvString => {
         const { data: rows } = Papa.parse<Row>(csvString, { header: true })
 
-        setRows(rows)
+        setRows(rows.filter(row => row.jdNumber)) // Omit blank rows.
 
         const uniqueLicenseTypes = [...new Set(rows.map(record => record.licenseType))]
           .filter((type): type is string => type !== undefined && type !== '')
