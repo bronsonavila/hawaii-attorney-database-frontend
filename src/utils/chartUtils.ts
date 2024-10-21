@@ -1,14 +1,18 @@
-import { AttorneysViewType, LicenseDistributionViewType, TopEmployersViewType } from '../components/charts/ChartModal'
+import {
+  BarAdmissionsViewType,
+  LicenseDistributionViewType,
+  TopEmployersViewType
+} from '../components/charts/ChartModal'
 import { LICENSE_TYPE_ORDER } from '../constants/chartConstants'
 import { Row } from '../App'
 
-export const calculateAttorneysByYearAndType = (
+export const calculateBarAdmissionsOverTime = (
   rows: Row[],
-  viewType: AttorneysViewType
+  viewType: BarAdmissionsViewType
 ): { total: number; year: string; [key: string]: number | string | undefined }[] => {
   const topLawSchools = getTopLawSchools(rows)
 
-  const attorneysByYearAndType = rows.reduce((result, row) => {
+  const barAdmissionsOverTime = rows.reduce((result, row) => {
     if (row.barAdmissionDate && row.licenseType !== 'Pro Hac Vice') {
       const year = new Date(row.barAdmissionDate).getFullYear().toString()
 
@@ -41,7 +45,7 @@ export const calculateAttorneysByYearAndType = (
     return result
   }, {} as Record<string, Record<string, number>>)
 
-  return Object.entries(attorneysByYearAndType)
+  return Object.entries(barAdmissionsOverTime)
     .map(([year, types]) => {
       if (viewType === 'byLawSchool') {
         const schools = [...topLawSchools, 'Other']

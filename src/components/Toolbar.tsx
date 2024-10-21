@@ -26,8 +26,8 @@ import useWindowResizeEffect from '../hooks/useWindowResizeEffect'
 
 interface ToolbarProps {
   paletteMode: PaletteMode
-  setPaletteMode: (paletteMode: PaletteMode) => void
   rows: Row[]
+  setPaletteMode: (paletteMode: PaletteMode) => void
 }
 
 // Functions
@@ -154,7 +154,7 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows })
         </Box>
       </Box>
 
-      <ChartModal isOpen={isChartModalOpen} onClose={handleChartModalClose} rows={rows} />
+      <ChartModal isOpen={isChartModalOpen} onClose={handleChartModalClose} paletteMode={paletteMode} rows={rows} />
     </GridToolbarContainer>
   )
 }

@@ -5,7 +5,7 @@ import { LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '../../constants/ch
 import { Row } from '../../App'
 import { ROSE_VIOLET, AMBER_BROWN, TEAL_NAVY } from '../../constants/colors'
 
-interface AttorneysByYearChartProps {
+interface BarAdmissionsOverTimeChartProps {
   data: { year: string; total: number; [key: string]: number | string | undefined }[]
   rows: Row[]
   viewType: 'total' | 'byLicenseType' | 'byLawSchool'
@@ -17,7 +17,7 @@ const LICENSE_TYPE_COLORS = Object.fromEntries(
   LICENSE_TYPE_ORDER.map((type, index) => [type, LICENSE_TYPE_COLOR_PALETTE[index % LICENSE_TYPE_COLOR_PALETTE.length]])
 )
 
-export const AttorneysByYearChart: FC<AttorneysByYearChartProps> = ({ data, rows, viewType }) => {
+export const BarAdmissionsOverTimeChart: FC<BarAdmissionsOverTimeChartProps> = ({ data, rows, viewType }) => {
   if (viewType === 'byLawSchool') {
     const attorneyData = data as { year: string; total: number; [key: string]: number | string | undefined }[]
 

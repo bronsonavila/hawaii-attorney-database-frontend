@@ -1,19 +1,20 @@
-import { AttorneysByYearChart } from './AttorneysByYearChart'
+import { BarAdmissionsOverTimeChart } from './BarAdmissionsOverTimeChart'
 import {
   Box,
   Button,
   FormControl,
   FormControlLabel,
-  InputLabel,
+  FormLabel,
   MenuItem,
   Modal,
+  PaletteMode,
   Radio,
   RadioGroup,
   Select,
   SelectChangeEvent
 } from '@mui/material'
 import {
-  calculateAttorneysByYearAndType,
+  calculateBarAdmissionsOverTime,
   calculateLicenseDistribution,
   calculateTopEmployers
 } from '../../utils/chartUtils'
@@ -27,26 +28,29 @@ import { TopEmployersChart } from './TopEmployersChart'
 interface ChartModalProps {
   isOpen: boolean
   onClose: () => void
+  paletteMode: PaletteMode
   rows: Row[]
 }
 
-export type AttorneysViewType = 'total' | 'byLicenseType' | 'byLawSchool'
-export type ChartType = 'attorneysByYearAndType' | 'licenseDistribution' | 'topEmployers'
+export type ChartType = 'barAdmissionsOverTime' | 'licenseDistribution' | 'topEmployers'
+
+export type BarAdmissionsViewType = 'total' | 'byLicenseType' | 'byLawSchool'
 export type LicenseDistributionViewType = 'total' | 'byLawSchool' | 'byAdmissionDecade'
 export type TopEmployersViewType = 'total' | 'byLawSchool' | 'byAdmissionDecade'
 
 // Component
 
-export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, rows }) => {
-  const [attorneysViewType, setAttorneysViewType] = useState<AttorneysViewType>('total')
-  const [chartType, setChartType] = useState<ChartType>('attorneysByYearAndType')
+export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, rows }) => {
+  const [chartType, setChartType] = useState<ChartType>('barAdmissionsOverTime')
+
+  const [barAdmissionsViewType, setBarAdmissionsViewType] = useState<BarAdmissionsViewType>('total')
   const [licenseDistributionViewType, setLicenseDistributionViewType] = useState<LicenseDistributionViewType>('total')
   const [topEmployersViewType, setTopEmployersViewType] = useState<TopEmployersViewType>('total')
 
   const data = useMemo(() => {
     switch (chartType) {
-      case 'attorneysByYearAndType':
-        return calculateAttorneysByYearAndType(rows, attorneysViewType)
+      case 'barAdmissionsOverTime':
+        return calculateBarAdmissionsOverTime(rows, barAdmissionsViewType)
 
       case 'licenseDistribution':
         return calculateLicenseDistribution(rows, licenseDistributionViewType)
@@ -57,12 +61,12 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, rows }) => {
       default:
         return []
     }
-  }, [chartType, rows, attorneysViewType, licenseDistributionViewType, topEmployersViewType])
+  }, [barAdmissionsViewType, chartType, licenseDistributionViewType, rows, topEmployersViewType])
 
   const chartElement = useMemo(() => {
     switch (chartType) {
-      case 'attorneysByYearAndType':
-        return <AttorneysByYearChart data={data} rows={rows} viewType={attorneysViewType} />
+      case 'barAdmissionsOverTime':
+        return <BarAdmissionsOverTimeChart data={data} rows={rows} viewType={barAdmissionsViewType} />
 
       case 'licenseDistribution':
         return <LicenseDistributionChart data={data} rows={rows} viewType={licenseDistributionViewType} />
@@ -73,7 +77,7 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, rows }) => {
       default:
         return null
     }
-  }, [chartType, data, attorneysViewType, licenseDistributionViewType, topEmployersViewType, rows])
+  }, [barAdmissionsViewType, chartType, data, licenseDistributionViewType, rows, topEmployersViewType])
 
   const handleChartTypeChange = (event: SelectChangeEvent<ChartType>) => {
     const newChartType = event.target.value as ChartType
@@ -96,18 +100,12 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, rows }) => {
         }}
       >
         <Box sx={{ pt: 4, pl: 4, pr: 6 }}>
-          <Box sx={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
+          <Box sx={{ alignItems: 'end', display: 'flex', justifyContent: 'space-between' }}>
             <FormControl sx={{ width: 400 }}>
-              <InputLabel id="chart-type-label">Chart</InputLabel>
+              <FormLabel sx={{ fontSize: 12, mb: 1 }}>Select Chart</FormLabel>
 
-              <Select
-                label="Chart"
-                labelId="chart-type-label"
-                onChange={handleChartTypeChange}
-                size="small"
-                value={chartType}
-              >
-                <MenuItem value="attorneysByYearAndType">Attorneys by Admission Year</MenuItem>
+              <Select onChange={handleChartTypeChange} size="small" value={chartType}>
+                <MenuItem value="barAdmissionsOverTime">Bar Admissions Over Time</MenuItem>
 
                 <MenuItem value="licenseDistribution">License Type Distribution</MenuItem>
 
@@ -116,18 +114,29 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, rows }) => {
             </FormControl>
 
             <FormControl component="fieldset" sx={{ ml: 4 }}>
-              {chartType === 'attorneysByYearAndType' && (
+              <FormLabel
+                sx={{
+                  fontSize: 12,
+                  mb: 1,
+                  // Prevent MUI's default focus color from flickering in-and-out when clicking radio buttons.
+                  '&.Mui-focused': { color: paletteMode === 'dark' ? '#ffffff99' : '#00000099' }
+                }}
+              >
+                View Attorneys By
+              </FormLabel>
+
+              {chartType === 'barAdmissionsOverTime' && (
                 <RadioGroup
-                  onChange={event => setAttorneysViewType(event.target.value as AttorneysViewType)}
+                  onChange={event => setBarAdmissionsViewType(event.target.value as BarAdmissionsViewType)}
                   row
                   sx={{ gap: 2 }}
-                  value={attorneysViewType}
+                  value={barAdmissionsViewType}
                 >
                   <FormControlLabel value="total" control={<Radio size="small" />} label="Total Count" />
 
-                  <FormControlLabel value="byLicenseType" control={<Radio size="small" />} label="By License Type" />
+                  <FormControlLabel value="byLicenseType" control={<Radio size="small" />} label="License Type" />
 
-                  <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="By Law School" />
+                  <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="Law School" />
                 </RadioGroup>
               )}
 
@@ -143,10 +152,10 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, rows }) => {
                   <FormControlLabel
                     value="byAdmissionDecade"
                     control={<Radio size="small" />}
-                    label="By Admission Decade"
+                    label="Admission Decade"
                   />
 
-                  <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="By Law School" />
+                  <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="Law School" />
                 </RadioGroup>
               )}
 
@@ -162,10 +171,10 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, rows }) => {
                   <FormControlLabel
                     value="byAdmissionDecade"
                     control={<Radio size="small" />}
-                    label="By Admission Decade"
+                    label="Admission Decade"
                   />
 
-                  <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="By Law School" />
+                  <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="Law School" />
                 </RadioGroup>
               )}
             </FormControl>

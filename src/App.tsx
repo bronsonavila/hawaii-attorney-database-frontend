@@ -151,7 +151,7 @@ export const App = () => {
         slotProps={{ columnsManagement: { disableShowHideToggle: true }, toolbar: { showQuickFilter: true } }}
         slots={{
           footer: Footer,
-          toolbar: props => <Toolbar {...props} paletteMode={paletteMode} setPaletteMode={setPaletteMode} rows={rows} />
+          toolbar: props => <Toolbar {...props} paletteMode={paletteMode} rows={rows} setPaletteMode={setPaletteMode} />
         }}
       />
     </ThemeProvider>
