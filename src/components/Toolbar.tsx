@@ -123,7 +123,7 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows })
 
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'space-between', pl: 0.25, width: '100%' }}>
         {isLoading ? (
-          <Skeleton sx={{ height: { xs: 28, sm: 30 }, m: 0.25, width: 300 }} />
+          <Skeleton sx={{ height: { xs: 28, sm: 30 }, m: 0.25, width: { xs: 300, lg: 400 } }} />
         ) : (
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
             <GridToolbarColumnsButton />
