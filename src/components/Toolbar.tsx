@@ -1,6 +1,6 @@
 import { Box, Button, PaletteMode, Skeleton, Switch, Typography } from '@mui/material'
 import { captureMessage } from '@sentry/react'
-import { ChartModal } from './ChartModal'
+import { ChartModal } from './charts/ChartModal'
 import { ExportIcon } from './ExportIcon'
 import { FC, MutableRefObject, useCallback, useRef, useState } from 'react'
 import {
@@ -20,6 +20,7 @@ import { useQuickFilterTracking } from '../hooks/useQuickFilterTracking'
 import BarChartIcon from '@mui/icons-material/BarChart'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
+import useWindowResizeEffect from '../hooks/useWindowResizeEffect'
 
 // Types
 
@@ -29,7 +30,7 @@ interface ToolbarProps {
   rows: Row[]
 }
 
-// Helpers
+// Functions
 
 const generateExportFilename = (filterModel: GridFilterModel) => {
   let filename = 'hawaii-attorney-database'
@@ -92,6 +93,11 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows })
 
   const handlePaletteModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
 
+  useWindowResizeEffect(
+    width => width < 1200 && isChartModalOpen,
+    () => setIsChartModalOpen(false)
+  )
+
   return (
     <GridToolbarContainer sx={{ pb: 0.5 }}>
       <Box
@@ -128,7 +134,13 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows })
               Export
             </Button>
 
-            <Button color="primary" size="small" startIcon={<BarChartIcon />} onClick={handleChartModalOpen}>
+            <Button
+              color="primary"
+              onClick={handleChartModalOpen}
+              size="small"
+              startIcon={<BarChartIcon />}
+              sx={{ display: { xs: 'none', lg: 'inline-flex' } }}
+            >
               Charts
             </Button>
           </Box>
