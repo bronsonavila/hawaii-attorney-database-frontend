@@ -7,7 +7,7 @@ import { useFilterModelTracking } from './hooks/useFilterModelTracking'
 import { useLoadingContext } from './hooks/useLoadingContext'
 import Papa from 'papaparse'
 
-interface Row {
+export interface Row {
   jdNumber: string
   name: string
   licenseType: string
@@ -151,7 +151,7 @@ export const App = () => {
         slotProps={{ columnsManagement: { disableShowHideToggle: true }, toolbar: { showQuickFilter: true } }}
         slots={{
           footer: Footer,
-          toolbar: props => <Toolbar {...props} paletteMode={paletteMode} setPaletteMode={setPaletteMode} />
+          toolbar: props => <Toolbar {...props} paletteMode={paletteMode} setPaletteMode={setPaletteMode} rows={rows} />
         }}
       />
     </ThemeProvider>

@@ -1,7 +1,8 @@
-import { Box, Typography, Switch, PaletteMode, Skeleton, Button } from '@mui/material'
+import { Box, Button, PaletteMode, Skeleton, Switch, Typography } from '@mui/material'
 import { captureMessage } from '@sentry/react'
+import { ChartModal } from './charts/ChartModal'
 import { ExportIcon } from './ExportIcon'
-import { FC, MutableRefObject, useCallback, useRef } from 'react'
+import { FC, MutableRefObject, useCallback, useRef, useState } from 'react'
 import {
   GridCsvGetRowsToExportParams,
   gridExpandedSortedRowIdsSelector,
@@ -13,19 +14,23 @@ import {
   GridToolbarQuickFilter,
   useGridApiContext
 } from '@mui/x-data-grid-pro'
+import { Row } from '../App'
 import { useLoadingContext } from '../hooks/useLoadingContext'
 import { useQuickFilterTracking } from '../hooks/useQuickFilterTracking'
+import BarChartIcon from '@mui/icons-material/BarChart'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
+import useWindowResizeEffect from '../hooks/useWindowResizeEffect'
 
 // Types
 
 interface ToolbarProps {
   paletteMode: PaletteMode
   setPaletteMode: (paletteMode: PaletteMode) => void
+  rows: Row[]
 }
 
-// Helpers
+// Functions
 
 const generateExportFilename = (filterModel: GridFilterModel) => {
   let filename = 'hawaii-attorney-database'
@@ -70,8 +75,9 @@ const handleExport = (
 
 // Component
 
-export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
+export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows }) => {
   const { isLoading } = useLoadingContext()
+  const [isChartModalOpen, setIsChartModalOpen] = useState(false)
 
   const apiRef = useGridApiContext()
   const exportHistoryRef = useRef<Set<string>>(new Set())
@@ -81,7 +87,16 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
 
   const getFilteredRows = ({ apiRef }: GridCsvGetRowsToExportParams) => gridExpandedSortedRowIdsSelector(apiRef)
 
-  const handleModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
+  const handleChartModalClose = () => setIsChartModalOpen(false)
+
+  const handleChartModalOpen = () => setIsChartModalOpen(true)
+
+  const handlePaletteModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
+
+  useWindowResizeEffect(
+    width => width < 1200 && isChartModalOpen,
+    () => setIsChartModalOpen(false)
+  )
 
   return (
     <GridToolbarContainer sx={{ pb: 0.5 }}>
@@ -98,7 +113,7 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
           <Switch
             checked={paletteMode === 'light'}
             inputProps={{ 'aria-label': `Switch to ${paletteMode === 'light' ? 'dark' : 'light'} mode` }}
-            onChange={handleModeToggle}
+            onChange={handlePaletteModeToggle}
             size="small"
           />
 
@@ -118,6 +133,16 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
             <Button color="primary" size="small" startIcon={<ExportIcon />} onClick={exportFile}>
               Export
             </Button>
+
+            <Button
+              color="primary"
+              onClick={handleChartModalOpen}
+              size="small"
+              startIcon={<BarChartIcon />}
+              sx={{ display: { xs: 'none', lg: 'inline-flex' } }}
+            >
+              Charts
+            </Button>
           </Box>
         )}
 
@@ -128,6 +153,8 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode }) => {
           />
         </Box>
       </Box>
+
+      <ChartModal isOpen={isChartModalOpen} onClose={handleChartModalClose} rows={rows} />
     </GridToolbarContainer>
   )
 }
