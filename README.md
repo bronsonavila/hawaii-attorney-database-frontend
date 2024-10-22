@@ -1,25 +1,12 @@
 # Hawaii Attorney Database – Frontend
 
-A web application that provides a searchable and filterable database of attorneys licensed in Hawaii.
+A web application that provides a searchable, filterable, and exportable database of attorneys licensed in Hawaii.
 
-## Features
+![Hawaii Attorney Database Main View](./images/01-hawaii-attorney-database.png)
 
-- Responsive data grid with sorting and filtering
-- Dark/light mode toggle
-- Quick search functionality
-- Column management
-- Data export capabilities
-- Responsive design for various screen sizes
+The application also includes interactive data visualizations to provide additional insights.
 
-## Technologies Used
-
-- React
-- TypeScript
-- Vite
-- Material UI (MUI)
-- MUI X - Data Grid Pro
-- Papa Parse (for CSV parsing)
-- Sentry
+![Bar Admissions Over Time](./images/02-chart-bar-admissions-over-time.png)
 
 ## Getting Started
 
