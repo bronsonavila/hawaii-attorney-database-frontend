@@ -100,7 +100,7 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
         }}
       >
         <Box sx={{ pt: 4, pl: 4, pr: 6 }}>
-          <Box sx={{ alignItems: 'end', display: 'flex', justifyContent: 'space-between' }}>
+          <Box sx={{ alignItems: 'end', display: 'flex', gap: 4 }}>
             <FormControl sx={{ width: 400 }}>
               <FormLabel sx={{ fontSize: 12, mb: 1 }}>Select Chart</FormLabel>
 
