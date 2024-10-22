@@ -20,7 +20,7 @@ The application also includes interactive data visualizations to provide additio
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/hawaii-attorney-database-frontend.git
+   git clone git@github.com:bronsonavila/hawaii-attorney-database-frontend.git
    cd hawaii-attorney-database-frontend
    ```
 
