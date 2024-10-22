@@ -113,7 +113,7 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
               </Select>
             </FormControl>
 
-            <FormControl component="fieldset" sx={{ ml: 4 }}>
+            <FormControl component="fieldset" sx={{ ml: 4, pb: '1px' }}>
               <FormLabel
                 sx={{
                   fontSize: 12,
