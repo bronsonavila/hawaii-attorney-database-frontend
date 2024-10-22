@@ -86,7 +86,7 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
       }
 
       result[row.licenseType][lawSchool] = (result[row.licenseType][lawSchool] || 0) + 1
-    } else if (viewType === 'byAdmissionDecade') {
+    } else if (viewType === 'byAdmissionDate') {
       if (row.licenseType === 'Pro Hac Vice') {
         result[row.licenseType]['No Admission Date'] = (result[row.licenseType]['No Admission Date'] || 0) + 1
       } else if (row.barAdmissionDate) {
@@ -213,7 +213,7 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
       }))
       .sort((a, b) => b.total - a.total)
       .slice(0, 25)
-  } else if (viewType === 'byAdmissionDecade') {
+  } else if (viewType === 'byAdmissionDate') {
     const firms = rows
       .filter(
         row => row.licenseType === 'Active' && row.employer && !row.employer.toLowerCase().includes('attorney at law')

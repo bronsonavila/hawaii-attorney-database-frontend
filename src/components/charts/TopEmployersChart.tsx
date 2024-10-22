@@ -5,7 +5,7 @@ import { TEAL_NAVY } from '../../constants/colors'
 
 interface TopEmployersChartProps {
   data: any[]
-  viewType: 'total' | 'byLawSchool' | 'byAdmissionDecade'
+  viewType: 'total' | 'byLawSchool' | 'byAdmissionDate'
 }
 
 export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }) => {
@@ -50,7 +50,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
     )
   }
 
-  if (viewType === 'byAdmissionDecade') {
+  if (viewType === 'byAdmissionDate') {
     if (!data.length) return null
 
     const categoryColorPalette = [...TEAL_NAVY[7]]

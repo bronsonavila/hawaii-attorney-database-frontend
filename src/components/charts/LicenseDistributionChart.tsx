@@ -8,7 +8,7 @@ import { TEAL_NAVY, ROSE_VIOLET } from '../../constants/colors'
 interface LicenseDistributionChartProps {
   data: any[]
   rows: Row[]
-  viewType: 'total' | 'byLawSchool' | 'byAdmissionDecade'
+  viewType: 'total' | 'byLawSchool' | 'byAdmissionDate'
 }
 
 export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ data, rows, viewType }) => {
@@ -53,7 +53,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
     )
   }
 
-  if (viewType === 'byAdmissionDecade') {
+  if (viewType === 'byAdmissionDate') {
     const categories = Object.keys(data[0])
       .filter(key => key !== 'licenseType' && key !== 'total')
       .sort((a, b) => {

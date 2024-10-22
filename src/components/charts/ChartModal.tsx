@@ -35,8 +35,8 @@ interface ChartModalProps {
 export type ChartType = 'barAdmissionsOverTime' | 'licenseDistribution' | 'topEmployers'
 
 export type BarAdmissionsViewType = 'total' | 'byLicenseType' | 'byLawSchool'
-export type LicenseDistributionViewType = 'total' | 'byLawSchool' | 'byAdmissionDecade'
-export type TopEmployersViewType = 'total' | 'byLawSchool' | 'byAdmissionDecade'
+export type LicenseDistributionViewType = 'total' | 'byLawSchool' | 'byAdmissionDate'
+export type TopEmployersViewType = 'total' | 'byLawSchool' | 'byAdmissionDate'
 
 // Component
 
@@ -149,11 +149,7 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
                 >
                   <FormControlLabel value="total" control={<Radio size="small" />} label="Total Count" />
 
-                  <FormControlLabel
-                    value="byAdmissionDecade"
-                    control={<Radio size="small" />}
-                    label="Admission Decade"
-                  />
+                  <FormControlLabel value="byAdmissionDate" control={<Radio size="small" />} label="Admission Date" />
 
                   <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="Law School" />
                 </RadioGroup>
@@ -168,11 +164,7 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
                 >
                   <FormControlLabel value="total" control={<Radio size="small" />} label="Total Count" />
 
-                  <FormControlLabel
-                    value="byAdmissionDecade"
-                    control={<Radio size="small" />}
-                    label="Admission Decade"
-                  />
+                  <FormControlLabel value="byAdmissionDate" control={<Radio size="small" />} label="Admission Date" />
 
                   <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="Law School" />
                 </RadioGroup>
