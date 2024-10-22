@@ -1,18 +1,12 @@
 import { Box, Button, PaletteMode, Skeleton, Switch, Typography } from '@mui/material'
-import { captureMessage } from '@sentry/react'
 import { ChartModal } from './charts/ChartModal'
-import { ExportIcon } from './ExportIcon'
-import { FC, MutableRefObject, useCallback, useRef, useState } from 'react'
+import { ExportButton } from './ExportButton'
+import { FC, useState } from 'react'
 import {
-  GridCsvGetRowsToExportParams,
-  gridExpandedSortedRowIdsSelector,
-  GridFilterModel,
-  GridRowId,
   GridToolbarColumnsButton,
   GridToolbarContainer,
   GridToolbarFilterButton,
-  GridToolbarQuickFilter,
-  useGridApiContext
+  GridToolbarQuickFilter
 } from '@mui/x-data-grid-pro'
 import { Row } from '../App'
 import { useLoadingContext } from '../hooks/useLoadingContext'
@@ -30,62 +24,13 @@ interface ToolbarProps {
   setPaletteMode: (paletteMode: PaletteMode) => void
 }
 
-// Functions
-
-const generateExportFilename = (filterModel: GridFilterModel) => {
-  let filename = 'hawaii-attorney-database'
-
-  const quickFilterValues = filterModel.quickFilterValues || []
-
-  if (quickFilterValues.length > 0) {
-    filename += `--${quickFilterValues.join('-')}`
-  }
-
-  const columnFilters = filterModel.items || []
-
-  const formattedColumnFilters = columnFilters.map(filter =>
-    filter.value instanceof Date ? { ...filter, value: filter.value.toISOString().slice(0, 10) } : filter
-  )
-
-  formattedColumnFilters.forEach(filter => {
-    if (filter.value !== undefined && filter.value !== '') {
-      filename += `--${filter.field}-${filter.value}`
-    }
-  })
-
-  return filename.toLowerCase().replace(/\s+/g, '-')
-}
-
-const handleExport = (
-  apiRef: ReturnType<typeof useGridApiContext>,
-  exportHistoryRef: MutableRefObject<Set<string>>,
-  getFilteredRows: (params: GridCsvGetRowsToExportParams) => GridRowId[]
-) => {
-  const { filterModel } = apiRef.current.state.filter
-  const filename = generateExportFilename(filterModel)
-
-  if (!exportHistoryRef.current.has(filename)) {
-    captureMessage(`Export: ${filename}`, { extra: { filename }, tags: { type: 'export' } })
-
-    exportHistoryRef.current.add(filename)
-  }
-
-  apiRef.current.exportDataAsCsv({ fileName: filename, getRowsToExport: getFilteredRows })
-}
-
 // Component
 
 export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows }) => {
   const { isLoading } = useLoadingContext()
   const [isChartModalOpen, setIsChartModalOpen] = useState(false)
 
-  const apiRef = useGridApiContext()
-  const exportHistoryRef = useRef<Set<string>>(new Set())
   const quickFilterRef = useQuickFilterTracking()
-
-  const exportFile = useCallback(() => handleExport(apiRef, exportHistoryRef, getFilteredRows), [apiRef])
-
-  const getFilteredRows = ({ apiRef }: GridCsvGetRowsToExportParams) => gridExpandedSortedRowIdsSelector(apiRef)
 
   const handleChartModalClose = () => setIsChartModalOpen(false)
 
@@ -130,9 +75,7 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows })
 
             <GridToolbarFilterButton />
 
-            <Button color="primary" size="small" startIcon={<ExportIcon />} onClick={exportFile}>
-              Export
-            </Button>
+            <ExportButton />
 
             <Button
               color="primary"
