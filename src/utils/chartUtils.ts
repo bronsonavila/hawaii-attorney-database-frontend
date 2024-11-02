@@ -206,11 +206,11 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
         label: firm,
         total: data.total,
         ...topLawSchools.reduce((result, school) => ({ ...result, [school]: data[school] || 0 }), {}),
-        Unknown: data['Unknown'] || 0,
         Other:
           Object.entries(data)
             .filter(([key]) => key !== 'total' && !topLawSchools.includes(key) && key !== 'Unknown')
-            .reduce((sum, [, value]) => sum + value, 0) || 0
+            .reduce((sum, [, value]) => sum + value, 0) || 0,
+        Unknown: data['Unknown'] || 0
       }))
       .sort((a, b) => b.total - a.total)
       .slice(0, 25)
