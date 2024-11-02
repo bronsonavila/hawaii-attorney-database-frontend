@@ -23,9 +23,9 @@ export const calculateBarAdmissionsOverTime = (
       result[year]['total'] += 1
 
       if (viewType === 'byLawSchool') {
-        let lawSchool = row.lawSchool?.trim() || 'Other'
+        let lawSchool = row.lawSchool?.trim() || 'Unknown'
 
-        if (lawSchool === 'Unknown' || !topLawSchools.includes(lawSchool)) {
+        if (!topLawSchools.includes(lawSchool) && lawSchool !== 'Unknown') {
           lawSchool = 'Other'
         }
 
@@ -48,7 +48,7 @@ export const calculateBarAdmissionsOverTime = (
   return Object.entries(barAdmissionsOverTime)
     .map(([year, types]) => {
       if (viewType === 'byLawSchool') {
-        const schools = [...topLawSchools, 'Other']
+        const schools = [...topLawSchools, 'Other', 'Unknown']
 
         return {
           total: types['total'],
@@ -79,9 +79,9 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
     result[row.licenseType].total += 1
 
     if (viewType === 'byLawSchool') {
-      let lawSchool = row.lawSchool?.trim() || 'Other'
+      let lawSchool = row.lawSchool?.trim() || 'Unknown'
 
-      if (lawSchool === 'Unknown' || !topLawSchools.includes(lawSchool)) {
+      if (!topLawSchools.includes(lawSchool) && lawSchool !== 'Unknown') {
         lawSchool = 'Other'
       }
 
@@ -108,7 +108,7 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
       .map(([licenseType, { total }]) => ({ licenseType, value: total }))
       .sort((a, b) => b.value - a.value)
   } else if (viewType === 'byLawSchool') {
-    const schools = [...topLawSchools, 'Other']
+    const schools = [...topLawSchools, 'Other', 'Unknown']
 
     return Object.entries(distribution)
       .map(([licenseType, data]) => ({
@@ -190,9 +190,9 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
 
         result[employerName].total += 1
 
-        let lawSchool = row.lawSchool?.trim() || 'Other'
+        let lawSchool = row.lawSchool?.trim() || 'Unknown'
 
-        if (lawSchool === 'Unknown' || !topLawSchools.includes(lawSchool)) {
+        if (!topLawSchools.includes(lawSchool) && lawSchool !== 'Unknown') {
           lawSchool = 'Other'
         }
 
@@ -206,9 +206,10 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
         label: firm,
         total: data.total,
         ...topLawSchools.reduce((result, school) => ({ ...result, [school]: data[school] || 0 }), {}),
+        Unknown: data['Unknown'] || 0,
         Other:
           Object.entries(data)
-            .filter(([key]) => key !== 'total' && !topLawSchools.includes(key))
+            .filter(([key]) => key !== 'total' && !topLawSchools.includes(key) && key !== 'Unknown')
             .reduce((sum, [, value]) => sum + value, 0) || 0
       }))
       .sort((a, b) => b.total - a.total)

@@ -29,7 +29,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
   if (viewType === 'byLawSchool') {
     const topLawSchools = getTopLawSchools(rows)
 
-    const schools = [...topLawSchools, 'Other']
+    const schools = [...topLawSchools, 'Other', 'Unknown']
 
     const lawSchoolColors = Object.fromEntries(
       schools.map((school, index) => [school, LAW_SCHOOL_COLOR_PALETTE[index % LAW_SCHOOL_COLOR_PALETTE.length]])
