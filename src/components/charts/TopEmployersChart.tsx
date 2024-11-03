@@ -1,15 +1,16 @@
-import { FC } from 'react'
 import { BarChart } from '@mui/x-charts'
+import { FC } from 'react'
 import { LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
 import { TEAL_NAVY } from '../../constants/colors'
+import { TopEmployersViewType } from '../../types/chartTypes'
 
 interface TopEmployersChartProps {
   data: any[]
-  viewType: 'total' | 'byLawSchool' | 'byAdmissionDate'
+  viewType: TopEmployersViewType
 }
 
 export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }) => {
-  if (viewType === 'total') {
+  if (viewType === TopEmployersViewType.TOTAL) {
     return (
       <BarChart
         dataset={data}
@@ -24,7 +25,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
     )
   }
 
-  if (viewType === 'byLawSchool') {
+  if (viewType === TopEmployersViewType.BY_LAW_SCHOOL) {
     if (!data.length) return null
 
     const categories = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'total')
@@ -52,7 +53,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
     )
   }
 
-  if (viewType === 'byAdmissionDate') {
+  if (viewType === TopEmployersViewType.BY_ADMISSION_DATE) {
     if (!data.length) return null
 
     const categoryColorPalette = [...TEAL_NAVY[7]]

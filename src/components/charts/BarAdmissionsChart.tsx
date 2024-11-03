@@ -1,14 +1,15 @@
+import { BarAdmissionsViewType } from '../../types/chartTypes'
 import { BarChart } from '@mui/x-charts'
 import { FC } from 'react'
 import { getTopLawSchools } from '../../utils/chartUtils'
 import { LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
-import { Row } from '../../App'
 import { ROSE_VIOLET, AMBER_BROWN, TEAL_NAVY } from '../../constants/colors'
+import { Row } from '../../App'
 
-interface BarAdmissionsOverTimeChartProps {
+interface BarAdmissionsChartProps {
   data: { year: string; total: number; [key: string]: number | string | undefined }[]
   rows: Row[]
-  viewType: 'total' | 'byLicenseType' | 'byLawSchool'
+  viewType: BarAdmissionsViewType
 }
 
 const LICENSE_TYPE_COLOR_PALETTE = [...TEAL_NAVY[4], ...AMBER_BROWN[3], ...ROSE_VIOLET[6]]
@@ -17,8 +18,8 @@ const LICENSE_TYPE_COLORS = Object.fromEntries(
   LICENSE_TYPE_ORDER.map((type, index) => [type, LICENSE_TYPE_COLOR_PALETTE[index % LICENSE_TYPE_COLOR_PALETTE.length]])
 )
 
-export const BarAdmissionsOverTimeChart: FC<BarAdmissionsOverTimeChartProps> = ({ data, rows, viewType }) => {
-  if (viewType === 'byLawSchool') {
+export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, viewType }) => {
+  if (viewType === BarAdmissionsViewType.BY_LAW_SCHOOL) {
     const attorneyData = data as { year: string; total: number; [key: string]: number | string | undefined }[]
 
     if (!attorneyData.length) return null
@@ -47,7 +48,7 @@ export const BarAdmissionsOverTimeChart: FC<BarAdmissionsOverTimeChartProps> = (
     )
   }
 
-  if (viewType === 'total') {
+  if (viewType === BarAdmissionsViewType.TOTAL) {
     const attorneyData = data as { year: string; total: number }[]
 
     if (!attorneyData.length) return null
@@ -63,7 +64,7 @@ export const BarAdmissionsOverTimeChart: FC<BarAdmissionsOverTimeChartProps> = (
     )
   }
 
-  if (viewType === 'byLicenseType') {
+  if (viewType === BarAdmissionsViewType.BY_LICENSE_TYPE) {
     const attorneyData = data as { year: string; total: number; [key: string]: number | string | undefined }[]
 
     const licenseTypes = Object.keys(attorneyData[0])

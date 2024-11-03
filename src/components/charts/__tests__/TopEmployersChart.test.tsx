@@ -3,6 +3,7 @@ import { loadTestData } from '../../../utils/testUtils'
 import { render, screen } from '@testing-library/react'
 import { Row } from '../../../App'
 import { TopEmployersChart } from '../TopEmployersChart'
+import { TopEmployersViewType } from '../../../types/chartTypes'
 
 describe('TopEmployersChart', () => {
   let rows: Row[] = []
@@ -12,13 +13,13 @@ describe('TopEmployersChart', () => {
   })
 
   const testViews = [
-    { name: 'total view', title: 'Top Employers: Total', viewType: 'total' as const },
-    { name: 'byLawSchool view', title: 'Top Employers: By Law School', viewType: 'byLawSchool' as const },
-    { name: 'byAdmissionDate view', title: 'Top Employers: By Admission Date', viewType: 'byAdmissionDate' as const }
+    { title: 'Top Employers: Total', viewType: TopEmployersViewType.TOTAL },
+    { title: 'Top Employers: By Admission Date', viewType: TopEmployersViewType.BY_ADMISSION_DATE },
+    { title: 'Top Employers: By Law School', viewType: TopEmployersViewType.BY_LAW_SCHOOL }
   ]
 
-  testViews.forEach(({ name, viewType, title }) => {
-    describe(name, () => {
+  testViews.forEach(({ viewType, title }) => {
+    describe(`${viewType} view`, () => {
       it('renders without crashing', () => {
         const data = calculateTopEmployers(rows, viewType)
 

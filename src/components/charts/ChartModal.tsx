@@ -1,4 +1,10 @@
-import { BarAdmissionsOverTimeChart } from './BarAdmissionsOverTimeChart'
+import { BarAdmissionsChart } from './BarAdmissionsChart'
+import {
+  BarAdmissionsViewType,
+  ChartType,
+  LicenseDistributionViewType,
+  TopEmployersViewType
+} from '../../types/chartTypes'
 import {
   Box,
   Button,
@@ -13,17 +19,11 @@ import {
   Select,
   SelectChangeEvent
 } from '@mui/material'
-import {
-  calculateBarAdmissionsOverTime,
-  calculateLicenseDistribution,
-  calculateTopEmployers
-} from '../../utils/chartUtils'
+import { calculateBarAdmissions, calculateLicenseDistribution, calculateTopEmployers } from '../../utils/chartUtils'
 import { FC, useMemo, useState } from 'react'
 import { LicenseDistributionChart } from './LicenseDistributionChart'
 import { Row } from '../../App'
 import { TopEmployersChart } from './TopEmployersChart'
-
-// Types
 
 interface ChartModalProps {
   isOpen: boolean
@@ -32,30 +32,24 @@ interface ChartModalProps {
   rows: Row[]
 }
 
-export type ChartType = 'barAdmissionsOverTime' | 'licenseDistribution' | 'topEmployers'
-
-export type BarAdmissionsViewType = 'total' | 'byLicenseType' | 'byLawSchool'
-export type LicenseDistributionViewType = 'total' | 'byLawSchool' | 'byAdmissionDate'
-export type TopEmployersViewType = 'total' | 'byLawSchool' | 'byAdmissionDate'
-
-// Component
-
 export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, rows }) => {
-  const [chartType, setChartType] = useState<ChartType>('barAdmissionsOverTime')
+  const [chartType, setChartType] = useState<ChartType>(ChartType.BAR_ADMISSIONS)
 
-  const [barAdmissionsViewType, setBarAdmissionsViewType] = useState<BarAdmissionsViewType>('total')
-  const [licenseDistributionViewType, setLicenseDistributionViewType] = useState<LicenseDistributionViewType>('total')
-  const [topEmployersViewType, setTopEmployersViewType] = useState<TopEmployersViewType>('total')
+  const [barAdmissionsViewType, setBarAdmissionsViewType] = useState<BarAdmissionsViewType>(BarAdmissionsViewType.TOTAL)
+  const [licenseDistributionViewType, setLicenseDistributionViewType] = useState<LicenseDistributionViewType>(
+    LicenseDistributionViewType.TOTAL
+  )
+  const [topEmployersViewType, setTopEmployersViewType] = useState<TopEmployersViewType>(TopEmployersViewType.TOTAL)
 
   const data = useMemo(() => {
     switch (chartType) {
-      case 'barAdmissionsOverTime':
-        return calculateBarAdmissionsOverTime(rows, barAdmissionsViewType)
+      case ChartType.BAR_ADMISSIONS:
+        return calculateBarAdmissions(rows, barAdmissionsViewType)
 
-      case 'licenseDistribution':
+      case ChartType.LICENSE_DISTRIBUTION:
         return calculateLicenseDistribution(rows, licenseDistributionViewType)
 
-      case 'topEmployers':
+      case ChartType.TOP_EMPLOYERS:
         return calculateTopEmployers(rows, topEmployersViewType)
 
       default:
@@ -65,13 +59,13 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
 
   const chartElement = useMemo(() => {
     switch (chartType) {
-      case 'barAdmissionsOverTime':
-        return <BarAdmissionsOverTimeChart data={data} rows={rows} viewType={barAdmissionsViewType} />
+      case ChartType.BAR_ADMISSIONS:
+        return <BarAdmissionsChart data={data} rows={rows} viewType={barAdmissionsViewType} />
 
-      case 'licenseDistribution':
+      case ChartType.LICENSE_DISTRIBUTION:
         return <LicenseDistributionChart data={data} rows={rows} viewType={licenseDistributionViewType} />
 
-      case 'topEmployers':
+      case ChartType.TOP_EMPLOYERS:
         return <TopEmployersChart data={data} viewType={topEmployersViewType} />
 
       default:
@@ -105,11 +99,11 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
               <FormLabel sx={{ fontSize: 12, mb: 1 }}>Select Chart</FormLabel>
 
               <Select onChange={handleChartTypeChange} size="small" value={chartType}>
-                <MenuItem value="barAdmissionsOverTime">Bar Admissions Over Time</MenuItem>
+                <MenuItem value={ChartType.BAR_ADMISSIONS}>Bar Admissions Over Time</MenuItem>
 
-                <MenuItem value="licenseDistribution">License Type Distribution</MenuItem>
+                <MenuItem value={ChartType.LICENSE_DISTRIBUTION}>License Type Distribution</MenuItem>
 
-                <MenuItem value="topEmployers">Top 25 Employers (Non-Government)</MenuItem>
+                <MenuItem value={ChartType.TOP_EMPLOYERS}>Top 25 Employers (Non-Government)</MenuItem>
               </Select>
             </FormControl>
 
@@ -125,48 +119,84 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
                 View Attorneys By
               </FormLabel>
 
-              {chartType === 'barAdmissionsOverTime' && (
+              {chartType === ChartType.BAR_ADMISSIONS && (
                 <RadioGroup
                   onChange={event => setBarAdmissionsViewType(event.target.value as BarAdmissionsViewType)}
                   row
                   sx={{ gap: 2 }}
                   value={barAdmissionsViewType}
                 >
-                  <FormControlLabel value="total" control={<Radio size="small" />} label="Total Count" />
+                  <FormControlLabel
+                    value={BarAdmissionsViewType.TOTAL}
+                    control={<Radio size="small" />}
+                    label="Total Count"
+                  />
 
-                  <FormControlLabel value="byLicenseType" control={<Radio size="small" />} label="License Type" />
+                  <FormControlLabel
+                    value={BarAdmissionsViewType.BY_LICENSE_TYPE}
+                    control={<Radio size="small" />}
+                    label="License Type"
+                  />
 
-                  <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="Law School" />
+                  <FormControlLabel
+                    value={BarAdmissionsViewType.BY_LAW_SCHOOL}
+                    control={<Radio size="small" />}
+                    label="Law School"
+                  />
                 </RadioGroup>
               )}
 
-              {chartType === 'licenseDistribution' && (
+              {chartType === ChartType.LICENSE_DISTRIBUTION && (
                 <RadioGroup
                   onChange={event => setLicenseDistributionViewType(event.target.value as LicenseDistributionViewType)}
                   row
                   sx={{ gap: 2 }}
                   value={licenseDistributionViewType}
                 >
-                  <FormControlLabel value="total" control={<Radio size="small" />} label="Total Count" />
+                  <FormControlLabel
+                    value={LicenseDistributionViewType.TOTAL}
+                    control={<Radio size="small" />}
+                    label="Total Count"
+                  />
 
-                  <FormControlLabel value="byAdmissionDate" control={<Radio size="small" />} label="Admission Date" />
+                  <FormControlLabel
+                    value={LicenseDistributionViewType.BY_ADMISSION_DATE}
+                    control={<Radio size="small" />}
+                    label="Admission Date"
+                  />
 
-                  <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="Law School" />
+                  <FormControlLabel
+                    value={LicenseDistributionViewType.BY_LAW_SCHOOL}
+                    control={<Radio size="small" />}
+                    label="Law School"
+                  />
                 </RadioGroup>
               )}
 
-              {chartType === 'topEmployers' && (
+              {chartType === ChartType.TOP_EMPLOYERS && (
                 <RadioGroup
                   onChange={event => setTopEmployersViewType(event.target.value as TopEmployersViewType)}
                   row
                   sx={{ gap: 2 }}
                   value={topEmployersViewType}
                 >
-                  <FormControlLabel value="total" control={<Radio size="small" />} label="Total Count" />
+                  <FormControlLabel
+                    value={TopEmployersViewType.TOTAL}
+                    control={<Radio size="small" />}
+                    label="Total Count"
+                  />
 
-                  <FormControlLabel value="byAdmissionDate" control={<Radio size="small" />} label="Admission Date" />
+                  <FormControlLabel
+                    value={TopEmployersViewType.BY_ADMISSION_DATE}
+                    control={<Radio size="small" />}
+                    label="Admission Date"
+                  />
 
-                  <FormControlLabel value="byLawSchool" control={<Radio size="small" />} label="Law School" />
+                  <FormControlLabel
+                    value={TopEmployersViewType.BY_LAW_SCHOOL}
+                    control={<Radio size="small" />}
+                    label="Law School"
+                  />
                 </RadioGroup>
               )}
             </FormControl>

@@ -1,18 +1,14 @@
-import {
-  BarAdmissionsViewType,
-  LicenseDistributionViewType,
-  TopEmployersViewType
-} from '../components/charts/ChartModal'
+import { BarAdmissionsViewType, LicenseDistributionViewType, TopEmployersViewType } from '../types/chartTypes'
 import { LICENSE_TYPE_ORDER } from '../constants/chartConstants'
 import { Row } from '../App'
 
-export const calculateBarAdmissionsOverTime = (
+export const calculateBarAdmissions = (
   rows: Row[],
   viewType: BarAdmissionsViewType
 ): { total: number; year: string; [key: string]: number | string | undefined }[] => {
   const topLawSchools = getTopLawSchools(rows)
 
-  const barAdmissionsOverTime = rows.reduce((result, row) => {
+  const barAdmissions = rows.reduce((result, row) => {
     if (row.barAdmissionDate && row.licenseType !== 'Pro Hac Vice') {
       const year = new Date(row.barAdmissionDate).getFullYear().toString()
 
@@ -22,7 +18,7 @@ export const calculateBarAdmissionsOverTime = (
 
       result[year]['total'] += 1
 
-      if (viewType === 'byLawSchool') {
+      if (viewType === BarAdmissionsViewType.BY_LAW_SCHOOL) {
         let lawSchool = row.lawSchool?.trim() || 'Unknown'
 
         if (!topLawSchools.includes(lawSchool) && lawSchool !== 'Unknown') {
@@ -30,7 +26,7 @@ export const calculateBarAdmissionsOverTime = (
         }
 
         result[year][lawSchool] = (result[year][lawSchool] || 0) + 1
-      } else if (viewType === 'byLicenseType') {
+      } else if (viewType === BarAdmissionsViewType.BY_LICENSE_TYPE) {
         let licenseType = row.licenseType
 
         // Consolidate the variations of Inactive, Resign, and Suspended license types into a single category.
@@ -45,9 +41,9 @@ export const calculateBarAdmissionsOverTime = (
     return result
   }, {} as Record<string, Record<string, number>>)
 
-  return Object.entries(barAdmissionsOverTime)
+  return Object.entries(barAdmissions)
     .map(([year, types]) => {
-      if (viewType === 'byLawSchool') {
+      if (viewType === BarAdmissionsViewType.BY_LAW_SCHOOL) {
         const schools = [...topLawSchools, 'Other', 'Unknown']
 
         return {
@@ -55,7 +51,7 @@ export const calculateBarAdmissionsOverTime = (
           year,
           ...schools.reduce((result, school) => ({ ...result, [school]: types[school] || 0 }), {})
         }
-      } else if (viewType === 'byLicenseType') {
+      } else if (viewType === BarAdmissionsViewType.BY_LICENSE_TYPE) {
         return {
           total: types['total'],
           year,
@@ -78,7 +74,7 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
 
     result[row.licenseType].total += 1
 
-    if (viewType === 'byLawSchool') {
+    if (viewType === LicenseDistributionViewType.BY_LAW_SCHOOL) {
       let lawSchool = row.lawSchool?.trim() || 'Unknown'
 
       if (!topLawSchools.includes(lawSchool) && lawSchool !== 'Unknown') {
@@ -86,7 +82,7 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
       }
 
       result[row.licenseType][lawSchool] = (result[row.licenseType][lawSchool] || 0) + 1
-    } else if (viewType === 'byAdmissionDate') {
+    } else if (viewType === LicenseDistributionViewType.BY_ADMISSION_DATE) {
       if (row.licenseType === 'Pro Hac Vice') {
         result[row.licenseType]['No Admission Date'] = (result[row.licenseType]['No Admission Date'] || 0) + 1
       } else if (row.barAdmissionDate) {
@@ -103,11 +99,11 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
     return result
   }, {} as Record<string, Record<string, number>>)
 
-  if (viewType === 'total') {
+  if (viewType === LicenseDistributionViewType.TOTAL) {
     return Object.entries(distribution)
       .map(([licenseType, { total }]) => ({ licenseType, value: total }))
       .sort((a, b) => b.value - a.value)
-  } else if (viewType === 'byLawSchool') {
+  } else if (viewType === LicenseDistributionViewType.BY_LAW_SCHOOL) {
     const schools = [...topLawSchools, 'Other', 'Unknown']
 
     return Object.entries(distribution)
@@ -158,7 +154,7 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
     return name
   }
 
-  if (viewType === 'total') {
+  if (viewType === TopEmployersViewType.TOTAL) {
     const firms = rows
       .filter(
         row => row.licenseType === 'Active' && row.employer && !row.employer.toLowerCase().includes('attorney at law')
@@ -175,7 +171,7 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
       .map(([firm, count]) => ({ id: firm, value: count, label: firm }))
       .sort((a, b) => b.value - a.value)
       .slice(0, 25)
-  } else if (viewType === 'byLawSchool') {
+  } else if (viewType === TopEmployersViewType.BY_LAW_SCHOOL) {
     const topLawSchools = getTopLawSchools(rows)
     const firms = rows
       .filter(
@@ -214,7 +210,7 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
       }))
       .sort((a, b) => b.total - a.total)
       .slice(0, 25)
-  } else if (viewType === 'byAdmissionDate') {
+  } else if (viewType === TopEmployersViewType.BY_ADMISSION_DATE) {
     const firms = rows
       .filter(
         row => row.licenseType === 'Active' && row.employer && !row.employer.toLowerCase().includes('attorney at law')
