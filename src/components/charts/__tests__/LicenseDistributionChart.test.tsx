@@ -12,27 +12,16 @@ describe('LicenseDistributionChart', () => {
   })
 
   const testViews = [
+    { name: 'total view', title: 'License Type Distribution: Total', viewType: 'total' as const },
+    { name: 'byLawSchool view', title: 'License Type Distribution: By Law School', viewType: 'byLawSchool' as const },
     {
-      getExpectedLabels: (rows: Row[]) => getUniqueLicenseTypes(rows),
-      name: 'total view',
-      title: 'License Type Distribution: Total',
-      viewType: 'total' as const
-    },
-    {
-      getExpectedLabels: (rows: Row[]) => getUniqueLicenseTypes(rows),
-      name: 'byLawSchool view',
-      title: 'License Type Distribution: By Law School',
-      viewType: 'byLawSchool' as const
-    },
-    {
-      getExpectedLabels: (rows: Row[]) => getUniqueLicenseTypes(rows),
       name: 'byAdmissionDate view',
       title: 'License Type Distribution: By Admission Date',
       viewType: 'byAdmissionDate' as const
     }
   ]
 
-  testViews.forEach(({ name, viewType, title, getExpectedLabels }) => {
+  testViews.forEach(({ name, title, viewType }) => {
     describe(name, () => {
       it('renders without crashing', () => {
         const data = calculateLicenseDistribution(rows, viewType)
@@ -44,7 +33,7 @@ describe('LicenseDistributionChart', () => {
 
       it('displays correct data labels', () => {
         const data = calculateLicenseDistribution(rows, viewType)
-        const expectedLabels = getExpectedLabels(rows)
+        const expectedLabels = getUniqueLicenseTypes(rows)
 
         render(<LicenseDistributionChart data={data} rows={rows} viewType={viewType} />)
 
