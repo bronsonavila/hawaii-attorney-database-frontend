@@ -1,6 +1,6 @@
 import { AMBER_BROWN, ROSE_VIOLET, TEAL_NAVY } from './colors'
 
-export const LAW_SCHOOL_COLOR_PALETTE = [...TEAL_NAVY[3], ...AMBER_BROWN[3], ...ROSE_VIOLET[6]]
+export const LAW_SCHOOL_COLOR_PALETTE = [...TEAL_NAVY[3], ...AMBER_BROWN[4], ...ROSE_VIOLET[5]]
 
 export const LICENSE_TYPE_ORDER = [
   'Active',
