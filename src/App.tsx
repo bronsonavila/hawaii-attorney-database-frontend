@@ -1,5 +1,6 @@
 import { createTheme, CssBaseline, GlobalStyles, PaletteMode, ThemeProvider, useMediaQuery } from '@mui/material'
 import { Footer } from './components/Footer'
+import { getUniqueLicenseTypes } from './utils/chartUtils'
 import { GridColDef, DataGridPro } from '@mui/x-data-grid-pro'
 import { Toolbar } from './components/Toolbar'
 import { useEffect, useMemo, useState } from 'react'
@@ -116,14 +117,11 @@ export const App = () => {
       .then(response => response.text())
       .then(csvString => {
         const { data: rows } = Papa.parse<Row>(csvString, { header: true })
+        const filteredRows = rows.filter(row => row.jdNumber) // Omit blank rows.
 
-        setRows(rows.filter(row => row.jdNumber)) // Omit blank rows.
+        setRows(filteredRows)
 
-        const uniqueLicenseTypes = [...new Set(rows.map(record => record.licenseType))]
-          .filter((type): type is string => type !== undefined && type !== '')
-          .sort()
-
-        setLicenseTypes(uniqueLicenseTypes)
+        setLicenseTypes(getUniqueLicenseTypes(filteredRows))
       })
       // Prevent flicker of "Total Rows: 0" on initial load. See: https://github.com/mui/mui-x/issues/12504
       .finally(() => setTimeout(() => setIsLoading(false)))

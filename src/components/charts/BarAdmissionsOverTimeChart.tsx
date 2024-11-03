@@ -41,6 +41,7 @@ export const BarAdmissionsOverTimeChart: FC<BarAdmissionsOverTimeChartProps> = (
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
+        title="Admissions Over Time: By Law School"
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
     )
@@ -56,6 +57,7 @@ export const BarAdmissionsOverTimeChart: FC<BarAdmissionsOverTimeChartProps> = (
         grid={{ horizontal: true }}
         series={[{ color: TEAL_NAVY[1][0], data: attorneyData.map(d => d.total), label: 'Count' }]}
         slotProps={{ legend: { hidden: true } }}
+        title="Admissions Over Time: Total"
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
     )
@@ -78,6 +80,7 @@ export const BarAdmissionsOverTimeChart: FC<BarAdmissionsOverTimeChartProps> = (
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
+        title="Admissions Over Time: By License Type"
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
     )

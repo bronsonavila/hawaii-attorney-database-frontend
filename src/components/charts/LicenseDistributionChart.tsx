@@ -21,6 +21,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
         margin={{ left: 236 }}
         series={[{ dataKey: 'value', label: 'Count', color: TEAL_NAVY[1][0] }]}
         slotProps={{ legend: { hidden: true } }}
+        title="License Type Distribution: Total"
         yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
       />
     )
@@ -48,6 +49,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
+        title="License Type Distribution: By Law School"
         yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
       />
     )
@@ -84,6 +86,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
+        title="License Type Distribution: By Admission Date"
         yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
       />
     )

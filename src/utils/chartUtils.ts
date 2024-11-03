@@ -269,3 +269,8 @@ export const getTopLawSchools = (rows: Row[], topN: number = 10): string[] => {
     .slice(0, topN)
     .map(([school]) => school)
 }
+
+export const getUniqueLicenseTypes = (rows: Row[]): string[] =>
+  [...new Set(rows.map(record => record.licenseType))]
+    .filter((type): type is string => type !== undefined && type !== '')
+    .sort()

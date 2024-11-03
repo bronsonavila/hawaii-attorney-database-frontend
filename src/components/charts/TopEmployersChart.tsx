@@ -18,6 +18,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
         margin={{ left: 253 }}
         series={[{ dataKey: 'value', label: 'Active Attorneys', color: TEAL_NAVY[1][0] }]}
         slotProps={{ legend: { hidden: true } }}
+        title="Top Employers: Total"
         yAxis={[{ dataKey: 'label', scaleType: 'band' }]}
       />
     )
@@ -45,6 +46,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
+        title="Top Employers: By Law School"
         yAxis={[{ dataKey: 'label', scaleType: 'band' }]}
       />
     )
@@ -76,6 +78,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
+        title="Top Employers: By Admission Date"
         yAxis={[{ dataKey: 'label', scaleType: 'band' }]}
       />
     )
