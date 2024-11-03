@@ -1,6 +1,6 @@
 import { calculateLicenseDistribution, getUniqueLicenseTypes } from '../../../utils/chartUtils'
 import { LicenseDistributionChart } from '../LicenseDistributionChart'
-import { LicenseDistributionViewType } from '../../../types/chartTypes'
+import { ChartTestId, LicenseDistributionViewType } from '../../../types/chartTypes'
 import { loadTestData } from '../../../utils/testUtils'
 import { render, screen } from '@testing-library/react'
 import { Row } from '../../../App'
@@ -13,19 +13,22 @@ describe('LicenseDistributionChart', () => {
   })
 
   const testViews = [
-    { title: 'License Type Distribution: Total', viewType: LicenseDistributionViewType.TOTAL },
-    { title: 'License Type Distribution: By Admission Date', viewType: LicenseDistributionViewType.BY_ADMISSION_DATE },
-    { title: 'License Type Distribution: By Law School', viewType: LicenseDistributionViewType.BY_LAW_SCHOOL }
+    { testId: ChartTestId.LICENSE_DISTRIBUTION_TOTAL, viewType: LicenseDistributionViewType.TOTAL },
+    {
+      testId: ChartTestId.LICENSE_DISTRIBUTION_BY_ADMISSION_DATE,
+      viewType: LicenseDistributionViewType.BY_ADMISSION_DATE
+    },
+    { testId: ChartTestId.LICENSE_DISTRIBUTION_BY_LAW_SCHOOL, viewType: LicenseDistributionViewType.BY_LAW_SCHOOL }
   ]
 
-  testViews.forEach(({ title, viewType }) => {
+  testViews.forEach(({ testId, viewType }) => {
     describe(`${viewType} view`, () => {
       it('renders without crashing', () => {
         const data = calculateLicenseDistribution(rows, viewType)
 
         render(<LicenseDistributionChart data={data} rows={rows} viewType={viewType} />)
 
-        expect(screen.getByTitle(title)).toBeInTheDocument()
+        expect(screen.getByTestId(testId)).toBeInTheDocument()
       })
 
       it('displays correct data labels', () => {

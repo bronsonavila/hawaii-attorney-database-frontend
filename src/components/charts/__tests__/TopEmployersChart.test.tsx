@@ -3,7 +3,7 @@ import { loadTestData } from '../../../utils/testUtils'
 import { render, screen } from '@testing-library/react'
 import { Row } from '../../../App'
 import { TopEmployersChart } from '../TopEmployersChart'
-import { TopEmployersViewType } from '../../../types/chartTypes'
+import { ChartTestId, TopEmployersViewType } from '../../../types/chartTypes'
 
 describe('TopEmployersChart', () => {
   let rows: Row[] = []
@@ -13,19 +13,19 @@ describe('TopEmployersChart', () => {
   })
 
   const testViews = [
-    { title: 'Top Employers: Total', viewType: TopEmployersViewType.TOTAL },
-    { title: 'Top Employers: By Admission Date', viewType: TopEmployersViewType.BY_ADMISSION_DATE },
-    { title: 'Top Employers: By Law School', viewType: TopEmployersViewType.BY_LAW_SCHOOL }
+    { testId: ChartTestId.TOP_EMPLOYERS_TOTAL, viewType: TopEmployersViewType.TOTAL },
+    { testId: ChartTestId.TOP_EMPLOYERS_BY_ADMISSION_DATE, viewType: TopEmployersViewType.BY_ADMISSION_DATE },
+    { testId: ChartTestId.TOP_EMPLOYERS_BY_LAW_SCHOOL, viewType: TopEmployersViewType.BY_LAW_SCHOOL }
   ]
 
-  testViews.forEach(({ viewType, title }) => {
+  testViews.forEach(({ testId, viewType }) => {
     describe(`${viewType} view`, () => {
       it('renders without crashing', () => {
         const data = calculateTopEmployers(rows, viewType)
 
         render(<TopEmployersChart data={data} viewType={viewType} />)
 
-        expect(screen.getByTitle(title)).toBeInTheDocument()
+        expect(screen.getByTestId(testId)).toBeInTheDocument()
       })
     })
   })

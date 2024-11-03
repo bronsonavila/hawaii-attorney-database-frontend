@@ -1,5 +1,5 @@
 import { BarAdmissionsChart } from '../BarAdmissionsChart'
-import { BarAdmissionsViewType } from '../../../types/chartTypes'
+import { BarAdmissionsViewType, ChartTestId } from '../../../types/chartTypes'
 import { calculateBarAdmissions } from '../../../utils/chartUtils'
 import { loadTestData } from '../../../utils/testUtils'
 import { render, screen } from '@testing-library/react'
@@ -13,19 +13,19 @@ describe('BarAdmissionsChart', () => {
   })
 
   const testViews = [
-    { title: 'Admissions Over Time: Total', viewType: BarAdmissionsViewType.TOTAL },
-    { title: 'Admissions Over Time: By License Type', viewType: BarAdmissionsViewType.BY_LICENSE_TYPE },
-    { title: 'Admissions Over Time: By Law School', viewType: BarAdmissionsViewType.BY_LAW_SCHOOL }
+    { testId: ChartTestId.BAR_ADMISSIONS_TOTAL, viewType: BarAdmissionsViewType.TOTAL },
+    { testId: ChartTestId.BAR_ADMISSIONS_BY_LICENSE_TYPE, viewType: BarAdmissionsViewType.BY_LICENSE_TYPE },
+    { testId: ChartTestId.BAR_ADMISSIONS_BY_LAW_SCHOOL, viewType: BarAdmissionsViewType.BY_LAW_SCHOOL }
   ]
 
-  testViews.forEach(({ viewType, title }) => {
+  testViews.forEach(({ testId, viewType }) => {
     describe(`${viewType} view`, () => {
       it('renders without crashing', () => {
         const data = calculateBarAdmissions(rows, viewType)
 
         render(<BarAdmissionsChart data={data} rows={rows} viewType={viewType} />)
 
-        expect(screen.getByTitle(title)).toBeInTheDocument()
+        expect(screen.getByTestId(testId)).toBeInTheDocument()
       })
     })
   })

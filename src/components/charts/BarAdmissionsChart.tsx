@@ -1,4 +1,4 @@
-import { BarAdmissionsViewType } from '../../types/chartTypes'
+import { BarAdmissionsViewType, ChartTestId } from '../../types/chartTypes'
 import { BarChart } from '@mui/x-charts'
 import { FC } from 'react'
 import { getTopLawSchools } from '../../utils/chartUtils'
@@ -34,6 +34,7 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
 
     return (
       <BarChart
+        data-testid={ChartTestId.BAR_ADMISSIONS_BY_LAW_SCHOOL}
         grid={{ horizontal: true }}
         series={schools.map(school => ({
           color: lawSchoolColors[school],
@@ -42,7 +43,6 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
-        title="Admissions Over Time: By Law School"
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
     )
@@ -55,10 +55,10 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
 
     return (
       <BarChart
+        data-testid={ChartTestId.BAR_ADMISSIONS_TOTAL}
         grid={{ horizontal: true }}
         series={[{ color: TEAL_NAVY[1][0], data: attorneyData.map(d => d.total), label: 'Count' }]}
         slotProps={{ legend: { hidden: true } }}
-        title="Admissions Over Time: Total"
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
     )
@@ -73,6 +73,7 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
 
     return (
       <BarChart
+        data-testid={ChartTestId.BAR_ADMISSIONS_BY_LICENSE_TYPE}
         grid={{ horizontal: true }}
         series={licenseTypes.map(type => ({
           color: LICENSE_TYPE_COLORS[type],
@@ -81,7 +82,6 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
-        title="Admissions Over Time: By License Type"
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
     )

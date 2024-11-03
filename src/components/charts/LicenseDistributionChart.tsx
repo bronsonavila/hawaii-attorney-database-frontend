@@ -2,7 +2,7 @@ import { BarChart } from '@mui/x-charts'
 import { FC } from 'react'
 import { getTopLawSchools } from '../../utils/chartUtils'
 import { LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
-import { LicenseDistributionViewType } from '../../types/chartTypes'
+import { ChartTestId, LicenseDistributionViewType } from '../../types/chartTypes'
 import { Row } from '../../App'
 import { TEAL_NAVY, ROSE_VIOLET } from '../../constants/colors'
 
@@ -16,13 +16,13 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
   if (viewType === LicenseDistributionViewType.TOTAL) {
     return (
       <BarChart
+        data-testid={ChartTestId.LICENSE_DISTRIBUTION_TOTAL}
         dataset={data}
         grid={{ vertical: true }}
         layout="horizontal"
         margin={{ left: 236 }}
         series={[{ dataKey: 'value', label: 'Count', color: TEAL_NAVY[1][0] }]}
         slotProps={{ legend: { hidden: true } }}
-        title="License Type Distribution: Total"
         yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
       />
     )
@@ -39,6 +39,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
 
     return (
       <BarChart
+        data-testid={ChartTestId.LICENSE_DISTRIBUTION_BY_LAW_SCHOOL}
         dataset={data}
         grid={{ vertical: true }}
         layout="horizontal"
@@ -50,7 +51,6 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
-        title="License Type Distribution: By Law School"
         yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
       />
     )
@@ -76,6 +76,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
 
     return (
       <BarChart
+        data-testid={ChartTestId.LICENSE_DISTRIBUTION_BY_ADMISSION_DATE}
         dataset={data}
         grid={{ vertical: true }}
         layout="horizontal"
@@ -87,7 +88,6 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
           stack: 'total'
         }))}
         slotProps={{ legend: { hidden: true } }}
-        title="License Type Distribution: By Admission Date"
         yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
       />
     )
