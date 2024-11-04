@@ -26,8 +26,6 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
   }
 
   if (viewType === TopEmployersViewType.BY_LAW_SCHOOL) {
-    if (!data.length) return null
-
     const categories = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'count')
 
     const lawSchoolColors = Object.fromEntries(
@@ -54,8 +52,6 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
   }
 
   if (viewType === TopEmployersViewType.BY_ADMISSION_DATE) {
-    if (!data.length) return null
-
     const categoryColorPalette = [...TEAL_NAVY[7]]
 
     const decades = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'count')

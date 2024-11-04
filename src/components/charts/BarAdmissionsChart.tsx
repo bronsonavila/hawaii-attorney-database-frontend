@@ -22,8 +22,6 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
   if (viewType === BarAdmissionsViewType.BY_LAW_SCHOOL) {
     const attorneyData = data as { year: string; count: number; [key: string]: number | string | undefined }[]
 
-    if (!attorneyData.length) return null
-
     const topLawSchools = getTopLawSchools(rows)
 
     const schools = [...topLawSchools, 'Other', 'Unknown']
@@ -50,8 +48,6 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
 
   if (viewType === BarAdmissionsViewType.TOTAL) {
     const attorneyData = data as { year: string; count: number }[]
-
-    if (!attorneyData.length) return null
 
     return (
       <BarChart
