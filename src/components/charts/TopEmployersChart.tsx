@@ -84,6 +84,4 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
       />
     )
   }
-
-  return null
 }

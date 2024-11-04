@@ -51,9 +51,6 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
 
       case ChartType.TOP_EMPLOYERS:
         return calculateTopEmployers(rows, topEmployersViewType)
-
-      default:
-        return []
     }
   }, [barAdmissionsViewType, chartType, licenseDistributionViewType, rows, topEmployersViewType])
 
@@ -67,9 +64,6 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
 
       case ChartType.TOP_EMPLOYERS:
         return <TopEmployersChart data={data} viewType={topEmployersViewType} />
-
-      default:
-        return null
     }
   }, [barAdmissionsViewType, chartType, data, licenseDistributionViewType, rows, topEmployersViewType])
 

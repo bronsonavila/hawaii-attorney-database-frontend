@@ -86,6 +86,4 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
       />
     )
   }
-
-  return null
 }

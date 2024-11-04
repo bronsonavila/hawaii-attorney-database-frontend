@@ -92,6 +92,4 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
       />
     )
   }
-
-  return null
 }
