@@ -140,7 +140,7 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
 }
 
 export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewType): any[] => {
-  const suffixes = ['A Law Corporation', 'A Law Corp.', 'A Law Corp', 'AAL', 'ALC', 'LLLC', 'LLLP', 'LLP', '& Pettit']
+  const suffixes = ['A Law Corporation', 'A Law Corp.', 'A Law Corp', 'AAL', 'ALC', 'LLLC', 'LLLP', 'LLP']
 
   const stripSuffixes = (name: string) => {
     suffixes.forEach(suffix => {
