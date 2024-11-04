@@ -9,6 +9,7 @@
     "build": "tsc -b && vite build",
     "dev": "vite",
     "lint": "eslint .",
+    "netlify-build": "yarn run test:ci && yarn run build",
     "preview": "vite preview",
     "test:ci": "vitest run",
     "test:coverage": "vitest run --coverage",
