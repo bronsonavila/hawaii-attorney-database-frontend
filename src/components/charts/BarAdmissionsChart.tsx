@@ -7,7 +7,7 @@ import { ROSE_VIOLET, AMBER_BROWN, TEAL_NAVY } from '../../constants/colors'
 import { Row } from '../../App'
 
 interface BarAdmissionsChartProps {
-  data: { year: string; total: number; [key: string]: number | string | undefined }[]
+  data: { year: string; count: number; [key: string]: number | string | undefined }[]
   rows: Row[]
   viewType: BarAdmissionsViewType
 }
@@ -20,7 +20,7 @@ const LICENSE_TYPE_COLORS = Object.fromEntries(
 
 export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, viewType }) => {
   if (viewType === BarAdmissionsViewType.BY_LAW_SCHOOL) {
-    const attorneyData = data as { year: string; total: number; [key: string]: number | string | undefined }[]
+    const attorneyData = data as { year: string; count: number; [key: string]: number | string | undefined }[]
 
     if (!attorneyData.length) return null
 
@@ -40,7 +40,7 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
           color: lawSchoolColors[school],
           data: attorneyData.map(d => d[school] as number),
           label: school,
-          stack: 'total'
+          stack: 'count'
         }))}
         slotProps={{ legend: { hidden: true } }}
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
@@ -49,7 +49,7 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
   }
 
   if (viewType === BarAdmissionsViewType.TOTAL) {
-    const attorneyData = data as { year: string; total: number }[]
+    const attorneyData = data as { year: string; count: number }[]
 
     if (!attorneyData.length) return null
 
@@ -57,7 +57,7 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
       <BarChart
         data-testid={ChartTestId.BAR_ADMISSIONS_TOTAL}
         grid={{ horizontal: true }}
-        series={[{ color: TEAL_NAVY[1][0], data: attorneyData.map(d => d.total), label: 'Count' }]}
+        series={[{ color: TEAL_NAVY[1][0], data: attorneyData.map(d => d.count), label: 'Count' }]}
         slotProps={{ legend: { hidden: true } }}
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
@@ -65,10 +65,10 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
   }
 
   if (viewType === BarAdmissionsViewType.BY_LICENSE_TYPE) {
-    const attorneyData = data as { year: string; total: number; [key: string]: number | string | undefined }[]
+    const attorneyData = data as { year: string; count: number; [key: string]: number | string | undefined }[]
 
     const licenseTypes = Object.keys(attorneyData[0])
-      .filter(key => key !== 'year' && key !== 'total')
+      .filter(key => key !== 'year' && key !== 'count')
       .sort((a, b) => LICENSE_TYPE_ORDER.indexOf(a) - LICENSE_TYPE_ORDER.indexOf(b))
 
     return (
@@ -79,7 +79,7 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
           color: LICENSE_TYPE_COLORS[type],
           data: attorneyData.map(d => d[type] as number),
           label: type,
-          stack: 'total'
+          stack: 'count'
         }))}
         slotProps={{ legend: { hidden: true } }}
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}

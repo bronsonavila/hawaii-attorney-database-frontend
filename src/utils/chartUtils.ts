@@ -5,7 +5,7 @@ import { Row } from '../App'
 export const calculateBarAdmissions = (
   rows: Row[],
   viewType: BarAdmissionsViewType
-): { total: number; year: string; [key: string]: number | string | undefined }[] => {
+): { count: number; year: string; [key: string]: number | string | undefined }[] => {
   const topLawSchools = getTopLawSchools(rows)
 
   const barAdmissions = rows.reduce((result, row) => {
@@ -13,10 +13,10 @@ export const calculateBarAdmissions = (
       const year = new Date(row.barAdmissionDate).getFullYear().toString()
 
       if (!result[year]) {
-        result[year] = { total: 0 }
+        result[year] = { count: 0 }
       }
 
-      result[year]['total'] += 1
+      result[year].count += 1
 
       if (viewType === BarAdmissionsViewType.BY_LAW_SCHOOL) {
         let lawSchool = row.lawSchool?.trim() || 'Unknown'
@@ -47,18 +47,18 @@ export const calculateBarAdmissions = (
         const schools = [...topLawSchools, 'Other', 'Unknown']
 
         return {
-          total: types['total'],
+          count: types.count,
           year,
           ...schools.reduce((result, school) => ({ ...result, [school]: types[school] || 0 }), {})
         }
       } else if (viewType === BarAdmissionsViewType.BY_LICENSE_TYPE) {
         return {
-          total: types['total'],
+          count: types.count,
           year,
           ...LICENSE_TYPE_ORDER.reduce((result, type) => ({ ...result, [type]: types[type] || 0 }), {})
         }
       } else {
-        return { total: types['total'], year }
+        return { count: types.count, year }
       }
     })
     .sort((a, b) => a.year.localeCompare(b.year))
@@ -69,10 +69,10 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
 
   const distribution = rows.reduce((result, row) => {
     if (!result[row.licenseType]) {
-      result[row.licenseType] = { total: 0 }
+      result[row.licenseType] = { count: 0 }
     }
 
-    result[row.licenseType].total += 1
+    result[row.licenseType].count += 1
 
     if (viewType === LicenseDistributionViewType.BY_LAW_SCHOOL) {
       let lawSchool = row.lawSchool?.trim() || 'Unknown'
@@ -101,7 +101,7 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
 
   if (viewType === LicenseDistributionViewType.TOTAL) {
     return Object.entries(distribution)
-      .map(([licenseType, { total }]) => ({ licenseType, value: total }))
+      .map(([licenseType, { count }]) => ({ licenseType, value: count }))
       .sort((a, b) => b.value - a.value)
   } else if (viewType === LicenseDistributionViewType.BY_LAW_SCHOOL) {
     const schools = [...topLawSchools, 'Other', 'Unknown']
@@ -109,16 +109,16 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
     return Object.entries(distribution)
       .map(([licenseType, data]) => ({
         licenseType,
-        total: data.total,
+        count: data.count,
         ...schools.reduce((result, school) => ({ ...result, [school]: data[school] || 0 }), {})
       }))
-      .sort((a, b) => b.total - a.total)
+      .sort((a, b) => b.count - a.count)
   } else {
     const categories = new Set<string>()
 
     Object.values(distribution).forEach(data => {
       Object.keys(data).forEach(key => {
-        if (key !== 'total') categories.add(key)
+        if (key !== 'count') categories.add(key)
       })
     })
 
@@ -132,10 +132,10 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: LicenseDistr
     return Object.entries(distribution)
       .map(([licenseType, data]) => ({
         licenseType,
-        total: data.total,
+        count: data.count,
         ...sortedCategories.reduce((result, category) => ({ ...result, [category]: data[category] || 0 }), {})
       }))
-      .sort((a, b) => b.total - a.total)
+      .sort((a, b) => b.count - a.count)
   }
 }
 
@@ -181,10 +181,10 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
         const employerName = stripSuffixes(row.employer)
 
         if (!result[employerName]) {
-          result[employerName] = { total: 0 }
+          result[employerName] = { count: 0 }
         }
 
-        result[employerName].total += 1
+        result[employerName].count += 1
 
         let lawSchool = row.lawSchool?.trim() || 'Unknown'
 
@@ -200,15 +200,15 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
     return Object.entries(firms)
       .map(([firm, data]) => ({
         label: firm,
-        total: data.total,
+        count: data.count,
         ...topLawSchools.reduce((result, school) => ({ ...result, [school]: data[school] || 0 }), {}),
         Other:
           Object.entries(data)
-            .filter(([key]) => key !== 'total' && !topLawSchools.includes(key) && key !== 'Unknown')
+            .filter(([key]) => key !== 'count' && !topLawSchools.includes(key) && key !== 'Unknown')
             .reduce((sum, [, value]) => sum + value, 0) || 0,
         Unknown: data['Unknown'] || 0
       }))
-      .sort((a, b) => b.total - a.total)
+      .sort((a, b) => b.count - a.count)
       .slice(0, 25)
   } else if (viewType === TopEmployersViewType.BY_ADMISSION_DATE) {
     const firms = rows
@@ -224,10 +224,10 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
           const decadeLabel = `${decade}s`
 
           if (!result[employerName]) {
-            result[employerName] = { total: 0 }
+            result[employerName] = { count: 0 }
           }
 
-          result[employerName].total += 1
+          result[employerName].count += 1
           result[employerName][decadeLabel] = (result[employerName][decadeLabel] || 0) + 1
         }
 
@@ -237,12 +237,12 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
     return Object.entries(firms)
       .map(([firm, data]) => ({
         label: firm,
-        total: data.total,
+        count: data.count,
         ...Object.keys(data)
-          .filter(key => key !== 'total')
+          .filter(key => key !== 'count')
           .reduce((result, decade) => ({ ...result, [decade]: data[decade] }), {})
       }))
-      .sort((a, b) => b.total - a.total)
+      .sort((a, b) => b.count - a.count)
       .slice(0, 25)
   }
 

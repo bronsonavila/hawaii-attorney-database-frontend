@@ -28,7 +28,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
   if (viewType === TopEmployersViewType.BY_LAW_SCHOOL) {
     if (!data.length) return null
 
-    const categories = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'total')
+    const categories = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'count')
 
     const lawSchoolColors = Object.fromEntries(
       categories.map((school, index) => [school, LAW_SCHOOL_COLOR_PALETTE[index % LAW_SCHOOL_COLOR_PALETTE.length]])
@@ -45,7 +45,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
           color: lawSchoolColors[school],
           dataKey: school,
           label: school,
-          stack: 'total'
+          stack: 'count'
         }))}
         slotProps={{ legend: { hidden: true } }}
         yAxis={[{ dataKey: 'label', scaleType: 'band' }]}
@@ -58,7 +58,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
 
     const categoryColorPalette = [...TEAL_NAVY[7]]
 
-    const decades = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'total')
+    const decades = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'count')
 
     const decadeColors = decades.reduce((acc, decade, index) => {
       acc[decade] = categoryColorPalette[index % categoryColorPalette.length]
@@ -77,7 +77,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
           color: decadeColors[decade],
           dataKey: decade,
           label: decade,
-          stack: 'total'
+          stack: 'count'
         }))}
         slotProps={{ legend: { hidden: true } }}
         yAxis={[{ dataKey: 'label', scaleType: 'band' }]}

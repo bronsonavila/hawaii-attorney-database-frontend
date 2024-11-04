@@ -48,7 +48,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
           color: lawSchoolColors[school],
           dataKey: school,
           label: school,
-          stack: 'total'
+          stack: 'count'
         }))}
         slotProps={{ legend: { hidden: true } }}
         yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
@@ -58,7 +58,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
 
   if (viewType === LicenseDistributionViewType.BY_ADMISSION_DATE) {
     const categories = Object.keys(data[0])
-      .filter(key => key !== 'licenseType' && key !== 'total')
+      .filter(key => key !== 'licenseType' && key !== 'count')
       .sort((a, b) => {
         if (a === 'Unknown' || a === 'No Admission Date') return -1
         if (b === 'Unknown' || b === 'No Admission Date') return 1
@@ -85,7 +85,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
           color: categoryColors[category],
           dataKey: category,
           label: category,
-          stack: 'total'
+          stack: 'count'
         }))}
         slotProps={{ legend: { hidden: true } }}
         yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
