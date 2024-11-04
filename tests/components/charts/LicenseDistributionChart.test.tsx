@@ -1,15 +1,16 @@
-import { calculateLicenseDistribution, getUniqueLicenseTypes } from '../../../utils/chartUtils'
-import { LicenseDistributionChart } from '../LicenseDistributionChart'
-import { ChartTestId, LicenseDistributionViewType } from '../../../types/chartTypes'
-import { loadTestData } from '../../../utils/testUtils'
+import { calculateLicenseDistribution, getUniqueLicenseTypes } from '../../../src/utils/chartUtils'
+import { LicenseDistributionChart } from '../../../src/components/charts/LicenseDistributionChart'
+import { ChartTestId, LicenseDistributionViewType } from '../../../src/types/chartTypes'
+import { loadTestRows } from '../../utils/testUtils'
 import { render, screen } from '@testing-library/react'
-import { Row } from '../../../App'
+import { Row } from '../../../src/App'
+import React from 'react'
 
 describe('LicenseDistributionChart', () => {
   let rows: Row[] = []
 
   beforeAll(() => {
-    rows = loadTestData()
+    rows = loadTestRows()
   })
 
   const testViews = [

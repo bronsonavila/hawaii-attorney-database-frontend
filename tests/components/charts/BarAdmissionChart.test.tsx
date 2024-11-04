@@ -1,15 +1,16 @@
-import { BarAdmissionsChart } from '../BarAdmissionsChart'
-import { BarAdmissionsViewType, ChartTestId } from '../../../types/chartTypes'
-import { calculateBarAdmissions } from '../../../utils/chartUtils'
-import { loadTestData } from '../../../utils/testUtils'
+import { BarAdmissionsChart } from '../../../src/components/charts/BarAdmissionsChart'
+import { BarAdmissionsViewType, ChartTestId } from '../../../src/types/chartTypes'
+import { calculateBarAdmissions } from '../../../src/utils/chartUtils'
+import { loadTestRows } from '../../utils/testUtils'
 import { render, screen } from '@testing-library/react'
-import { Row } from '../../../App'
+import { Row } from '../../../src/App'
+import React from 'react'
 
 describe('BarAdmissionsChart', () => {
   let rows: Row[] = []
 
   beforeAll(() => {
-    rows = loadTestData()
+    rows = loadTestRows()
   })
 
   const testViews = [

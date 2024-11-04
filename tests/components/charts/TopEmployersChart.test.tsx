@@ -1,15 +1,16 @@
-import { calculateTopEmployers } from '../../../utils/chartUtils'
-import { loadTestData } from '../../../utils/testUtils'
+import { calculateTopEmployers } from '../../../src/utils/chartUtils'
+import { ChartTestId, TopEmployersViewType } from '../../../src/types/chartTypes'
+import { loadTestRows } from '../../utils/testUtils'
 import { render, screen } from '@testing-library/react'
-import { Row } from '../../../App'
-import { TopEmployersChart } from '../TopEmployersChart'
-import { ChartTestId, TopEmployersViewType } from '../../../types/chartTypes'
+import { Row } from '../../../src/App'
+import { TopEmployersChart } from '../../../src/components/charts/TopEmployersChart'
+import React from 'react'
 
 describe('TopEmployersChart', () => {
   let rows: Row[] = []
 
   beforeAll(() => {
-    rows = loadTestData()
+    rows = loadTestRows()
   })
 
   const testViews = [
