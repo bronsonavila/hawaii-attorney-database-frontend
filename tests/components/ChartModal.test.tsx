@@ -1,4 +1,4 @@
-import { renderChartModal } from '../../utils/testUtils'
+import { renderChartModal } from '../utils/testUtils'
 import { screen, fireEvent, act } from '@testing-library/react'
 import { vi } from 'vitest'
 
