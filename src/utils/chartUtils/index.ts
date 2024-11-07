@@ -1,6 +1,6 @@
-import { BarAdmissionsViewType, LicenseDistributionViewType, TopEmployersViewType } from '../types/chartTypes'
-import { LICENSE_TYPE_ORDER } from '../constants/chartConstants'
-import { Row } from '../App'
+import { BarAdmissionsViewType, LicenseDistributionViewType, TopEmployersViewType } from '../../types/chartTypes'
+import { LICENSE_TYPE_ORDER } from '../../constants/chartConstants'
+import { Row } from '../../App'
 
 export const calculateBarAdmissions = (
   rows: Row[],
@@ -293,5 +293,5 @@ export const stripEmployerSuffixes = (name: string): string => {
   return name
     .replace(suffixPattern, ' ')
     .trim()
-    .replace(/(?<!Inc)[.,\s]+$/, '')
+    .replace(/(?<!Inc|Comm)[.,\s]+$/, '')
 }

@@ -3,7 +3,8 @@ import {
   BarAdmissionsViewType,
   ChartType,
   LicenseDistributionViewType,
-  TopEmployersViewType
+  TopEmployersViewType,
+  TopGovernmentEmployersViewType
 } from '../../types/chartTypes'
 import {
   Box,
@@ -24,6 +25,8 @@ import { FC, useMemo, useState } from 'react'
 import { LicenseDistributionChart } from './LicenseDistributionChart'
 import { Row } from '../../App'
 import { TopEmployersChart } from './TopEmployersChart'
+import { TopGovernmentEmployersChart } from './TopGovernmentEmployersChart'
+import { calculateTopGovernmentEmployers } from '../../utils/chartUtils/topGovernmentEmployers'
 
 interface ChartModalProps {
   isOpen: boolean
@@ -40,6 +43,9 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
     LicenseDistributionViewType.TOTAL
   )
   const [topEmployersViewType, setTopEmployersViewType] = useState<TopEmployersViewType>(TopEmployersViewType.TOTAL)
+  const [topGovernmentEmployersViewType, setTopGovernmentEmployersViewType] = useState<TopGovernmentEmployersViewType>(
+    TopGovernmentEmployersViewType.TOTAL
+  )
 
   const data = useMemo(() => {
     switch (chartType) {
@@ -51,8 +57,18 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
 
       case ChartType.TOP_EMPLOYERS:
         return calculateTopEmployers(rows, topEmployersViewType)
+
+      case ChartType.TOP_GOVERNMENT_EMPLOYERS:
+        return calculateTopGovernmentEmployers(rows, topGovernmentEmployersViewType)
     }
-  }, [barAdmissionsViewType, chartType, licenseDistributionViewType, rows, topEmployersViewType])
+  }, [
+    barAdmissionsViewType,
+    chartType,
+    licenseDistributionViewType,
+    rows,
+    topEmployersViewType,
+    topGovernmentEmployersViewType
+  ])
 
   const chartElement = useMemo(() => {
     switch (chartType) {
@@ -64,8 +80,19 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
 
       case ChartType.TOP_EMPLOYERS:
         return <TopEmployersChart data={data} viewType={topEmployersViewType} />
+
+      case ChartType.TOP_GOVERNMENT_EMPLOYERS:
+        return <TopGovernmentEmployersChart data={data} viewType={topGovernmentEmployersViewType} />
     }
-  }, [barAdmissionsViewType, chartType, data, licenseDistributionViewType, rows, topEmployersViewType])
+  }, [
+    barAdmissionsViewType,
+    chartType,
+    data,
+    licenseDistributionViewType,
+    rows,
+    topEmployersViewType,
+    topGovernmentEmployersViewType
+  ])
 
   const handleChartTypeChange = (event: SelectChangeEvent<ChartType>) => {
     const newChartType = event.target.value as ChartType
@@ -89,7 +116,7 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
       >
         <Box sx={{ pt: 4, pl: 4, pr: 6 }}>
           <Box sx={{ alignItems: 'end', display: 'flex', gap: 4 }}>
-            <FormControl sx={{ width: 360 }}>
+            <FormControl sx={{ width: 436 }}>
               <FormLabel sx={{ fontSize: 12, mb: 1 }}>Select Chart</FormLabel>
 
               <Select onChange={handleChartTypeChange} size="small" value={chartType}>
@@ -98,6 +125,10 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
                 <MenuItem value={ChartType.LICENSE_DISTRIBUTION}>License Type Distribution</MenuItem>
 
                 <MenuItem value={ChartType.TOP_EMPLOYERS}>Top 25 Employers (Non-Government)</MenuItem>
+
+                <MenuItem value={ChartType.TOP_GOVERNMENT_EMPLOYERS}>
+                  Top 25 Hawaii Government Employers (Non-Federal)
+                </MenuItem>
               </Select>
             </FormControl>
 
@@ -188,6 +219,33 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
 
                   <FormControlLabel
                     value={TopEmployersViewType.BY_LAW_SCHOOL}
+                    control={<Radio size="small" />}
+                    label="Law School"
+                  />
+                </RadioGroup>
+              )}
+
+              {chartType === ChartType.TOP_GOVERNMENT_EMPLOYERS && (
+                <RadioGroup
+                  onChange={event =>
+                    setTopGovernmentEmployersViewType(event.target.value as TopGovernmentEmployersViewType)
+                  }
+                  row
+                  sx={{ gap: 2 }}
+                  value={topGovernmentEmployersViewType}
+                >
+                  <FormControlLabel
+                    value={TopGovernmentEmployersViewType.TOTAL}
+                    control={<Radio size="small" />}
+                    label="Total Count"
+                  />
+                  <FormControlLabel
+                    value={TopGovernmentEmployersViewType.BY_ADMISSION_DATE}
+                    control={<Radio size="small" />}
+                    label="Admission Date"
+                  />
+                  <FormControlLabel
+                    value={TopGovernmentEmployersViewType.BY_LAW_SCHOOL}
                     control={<Radio size="small" />}
                     label="Law School"
                   />
