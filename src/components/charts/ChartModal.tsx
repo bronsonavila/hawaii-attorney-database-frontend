@@ -22,20 +22,6 @@ import { LicenseDistributionChart } from './LicenseDistributionChart'
 import { Row } from '../../App'
 import { TopEmployersChart } from './TopEmployersChart'
 
-// Interfaces
-
-interface ChartModalProps {
-  isOpen: boolean
-  onClose: () => void
-  paletteMode: PaletteMode
-  rows: Row[]
-}
-
-interface RadioOption {
-  label: string
-  value: ViewType
-}
-
 // Constants
 
 const FORM_LABEL_SX = { fontSize: 12, mb: 1 }
@@ -67,6 +53,20 @@ const VIEW_TYPE_OPTIONS: Record<ChartType, RadioOption[]> = {
     { label: 'Admission Date', value: ViewType.BY_ADMISSION_DATE },
     { label: 'Law School', value: ViewType.BY_LAW_SCHOOL }
   ]
+}
+
+// Interfaces
+
+interface ChartModalProps {
+  isOpen: boolean
+  onClose: () => void
+  paletteMode: PaletteMode
+  rows: Row[]
+}
+
+interface RadioOption {
+  label: string
+  value: ViewType
 }
 
 // Component

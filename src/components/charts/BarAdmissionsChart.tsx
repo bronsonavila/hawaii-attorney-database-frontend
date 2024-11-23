@@ -7,6 +7,8 @@ import { LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '../../constants/ch
 import { ROSE_VIOLET, AMBER_BROWN, TEAL_NAVY } from '../../constants/colors'
 import { Row } from '../../App'
 
+const COMMON_CHART_PROPS = { grid: { horizontal: true }, slotProps: { legend: { hidden: true } } }
+
 interface BarAdmissionsChartProps {
   data: DatasetType
   rows: Row[]
@@ -27,15 +29,14 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
 
     return (
       <BarChart
+        {...COMMON_CHART_PROPS}
         data-testid={ChartTestId.BAR_ADMISSIONS_BY_LAW_SCHOOL}
-        grid={{ horizontal: true }}
         series={schools.map(school => ({
           color: lawSchoolColors[school],
           data: attorneyData.map(d => d[school] as number),
           label: school,
           stack: 'count'
         }))}
-        slotProps={{ legend: { hidden: true } }}
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
     )
@@ -46,10 +47,9 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
 
     return (
       <BarChart
+        {...COMMON_CHART_PROPS}
         data-testid={ChartTestId.BAR_ADMISSIONS_TOTAL}
-        grid={{ horizontal: true }}
         series={[{ color: TEAL_NAVY[1][0], data: attorneyData.map(d => d.count), label: 'Count' }]}
-        slotProps={{ legend: { hidden: true } }}
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
     )
@@ -70,15 +70,14 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
 
     return (
       <BarChart
+        {...COMMON_CHART_PROPS}
         data-testid={ChartTestId.BAR_ADMISSIONS_BY_LICENSE_TYPE}
-        grid={{ horizontal: true }}
         series={licenseTypes.map(type => ({
           color: licenseTypeColors[type],
           data: attorneyData.map(d => d[type] as number),
           label: type,
           stack: 'count'
         }))}
-        slotProps={{ legend: { hidden: true } }}
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
       />
     )

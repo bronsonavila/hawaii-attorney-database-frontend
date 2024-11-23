@@ -7,6 +7,14 @@ import { LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
 import { Row } from '../../App'
 import { TEAL_NAVY, ROSE_VIOLET } from '../../constants/colors'
 
+const COMMON_CHART_PROPS = {
+  grid: { vertical: true },
+  layout: 'horizontal' as const,
+  margin: { left: 236 },
+  slotProps: { legend: { hidden: true } },
+  yAxis: [{ dataKey: 'licenseType', scaleType: 'band' as const }]
+}
+
 interface LicenseDistributionChartProps {
   data: DatasetType
   rows: Row[]
@@ -17,14 +25,10 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
   if (viewType === ViewType.TOTAL) {
     return (
       <BarChart
+        {...COMMON_CHART_PROPS}
         data-testid={ChartTestId.LICENSE_DISTRIBUTION_TOTAL}
         dataset={data}
-        grid={{ vertical: true }}
-        layout="horizontal"
-        margin={{ left: 236 }}
         series={[{ dataKey: 'value', label: 'Count', color: TEAL_NAVY[1][0] }]}
-        slotProps={{ legend: { hidden: true } }}
-        yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
       />
     )
   }
@@ -40,19 +44,15 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
 
     return (
       <BarChart
+        {...COMMON_CHART_PROPS}
         data-testid={ChartTestId.LICENSE_DISTRIBUTION_BY_LAW_SCHOOL}
         dataset={data}
-        grid={{ vertical: true }}
-        layout="horizontal"
-        margin={{ left: 236 }}
         series={schools.map(school => ({
           color: lawSchoolColors[school],
           dataKey: school,
           label: school,
           stack: 'count'
         }))}
-        slotProps={{ legend: { hidden: true } }}
-        yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
       />
     )
   }
@@ -77,19 +77,16 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
 
     return (
       <BarChart
+        {...COMMON_CHART_PROPS}
         data-testid={ChartTestId.LICENSE_DISTRIBUTION_BY_ADMISSION_DATE}
         dataset={data}
-        grid={{ vertical: true }}
         layout="horizontal"
-        margin={{ left: 236 }}
         series={categories.map(category => ({
           color: categoryColors[category],
           dataKey: category,
           label: category,
           stack: 'count'
         }))}
-        slotProps={{ legend: { hidden: true } }}
-        yAxis={[{ dataKey: 'licenseType', scaleType: 'band' }]}
       />
     )
   }
