@@ -1,7 +1,7 @@
 import { DatasetType } from '@mui/x-charts/internals'
 import { getTopLawSchools } from './commonUtils'
 import { Row } from '../../App'
-import { ViewType } from '../../types/chartTypes'
+import { ViewType } from '../../enums/chartEnums'
 
 export const calculateLicenseDistribution = (rows: Row[], viewType: ViewType): DatasetType => {
   const topLawSchools = getTopLawSchools(rows)

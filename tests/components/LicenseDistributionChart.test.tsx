@@ -1,5 +1,5 @@
 import { calculateLicenseDistribution } from '../../src/utils/charts/licenseDistributionUtils'
-import { ChartTestId, ViewType } from '../../src/types/chartTypes'
+import { ChartTestId, ViewType } from '../../src/enums/chartEnums'
 import { getUniqueLicenseTypes } from '../../src/utils/charts/commonUtils'
 import { LicenseDistributionChart } from '../../src/components/charts/LicenseDistributionChart'
 import { loadTestRows } from '../utils/testUtils'

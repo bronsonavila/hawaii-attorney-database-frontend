@@ -1,5 +1,5 @@
 import { calculateTopEmployers } from '../../src/utils/charts/topEmployersUtils'
-import { ChartTestId, ViewType } from '../../src/types/chartTypes'
+import { ChartTestId, ViewType } from '../../src/enums/chartEnums'
 import { loadTestRows } from '../utils/testUtils'
 import { render, screen } from '@testing-library/react'
 import { Row } from '../../src/App'

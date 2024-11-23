@@ -1,6 +1,6 @@
 import { BarAdmissionsChart } from '../../src/components/charts/BarAdmissionsChart'
-import { ChartTestId, ViewType } from '../../src/types/chartTypes'
 import { calculateBarAdmissions } from '../../src/utils/charts/barAdmissionsUtils'
+import { ChartTestId, ViewType } from '../../src/enums/chartEnums'
 import { loadTestRows } from '../utils/testUtils'
 import { render, screen } from '@testing-library/react'
 import { Row } from '../../src/App'

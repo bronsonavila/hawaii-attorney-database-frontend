@@ -17,8 +17,8 @@ export enum ChartType {
 }
 
 export enum ViewType {
-  TOTAL = 'total',
-  BY_LAW_SCHOOL = 'byLawSchool',
   BY_ADMISSION_DATE = 'byAdmissionDate',
-  BY_LICENSE_TYPE = 'byLicenseType'
+  BY_LAW_SCHOOL = 'byLawSchool',
+  BY_LICENSE_TYPE = 'byLicenseType',
+  TOTAL = 'total'
 }

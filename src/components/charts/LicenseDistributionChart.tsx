@@ -1,5 +1,5 @@
 import { BarChart } from '@mui/x-charts'
-import { ChartTestId, ViewType } from '../../types/chartTypes'
+import { ChartTestId, ViewType } from '../../enums/chartEnums'
 import { DatasetType } from '@mui/x-charts/internals'
 import { FC } from 'react'
 import { getTopLawSchools } from '../../utils/charts/commonUtils'
