@@ -1,11 +1,5 @@
 import { BarAdmissionsChart } from './BarAdmissionsChart'
 import {
-  BarAdmissionsViewType,
-  ChartType,
-  LicenseDistributionViewType,
-  TopEmployersViewType
-} from '../../types/chartTypes'
-import {
   Box,
   Button,
   FormControl,
@@ -19,11 +13,16 @@ import {
   Select,
   SelectChangeEvent
 } from '@mui/material'
-import { calculateBarAdmissions, calculateLicenseDistribution, calculateTopEmployers } from '../../utils/chartUtils'
-import { FC, useMemo, useState } from 'react'
+import { calculateBarAdmissions } from '../../utils/charts/barAdmissionsUtils'
+import { calculateLicenseDistribution } from '../../utils/charts/licenseDistributionUtils'
+import { calculateTopEmployers } from '../../utils/charts/topEmployersUtils'
+import { ChangeEvent, FC, useMemo, useState } from 'react'
+import { ChartType, ViewType } from '../../types/chartTypes'
 import { LicenseDistributionChart } from './LicenseDistributionChart'
 import { Row } from '../../App'
 import { TopEmployersChart } from './TopEmployersChart'
+
+// Interfaces
 
 interface ChartModalProps {
   isOpen: boolean
@@ -32,65 +31,96 @@ interface ChartModalProps {
   rows: Row[]
 }
 
+interface RadioOption {
+  label: string
+  value: ViewType
+}
+
+// Constants
+
+const FORM_LABEL_SX = { fontSize: 12, mb: 1 }
+
+const MODAL_BOX_SX = {
+  bgcolor: 'background.paper',
+  borderRadius: 2,
+  boxShadow: 24,
+  display: { xs: 'none', lg: 'revert' },
+  left: '50%',
+  position: 'absolute',
+  top: '50%',
+  transform: 'translate(-50%, -50%)'
+}
+
+const VIEW_TYPE_OPTIONS: Record<ChartType, RadioOption[]> = {
+  [ChartType.BAR_ADMISSIONS]: [
+    { value: ViewType.TOTAL, label: 'Total Count' },
+    { value: ViewType.BY_LICENSE_TYPE, label: 'License Type' },
+    { value: ViewType.BY_LAW_SCHOOL, label: 'Law School' }
+  ],
+  [ChartType.LICENSE_DISTRIBUTION]: [
+    { value: ViewType.TOTAL, label: 'Total Count' },
+    { value: ViewType.BY_ADMISSION_DATE, label: 'Admission Date' },
+    { value: ViewType.BY_LAW_SCHOOL, label: 'Law School' }
+  ],
+  [ChartType.TOP_EMPLOYERS]: [
+    { value: ViewType.TOTAL, label: 'Total Count' },
+    { value: ViewType.BY_ADMISSION_DATE, label: 'Admission Date' },
+    { value: ViewType.BY_LAW_SCHOOL, label: 'Law School' }
+  ]
+}
+
+// Component
+
 export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, rows }) => {
   const [chartType, setChartType] = useState<ChartType>(ChartType.BAR_ADMISSIONS)
-
-  const [barAdmissionsViewType, setBarAdmissionsViewType] = useState<BarAdmissionsViewType>(BarAdmissionsViewType.TOTAL)
-  const [licenseDistributionViewType, setLicenseDistributionViewType] = useState<LicenseDistributionViewType>(
-    LicenseDistributionViewType.TOTAL
-  )
-  const [topEmployersViewType, setTopEmployersViewType] = useState<TopEmployersViewType>(TopEmployersViewType.TOTAL)
-
-  const data = useMemo(() => {
-    switch (chartType) {
-      case ChartType.BAR_ADMISSIONS:
-        return calculateBarAdmissions(rows, barAdmissionsViewType)
-
-      case ChartType.LICENSE_DISTRIBUTION:
-        return calculateLicenseDistribution(rows, licenseDistributionViewType)
-
-      case ChartType.TOP_EMPLOYERS:
-        return calculateTopEmployers(rows, topEmployersViewType)
-    }
-  }, [barAdmissionsViewType, chartType, licenseDistributionViewType, rows, topEmployersViewType])
+  const [viewTypes, setViewTypes] = useState<Record<ChartType, ViewType>>({
+    [ChartType.BAR_ADMISSIONS]: ViewType.TOTAL,
+    [ChartType.LICENSE_DISTRIBUTION]: ViewType.TOTAL,
+    [ChartType.TOP_EMPLOYERS]: ViewType.TOTAL
+  })
 
   const chartElement = useMemo(() => {
+    const currentViewType = viewTypes[chartType]
+
     switch (chartType) {
       case ChartType.BAR_ADMISSIONS:
-        return <BarAdmissionsChart data={data} rows={rows} viewType={barAdmissionsViewType} />
+        return (
+          <BarAdmissionsChart
+            data={calculateBarAdmissions(rows, currentViewType)}
+            rows={rows}
+            viewType={currentViewType}
+          />
+        )
 
       case ChartType.LICENSE_DISTRIBUTION:
-        return <LicenseDistributionChart data={data} rows={rows} viewType={licenseDistributionViewType} />
+        return (
+          <LicenseDistributionChart
+            data={calculateLicenseDistribution(rows, currentViewType)}
+            rows={rows}
+            viewType={currentViewType}
+          />
+        )
 
       case ChartType.TOP_EMPLOYERS:
-        return <TopEmployersChart data={data} viewType={topEmployersViewType} />
+        return <TopEmployersChart data={calculateTopEmployers(rows, currentViewType)} viewType={currentViewType} />
     }
-  }, [barAdmissionsViewType, chartType, data, licenseDistributionViewType, rows, topEmployersViewType])
+  }, [chartType, rows, viewTypes])
 
   const handleChartTypeChange = (event: SelectChangeEvent<ChartType>) => {
-    const newChartType = event.target.value as ChartType
+    setChartType(event.target.value as ChartType)
+  }
 
-    setChartType(newChartType)
+  const handleViewTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setViewTypes(previous => ({ ...previous, [chartType]: event.target.value as ViewType }))
   }
 
   return (
     <Modal open={isOpen} onClose={onClose}>
-      <Box
-        sx={{
-          bgcolor: 'background.paper',
-          borderRadius: 2,
-          boxShadow: 24,
-          display: { xs: 'none', lg: 'revert' },
-          left: '50%',
-          position: 'absolute',
-          top: '50%',
-          transform: 'translate(-50%, -50%)'
-        }}
-      >
+      <Box sx={MODAL_BOX_SX}>
         <Box sx={{ pt: 4, pl: 4, pr: 6 }}>
           <Box sx={{ alignItems: 'end', display: 'flex', gap: 4 }}>
             <FormControl sx={{ width: 360 }}>
-              <FormLabel sx={{ fontSize: 12, mb: 1 }}>Select Chart</FormLabel>
+              <FormLabel sx={FORM_LABEL_SX}>Select Chart</FormLabel>
 
               <Select onChange={handleChartTypeChange} size="small" value={chartType}>
                 <MenuItem value={ChartType.BAR_ADMISSIONS}>Bar Admissions Over Time</MenuItem>
@@ -101,98 +131,26 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
               </Select>
             </FormControl>
 
-            <FormControl component="fieldset" sx={{ ml: 4, pb: '1px' }}>
+            <FormControl sx={{ ml: 4, pb: '1px' }}>
               <FormLabel
                 sx={{
-                  fontSize: 12,
-                  mb: 1,
-                  // Prevent MUI's default focus color from flickering in-and-out when clicking radio buttons.
+                  ...FORM_LABEL_SX,
                   '&.Mui-focused': { color: paletteMode === 'dark' ? '#ffffff99' : '#00000099' }
                 }}
               >
                 View Attorneys By
               </FormLabel>
 
-              {chartType === ChartType.BAR_ADMISSIONS && (
-                <RadioGroup
-                  onChange={event => setBarAdmissionsViewType(event.target.value as BarAdmissionsViewType)}
-                  row
-                  sx={{ gap: 2 }}
-                  value={barAdmissionsViewType}
-                >
+              <RadioGroup onChange={handleViewTypeChange} row sx={{ gap: 2 }} value={viewTypes[chartType]}>
+                {VIEW_TYPE_OPTIONS[chartType].map(option => (
                   <FormControlLabel
-                    value={BarAdmissionsViewType.TOTAL}
                     control={<Radio size="small" />}
-                    label="Total Count"
+                    key={option.value}
+                    label={option.label}
+                    value={option.value}
                   />
-
-                  <FormControlLabel
-                    value={BarAdmissionsViewType.BY_LICENSE_TYPE}
-                    control={<Radio size="small" />}
-                    label="License Type"
-                  />
-
-                  <FormControlLabel
-                    value={BarAdmissionsViewType.BY_LAW_SCHOOL}
-                    control={<Radio size="small" />}
-                    label="Law School"
-                  />
-                </RadioGroup>
-              )}
-
-              {chartType === ChartType.LICENSE_DISTRIBUTION && (
-                <RadioGroup
-                  onChange={event => setLicenseDistributionViewType(event.target.value as LicenseDistributionViewType)}
-                  row
-                  sx={{ gap: 2 }}
-                  value={licenseDistributionViewType}
-                >
-                  <FormControlLabel
-                    value={LicenseDistributionViewType.TOTAL}
-                    control={<Radio size="small" />}
-                    label="Total Count"
-                  />
-
-                  <FormControlLabel
-                    value={LicenseDistributionViewType.BY_ADMISSION_DATE}
-                    control={<Radio size="small" />}
-                    label="Admission Date"
-                  />
-
-                  <FormControlLabel
-                    value={LicenseDistributionViewType.BY_LAW_SCHOOL}
-                    control={<Radio size="small" />}
-                    label="Law School"
-                  />
-                </RadioGroup>
-              )}
-
-              {chartType === ChartType.TOP_EMPLOYERS && (
-                <RadioGroup
-                  onChange={event => setTopEmployersViewType(event.target.value as TopEmployersViewType)}
-                  row
-                  sx={{ gap: 2 }}
-                  value={topEmployersViewType}
-                >
-                  <FormControlLabel
-                    value={TopEmployersViewType.TOTAL}
-                    control={<Radio size="small" />}
-                    label="Total Count"
-                  />
-
-                  <FormControlLabel
-                    value={TopEmployersViewType.BY_ADMISSION_DATE}
-                    control={<Radio size="small" />}
-                    label="Admission Date"
-                  />
-
-                  <FormControlLabel
-                    value={TopEmployersViewType.BY_LAW_SCHOOL}
-                    control={<Radio size="small" />}
-                    label="Law School"
-                  />
-                </RadioGroup>
-              )}
+                ))}
+              </RadioGroup>
             </FormControl>
           </Box>
         </Box>

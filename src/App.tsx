@@ -1,6 +1,6 @@
 import { createTheme, CssBaseline, GlobalStyles, PaletteMode, ThemeProvider, useMediaQuery } from '@mui/material'
 import { Footer } from './components/Footer'
-import { getUniqueLicenseTypes } from './utils/chartUtils'
+import { getUniqueLicenseTypes } from './utils/charts/commonUtils'
 import { GridColDef, DataGridPro } from '@mui/x-data-grid-pro'
 import { Toolbar } from './components/Toolbar'
 import { useEffect, useMemo, useState } from 'react'

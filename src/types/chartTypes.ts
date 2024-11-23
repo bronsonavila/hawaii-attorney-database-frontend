@@ -1,9 +1,3 @@
-export enum BarAdmissionsViewType {
-  BY_LAW_SCHOOL = 'byLawSchool',
-  BY_LICENSE_TYPE = 'byLicenseType',
-  TOTAL = 'total'
-}
-
 export enum ChartTestId {
   BAR_ADMISSIONS_BY_LAW_SCHOOL = 'bar-admissions-by-law-school-chart',
   BAR_ADMISSIONS_BY_LICENSE_TYPE = 'bar-admissions-by-license-type-chart',
@@ -22,14 +16,9 @@ export enum ChartType {
   TOP_EMPLOYERS = 'topEmployers'
 }
 
-export enum LicenseDistributionViewType {
-  BY_ADMISSION_DATE = 'byAdmissionDate',
+export enum ViewType {
+  TOTAL = 'total',
   BY_LAW_SCHOOL = 'byLawSchool',
-  TOTAL = 'total'
-}
-
-export enum TopEmployersViewType {
   BY_ADMISSION_DATE = 'byAdmissionDate',
-  BY_LAW_SCHOOL = 'byLawSchool',
-  TOTAL = 'total'
+  BY_LICENSE_TYPE = 'byLicenseType'
 }

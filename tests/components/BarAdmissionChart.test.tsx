@@ -1,6 +1,6 @@
 import { BarAdmissionsChart } from '../../src/components/charts/BarAdmissionsChart'
-import { BarAdmissionsViewType, ChartTestId } from '../../src/types/chartTypes'
-import { calculateBarAdmissions } from '../../src/utils/chartUtils'
+import { ChartTestId, ViewType } from '../../src/types/chartTypes'
+import { calculateBarAdmissions } from '../../src/utils/charts/barAdmissionsUtils'
 import { loadTestRows } from '../utils/testUtils'
 import { render, screen } from '@testing-library/react'
 import { Row } from '../../src/App'
@@ -14,9 +14,9 @@ describe('BarAdmissionsChart', () => {
   })
 
   const testViews = [
-    { testId: ChartTestId.BAR_ADMISSIONS_TOTAL, viewType: BarAdmissionsViewType.TOTAL },
-    { testId: ChartTestId.BAR_ADMISSIONS_BY_LICENSE_TYPE, viewType: BarAdmissionsViewType.BY_LICENSE_TYPE },
-    { testId: ChartTestId.BAR_ADMISSIONS_BY_LAW_SCHOOL, viewType: BarAdmissionsViewType.BY_LAW_SCHOOL }
+    { testId: ChartTestId.BAR_ADMISSIONS_TOTAL, viewType: ViewType.TOTAL },
+    { testId: ChartTestId.BAR_ADMISSIONS_BY_LICENSE_TYPE, viewType: ViewType.BY_LICENSE_TYPE },
+    { testId: ChartTestId.BAR_ADMISSIONS_BY_LAW_SCHOOL, viewType: ViewType.BY_LAW_SCHOOL }
   ]
 
   testViews.forEach(({ testId, viewType }) => {

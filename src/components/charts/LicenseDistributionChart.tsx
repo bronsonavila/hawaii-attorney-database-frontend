@@ -1,19 +1,20 @@
 import { BarChart } from '@mui/x-charts'
+import { ChartTestId, ViewType } from '../../types/chartTypes'
+import { DatasetType } from '@mui/x-charts/internals'
 import { FC } from 'react'
-import { getTopLawSchools } from '../../utils/chartUtils'
+import { getTopLawSchools } from '../../utils/charts/commonUtils'
 import { LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
-import { ChartTestId, LicenseDistributionViewType } from '../../types/chartTypes'
 import { Row } from '../../App'
 import { TEAL_NAVY, ROSE_VIOLET } from '../../constants/colors'
 
 interface LicenseDistributionChartProps {
-  data: any[]
+  data: DatasetType
   rows: Row[]
-  viewType: LicenseDistributionViewType
+  viewType: ViewType
 }
 
 export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ data, rows, viewType }) => {
-  if (viewType === LicenseDistributionViewType.TOTAL) {
+  if (viewType === ViewType.TOTAL) {
     return (
       <BarChart
         data-testid={ChartTestId.LICENSE_DISTRIBUTION_TOTAL}
@@ -28,7 +29,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
     )
   }
 
-  if (viewType === LicenseDistributionViewType.BY_LAW_SCHOOL) {
+  if (viewType === ViewType.BY_LAW_SCHOOL) {
     const topLawSchools = getTopLawSchools(rows)
 
     const schools = [...topLawSchools, 'Other', 'Unknown']
@@ -56,7 +57,7 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
     )
   }
 
-  if (viewType === LicenseDistributionViewType.BY_ADMISSION_DATE) {
+  if (viewType === ViewType.BY_ADMISSION_DATE) {
     const categories = Object.keys(data[0])
       .filter(key => key !== 'licenseType' && key !== 'count')
       .sort((a, b) => {

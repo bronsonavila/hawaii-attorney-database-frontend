@@ -1,16 +1,17 @@
 import { BarChart } from '@mui/x-charts'
+import { ChartTestId, ViewType } from '../../types/chartTypes'
+import { DatasetType } from '@mui/x-charts/internals'
 import { FC } from 'react'
 import { LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
 import { TEAL_NAVY } from '../../constants/colors'
-import { ChartTestId, TopEmployersViewType } from '../../types/chartTypes'
 
 interface TopEmployersChartProps {
-  data: any[]
-  viewType: TopEmployersViewType
+  data: DatasetType
+  viewType: ViewType
 }
 
 export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }) => {
-  if (viewType === TopEmployersViewType.TOTAL) {
+  if (viewType === ViewType.TOTAL) {
     return (
       <BarChart
         data-testid={ChartTestId.TOP_EMPLOYERS_TOTAL}
@@ -25,7 +26,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
     )
   }
 
-  if (viewType === TopEmployersViewType.BY_LAW_SCHOOL) {
+  if (viewType === ViewType.BY_LAW_SCHOOL) {
     const categories = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'count')
 
     const lawSchoolColors = Object.fromEntries(
@@ -51,7 +52,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
     )
   }
 
-  if (viewType === TopEmployersViewType.BY_ADMISSION_DATE) {
+  if (viewType === ViewType.BY_ADMISSION_DATE) {
     const categoryColorPalette = [...TEAL_NAVY[7]]
 
     const decades = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'count')

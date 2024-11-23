@@ -1,6 +1,7 @@
-import { calculateLicenseDistribution, getUniqueLicenseTypes } from '../../src/utils/chartUtils'
+import { calculateLicenseDistribution } from '../../src/utils/charts/licenseDistributionUtils'
+import { ChartTestId, ViewType } from '../../src/types/chartTypes'
+import { getUniqueLicenseTypes } from '../../src/utils/charts/commonUtils'
 import { LicenseDistributionChart } from '../../src/components/charts/LicenseDistributionChart'
-import { ChartTestId, LicenseDistributionViewType } from '../../src/types/chartTypes'
 import { loadTestRows } from '../utils/testUtils'
 import { render, screen } from '@testing-library/react'
 import { Row } from '../../src/App'
@@ -14,12 +15,9 @@ describe('LicenseDistributionChart', () => {
   })
 
   const testViews = [
-    { testId: ChartTestId.LICENSE_DISTRIBUTION_TOTAL, viewType: LicenseDistributionViewType.TOTAL },
-    {
-      testId: ChartTestId.LICENSE_DISTRIBUTION_BY_ADMISSION_DATE,
-      viewType: LicenseDistributionViewType.BY_ADMISSION_DATE
-    },
-    { testId: ChartTestId.LICENSE_DISTRIBUTION_BY_LAW_SCHOOL, viewType: LicenseDistributionViewType.BY_LAW_SCHOOL }
+    { testId: ChartTestId.LICENSE_DISTRIBUTION_TOTAL, viewType: ViewType.TOTAL },
+    { testId: ChartTestId.LICENSE_DISTRIBUTION_BY_ADMISSION_DATE, viewType: ViewType.BY_ADMISSION_DATE },
+    { testId: ChartTestId.LICENSE_DISTRIBUTION_BY_LAW_SCHOOL, viewType: ViewType.BY_LAW_SCHOOL }
   ]
 
   testViews.forEach(({ testId, viewType }) => {
