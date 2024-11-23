@@ -173,7 +173,7 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
       const firms = rows
         .filter(row => row.licenseType === 'Active' && row.employer && !isEmployedAsAttorneyAtLaw(row.employer))
         .reduce((result, row) => {
-          const employerName = stripEmployerSuffixes(row.employer)
+          const employerName = processEmployerName(row.employer)
 
           result[employerName] = (result[employerName] || 0) + 1
 
@@ -190,7 +190,7 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
       const firms = rows
         .filter(row => row.licenseType === 'Active' && row.employer && !isEmployedAsAttorneyAtLaw(row.employer))
         .reduce((result, row) => {
-          const employerName = stripEmployerSuffixes(row.employer)
+          const employerName = processEmployerName(row.employer)
           const admissionDate = row.barAdmissionDate ? new Date(row.barAdmissionDate) : null
 
           if (admissionDate) {
@@ -225,7 +225,7 @@ export const calculateTopEmployers = (rows: Row[], viewType: TopEmployersViewTyp
       const firms = rows
         .filter(row => row.licenseType === 'Active' && row.employer && !isEmployedAsAttorneyAtLaw(row.employer))
         .reduce((result, row) => {
-          const employerName = stripEmployerSuffixes(row.employer)
+          const employerName = processEmployerName(row.employer)
 
           if (!result[employerName]) {
             result[employerName] = { count: 0 }
@@ -286,12 +286,27 @@ export const getUniqueLicenseTypes = (rows: Row[]): string[] =>
 export const isEmployedAsAttorneyAtLaw = (employer: string | undefined): boolean =>
   employer ? employer.toLowerCase().replace(/\s+/g, ' ').includes('attorney at law') : false
 
-export const stripEmployerSuffixes = (name: string): string => {
+export const processEmployerName = (name: string): string => {
+  // Strip common employer suffixes.
   const employerSuffixes = ['A Law Corporation', 'A Law Corp.', 'A Law Corp', 'AAL', 'ALC', 'LLLC', 'LLLP', 'LLP']
   const suffixPattern = new RegExp(`\\s*(${employerSuffixes.join('|')})\\s*`, 'gi')
 
-  return name
+  name = name
     .replace(suffixPattern, ' ')
     .trim()
-    .replace(/(?<!Inc)[.,\s]+$/, '')
+    .replace(/(?<!Inc|Assoc)[.,\s]+$/, '')
+
+  const employerNameMappings: Record<string, string> = {
+    'Hawaii Medical Service Association': 'Hawaii Medical Service Assoc.',
+    'Porter Kiakona & Kopper': 'Porter Kiakona Kopper'
+  }
+
+  // Normalize specific employer names.
+  for (const [original, normalized] of Object.entries(employerNameMappings)) {
+    if (name.includes(original)) {
+      name = name.replace(original, normalized)
+    }
+  }
+
+  return name
 }
