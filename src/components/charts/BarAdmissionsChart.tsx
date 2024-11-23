@@ -16,32 +16,6 @@ interface BarAdmissionsChartProps {
 }
 
 export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, viewType }) => {
-  if (viewType === ViewType.BY_LAW_SCHOOL) {
-    const attorneyData = data as { year: string; count: number; [key: string]: number | string | undefined }[]
-
-    const topLawSchools = getTopLawSchools(rows)
-
-    const schools = [...topLawSchools, 'Other', 'Unknown']
-
-    const lawSchoolColors = Object.fromEntries(
-      schools.map((school, index) => [school, LAW_SCHOOL_COLOR_PALETTE[index % LAW_SCHOOL_COLOR_PALETTE.length]])
-    )
-
-    return (
-      <BarChart
-        {...COMMON_CHART_PROPS}
-        data-testid={ChartTestId.BAR_ADMISSIONS_BY_LAW_SCHOOL}
-        series={schools.map(school => ({
-          color: lawSchoolColors[school],
-          data: attorneyData.map(d => d[school] as number),
-          label: school,
-          stack: 'count'
-        }))}
-        xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
-      />
-    )
-  }
-
   if (viewType === ViewType.TOTAL) {
     const attorneyData = data as { year: string; count: number }[]
 
@@ -76,6 +50,32 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
           color: licenseTypeColors[type],
           data: attorneyData.map(d => d[type] as number),
           label: type,
+          stack: 'count'
+        }))}
+        xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}
+      />
+    )
+  }
+
+  if (viewType === ViewType.BY_LAW_SCHOOL) {
+    const attorneyData = data as { year: string; count: number; [key: string]: number | string | undefined }[]
+
+    const topLawSchools = getTopLawSchools(rows)
+
+    const schools = [...topLawSchools, 'Other', 'Unknown']
+
+    const lawSchoolColors = Object.fromEntries(
+      schools.map((school, index) => [school, LAW_SCHOOL_COLOR_PALETTE[index % LAW_SCHOOL_COLOR_PALETTE.length]])
+    )
+
+    return (
+      <BarChart
+        {...COMMON_CHART_PROPS}
+        data-testid={ChartTestId.BAR_ADMISSIONS_BY_LAW_SCHOOL}
+        series={schools.map(school => ({
+          color: lawSchoolColors[school],
+          data: attorneyData.map(d => d[school] as number),
+          label: school,
           stack: 'count'
         }))}
         xAxis={[{ data: attorneyData.map(d => d.year), scaleType: 'band', valueFormatter: v => v.toString() }]}

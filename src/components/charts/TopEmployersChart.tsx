@@ -30,28 +30,6 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
     )
   }
 
-  if (viewType === ViewType.BY_LAW_SCHOOL) {
-    const categories = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'count')
-
-    const lawSchoolColors = Object.fromEntries(
-      categories.map((school, index) => [school, LAW_SCHOOL_COLOR_PALETTE[index % LAW_SCHOOL_COLOR_PALETTE.length]])
-    )
-
-    return (
-      <BarChart
-        {...COMMON_CHART_PROPS}
-        data-testid={ChartTestId.TOP_EMPLOYERS_BY_LAW_SCHOOL}
-        dataset={data}
-        series={categories.map(school => ({
-          color: lawSchoolColors[school],
-          dataKey: school,
-          label: school,
-          stack: 'count'
-        }))}
-      />
-    )
-  }
-
   if (viewType === ViewType.BY_ADMISSION_DATE) {
     const categoryColorPalette = [...TEAL_NAVY[7]]
 
@@ -72,6 +50,28 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
           color: decadeColors[decade],
           dataKey: decade,
           label: decade,
+          stack: 'count'
+        }))}
+      />
+    )
+  }
+
+  if (viewType === ViewType.BY_LAW_SCHOOL) {
+    const categories = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'count')
+
+    const lawSchoolColors = Object.fromEntries(
+      categories.map((school, index) => [school, LAW_SCHOOL_COLOR_PALETTE[index % LAW_SCHOOL_COLOR_PALETTE.length]])
+    )
+
+    return (
+      <BarChart
+        {...COMMON_CHART_PROPS}
+        data-testid={ChartTestId.TOP_EMPLOYERS_BY_LAW_SCHOOL}
+        dataset={data}
+        series={categories.map(school => ({
+          color: lawSchoolColors[school],
+          dataKey: school,
+          label: school,
           stack: 'count'
         }))}
       />

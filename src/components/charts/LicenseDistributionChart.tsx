@@ -33,30 +33,6 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
     )
   }
 
-  if (viewType === ViewType.BY_LAW_SCHOOL) {
-    const topLawSchools = getTopLawSchools(rows)
-
-    const schools = [...topLawSchools, 'Other', 'Unknown']
-
-    const lawSchoolColors = Object.fromEntries(
-      schools.map((school, index) => [school, LAW_SCHOOL_COLOR_PALETTE[index % LAW_SCHOOL_COLOR_PALETTE.length]])
-    )
-
-    return (
-      <BarChart
-        {...COMMON_CHART_PROPS}
-        data-testid={ChartTestId.LICENSE_DISTRIBUTION_BY_LAW_SCHOOL}
-        dataset={data}
-        series={schools.map(school => ({
-          color: lawSchoolColors[school],
-          dataKey: school,
-          label: school,
-          stack: 'count'
-        }))}
-      />
-    )
-  }
-
   if (viewType === ViewType.BY_ADMISSION_DATE) {
     const categories = Object.keys(data[0])
       .filter(key => key !== 'licenseType' && key !== 'count')
@@ -85,6 +61,30 @@ export const LicenseDistributionChart: FC<LicenseDistributionChartProps> = ({ da
           color: categoryColors[category],
           dataKey: category,
           label: category,
+          stack: 'count'
+        }))}
+      />
+    )
+  }
+
+  if (viewType === ViewType.BY_LAW_SCHOOL) {
+    const topLawSchools = getTopLawSchools(rows)
+
+    const schools = [...topLawSchools, 'Other', 'Unknown']
+
+    const lawSchoolColors = Object.fromEntries(
+      schools.map((school, index) => [school, LAW_SCHOOL_COLOR_PALETTE[index % LAW_SCHOOL_COLOR_PALETTE.length]])
+    )
+
+    return (
+      <BarChart
+        {...COMMON_CHART_PROPS}
+        data-testid={ChartTestId.LICENSE_DISTRIBUTION_BY_LAW_SCHOOL}
+        dataset={data}
+        series={schools.map(school => ({
+          color: lawSchoolColors[school],
+          dataKey: school,
+          label: school,
           stack: 'count'
         }))}
       />
