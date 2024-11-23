@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
-import { generateJsonLd } from './src/utils/generateJsonLd'
-import { generateMetaTags } from './src/utils/generateMetaTags'
+import { generateJsonLd } from './src/utils/metadata/generateJsonLd'
+import { generateMetaTags } from './src/utils/metadata/generateMetaTags'
 import { sentryVitePlugin } from '@sentry/vite-plugin'
 import react from '@vitejs/plugin-react'
 

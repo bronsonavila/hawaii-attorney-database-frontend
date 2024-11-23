@@ -1,4 +1,4 @@
-import { SITE_METADATA } from '../constants/siteMetadata'
+import { SITE_METADATA } from '../../constants/siteMetadata'
 
 export const generateMetaTags = () =>
   `
