@@ -39,6 +39,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
 
     return (
       <BarChart
+        {...COMMON_CHART_PROPS}
         data-testid={ChartTestId.TOP_EMPLOYERS_BY_LAW_SCHOOL}
         dataset={data}
         series={categories.map(school => ({
@@ -64,6 +65,7 @@ export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }
 
     return (
       <BarChart
+        {...COMMON_CHART_PROPS}
         data-testid={ChartTestId.TOP_EMPLOYERS_BY_ADMISSION_DATE}
         dataset={data}
         series={decades.map(decade => ({
