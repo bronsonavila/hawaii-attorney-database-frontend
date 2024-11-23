@@ -53,19 +53,19 @@ const MODAL_BOX_SX = {
 
 const VIEW_TYPE_OPTIONS: Record<ChartType, RadioOption[]> = {
   [ChartType.BAR_ADMISSIONS]: [
-    { value: ViewType.TOTAL, label: 'Total Count' },
-    { value: ViewType.BY_LICENSE_TYPE, label: 'License Type' },
-    { value: ViewType.BY_LAW_SCHOOL, label: 'Law School' }
+    { label: 'Total Count', value: ViewType.TOTAL },
+    { label: 'License Type', value: ViewType.BY_LICENSE_TYPE },
+    { label: 'Law School', value: ViewType.BY_LAW_SCHOOL }
   ],
   [ChartType.LICENSE_DISTRIBUTION]: [
-    { value: ViewType.TOTAL, label: 'Total Count' },
-    { value: ViewType.BY_ADMISSION_DATE, label: 'Admission Date' },
-    { value: ViewType.BY_LAW_SCHOOL, label: 'Law School' }
+    { label: 'Total Count', value: ViewType.TOTAL },
+    { label: 'Admission Date', value: ViewType.BY_ADMISSION_DATE },
+    { label: 'Law School', value: ViewType.BY_LAW_SCHOOL }
   ],
   [ChartType.TOP_EMPLOYERS]: [
-    { value: ViewType.TOTAL, label: 'Total Count' },
-    { value: ViewType.BY_ADMISSION_DATE, label: 'Admission Date' },
-    { value: ViewType.BY_LAW_SCHOOL, label: 'Law School' }
+    { label: 'Total Count', value: ViewType.TOTAL },
+    { label: 'Admission Date', value: ViewType.BY_ADMISSION_DATE },
+    { label: 'Law School', value: ViewType.BY_LAW_SCHOOL }
   ]
 }
 
