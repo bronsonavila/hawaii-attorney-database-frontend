@@ -16,15 +16,11 @@ import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import useWindowResizeEffect from '../hooks/useWindowResizeEffect'
 
-// Types
-
 interface ToolbarProps {
   paletteMode: PaletteMode
   rows: Row[]
   setPaletteMode: (paletteMode: PaletteMode) => void
 }
-
-// Component
 
 export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows }) => {
   const { isLoading } = useLoadingContext()
