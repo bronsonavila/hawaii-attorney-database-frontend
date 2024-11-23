@@ -4,12 +4,6 @@ import { LICENSE_TYPE_ORDER } from '../../constants/chartConstants'
 import { Row } from '../../App'
 import { ViewType } from '../../types/chartTypes'
 
-export interface BarAdmissionsData {
-  year: string
-  count: number
-  [key: string]: number | string | undefined
-}
-
 export const calculateBarAdmissions = (rows: Row[], viewType: ViewType): DatasetType => {
   const topLawSchools = getTopLawSchools(rows)
 
