@@ -34,7 +34,7 @@ export const AboutDialogContent: FC<AboutDialogContentProps> = ({ onClose, onFee
         <Stack spacing={1.5}>
           <Typography variant="body2">Independently maintained by: {SITE_METADATA.author.name}</Typography>
 
-          <Typography variant="body2">Last updated: Nov. 3, 2024</Typography>
+          <Typography variant="body2">Last updated: Nov. 17, 2024</Typography>
         </Stack>
       </DialogContent>
 
