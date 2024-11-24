@@ -1,7 +1,7 @@
 import { DialogContent, DialogActions, Button, Stack, Typography, Divider } from '@mui/material'
 import { ExternalLink } from './ExternalLink'
 import { FC } from 'react'
-import { SITE_METADATA } from '../constants/siteMetadata'
+import { METADATA } from '../constants/metadata'
 import { useSentryBlockDetection } from '../hooks/useSentryBlockDetection'
 
 interface AboutDialogContentProps {
@@ -32,7 +32,7 @@ export const AboutDialogContent: FC<AboutDialogContentProps> = ({ onClose, onFee
         <Divider sx={{ my: 2.5 }} />
 
         <Stack spacing={1.5}>
-          <Typography variant="body2">Independently maintained by: {SITE_METADATA.author.name}</Typography>
+          <Typography variant="body2">Independently maintained by: {METADATA.author.name}</Typography>
 
           <Typography variant="body2">Last updated: Nov. 17, 2024</Typography>
         </Stack>

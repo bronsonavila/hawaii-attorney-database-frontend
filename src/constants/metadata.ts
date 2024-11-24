@@ -1,6 +1,6 @@
 const BASE_URL = 'https://www.hawaiiattorneydatabase.com'
 
-export const SITE_METADATA = {
+export const METADATA = {
   alternativeHeadline:
     'Comprehensive Directory of Licensed Attorneys in Hawaii: Insights for Legal Professionals and the General Public',
   audience: 'Legal Professionals, Researchers, Businesses, Journalists, Government, General Public',
