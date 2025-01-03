@@ -3,6 +3,43 @@ import { getTopLawSchools } from './commonUtils'
 import { Row } from '../../App'
 import { ViewType } from '../../enums/chartEnums'
 
+// Constants
+
+const EMPLOYER_NAME_PATTERNS: Record<string, string[]> = {
+  'Cades Schutte': ['cades', 'schutte'],
+  'Goodsill Anderson Quinn & Stifel': ['goodsill', 'anderson', 'quinn', 'stifel'],
+  'Carlsmith Ball': ['carlsmith', 'ball'],
+  'Kobayashi Sugita & Goda': ['kobayashi', 'sugita', 'goda'],
+  'McCorriston Miller Mukai MacKinnon': ['mccorriston', 'miller', 'mukai', 'mackinnon'],
+  'Hawaiian Electric': ['hawaii', 'electric'],
+  'Legal Aid Society of Hawaii': ['legal', 'aid', 'society', 'hawaii'],
+  'Damon Key Leong Kupchak Hastert': ['damon', 'key', 'leong', 'kupchak', 'hastert'],
+  'Dentons US': ['dentons', 'us'],
+  "Starn O'Toole Marcus & Fisher": ['starn', "o'toole", 'marcus', 'fisher'],
+  'Lung Rose Voss & Wagnild': ['lung', 'rose', 'voss', 'wagnild'],
+  'Watanabe Ing': ['watanabe', 'ing'],
+  'Ashford & Wriston': ['ashford', 'wriston'],
+  'Case Lombardi': ['case', 'lombardi'],
+  'Chun Kerr': ['chun', 'kerr'],
+  'Torkildson Katz': ['torkildson', 'katz'],
+  'Kamehameha Schools': ['kamehameha', 'schools'],
+  'First Hawaiian Bank': ['first', 'hawaiian', 'bank'],
+  'Rush Moore': ['rush', 'moore'],
+  'Clay Iwamura Pulice & Nervell': ['clay', 'iwamura', 'pulice', 'nervell'],
+  'Bronster Fujichaku Robbins': ['bronster', 'fujichaku', 'robbins'],
+  'Schlack Ito': ['schlack', 'ito'],
+  'Gordon Rees Scully Mansukhani': ['gordon', 'rees', 'scully', 'mansukhani'],
+  'Chong Nishimoto Sia Nakamura & Goya': ['chong', 'nishimoto', 'sia', 'nakamura', 'goya'],
+  'Imanaka Asato': ['imanaka', 'asato'],
+  'Porter Kiakona Kopper': ['porter', 'kiakona', 'kopper'],
+  'Deeley King Pang & Van Etten': ['deeley', 'king', 'pang', 'van', 'etten'],
+  'Marr Jones & Wang': ['marr', 'jones', 'wang'],
+  'Roeca Luria Shin': ['roeca', 'luria', 'shin'],
+  'Bank of Hawaii': ['bank', 'of', 'hawaii']
+}
+
+// Functions
+
 export const calculateTopEmployers = (rows: Row[], viewType: ViewType): DatasetType => {
   switch (viewType) {
     case ViewType.TOTAL: {
@@ -104,26 +141,11 @@ export const isEmployedAsAttorneyAtLaw = (employer: string | undefined): boolean
   employer ? employer.toLowerCase().replace(/\s+/g, ' ').includes('attorney at law') : false
 
 export const processEmployerName = (name: string): string => {
-  const employerSuffixes = ['A Law Corporation', 'A Law Corp.', 'A Law Corp', 'AAL', 'ALC', 'LLLC', 'LLLP', 'LLP']
-  const suffixPattern = new RegExp(`\\s*(${employerSuffixes.join('|')})\\s*`, 'gi')
+  const normalizedName = name.toLowerCase().replace(/[.,&]/g, ' ').replace(/\s+/g, ' ').trim()
 
-  // Strip common employer suffixes.
-  name = name
-    .replace(suffixPattern, ' ')
-    .trim()
-    .replace(/(?<!Inc|Assoc)[.,\s]+$/, '')
-
-  const employerNameMappings: Record<string, string> = {
-    'Hawaii Medical Service Association': 'Hawaii Medical Service Assoc.',
-    'Porter Kiakona & Kopper': 'Porter Kiakona Kopper'
+  for (const [standardName, patterns] of Object.entries(EMPLOYER_NAME_PATTERNS)) {
+    if (patterns.every(pattern => normalizedName.includes(pattern))) return standardName
   }
 
-  // Normalize specific employer names.
-  for (const [original, normalized] of Object.entries(employerNameMappings)) {
-    if (name.includes(original)) {
-      name = name.replace(original, normalized)
-    }
-  }
-
-  return name
+  return name.trim()
 }
