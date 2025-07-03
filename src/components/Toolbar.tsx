@@ -71,8 +71,6 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows })
 
             <GridToolbarFilterButton />
 
-            <ExportButton />
-
             <Button
               color="primary"
               onClick={handleChartModalOpen}
@@ -82,6 +80,8 @@ export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows })
             >
               Charts
             </Button>
+
+            <ExportButton />
           </Box>
         )}
 
