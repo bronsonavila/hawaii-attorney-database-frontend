@@ -96,7 +96,7 @@ d1c8ecba-2e32-4347-a361-1a91b43be1dc,000134,Milton Cades,Deceased,,,,U. of Penns
 b87ac9bc-8208-450b-8e7d-bc75e94579ad,000136,Louis Cannelora,Deceased,,United States | Hawaii | Honolulu County | Honolulu | Downtown,,,1/8/1960
 ed8adfb3-b819-4984-aa02-deeb068abc6b,000137,Jon Canright,Suspended - Non Payment,Attorney at Law,United States | Hawaii | Honolulu County | Kailua,,,11/20/1947
 c665642f-908c-49a3-ae35-089c4c030499,000139,Daniel H. Case,Deceased,,,,U. of Denver,12/29/1952
-1a80ad50-67e3-455c-ad01-7ebd39f59207,000142,Moon Chan,Deceased,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,,U. of Oregon,2/15/1946
+1a80ad50-67e3-455c-ad01-7ebd39f59207,000142,Moon Chan,Deceased,Attorney at Law,United States | Hawaii | Honolulu,,U. of Oregon,2/15/1946
 31d9b3cf-5a47-4930-b1b9-353fc2053a17,000143,Sau Ung L. Chan,Deceased,,,,Yale U.,11/4/1943
 37e6731a-1ec1-4642-a036-085bb17b8e6e,000144,Robert H.K. Chang,Deceased,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,,U. of Colorado,12/20/1951
 3fb9d3f8-d47e-4feb-a5fe-bf5f58e92d81,000145,Robert Won Bae Chang,Deceased,,,,Boston U.,1/21/1955
@@ -475,7 +475,7 @@ f4b50642-ee48-4591-b831-3bccd856b0db,000553,Stuart M. Cowan,Deceased,Attorney at
 55f983a7-fb66-4a58-b916-56b7680dbf7d,000554,Wendell R. Crockett,Deceased,,,,,5/28/1962
 a9524d17-e57c-47be-946c-dbd7b6e46cca,000555,"William H. Hoffstot, Jr.",Deceased,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Kuliouou - Kalani Iki,,Washburn U.,5/28/1962
 d9ea1287-bad2-43dc-9ad4-fd2da02e0eae,000556,Wendell K. Kimura,Suspended - Non Payment,,,,Harvard U.,5/28/1962
-8eb6d892-6a2c-406b-ba96-d754e42f27bf,000557,Theodore B. Lee,Suspended - Non Payment,Attorney at Law,United States | California | Santa Clara County | san francisco | Northside,aol.com,UC Berkeley - Boalt Hall,5/28/1962
+8eb6d892-6a2c-406b-ba96-d754e42f27bf,000557,Theodore B. Lee,Suspended - Non Payment,Attorney at Law,United States | California | San Francisco County | San Francisco,aol.com,UC Berkeley - Boalt Hall,5/28/1962
 d49c9588-9d07-4fec-90a7-e1aadba3d031,000558,Stanley S. Mah,Inactive - Emeritus,,,,De Paul U.,5/28/1962
 a1cd3dfd-2d76-4826-8bd5-e50324603b42,000559,Harry H. Masaki,Deceased,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,,,5/28/1962
 ae35611c-7ca6-4058-908f-7061060e33dd,000560,Roy M. Miyamoto,Suspended - Discipline,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,,U. of Wisconsin,5/28/1962
@@ -711,7 +711,7 @@ e379a081-cb11-4e89-a6e6-17ab8692cb02,000794,Edwin K.W. Ching,Suspended - Non Pay
 780294b8-851c-44d3-b3c8-e2c6bf872da7,000795,Russell L. Ching,Active,Ching & Morikawa,United States | Hawaii | Honolulu County | Honolulu | Waialae - Kahala,gmail.com,Hastings College of Law,10/9/1969
 cefa0136-f7e9-4fa0-a54e-c919e3a7c9cb,000796,Anthony P. David,Suspended - Non Payment,Attorney at Law,United States | California | San Francisco County | San Francisco | Financial District,,Harvard U.,11/10/1969
 617734dc-99f5-4c4f-a62c-de97cf8c3fb6,000797,"Andrew O. Egseth, Jr.",Deceased,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,cs.com,U. of Wisconsin,10/9/1969
-45e9ec6e-bc7a-46dd-a6bd-cc6d21fba9ad,000798,Roy L. Farrow,Suspended - Non Payment,Petty & Andrews,United States | California | San Francisco County | San Francisco,,,
+45e9ec6e-bc7a-46dd-a6bd-cc6d21fba9ad,000798,Roy L. Farrow,Suspended - Non Payment,Petty & Andrews,United States | Florida,,,
 572dc9d8-2faa-4fca-9f55-c5309aec1a31,000799,Lawrence Grean,Suspended - Non Payment,,,,Cleveland State U.,10/9/1969
 fcaadf6f-a88a-4814-ad23-0159f88726ef,000800,John S. Brown,Deceased,,,,,9/2/1926
 bd692183-eae3-4c41-9f46-f1eefe29416c,000801,Wendell F. Crockett,Deceased,,,,,11/7/1917
@@ -1030,7 +1030,7 @@ c6f21b69-55b1-4043-9556-af4a093d5f08,001118,Ronald W.K. Yee,Deceased,,,,Harvard 
 a62fe2e4-cb90-4b02-a6df-ebe14683fdfb,001119,Melvyn T. Yoshii,Inactive - Voluntary,,,,Washburn U.,10/19/1971
 7c26a715-2626-415e-bc95-b25b2f9834a2,001120,Larry L. Zenker,Deceased,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,,McGeorge School of Law,10/19/1971
 19ad04c3-1a01-4dee-bf79-d15f7140ea52,001121,Dennis W. Potts,Active,"Potts Law, ALC",United States | Hawaii | Honolulu County | Honolulu | Downtown,pottsalc.com,Hastings College of Law,10/29/1971
-144393c0-8307-4acb-ad00-152c6a4f8baf,001122,John F. Erickson,Inactive - Emeritus,,,,Washburn U.,11/1/1971
+144393c0-8307-4acb-ad00-152c6a4f8baf,001122,John F. Erickson,Suspended - Non Payment,,,,Washburn U.,11/1/1971
 bc8515a2-470a-4c6b-8787-b67b536c9120,001123,Bruce Jacobs,Suspended - Non Payment,Sua Incorporated,United States | California | Los Angeles County | Los Angeles | Century City,,,10/27/1971
 98183635-abec-47c0-b111-191af8b82b0a,001124,G. Christian Hedemann,Suspended - Non Payment,,,,U. of Colorado,11/12/1971
 d84aabae-00f8-4c95-8076-3cbae7b2feee,001125,John R. Williams,Deceased,,United States | Hawaii | Honolulu County | Kailua,hawaii.rr.com,UCLA,11/24/1971
@@ -1622,7 +1622,7 @@ abd517ac-e5c5-446e-865e-cadd74ac6ba8,001710,John L. McDermott,Suspended - Non Pa
 a6594ef2-8542-4937-b2dd-15b59cb19c01,001712,Donald D. Mitchell,Deceased,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Waikiki,,,4/27/1976
 e6f35831-34f0-44f5-b330-a0d37f85f074,001713,John A. Moore,Suspended - Non Payment,,,,UC Berkeley - Boalt Hall,4/27/1976
 02788914-b016-4111-a379-18ce328e93a5,001714,Gail C. Nakatani,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,hotmail.com,Boston U.,4/26/1976
-23ff691d-e3cd-4705-9f22-c56b18e965de,001715,Joe M. Parnell,Suspended - Non Payment,Naval Legal Services Off.,United States | California | San Francisco County | San Francisco | Embarcadero,,Southern Methodist U.,
+23ff691d-e3cd-4705-9f22-c56b18e965de,001715,Joe M. Parnell,Suspended - Non Payment,Naval Legal Services Off.,United States | California | San Francisco County | San Francisco,,Southern Methodist U.,
 4301676e-991c-45fb-8afc-d1327c6014f0,001716,"Charles E. Pear, Jr.",Inactive - Voluntary,McCorriston Miller Mukai MacKinnon,United States | Hawaii | Honolulu County | Honolulu | Downtown,m4law.com,UC Berkeley - Boalt Hall,4/26/1976
 57037b47-2401-44a8-9a61-8b097a8b585a,001717,Arthur F. Roeca,Active,Roeca Luria Shin LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,rlhlaw.com,Southwestern U.,4/26/1976
 5ee1a022-f4bb-4350-8f7a-4230642a8b1a,001718,Richard B. Swinton,Deceased,,United States | California | Ventura County | Ojai,hotmail.com,California Western School of Law,4/26/1976
@@ -1911,7 +1911,7 @@ b8496047-45c9-4717-a171-50a6aab4d6ba,001999,Jackie M. Erickson,Inactive - Volunt
 21cb559d-0dff-466d-b9a0-1254a064d3c3,002001,Marcy J.K. Farden,Suspended - Non Payment,Dept. of Justice,New Zealand | Auckland | Auckland | Northcote Point,,,9/23/1977
 46831029-a053-4931-92ef-3000b4b88c8a,002002,Michael A. Ferrington,Inactive - Voluntary,,,,Gonzaga U.,9/23/1977
 5dab431a-0685-473e-b1e9-39b99b1792d6,002003,Daniel P. Finn,Suspended - Non Payment,,,,William S. Richardson,9/23/1977
-a0991f55-2ebc-4302-b686-02ab29507137,002004,Thomas Y.K. Fong,Inactive - Voluntary,,United States | California | Los Angeles County | Los Angeles,,J. Reuben Clark Law School,9/23/1977
+a0991f55-2ebc-4302-b686-02ab29507137,002004,Thomas Y.K. Fong,Inactive - Voluntary,,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,,J. Reuben Clark Law School,9/23/1977
 6edc241d-c286-4e08-8a4e-ee6a6a146799,002005,Stanley S. Fujimoto,Inactive - Voluntary,,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,9/23/1977
 37d4065f-7d94-4a1a-8e53-23f9a4244230,002006,Calvin J. Fukuhara,Inactive - Emeritus,,United States | Hawaii | Hawaii County | Hilo,gmail.com,William S. Richardson,9/23/1977
 625caadb-2727-40d4-9eb3-6dc8dc47af62,002007,Howard M. Fukushima,Suspended - Non Payment,,,hawaii.rr.com,William S. Richardson,9/23/1977
@@ -2042,7 +2042,7 @@ c18e5b35-c88b-43f4-8cd7-fab497e3f336,002130,Kevin S.W. Chee,Active,Chee Markham 
 b1c59a5f-e5e2-4d21-b9ba-50a601ece851,002132,Catherine C. Cosby,Suspended - Non Payment,Attorney at Law,United States | Florida | Duval County | Atlantic Beach | The Beaches,,,4/21/1978
 314f1116-a54c-44cc-aee1-fbd73af5db96,002133,Robert E. Cosby,Suspended - Non Payment,Attorney at Law,United States | Florida | Duval County | Jacksonville | Downtown,,U. of Florida,4/21/1978
 3bcccfa9-3af1-4e2b-8a79-9ef80115be3b,002134,Patricia Devlin,Inactive - Voluntary,,,,Hastings College of Law,4/21/1978
-57ac0144-4667-46fc-a884-41f2a51ea11c,002135,Karen Jo Dobson,Inactive - Voluntary,,,,Willamette U.,4/21/1978
+57ac0144-4667-46fc-a884-41f2a51ea11c,002135,Karen Jo Dobson,Deceased,,,,Willamette U.,4/21/1978
 bf6711d2-9770-4802-b963-1f690db53463,002136,Allan J. Fedor,Suspended - Non Payment,Attorney at Law,United States | California | San Francisco County | San Francisco | Northern Waterfront,,U. of Akron,4/21/1978
 92022018-57bc-494f-8a5d-6eee583270cc,002137,Jeffrey H. Frandsen,Suspended - Non Payment,Attorney at Law,United States | Indiana | Boone County | Zionsville,,Indiana U.,4/21/1978
 2618ff8d-624b-4320-8389-65c38a7d4098,002138,Gail S. Fujita,Inactive - Voluntary,,,,U. of San Francisco,4/21/1977
@@ -2092,7 +2092,7 @@ af4cc03a-f9b7-4ccd-8e2a-35595a6a3a93,002180,Antonia G. Smith,Disbarred,Attorney 
 d33ba5d4-62b3-4cb6-ae75-645427c8221f,002182,John S.K. Song,Resign - Voluntary,Attorney at Law,United States | Colorado | Arapahoe County | Aurora | Heather Gardens,,Hastings College of Law,4/21/1978
 33572a14-1827-40d8-ad67-44616451daf6,002183,Maria L. Sousa,Suspended - Non Payment,Susan G. Komen Foundation,United States | California | San Francisco County | San Francisco | Union Square,earthlink.net,UC Davis - King Hall,4/21/1978
 bf5e04ad-41dd-4fa7-828b-9a909be6c9ba,002184,Carolyn A. Sugiyama,Inactive - Voluntary,,,,Boston College,4/21/1978
-b1b6ab8c-2832-4cb0-a0dc-fb3f442843ed,002185,Richard L. Sullivan,Deceased,Attorney at Law,United States | Hawaii | Maui County | Kaanapali,,,
+b1b6ab8c-2832-4cb0-a0dc-fb3f442843ed,002185,Richard L. Sullivan,Deceased,Attorney at Law,United States | Hawaii | Maui County | Kihei,,,
 192a47bb-e6b9-42d8-b71a-af56a6f34b29,002186,James Szafranski,Resign - Voluntary,Attorney at Law,Guam | Hagåtña,,Southwestern U.,4/21/1978
 2017e7f0-dede-47ca-97c3-1d7a26de7c3b,002187,Henry K. Tanji,Inactive - Voluntary,,,,William S. Richardson,4/21/1978
 61fed79f-f672-412a-954c-0f4608ce79e8,002188,Timothy C. Titus,Suspended - Non Payment,,,,Lewis & Clark College,4/21/1978
@@ -2417,7 +2417,7 @@ e16d08a2-966e-4d89-b373-7a103639d75f,002506,Charles S. Lima,Active,,,gmail.com,A
 7a3318c4-2b94-4d30-bc04-c8b841149cf6,002507,Bettina W.J. Lum,Inactive - Voluntary,,,,Stanford U.,10/2/1979
 98bc83d9-e63c-4720-b3d4-9096cf40fbfd,002508,Pamela K. Matsukawa,Inactive - Voluntary,,,,William S. Richardson,10/2/1979
 b8790b1a-d200-4fc8-b1e6-4e4e7d037860,002509,Michele Y. Matsuo,Deceased,,,yahoo.com,Georgetown U.,10/2/1979
-49f722db-49a1-409e-ba4e-4b8790a11e7c,002510,Cary S. Matsushige,Active,,,,William S. Richardson,10/2/1979
+49f722db-49a1-409e-ba4e-4b8790a11e7c,002510,Cary S. Matsushige,Inactive - Voluntary,,,,William S. Richardson,10/2/1979
 aecb9ec6-713e-43fb-a1f3-31b8281dd1c4,002511,Patricia A. Mau-Shimizu,Deceased,Hawaii State Bar Assoc,United States | Hawaii | Honolulu County | Honolulu | Downtown,hsba.org,Golden Gate U.,10/2/1979
 99be7044-7659-425b-b05e-b752a5a850d2,002512,Robert K. Merce,Inactive - Voluntary,,,,Antioch School of Law,10/2/1979
 50f5e067-957e-4d44-9186-05b0439861b9,002513,"William G. Meyer, III",Active,Settle Meyer Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,settlemeyerlaw.com,Gonzaga U.,10/2/1979
@@ -2839,7 +2839,7 @@ fbabdf11-51df-4546-aa78-0c04d712da99,002928,Jonathan J. Chun,Active,Belles Graha
 a61c8c52-5bd4-4c7d-b292-7133254f5487,002929,Randall Y. S. Chung,Active,,,triallawhawaii.com,U. of Southern California,10/1/1981
 7a92269a-8dd6-40b5-97d8-42179bdfe14d,002930,Daniel E. Chur,Active,"Robinson Chur & Cheng, AAL ALC",United States | Hawaii | Honolulu County | Honolulu | Downtown,gmail.com,William S. Richardson,10/1/1981
 8437aed0-4845-4c73-9791-2b2ccee7a702,002931,Emma A. Concepcion,Inactive - Voluntary,Self-employed,,aol.com,Northwestern U.,10/1/1981
-ae2a9e81-9216-4bea-922f-15c951df4ae6,002932,John R. Conrad,Resign - Voluntary,Kimley-Horn,United States | Arizona | Maricopa County | Scottsdale | Pinnacle Peak,,Indiana U.,10/1/1981
+ae2a9e81-9216-4bea-922f-15c951df4ae6,002932,John R. Conrad,Resign - Voluntary,Kimley-Horn,United States | Arizona | Maricopa County | Scottsdale | La Buena Vida Estates,,Indiana U.,10/1/1981
 b3d436c3-f1c4-4598-b585-13025fab74da,002933,Moya T. D. Gray,Inactive - Voluntary,,,,William S. Richardson,10/1/1981
 7c099f6d-d905-4b32-bf1c-4c49069b56f7,002934,Paula Devens,Inactive - Voluntary,,,,Hastings College of Law,10/1/1981
 eb3330ce-afe1-43cb-b91f-2d78c62b1007,002935,Kim H. Dietz,Inactive - Voluntary,,,,William Mitchell College of Law,10/1/1981
@@ -3312,7 +3312,7 @@ ae583c24-6d0f-4184-970a-9d2ffe138800,003400,Lawrence J. Casey,Suspended - Non Pa
 635d8e0b-a168-4de3-af80-e8c98c9001fb,003402,Jamie A. Chuck,Active,Law Off. of Jamie A. Chuck,United States | Hawaii | Honolulu County | Honolulu | Downtown,chuck-maclarenlaw.com,Harvard U.,10/21/1983
 1442b3c2-f4c9-4e0d-8b1e-e344f5f44e16,003403,Kathleen A. Clark,Suspended - Non Payment,"Dawson & Clark, P.C.",United States | Michigan | Wayne County | Detroit | Greektown,,William S. Richardson,10/21/1983
 6ca7baf8-e11c-4baa-9c8c-d1d4d18c8ff6,003404,Perry W. Confalone,Inactive - Voluntary,,,,Northeastern U.,10/21/1983
-411c0c5b-8c74-4b4e-87bc-4bcfee2358c1,003405,Jeffrey P. Crabtree,Active,Center for Alternative Dispute Resolution,United States | Hawaii | Honolulu County | Honolulu | Downtown,courts.hawaii.gov,New York U. School of Law,10/21/1983
+411c0c5b-8c74-4b4e-87bc-4bcfee2358c1,003405,Jeffrey P. Crabtree,Active,"Jeff Crabtree ADR, LLC",United States | Hawaii | Honolulu County | Honolulu,outlook.com,New York U. School of Law,10/21/1983
 10ede48a-b6e6-4d2e-b5e5-5ccc51e1e1cd,003406,Patricia J. Crowe,Inactive - Emeritus,,,,Loyola U. Chicago,10/21/1983
 7b9ab8bc-6d00-4f72-9d86-c2cd5f5c5054,003407,Brian J. De Lima,Deceased,Law Off. of Brian J. De Lima,United States | Hawaii | Hawaii County | Hilo,bigislandlawyers.com,William S. Richardson,10/21/1983
 4f66f775-16e2-48a2-9a28-3683d8acdf73,003408,Carl F. Debo,Suspended - Non Payment,Attorney at Law,United States | Hawaii | Honolulu County | Kaneohe,plaza328.com,Northern Illinois U. College of Law,10/21/1983
@@ -3506,7 +3506,7 @@ d26dc3fd-7797-418d-8924-9a31671466f9,003595,Lori S. Nishimura,Inactive - Volunta
 888d2796-b394-45f3-8bed-6ffdd0f00557,003596,Cynthia M. Nojima,Government,U.S. Navy,United States | Hawaii | Honolulu County | Joint Base Pearl Harbor Hickam | Naval Station Pearl Harbor,us.navy.mil,Hastings College of Law,5/11/1984
 1e97814f-7eee-46e3-95b8-76fe36cc7f38,003597,Matthew N. Padgett,Active,Attorney at Law,United States | Hawaii | Maui County | Kihei,gmail.com,Loyola Law School,5/11/1984
 c28fb827-6a0c-463f-9ce2-ba3ed7f4792d,003598,Patricia C. Aburano,Resign - Voluntary,,,,Duquesne U.,5/11/1984
-7ae31e50-3e03-4abb-9255-60fe146684ad,003599,Arthur R. Philpott,Inactive - Voluntary,,United States | Hawaii | Honolulu County | Kaneohe,gmail.com,Tulane U. of Louisiana,5/11/1984
+7ae31e50-3e03-4abb-9255-60fe146684ad,003599,Arthur R. Philpott,Active,,United States | Hawaii | Honolulu County | Kaneohe,gmail.com,Tulane U. of Louisiana,5/11/1984
 c6577977-7f9e-4a83-bd89-fc23a4115638,003600,Paul H. Saccoccio,Active,Saccoccio & Lopez,United States | Hawaii | Honolulu County | Haleiwa | North Shore,hawaii.rr.com,U. of Baltimore,5/11/1984
 d25773d3-8119-4ed0-a6e8-8c6f7c1b475d,003601,Michael H. Sakai,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,yahoo.com,California Western School of Law,5/11/1984
 7e50cc35-906c-484d-b824-7671c014b984,003602,Joy A. San Buenaventura,Active,"Attorney At Law, ALC",United States | Hawaii | Hawaii County | Hilo,gmail.com,Hastings College of Law,5/11/1984
@@ -3639,7 +3639,7 @@ ea3c226d-50c6-483f-b1e2-9bb820bf7d17,003726,William M. McKeon,Active,"Berding & 
 ba6ce5f6-43a8-4b03-b575-9ff687da38e7,003729,Richard B. Miller,Active,Tom Petrus & Miller LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,tpm-hawaii.com,Georgetown U.,10/5/1984
 72f12e20-de14-451d-a729-4a3b7c725cfe,003730,Andrew K. Mirikitani,Disbarred,City Council of Honolulu,United States | Hawaii | Honolulu County | Honolulu | Downtown,,Santa Clara U.,10/5/1984
 92c41709-e7e4-45b0-898f-c0f8b21b8039,003731,Janice R. Miyahira,Suspended - Non Payment,Oliver Barr & Vose,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,,,10/5/1984
-482be5fc-89c9-4b8d-84f8-8f51b742fdad,003732,John A. Morris,Active,Ekimoto & Morris LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiicondolaw.com,William S. Richardson,10/5/1984
+482be5fc-89c9-4b8d-84f8-8f51b742fdad,003732,John A. Morris,Active,,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiicondolaw.com,William S. Richardson,10/5/1984
 4e90d7ed-3449-464e-a73b-978669d37843,003733,Francis K. Mukai,Active,Rush Moore LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,rmhawaii.com,Harvard U.,10/5/1984
 659ed54e-bd68-422c-802a-fd05127700e2,003734,Wayne H. Muraoka,Active,"Armstrong Development, Ltd.",United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,armstrongbuilders.com,Harvard U.,10/5/1984
 71970b71-31a2-42c8-9c83-a3812815b13a,003735,Patricia Mathias Napier,Inactive - Voluntary,,,gmail.com,U. of Maryland,10/5/1984
@@ -3675,7 +3675,7 @@ ab02f6d4-e03c-461e-93be-95a86c37d4c9,003764,Gail M. Tamashiro,Inactive - Volunta
 0805f155-a6db-4941-bce1-2f3c6403ad6e,003765,Darryl Teruya,Suspended - Non Payment,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | McCully - Moiliili,,Santa Clara U.,10/5/1984
 c5f0e594-8a23-4ed3-981b-25aac3f74207,003766,"Vincent A. Tio, Jr.",Suspended - Non Payment,Attorney at Law,United States | Hawaii | Hawaii County | Kailua-Kona,,William S. Richardson,10/5/1984
 5f91e25f-73f5-45f6-85b9-a57a90d878f4,003767,Sharlene W.Y. Tom,Inactive - Voluntary,,,,UC Berkeley - Boalt Hall,10/5/1984
-c1fab327-ee76-4987-b21e-0b7e41120c4a,003768,Thomas Tsuchiyama,Active,"Thomas Tsuchiyama, Attorney at Law, A Law Corporation",United States | Hawaii | Honolulu County | Honolulu | Downtown,gmail.com,U. of Pennsylvania,10/5/1984
+c1fab327-ee76-4987-b21e-0b7e41120c4a,003768,Thomas Tsuchiyama,Active,"Attorney At Law, ALW",United States | Hawaii | Honolulu County | Honolulu | Downtown,gmail.com,U. of Pennsylvania,10/5/1984
 c3576b81-594f-4c9b-a4f9-e5cddcc2e41f,003769,Eric H. Tsugawa,Active,Tsugawa Lau & Muzzi LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,hilaw.us,Hastings College of Law,10/5/1984
 5777cdef-3e0b-45d1-affe-8ca60fdda67a,003770,J. Gregory Turnbull,Inactive - Voluntary,,United States | Hawaii | Honolulu County | Kailua,gregturnbull.com,William S. Richardson,10/5/1984
 d8fe9983-2efe-4ebb-8e0e-c5116322eae8,003771,Bode A. Uale,Inactive - Voluntary,,,hotmail.com,William S. Richardson,10/5/1984
@@ -3991,7 +3991,7 @@ fdb49d01-b674-486a-983b-a5d277c3f257,004073,Jan E. Takamine,Inactive - Voluntary
 cbe648a9-e1de-4914-b280-37af27307f57,004081,Victor M. Cox,Active,Attorney at Law,United States | Hawaii | Hawaii County | Kailua-Kona,aol.com,U. of San Francisco,11/29/1985
 f61cd59d-75de-474e-a5d2-f70e35b09f1b,004082,Richard P. Guy,Suspended - Non Payment,Supreme Court,United States | Washington | Thurston County | Olympia,,,11/15/1985
 4609720e-abcb-4b01-a122-e284c5d191ea,004083,Ronald Brown,Inactive - Voluntary,,United States | Hawaii | Honolulu County | Honolulu | Manoa,hawaii.edu,U. of Toledo,10/4/1985
-722fde07-f13f-449b-945e-336850a6f65f,004084,"Dennis E.W. O'Connor, Jr.",Active,"O'CONNOR LAW, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,opgilaw.com,William S. Richardson,12/12/1985
+722fde07-f13f-449b-945e-336850a6f65f,004084,"Dennis E.W. O'Connor, Jr.",Active,"O'Connor Law, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,opgilaw.com,William S. Richardson,12/12/1985
 eeb266d3-e052-4578-bcdd-204a72bb3854,004085,Grant B. Pankhurst,Inactive - Emeritus,,,,Hastings College of Law,12/20/1985
 188e7769-5f8b-41ce-86f1-cade14ec0e01,004086,Michael B. Dabney,Suspended - Non Payment,Dept. of Corporation Counsel,United States | Hawaii | Hawaii County | Hilo,,U. of Arkansas,12/5/1985
 b717e7e0-d9ef-465e-8424-ebb18ac09c03,004087,Rolando R. Garcia,Resign - Discipline,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,,U. of Philippines,1/10/1986
@@ -4151,7 +4151,7 @@ bf91fb7a-05c4-42bf-86e7-daf1b19bde03,004239,Ronette M. Kawakami,Active,Hawaii St
 06a0cf03-607a-4a9b-bcff-06702d5157e5,004241,Gisela Iglesias,Resign - Voluntary,Agency For Health Care Administration,United States | Florida | Polk County | Lakeland | Downtown,earthlink.net,Rutgers U.,10/16/1986
 3bfd9412-cfd8-4c94-b7b3-54e0417a39f4,004242,Dan Ikehara,Active,,United States | Washington | Woodinville,aol.com,William S. Richardson,10/16/1986
 93ecb8f8-bbaf-4d38-8026-f9e75df4ef9c,004243,Cid H. Inouye,Active,"Clay Iwamura Pulice & Nervell, AAL, ALC",United States | Hawaii | Honolulu County | Honolulu | Downtown,paclawteam.com,Boston U.,10/16/1986
-4993168b-0f34-4c4f-ba6a-56305bb6f3c9,004244,Patricia A. Jendraszek,Active,"Teachers College, Columbia University",United States | New York | New York County | New York | Manhattan,tc.columbia.edu,,10/16/1986
+4993168b-0f34-4c4f-ba6a-56305bb6f3c9,004244,Patricia A. Jendraszek,Active,"Teachers College, Columbia University",United States | New York | New York County | New York | Manhattan,tc.columbia.edu,U. of Houston,10/16/1986
 837dec42-c762-42f3-9973-396496d151f2,004245,Brian R. Jenkins,Inactive - Voluntary,,,,Lewis & Clark College,10/16/1986
 747a1dbf-93e4-4a67-98bb-8bd88aa8e33e,004246,Patrick H. Jones,Active,Marr Jones & Wang LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,marrjones.com,Georgetown U.,10/16/1986
 ff341b1e-15fa-40c4-a059-da9f2cf69a4a,004247,Dennis W. Jung,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,jung.solutions,William S. Richardson,10/16/1986
@@ -4440,7 +4440,7 @@ a7aedc0b-b79e-4b3f-8395-2213d1177cbf,004531,Gordon I. Ito,Active,,United States 
 7924c3c1-836c-4eac-9ffd-c8eaa3d53c1b,004532,Ronald G. Johnson,Judge,"Circuit Court, First Circuit",United States | Hawaii | Honolulu County | Honolulu | Downtown,courts.hawaii.gov,William S. Richardson,10/23/1987
 302a8dc7-8ab6-4958-b62e-13fee7dd6853,004533,Roni M. Johnson,Suspended - Non Payment,,,,William S. Richardson,10/23/1987
 4465fdd9-3193-47fd-a81e-c0e20ec48cef,004534,Donna Y. Kanemaru,Inactive - Voluntary,Los Angeles Unified School District,United States | California | Los Angeles County | Los Angeles | Westlake,lausd.net,Santa Clara U.,10/23/1987
-0ac9c476-f731-4b31-b0c4-b0ea412ce35b,004535,Kelvin H. Kaneshiro,Active,,,,William S. Richardson,10/23/1987
+0ac9c476-f731-4b31-b0c4-b0ea412ce35b,004535,Kelvin H. Kaneshiro,Inactive - Voluntary,,,,William S. Richardson,10/23/1987
 795520d4-dcdd-492f-9fbe-39efe17023e2,004536,Alicia C. Kang,Inactive - Emeritus,,,,Hofstra U.,10/23/1987
 806eb6e5-47d8-48a7-82bb-caa2a23243e6,004537,Robert D. Kawamura,Active,"Kawamura Law Office, LLLC.",United States | Hawaii | Honolulu County | Honolulu | Downtown,aol.com,Whittier Law School,10/23/1987
 618b6053-a9fe-4eeb-88e1-f1cf0da95fd9,004538,Melinda Kay,Inactive - Voluntary,,,,J. Reuben Clark Law School,10/23/1987
@@ -4460,7 +4460,7 @@ d717c591-9233-43c7-b1fb-88ec9ca4872d,004551,Michael H.Q.L. Lau,Inactive - Volunt
 6aafb3ce-fdc3-4173-b807-cbc2dfe5a687,004552,Ronald D.S. Lau,Resign - Discipline,"Law Off. of Ronald D.S. Lau, Esq.",United States | Hawaii | Honolulu County | Honolulu | Waialae - Kahala,laulaw.com,William S. Richardson,10/23/1987
 74df3205-1017-4c30-9565-3d5f01df0a06,004553,A. Kay Lauterbach,Suspended - Non Payment,California Attorney General,United States | California | Sacramento County | Sacramento | Mansion Flats,doj.ca.gov,Catholic U. of America,10/23/1987
 8fb3dda6-dc0f-4fb0-a729-ce3c264068bc,004554,Lono J. Lee,Inactive - Voluntary,,,,William S. Richardson,10/23/1987
-33e60be4-3435-41d5-97b5-399c402ed8bd,004555,Haunani S.Y. Lemn,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Liliha - Kapalama,aol.com,William S. Richardson,10/23/1987
+33e60be4-3435-41d5-97b5-399c402ed8bd,004555,Haunani S.Y. Lemn,Active,,United States | Hawaii | Honolulu County | Honolulu | Liliha - Kapalama,aol.com,William S. Richardson,10/23/1987
 9b173f4d-6aa4-49ec-af40-476d6e65b02e,004556,Allen H.Y. Leong,Suspended - Non Payment,,,,Ohio State U.,10/23/1987
 92e5db45-0a47-436b-b3e0-c906f65fc911,004557,Craig K.W. Leong,Suspended - Non Payment,,,,William S. Richardson,10/23/1987
 34746765-7aef-496d-895d-1ef120f9746e,004558,Rene M. Chinen,Inactive - Voluntary,,United States | Washington | Jefferson County | Port Townsend,gmail.com,U. of Washington,10/23/1987
@@ -4759,7 +4759,7 @@ c6ca3377-0aeb-47e4-912b-1e33e1e74066,004847,Randall L.K.M. Rosenberg,Active,Rose
 c99222af-f52b-4800-992d-36258bddb945,004851,Mary M.S. Shin,Active,,,,Hastings College of Law,10/21/1988
 8e9eee38-ebdf-41ed-a3b9-d9cb37a0c894,004852,R. Victoria Shiroma,Inactive - Voluntary,,,,William S. Richardson,10/21/1988
 0deab7b2-6c83-481e-ac62-4284495ffd32,004853,Julie Ann M.L. Siu,Deceased,Labor & Industrial Relations Appeals Board,United States | Hawaii | Honolulu County | Honolulu | Downtown,yahoo.com,William S. Richardson,10/21/1988
-f6bf6b51-370a-4311-aa1a-30f2071b2276,004854,Franklin D. Song,Inactive - Voluntary,IHI Corporation,Japan | Tokyo | Koto City | Toyosu | 3-chōme | 1,,Santa Clara U.,10/21/1988
+f6bf6b51-370a-4311-aa1a-30f2071b2276,004854,Franklin D. Song,Inactive - Voluntary,IHI Corporation,Japan | Tokyo | Koto City | Toyosu | 1-chōme | 1,,Santa Clara U.,10/21/1988
 24a91c9f-4027-4845-a339-de8fd184e225,004855,Sheila R. Sumaylo,Suspended - Non Payment,Keck Observatory,United States | Hawaii | Hawaii County | Waimea,,American U.,10/21/1988
 4c7cb439-36ac-4b5a-a55e-76da5d961349,004856,Gregory J. Swartz,Deceased,,United States | Hawaii | Honolulu County | Honolulu | Nuuanu - Punchbowl,hawaii.rr.com,Georgetown U.,10/21/1988
 ee5ab53f-9447-4fc0-8807-0916235e6df6,004857,James K. Tagupa,Active,Attorney at Law,United States | Hawaii | Kauai County | Lihue,gmail.com,William S. Richardson,10/21/1988
@@ -4834,7 +4834,7 @@ cc52cc6b-50f9-491a-9eca-518beedfbabe,004924,Donald R. Hidani,Active,"Donald R. H
 b56fdfb1-5b7f-4a65-8d1b-e3cef3d30b2f,004926,Carol Lee M. I. Chun,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,aol.com,William S. Richardson,5/12/1989
 35602ebf-78db-4ba6-bc34-725d43645235,004927,Arthur N. Indiola,Government,Off. of the Public Defender,United States | Hawaii | Hawaii County | Hilo,hawaii.gov,William S. Richardson,5/12/1989
 8f6098cb-2bd9-47a8-92e3-87dcfbbf37da,004928,Anthony V. James,Inactive - Voluntary,,,,U. of South Carolina,5/12/1989
-add08e2f-f4e3-4956-93c5-9e927f832015,004929,Margaret C. Jenkins,Active,Legal Research and Writing,United States | Idaho | Latah County | Moscow,jenkinsresearch.com,Boston U.,5/12/1989
+add08e2f-f4e3-4956-93c5-9e927f832015,004929,Margaret C. Jenkins,Active,,,jenkinsresearch.com,Boston U.,5/12/1989
 a6a32668-7b0d-429f-adbd-6b2959faa7a0,004930,Jeffre Juliano,Active,Attorney At Law,United States | Hawaii | Honolulu County | Honolulu,outlook.com,Nova U.,5/12/1989
 3adce070-c09e-49ff-9afe-a8d12d793a9a,004931,Francis J. Karl,Deceased,Attorney at Law,United States | California | Los Angeles County | Sierra Madre,,Loyola Law School,5/12/1989
 1b5ebc87-accc-40b0-a339-00e9ed3d317e,004932,Dean T. Kauka,Suspended - Discipline,Attorney at Law,United States | Hawaii | Hawaii County | Waimea,gmail.com,William S. Richardson,5/12/1989
@@ -4902,7 +4902,7 @@ d68a3169-d676-4175-a749-19304cd9f438,004991,Michael R. Daniels,Suspended - Non P
 cb956695-ac97-47d2-bbc5-a025cdef2557,004994,John F. Molay,Inactive - Voluntary,,,,Whittier Law School,7/6/1989
 a25e8ec4-37cf-4b11-9e34-e885a7e8d538,004995,Judith Neustadter Naone,Inactive - Voluntary,,United States | Hawaii | Maui County | Wailuku,gmail.com,Hastings College of Law,7/7/1989
 8386773b-720b-4ed0-b9f8-bc26fe485a3e,004996,Norma P. Garcia,Inactive - Voluntary,,,,Hastings College of Law,5/19/1989
-1f76de1d-4664-418c-addf-950d5173cb23,004997,David C. Addison,Suspended - Non Payment,Law Off. of Robert M. Kawahara,United States | California | Los Angeles County | Los Angeles | Koreatown,,William S. Richardson,6/27/1989
+1f76de1d-4664-418c-addf-950d5173cb23,004997,David C. Addison,Suspended - Non Payment,Law Off. of Robert M. Kawahara,United States | California | Los Angeles County | Los Angeles | Central LA,,William S. Richardson,6/27/1989
 c8a0d493-98dd-4637-a35a-4b5e9e6fe5c2,004998,Gerald T. Sekimura,Inactive - Voluntary,,,,Hastings College of Law,11/13/1987
 b8d7ebf1-10bc-4f55-830a-c577e84dab50,004999,Kathy M. Katano-Lee,Inactive - Voluntary,"Discovery Investments, Inc.",United States | California | Alameda County | Oakland | Grand Lake,discoinvest.com,Hastings College of Law,8/10/1989
 2810c9ad-adbd-4962-a3e5-386d2ccecb61,005000,Paul E. Olson,Inactive - Voluntary,,,,South Texas College of Law,7/17/1989
@@ -4927,7 +4927,7 @@ dff27ae7-4694-44b8-b1b6-7ba667c0b2d6,005017,Scott I. Batterman,Active,"Clay Iwam
 46d98dbc-edf3-41ac-a43b-d877ae5faaa8,005019,Dale L. Bennett,Disbarred,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Makiki/Lower/ Punchbowl/Tantalus,,William S. Richardson,10/12/1989
 db73cba0-0330-4db9-8981-32d0d0fc19ce,005020,Shah J. Bento,Inactive - Voluntary,,,,Cornell U.,10/12/1989
 5729627c-dbc8-4b25-bdeb-dd381e18280f,005021,John E. Bergin,Suspended - Non Payment,Attorney at Law,United States | Hawaii | Honolulu County | Pearl City,,Willamette U.,10/12/1989
-a3b0e841-bbc3-4c0b-badd-a5ef994023b3,005022,John J. Breen,Active,Law Off. of John J. Breen,United States | Hawaii | Maui County | Wailuku,hawaii.rr.com,Loyola U. at New Orleans,10/12/1989
+a3b0e841-bbc3-4c0b-badd-a5ef994023b3,005022,John J. Breen,Active,Law Off. of John J. Breen,United States | Hawaii | Maui County | Wailuku,gmail.com,Loyola U. at New Orleans,10/12/1989
 105d9387-37c4-4cca-886f-767ed32ec5b1,005023,Paul A. Brooke,Active,Leong Kunihiro Brooke & Kim,United States | Hawaii | Honolulu County | Honolulu | Downtown,lkblawhi.com,U. of San Diego,10/12/1989
 2e48d5df-bc51-451a-b074-43c23fe37133,005024,David L. Bruno,Suspended - Non Payment,,,,William S. Richardson,10/12/1989
 cb58bf9a-ddf2-4d12-b1df-a4c8e8ae10f4,005025,Michele E. Chess,Suspended - Non Payment,Attorney at Law,United States | Hawaii | Honolulu County | Kailua,hawaii.rr.com,Gonzaga U.,10/12/1989
@@ -5024,8 +5024,8 @@ d6baadce-586f-410d-8967-c37d27beeb29,005117,Cathy L. Takase,Inactive - Voluntary
 0e4d8483-1d25-40ca-92e0-e72f6e8630c8,005118,Joyce Tamanaha Takahashi,Active,Chun Kerr LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,chunkerr.com,Southern Methodist U.,10/12/1989
 1af265f6-78aa-43c6-acbe-a7dd7ebfb5aa,005119,Sinforoso M. Tolentino,Inactive - Voluntary,"TOLENTINO LEGAL COUNSEL, LLC",Guam | Hagåtña,gmail.com,Georgetown U.,10/12/1989
 166a4608-3f8e-4bcf-9365-83abc1635047,005120,Penelope W. Tong,Active,Bank of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Downtown,boh.com,William S. Richardson,10/12/1989
-d9cfd3ab-7bba-4e3f-ad1f-a405b1d35912,005121,Russell Y. Tsuji,Inactive - Voluntary,Dept. of Land & Natural Resources,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,Washburn U.,10/12/1989
-44dfe74f-696e-4b38-855c-275ee03f317e,005122,Ryan S. Ushijima,Active,First Hawaiian Bank,United States | Hawaii | Honolulu County | Honolulu | Downtown,fhb.com,U. of Montana,10/12/1989
+d9cfd3ab-7bba-4e3f-ad1f-a405b1d35912,005121,Russell Y. Tsuji,Inactive - Voluntary,,,,Washburn U.,10/12/1989
+44dfe74f-696e-4b38-855c-275ee03f317e,005122,Ryan S. Ushijima,Active,,United States | Hawaii | Honolulu County | Honolulu | Downtown,fhb.com,U. of Montana,10/12/1989
 5362311f-6960-49bf-b1c7-195a7a2a9828,005123,Robert S. Ushiyama,Suspended - Non Payment,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,,Boston U.,10/12/1989
 925f664d-7fa3-4577-a869-f59af6c4e345,005124,M. Lorena Garwood,Active,Medical Insurance Exchange of California,United States | Hawaii | Honolulu County | Honolulu | Manoa,miec.com,William S. Richardson,10/12/1989
 2c55aca1-ba8f-47d9-a76e-183c322925e6,005125,Lucia A. Van Bebber,Suspended - Non Payment,,,,U. of Wyoming,10/12/1989
@@ -5132,7 +5132,7 @@ d9439eb3-a72c-4ceb-b20e-3c9b54873f6f,005224,Abigail D. Ogawa,Inactive - Voluntar
 5a942936-61b4-4945-b017-166f07e0d790,005226,Alexander Craig,Active,Attorney at Law,United States | Colorado | Denver County | Denver | South Denver,gmail.com,U. of Akron,5/15/1990
 9fa46066-c6e6-4d49-86e2-7760664ee465,005227,Wayne L. Rogers,Active,Attorney at Law,United States | Maryland | Anne Arundel County | Annapolis,synergics.com,Georgetown U.,5/15/1990
 72643078-587e-4bce-9380-d6ff3ecd0227,005228,Carolyn Schnack,Active,Attorney at Law,United States | California | Yolo County | Davis | Aspen,gmail.com,Southwestern U.,5/15/1990
-600c4aba-ce0a-4c3e-bc64-8095a375e694,005229,"Paul P. Spaulding, III",Active,Shartsis Friese LLP,United States | California | San Francisco County | San Francisco | SoMa,sflaw.com,Georgetown U.,5/15/1990
+600c4aba-ce0a-4c3e-bc64-8095a375e694,005229,"Paul P. Spaulding, III",Active,Shartsis Friese LLP,United States | California | San Francisco County | San Francisco | Financial District,sflaw.com,Georgetown U.,5/15/1990
 3af89dae-14a1-4c37-bf9d-0f61cb5dc1d3,005230,Elise Owens Thorn,Inactive - Voluntary,Off. of Attorney General,United States | California | Sacramento County | Sacramento | Mansion Flats,doj.ca.gov,McGeorge School of Law,5/15/1990
 4ce0d529-0eec-4442-aa9b-916c342d9e15,005231,Robert S. Thurlow,Suspended - Non Payment,,,,U. of Kansas,5/15/1990
 f2771557-06a4-4503-885a-b06c7b34dbc0,005232,Lori H. Wada,Active,,,hotmail.com,William S. Richardson,5/15/1990
@@ -5289,7 +5289,7 @@ de814381-ef49-4abe-9897-7223c7b6a1b9,005382,T. Lowell Wolf,Suspended - Non Payme
 66d553bb-fbec-4b6c-9e3d-fccc55ed359f,005383,Ronald H. Wolff,Disbarred,Attorney at Law,United States | Hawaii | Hawaii County | Waimea,,William S. Richardson,10/19/1990
 9b3afbc6-0941-4526-9e4e-a48b5e9be0c1,005384,Shari J. Wong,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,Hastings College of Law,10/19/1990
 ab456eaa-c653-405d-a3aa-ea5f84eb03b5,005385,Robin Wurtzel,Inactive - Voluntary,,,,U. of Colorado,10/19/1990
-85827f4b-e3a8-4810-96aa-95c89104fbbe,005386,Lois H. Yamaguchi,Active,Roeca Luria Shin LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,rlhlaw.com,UC Law San Francisco,10/19/1990
+85827f4b-e3a8-4810-96aa-95c89104fbbe,005386,Lois H. Yamaguchi,Active,,United States | Hawaii | Honolulu County | Honolulu | Downtown,rlhlaw.com,UC Law San Francisco,10/19/1990
 3abbc59f-f4e6-47ca-8733-d8a39259d6e3,005387,Dean T. Yamamoto,Active,"Yamamoto Hetherington, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,yamamotolaw.com,Washington U.,10/19/1990
 ab41d55d-5601-4d3d-824f-8c9674e476ec,005388,Scott S. Yasui,Active,Fox Rothschild LLP,United States | Washington | King County | Seattle | Downtown Seattle,foxrothschild.com,U. of Washington,10/19/1990
 cddcd8ec-e1ca-4284-bc80-f270dc224e58,005389,John H.W. Yuen,Active,Law Off. of John H.W. Yuen,United States | Hawaii | Honolulu County | Honolulu,gmail.com,Willamette U.,10/19/1990
@@ -5301,7 +5301,7 @@ d9a1c607-f16c-4fa3-8e89-cd1fa7c8c099,005394,Shirley-Anne Devaris,Suspended - Non
 97013d31-ca85-41e2-b888-96fd78be8ff5,005395,Harry A. Simmons,Inactive - Voluntary,,,,Memphis State U.,10/19/1990
 b0fb54b2-9649-447f-999c-7aa99ab17f37,005396,Louis P. Mendonca,Active,,,,William Mitchell College of Law,10/19/1990
 b7e63213-2c8e-4b83-a41c-3a74983a7be1,005397,Maureen Duffy,Inactive - Voluntary,,United States | Hawaii | Honolulu County | Kailua,,U. of Wisconsin,10/19/1990
-90989476-093f-4b46-ab17-abacb71c9533,005398,"Paul J. Sulla, Jr.",Active,"Law Off. of Paul J. Sulla, Jr.",United States | Hawaii | Hawaii County | Hilo,aloha.net,Boston U.,10/19/1990
+90989476-093f-4b46-ab17-abacb71c9533,005398,"Paul J. Sulla, Jr.",Restrained from Practice,"Law Off. of Paul J. Sulla, Jr.",United States | Hawaii | Hawaii County | Hilo,aloha.net,Boston U.,10/19/1990
 7b07c262-83a8-4712-b6df-ab670b348a65,005399,Kris A. LaGuire,Active,Attorney at Law,United States | Hawaii | Hawaii County | Hilo,aol.com,Thomas M. Cooley Law School,10/22/1990
 5182a9f7-f8a3-4de4-a263-c89c0e56ec39,005400,Vickery J. Russell,Disbarred,Attorney at Law,United States | Hawaii | Maui County | Lahaina,hotmail.com,U. of San Francisco,10/29/1990
 c92b991b-ea65-4236-b866-c037103426d7,005401,Karl Hui,Suspended - Non Payment,Fremont Unified School District,United States | California | Alameda County | Fremont | East Industrial,,Hastings College of Law,10/30/1990
@@ -5420,7 +5420,7 @@ ce34cfef-9be5-43bf-92d3-2206db73678f,005514,"James S. Manlowe, Jr.",Resign - Vol
 fec732e0-122c-4cf0-85fa-bc3f9e5d04f4,005515,Maile A. Lu'uwai,Inactive - Voluntary,,,,UCLA,9/9/1991
 5ba146af-0662-4e71-a8ed-3a3836757550,005516,Lisa Anne Gruebner,Inactive - Voluntary,,,,Drake U.,9/23/1991
 8401ba14-3204-42ba-88fa-a72fec1539c5,005517,Joseph R. Barbaro,Suspended - Non Payment,"Attorney At Law, P.C.",United States | Illinois | Cook County | Palos Township | Palos Hills,barbarolaw.com,John Marshall Law School,10/7/1991
-6042a9db-6a3c-4378-9bad-8fa6adeebeda,005518,Edie Anne Feldman,Government,Office of Information Practices,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,10/22/1991
+6042a9db-6a3c-4378-9bad-8fa6adeebeda,005518,Edie Anne Feldman,Government,,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,10/22/1991
 01a8e0cd-084e-4ec9-8a06-b58c10c4d29d,005519,Renee Reiko Sonobe Hong,Government,Dept. of the Corporation Counsel,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,Hastings College of Law,10/22/1991
 530fa9db-adba-49c8-8a9d-a2dbd84001c1,005520,Paul Charles Whalen,Inactive - Medical,,,,William S. Richardson,10/22/1991
 044a1705-cb0b-4d19-a71b-165058ac1629,005521,Darren J.W. Wong,Suspended - Non Payment,"Sunburst Shutters Hawaii, Inc.",United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,gmail.com,J. Reuben Clark Law School,10/22/1991
@@ -5820,7 +5820,7 @@ c3555b75-fa43-4b05-b039-ce456d964eb8,005914,Karen S. Kogachi,Deceased,,,,Marquet
 fc10da03-bf73-4754-a7b2-68c201696c94,005915,Julia C. Wo,Resign - Voluntary,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Makiki/Lower/ Punchbowl/Tantalus,hotmail.com,Hastings College of Law,12/28/1992
 45d3c131-9c8d-4cdc-ae61-677c87834bea,005916,Ann Y. Miyasaki,Active,"Miyasaki Law Offices, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,miyasakilaw.com,Boston U.,1/7/1993
 12b69c28-e137-430d-bcd7-5bba0bbeed85,005917,Judith K. Moore,Suspended - Non Payment,Deloitte & Touche,United States | Oregon | Multnomah County | Portland | Southwest Portland,,U. of Oregon,1/7/1993
-433aa77e-977e-4cf2-af28-481c84ee1935,005918,Diego Topete,Resign - Voluntary,Attorney at Law,United States | California | San Diego County | San Diego,,U. of San Diego,1/19/1993
+433aa77e-977e-4cf2-af28-481c84ee1935,005918,Diego Topete,Resign - Voluntary,Attorney at Law,United States | California | San Diego County | San Diego | Midway District,,U. of San Diego,1/19/1993
 14df7e7e-f399-4972-982f-91382330355c,005919,Kenneth Gorman,Active,Penrose Chun & Gorman LLP,United States | California | Santa Cruz County | Santa Cruz,pcg-llp.com,Santa Clara U.,2/11/1993
 7868fec8-3167-4464-9001-b5aef8996bdb,005920,Barry Ira Rose,Inactive - Voluntary,,,,Howard U.,2/2/1993
 5c549095-407b-4dab-8b0a-663bf167774d,005921,Catherine M. Barrad,Suspended - Discipline,Attorney at Law,United States | California | Orange County | Tustin,aol.com,Western State U.,1/27/1993
@@ -5908,7 +5908,7 @@ af048ba3-f953-43b5-ac44-58de5a813186,006003,Beth A. Faleris,Inactive - Voluntary
 2f764c71-edeb-46e9-8f0c-e693c00e9970,006004,Haksoon Andrea Low,Inactive - Voluntary,State Bar of Texas,United States | Texas | Travis County | Austin | Downtown Austin,texasbar.com,U. of San Francisco,8/31/1993
 3c2a6a14-b80f-4090-9ee4-46e675de194e,006005,Joseph John Gleason,Active,Law Off. of Joseph J. Gleason,United States | Hawaii | Honolulu County | Honolulu | Downtown,hotmail.com,Hastings College of Law,9/14/1993
 9d62b432-501b-45be-9412-2dde0b9a42a9,006006,Ryan Hitoshi Tomasa,Suspended - Discipline,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Aliamanu - Salt Lakes - Foster Village,,Georgetown U.,9/17/1993
-4f1cb3ca-0251-499e-b53e-1d58225c63c5,006007,Lori W.L. Chang,Government,U.S. Navy,United States | Hawaii | Honolulu County | Aiea | Naval Station Pearl Harbor,us.navy.mil,William S. Richardson,9/27/1993
+4f1cb3ca-0251-499e-b53e-1d58225c63c5,006007,Lori W.L. Chang,Government,U.S. Navy,United States | Hawaii | Honolulu County | Joint Base Pearl Harbor Hickam | Naval Station Pearl Harbor,us.navy.mil,William S. Richardson,9/27/1993
 bfee5843-e330-448b-b022-b66796eb2890,006008,William Marshall Gardner,Suspended - Non Payment,Attorney at Law,United States | Alabama | Florence,comcast.net,Ohio Northern U.,9/27/1993
 fa6fb024-e380-4a99-92e4-ce443347697b,006009,Nancy Jeanette Kasch,Inactive - Voluntary,Orange County Superior Court,United States | California | Orange County | Santa Ana | Downtown,occourts.org,California Western School of Law,9/27/1993
 20dd1d33-d0da-449c-b657-6c5d338626a4,006010,Mahilani E.K Hiatt,Active,Hiatt & Hiatt,United States | Hawaii | Hawaii County | Honokaa,hiattlaw.com,William S. Richardson,9/27/1993
@@ -5954,7 +5954,7 @@ d4394242-4072-47a2-b78a-1623c5fe9bad,006047,Paul Masafumi Iguchi,Active,Nagashim
 ede573ad-dc06-4a26-9c77-59ad1e461b42,006050,Linda Funke Johnson,Active,Attorney at Law,United States | North Carolina | Wake County | Fuquay-Varina,ssjlaw.net,U. of Bridgeport,10/29/1995
 fede0ff8-2907-4020-b677-76debbccdcf3,006051,Donna Haunani Kalama,Active,,United States | Hawaii | Honolulu County | Honolulu | McCully - Moiliili,kalamafarm.com,William S. Richardson,10/29/1993
 4ad2fac7-73d5-43b4-a403-56134cccbbda,006052,Joel D. Kam,Active,McCorriston Miller Mukai MacKinnon LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,m4law.com,Stanford U.,10/29/1993
-ea39d06b-82e9-4add-9186-adc68ef24b99,006053,Cynthia Kanoholani Wong,Active,Cynthia K. Wong,United States | Hawaii | Maui County | Wailuku,legalmaui.net,William S. Richardson,10/29/1993
+ea39d06b-82e9-4add-9186-adc68ef24b99,006053,Cynthia Kanoholani Wong,Active,"Attorney At Law, LLLC",United States | Hawaii | Maui County | Wailuku,legalmaui.net,William S. Richardson,10/29/1993
 355ec48e-f567-4c28-a6e0-e4c8c75012f4,006054,George Henry Keller,Inactive - Voluntary,,,comcast.net,William S. Richardson,10/29/1993
 bb331161-bd01-48ba-a17f-71d1dd89bbd8,006055,Carolyn S. Kiyota,Suspended - Discipline,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.rr.com,William S. Richardson,10/29/1993
 a31ebab8-9fe0-4c92-89d9-4eca2f5a7fbf,006056,Geoffrey K.S. Komeya,Active,Cronin Fried Sekiya Kekina & Fairbanks,United States | Hawaii | Honolulu County | Honolulu | Downtown,croninfried.com,William S. Richardson,10/29/1993
@@ -6065,7 +6065,7 @@ ca21fa74-46af-40fe-ab66-6381eba5d5d7,006158,Sharmini K. Cassady,Suspended - Non 
 34287957-3305-4979-8fdc-45357e2a1888,006161,Fawn Y.J. Yamada,Inactive - Voluntary,Dept. of Transportation,United States | Hawaii | Honolulu County | Kapolei,,U. of Arkansas,5/27/1994
 b4ea69bf-eb7b-457a-a959-889a15f5bea8,006162,Maurice Danbara,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,gmail.com,UC Davis - King Hall,5/27/1994
 430bced3-57c5-4356-abcf-b2f95d09b2e6,006163,Deborah Ann de Quevedo,Suspended - Non Payment,,United States | Hawaii | Honolulu County | Honolulu | Waialae - Kahala,himedlaw.com,Georgetown U.,5/27/1994
-25fd9f6f-31ef-4739-84c9-849653ca89d0,006164,George Henry Eudy,Suspended - Non Payment,Attorney at Law,China | Sichuan | Chengdu,cs.com,William S. Richardson,5/27/1994
+25fd9f6f-31ef-4739-84c9-849653ca89d0,006164,George Henry Eudy,Suspended - Non Payment,Attorney at Law,Cheng Du Shi | Qing Yang Qu | China,cs.com,William S. Richardson,5/27/1994
 ce0036a7-8c70-41f0-b487-3949cc47e859,006165,Paul D. Fredrick,Active,"Paul D. Fredrick, LLC",United States | Texas | Fort Bend County | Katy | Seven Meadows,gmail.com,Indiana U.,5/27/1994
 147d99f0-81d3-4ddf-b651-d566f775af9a,006166,Allegra Connell Frank,Resign - Voluntary,,,,U. of Iowa,5/27/1994
 3436718f-76cf-4937-b60c-de020170013d,006167,Alexander R. Jampel,Active,Jampel Law Firm LLLC,,gmail.com,Loyola Law School,5/27/1994
@@ -6139,7 +6139,7 @@ f7191e40-8bad-4a53-a68d-6aec6febcde9,006234,Donna A.O. Yoshimoto,Active,Yoshimot
 116493c0-1c02-4d2a-8561-1eceb36bef99,006235,"Edwin L. Kamauoha, Jr.",Inactive - Voluntary,"Thorne Research, Inc.",United States | South Carolina | Berkeley County | Summerville,thorne.com,Brigham Young U.,10/20/1994
 9e3e4969-b557-4256-bdaf-5d20369d2c68,006236,Cynthia Scofield,Suspended - Non Payment,Contra Costa County,United States | California | Contra Costa County | Martinez,,UC Berkeley - Boalt Hall,6/30/1994
 90d0479a-eb90-42de-ae7c-bb97add14e4d,006237,Carol Elizabeth Lockwood,Active,"Schlack Ito, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,schlackito.com,Duke U.,10/18/1994
-75dd8818-a09e-4478-bb76-7e9261d35950,006238,R. Eric Hoolulukamak Beaver,Inactive - Voluntary,"Hawaii Reserves, Inc.",United States | Hawaii | Honolulu County | Laie,hawaiireserves.com,Brigham Young U.,10/27/1994
+75dd8818-a09e-4478-bb76-7e9261d35950,006238,R. Eric Hoolulukamak Beaver,Inactive - Voluntary,"Hawaii Reserves, Inc.",United States | Hawaii | Honolulu County | Laie | Koolauloa,hawaiireserves.com,Brigham Young U.,10/27/1994
 44494842-d687-4b07-b2a0-e9d9a9ef61c9,006239,Mark Teruto Nugent,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,hawaii.gov,Willamette U.,10/26/1994
 eb98fdbe-41e0-49af-b212-7fb4f3fa8da3,006240,Danilo T. Aguilar,Disbarred,Law Off. of Danilo Aguilar,Northern Mariana Islands | Saipan,yahoo.com,William S. Richardson,11/10/1994
 119cd5bb-07b9-4e34-9a9f-f491fd8a5c74,006241,Douglas S. Appleton,Inactive - Voluntary,,,,U. of Maryland,11/10/1994
@@ -6214,7 +6214,7 @@ d6c32410-faf4-433a-a916-ddb37e9f8e02,006309,Liane Naomi Nakahodo,Inactive - Volu
 9d2390b2-a8b4-48fd-9d8f-5fe1fec766fe,006310,Johnnel Lee Nakamura,Active,First Hawaiian Bank,United States | Hawaii | Honolulu County | Honolulu | Downtown,fhb.com,Boston College,11/10/1994
 486a11e3-5b8a-46b6-bdaf-6e87f7a300ef,006311,Nadine Louise Priolo,Suspended - Non Payment,Federal Bureau of Investigation,United States | California | San Francisco County | San Francisco | Civic Center,yahoo.com,William S. Richardson,11/10/1994
 1a36b4de-bb0e-4443-a0c6-7c5a96fddf90,006312,Brian T. Nakanishi,Inactive - Voluntary,,,,Santa Clara U.,11/10/1994
-671c2f07-0731-43d8-bc42-d946743aca01,006313,Jamie Chiemi Nakano,Government,,,,William S. Richardson,11/10/1994
+671c2f07-0731-43d8-bc42-d946743aca01,006313,Jamie Chiemi Nakano,Active,,,,William S. Richardson,11/10/1994
 1ae81e7e-a634-4312-8f76-dc94575a037f,006314,John Michael O'Neill,Inactive - Voluntary,,,,Suffolk U.,11/10/1994
 f27e27cf-b048-4864-b707-4d145fb5c78c,006315,Kimberly A. Jackson,Active,"Law Off. of Kimberly A. Jackson, LLLC",United States | Hawaii | Hawaii County | Kailua-Kona,kimjacksonlaw.com,U. of Montana,11/10/1994
 005c3fc7-ec42-4077-9623-c7b0bde39d0c,006316,Peter Sung Ohr,Inactive - Voluntary,National Labor Relations Board,United States | District of Columbia | Washington | Navy Yard,nlrb.gov,Pepperdine U.,11/10/1994
@@ -6294,7 +6294,7 @@ c5b316d5-dfa3-459e-bcdf-c8837501a87d,006383,Dana L. Soong,Inactive - Voluntary,"
 0238e669-46b9-44f5-bb00-4fa14d977ab1,006390,Eleasalo Vaalele Ale,Inactive - Voluntary,"Ale Group, LLC",American Samoa | Western District | Tualauta County | Tafuna,gmail.com,Drake U.,5/26/1995
 7f2e8e11-c611-4ac8-8cbe-9dfd183afe28,006391,Madeleine Austin,Inactive - Voluntary,,,,U. of Denver,5/26/1995
 3fae2601-fbe9-4b3b-8999-9d476b348059,006392,Margaret L.H. Aurand,Inactive - Voluntary,,United States | Hawaii | Honolulu County | Honolulu | Hawaii Kai,yahoo.com,William S. Richardson,5/26/1995
-d9a79099-90e4-42b2-a5ac-0a2a7e3cd633,006393,"Alfred Franz Brunn, Jr.",Inactive - Voluntary,Hawaii Air National Guard,United States | Hawaii | Honolulu County | Honolulu,us.af.mil,William S. Richardson,5/26/1995
+d9a79099-90e4-42b2-a5ac-0a2a7e3cd633,006393,"Alfred Franz Brunn, Jr.",Inactive - Voluntary,Hawaii Air National Guard,United States | Hawaii | Honolulu County | Honolulu | Hickam Air Force Base,us.af.mil,William S. Richardson,5/26/1995
 74990ff8-9627-4a35-8570-6bba370e6768,006394,David Jeffrey Craven,Inactive - Voluntary,"The Craven Firm, PLLC",United States | Arizona | Maricopa County | Scottsdale | Thunderbird Industrial Airpark,cravenfirm.com,California Western School of Law,5/26/1995
 0914a896-d0df-48fc-89bc-6dd3f1d904e0,006395,Margaret Elizabeth Reford,Resign - Voluntary,,,,Dickinson School of Law,5/26/1995
 ad197e2b-35f3-4a6b-8b67-e17c97ab9456,006396,Sheree Michelle Fisher,Resign - Voluntary,,,,Willamette U.,5/26/1995
@@ -6338,7 +6338,7 @@ e4852a1b-8706-44c9-b678-894748314230,006431,Suzanne J. Young,Inactive - Voluntar
 da3a71eb-5b61-4a7f-8f9b-b47f4415a0fd,006434,Scott Michael Spallina,Government,Dept. of the Prosecuting Attorney,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,William S. Richardson,5/26/1995
 01e7e7a3-ed3f-4ed6-b434-416b60de7734,006435,Chuck C. Choi,Active,Choi & Ito,United States | Hawaii | Honolulu County | Honolulu | Downtown,hibklaw.com,Southwestern U.,5/26/1995
 ca00f469-4c2f-430c-938a-5c2c58942cad,006436,Patrick Edward Hoog,Suspended - Non Payment,,,,Indiana U.,6/13/1995
-46ee1d02-483b-45d1-95cc-48eccd148628,006437,Gayle Leone Troutwine,Inactive - Voluntary,Troutwine Law Off,United States | Texas | Bowie County | New Boston,gmail.com,U. of Missouri,5/26/1995
+46ee1d02-483b-45d1-95cc-48eccd148628,006437,Gayle Leone Troutwine,Inactive - Voluntary,Troutwine Law Off,United States | Missouri | Greene County | Springfield Township | Springfield | University Heights,gmail.com,U. of Missouri,5/26/1995
 80974645-1500-458d-915b-683d7e8a9400,006438,Mark Thomas McDonough,Suspended - Non Payment,Dept. of Veterans Affairs,United States | District of Columbia | Washington | Northwest Washington,,Cleveland State U.,5/26/1995
 cafe66de-1b91-4b32-93bb-ccc992ac85d9,006439,Bennett James Chin,Active,"Gordon Rees Scully Mansukhani, LLP",United States | Hawaii | Honolulu County | Honolulu | Downtown,grsm.com,Santa Clara U.,7/26/1995
 a533eb42-3c71-44b8-a4ae-a5d7fde123df,006440,Denise Yasuyo Yamamoto,Inactive - Voluntary,"NetApp, Inc.",United States | California | Santa Clara County | San Jose | West Valley,,Santa Clara U.,7/26/1995
@@ -6574,16 +6574,16 @@ a5412d86-f3fb-4aeb-a6a0-f274723e495f,006669,Laulie S. Powell,Resign - Voluntary,
 80ec369f-aa73-4757-a841-931a851ec395,006670,Bernard P. Wang,Suspended - Non Payment,Bernard Wang Law Off.,United States | Washington | King County | Seattle | Northgate,wanglaw.com,McGeorge School of Law,6/12/1996
 43c4ec01-0b1f-4a8c-b494-588896c7cd01,006671,Jerry P.S. Chang,Active,"3i Law, LLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,3ilawfirm.com,William S. Richardson,6/14/1996
 f0f5cb52-7855-42df-9c7a-6e54797babc2,006672,Nora Chin Hong Tay,Resign - Voluntary,,,,Loyola Law School,6/19/1996
-7322afc7-a6d3-4678-ac1d-c7d51d1283b1,006673,Scott Richard Grigsby,Inactive - Voluntary,Geico Staff Counsel,United States | Oregon | Multnomah County | Portland | Richmond,geico.com,U. of Baltimore,7/29/1996
+7322afc7-a6d3-4678-ac1d-c7d51d1283b1,006673,Scott Richard Grigsby,Inactive - Voluntary,Geico Staff Counsel,United States | Oregon | Multnomah County | Portland | Southwest Portland,geico.com,U. of Baltimore,7/29/1996
 c5924c18-8d65-4b93-b424-fff157b4fd5b,006674,Donald Joseph Townsend,Suspended - Non Payment,,,,U. of Illinois,7/2/1996
 cbd73118-5df5-4a90-a8c3-5dea968110c8,006675,Donald Merwin,Suspended - Non Payment,,,,Suffolk U.,7/12/1996
 20920a1c-61d2-4c2c-b52d-e76454a803ba,006676,Janine Ruth Udui,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,7/19/1996
 123afe45-c6d0-4c0c-a22f-db2e42670adc,006677,Jean S. Nishimura,Suspended - Non Payment,Attorney at Law,United States | California | Santa Clara County | Campbell | Pruneyard / Dry Creek,msn.com,Santa Clara U.,8/9/1996
 89b5d51f-9917-454b-8770-f08732bfb031,006678,Christopher Charles Edwards,Inactive - Voluntary,,,,Nova U.,9/16/1996
-a2c5ee80-4e78-4709-9e64-2b170b24348b,006679,David W. Cain,Active,Cain & Herren,United States | Hawaii | Maui County | Wailuku,cainandherren.com,New England School of Law,9/18/1996
+a2c5ee80-4e78-4709-9e64-2b170b24348b,006679,David W. Cain,Active,Cain Herren & McKelvey,United States | Hawaii | Maui County | Wailuku,cainandherren.com,New England School of Law,9/18/1996
 8fb450e8-9da6-462b-9aca-0af353065a4c,006680,Fay Fumiko Morinaga-Pang,Inactive - Voluntary,,,,William S. Richardson,9/18/1996
 f27d078d-2da7-44b5-a990-b8f498c946aa,006681,Joseph Timothy Burke,Inactive - Voluntary,Rocky River Municipal Court,United States | Ohio | Cuyahoga County | Rocky River,aol.com,Case Western Reserve U.,9/20/1996
-ae2e212c-b285-48f7-ab2d-02688891132f,006682,John M. Kirimitsu,Active,Law Off. of John Kirimitsu,,yahoo.com,Gonzaga U.,9/20/1996
+ae2e212c-b285-48f7-ab2d-02688891132f,006682,John M. Kirimitsu,Active,,,yahoo.com,Gonzaga U.,9/20/1996
 8544d670-08e4-419b-90da-e13d646421c7,006683,Robert Patrick McPherson,Active,Law Off. Of Robert Patrick McPherson,United States | Hawaii | Honolulu County | Honolulu | Downtown,yahoo.com,Widener U.,9/26/1996
 52bd9d4d-8abd-46f2-8571-802ea8105f54,006684,Garrett Hideo Suemori,Inactive - Voluntary,,,,U. of San Diego,9/30/1996
 852257d4-9369-4d30-a33d-bb8bc0a7c08d,006685,Jay K. Nakasone,Active,,,,Southwestern U.,10/2/1996
@@ -6711,7 +6711,7 @@ c5222655-6d5b-4ec9-aafb-3ebbdf9e243c,006788,Craig Anthony De Costa,Active,Cahill
 f426e160-1038-4ff3-b925-f7ee134bf0d6,006807,Gary John Maxwell,Suspended - Non Payment,Advocates For Clergy,United States | Ohio | Cuyahoga County | Cleveland,advocatesforclergy.com,Cleveland State U.,11/13/1996
 f4f1a4ac-2492-4d79-970f-143395221652,006808,Mark Andrew Segal,Inactive - Voluntary,,United States | Georgia | Gwinnett County | Lilburn,johnmorrisonlaw.com,Mercer U. School of Law,11/13/1996
 682d0851-02e8-468c-83cf-765b9c2669e8,006809,Gregory F. Geary,Suspended - Non Payment,,,,Harvard U.,11/18/1996
-afbba8e3-16dc-4685-907f-2221351b9a13,006810,James Scott McNamara,Inactive - Voluntary,,United States | California | San Francisco County | San Francisco | Fairmount,netzero.net,U. of San Diego,11/7/1996
+afbba8e3-16dc-4685-907f-2221351b9a13,006810,James Scott McNamara,Inactive - Voluntary,,United States | California | San Francisco County | San Francisco,netzero.net,U. of San Diego,11/7/1996
 25407169-e5c9-4c1f-a685-25a9b418564c,006811,D. Scott Dodd,Inactive - Voluntary,Law Offices of William R. Price,United States | California | San Diego County | San Diego | Carmel Valley,williamrprice.com,U. of Southern California,11/15/1996
 f5214f22-d1b5-4a73-baae-52dd5d6bb4a0,006812,Steven D. Smelser,Active,Yukevich Cavanaugh,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,yukelaw.com,Loyola Law School,11/20/1996
 97285023-36c0-4480-8ac5-dba831286f0e,006813,Brian Michael Pearce,Inactive - Voluntary,U.S. Attorney's Office,United States | Georgia | DeKalb County | Decatur,aol.com,Stanford U.,12/19/1996
@@ -6728,7 +6728,7 @@ e24c9397-91f2-45d1-9fcd-a8291857fc7a,006823,Gary Hiroshi Yamashiroya,Inactive - 
 b998cb61-2ce8-4b8a-b285-5d7027db8e93,006824,Tonette J. Jaramilla,Suspended - Non Payment,"Toni Jaramilla, APLC",United States | California | Los Angeles County | Los Angeles | Century City,tjjlaw.com,Whittier Law School,2/8/1997
 30660b43-8c87-4550-a1f9-43599884dfaa,006825,Keith H.S. Peck,Active,,United States | California | Orange County | Irvine | Great Park,aol.com,Marquette U.,3/5/1997
 a372de48-7009-4061-8ead-633babe3125d,006826,Stewart Pressman,Active,McCorriston Miller Mukai MacKinnon,United States | Hawaii | Honolulu County | Honolulu | Downtown,m4law.com,Loyola Law School,12/26/1996
-35ab7bad-1de3-4ca8-be1e-546070ea9267,006827,Arthur Morton Wolff,Deceased,Attorney at Law,United States | Florida | Broward County | Fort Lauderdale,,Washington U.,2/27/1997
+35ab7bad-1de3-4ca8-be1e-546070ea9267,006827,Arthur Morton Wolff,Deceased,Attorney at Law,United States | Florida | Broward County | Fort Lauderdale | Coral Ridge,,Washington U.,2/27/1997
 a193115e-09e7-420c-8b78-bac5882b7b07,006828,Eric Gregory Ferrer,Active,Law Off. of Eric G. Ferrer,United States | Hawaii | Maui County | Haiku-Pauwela | Haiku,ericferrerlaw.com,UCLA,3/13/1997
 394ee073-eec3-4862-b02e-5a3bf3ea5c97,006829,Barrett W. Francis,Active,Attorney At Law,United States | Hawaii | Honolulu County | Honolulu | Waialae - Kahala,cs.com,Loyola Law School,4/11/1997
 76d04207-1b7b-4267-8715-09d0c790325e,006830,Anne Lenore Dierickx,Suspended - Non Payment,Attorney at Law,United States | California | San Diego County | San Diego | Pacific Beach,hughes.net,U. of San Diego,2/7/1997
@@ -7061,7 +7061,7 @@ df3f586c-07bf-40a4-8177-8ece5d8a0f6b,007156,Susan Kiyomi Serrano,Inactive - Volu
 1e95b498-5dc1-4fee-881b-738b039ff66c,007157,Michelle Mihee Shin,Active,Aloha United Way,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,auw.org,Hastings College of Law,10/23/1998
 f1201fcc-210f-4b34-8b2e-4bc381a8bcd5,007158,R. Scott Simon,Inactive - Voluntary,Simon Leadership Group LLC,United States | Hawaii | Honolulu County | Honolulu | Kuliouou - Kalani Iki,simonlead.com,William S. Richardson,10/23/1998
 caed3257-b587-42ee-8647-541f57a67a16,007159,Camille N. Sirivattha,Inactive - Voluntary,Waolani Judd Nazarene School,United States | Hawaii | Honolulu County | Honolulu | Liliha - Kapalama,wjns.org,William S. Richardson,10/23/1998
-1c74cfba-cf09-48b4-8ad0-d197c308e17e,007160,Greg Hiroshi Takase,Active,"Chong Nishimoto Sia Nakamura & Goya, LLP",United States | Hawaii | Honolulu County | Honolulu | Downtown,hawadvocate.com,William S. Richardson,10/23/1998
+1c74cfba-cf09-48b4-8ad0-d197c308e17e,007160,Greg Hiroshi Takase,Government,University of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Manoa,hawaii.edu,William S. Richardson,10/23/1998
 7d7f63cd-1b92-4f4c-8ed1-9bfb1a1b1f34,007161,Mark R. Tanaka,Inactive - Voluntary,"Nomi Takaichi, LLP",United States | California | Santa Clara County | Campbell | Pruneyard / Dry Creek,ntcpa.com,Gonzaga U.,10/23/1998
 92d55db3-e4af-4aa1-a6ab-41a0c5b78e90,007162,Elizabeth Cameron Thompson,Inactive - Voluntary,"Allen Stahl & Kilbourne, PLLC",United States | North Carolina | Buncombe County | Asheville,asklawnc.com,William S. Richardson,10/23/1998
 946378a8-80c1-4957-b2db-7856cf09edcc,007163,Juliann Tigert,Inactive - Voluntary,,,,William S. Richardson,10/23/1998
@@ -7467,7 +7467,7 @@ eecfdd38-90cc-4865-ab98-e4b40d5592f5,007562,Danielle Laaana Sears,Government,Off
 96ea3ef3-5e2b-45e7-b23f-0435b8041171,007563,Martin Alan Berger,Active,Hawaii Debt Solutions LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiidebtsolutions.com,Tulane University Law School,7/2/2001
 13db8832-3659-4169-8963-fc8a64929947,007564,Donald Walter Fetherston,Inactive - Voluntary,,,,U. of Alberta,7/17/2001
 27763f44-8733-4ce6-917a-bea1d9b801a8,007565,Christine F. Tamashiro,Government,U.S. Navy,United States | Hawaii | Honolulu County | Joint Base Pearl Harbor Hickam | Naval Station Pearl Harbor,us.navy.mil,Loyola Law School,7/6/2001
-9f45d645-5e30-4149-934f-08a6cdb77da9,007566,Benard McKinley Herren,Active,Cain & Herren,United States | Hawaii | Maui County | Wailuku,cainandherren.com,U. of Iowa,8/15/2001
+9f45d645-5e30-4149-934f-08a6cdb77da9,007566,Benard McKinley Herren,Active,Cain Herren & McKelvey,United States | Hawaii | Maui County | Wailuku,cainandherren.com,U. of Iowa,8/15/2001
 9399746b-77d9-438d-916f-db2e1d358113,007567,Michael Ryder Thomas,Active,DiCello Levitt LLP,United States | New York | New York County | New York | Manhattan,dicellolevitt.com,McGeorge School of Law,9/21/2001
 1d37a2f8-00ca-487d-bfa4-f12a6d06d1f8,007568,Ryan Carter Cuskaden,Inactive - Voluntary,Admin. Driver's License Revocation Off.,United States | Hawaii | Honolulu County | Honolulu | Downtown,courts.hawaii.gov,Southern Methodist U.,9/21/2001
 ea0fa21b-a7a1-4609-ac79-3557312856cc,007569,Michelle Lynn Schroeder,Inactive - Voluntary,LA District Attorneys' Off.,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,da.lacounty.gov,Southwestern U.,9/25/2001
@@ -7497,7 +7497,7 @@ ec8eccde-fb5c-4787-9fb9-de5a39255f1b,007592,Tracy Junko Fujimoto,Inactive - Volu
 8a939c48-f104-4a94-ab67-4a50f76cdcd3,007593,Renee M. Furuta-Barnum,Active,"Law Off. of Marvin S.C. Dang, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,mscdlaw.com,William S. Richardson,11/1/2001
 142a4b0c-d2e5-4422-8eee-3cec68b1fc84,007594,Randall Byron Geuy,Suspended - Non Payment,Saudi Arabian Oil Co,Saudi Arabia | Eastern Province | Dhahran,aol.com,William S. Richardson,11/1/2001
 eb2efc7f-e9eb-489d-a507-e97852e29121,007595,Patrick Henry Hannigan,Inactive - Voluntary,,,,Northern Illinois U. College of Law,11/1/2001
-da139a45-362c-45e5-9c76-5df1e2f7dd1f,007596,Seth Raymond Harris,Active,Law Office of Seth R. Harris LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,harrisfamilylawhi.com,William S. Richardson,11/1/2001
+da139a45-362c-45e5-9c76-5df1e2f7dd1f,007596,Seth Raymond Harris,Active,Law Off. of Seth R. Harris LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,harrisfamilylawhawaii.com,William S. Richardson,11/1/2001
 94fffeed-2266-4333-b219-0c49a0ceff13,007597,Colette L. Honda,Government,Hawaii Army National Guard,United States | Hawaii | Honolulu County | Honolulu | Waialae - Kahala,army.mil,William S. Richardson,11/1/2001
 0b7e58e4-d100-4ac6-8abb-30b38ffb080e,007598,Chad Masao Iida,Active,"Esquire Construction, Inc.",United States | Hawaii | Honolulu County | Honolulu | Hawaii Kai,gmail.com,William S. Richardson,11/1/2001
 424f7214-7e29-460b-9a8e-c56628df6c0f,007599,Jonathan Lopaka Inciong,Active,Bervar & Jones,United States | Hawaii | Honolulu County | Honolulu | Downtown,bervar-jones.com,William S. Richardson,11/1/2001
@@ -7858,7 +7858,7 @@ ff2e2318-72cd-4509-b9e9-a6ae2b596d1b,007950,Devin Li-Chih Choy,Inactive - Volunt
 c12426a9-6368-40b5-a08e-7d6de5ab6cd9,007954,Natasha Dexter,Suspended - Non Payment,3M Co.,United States | Minnesota | Ramsey County | Saint Paul,mmm.com,St. John's U.,11/14/2003
 3e362855-def2-46fe-b497-51043a2c74e0,007955,Liann Yaemi Ebesugawa,Active,"Hawaiian Electric Industries, Inc.",United States | Hawaii | Honolulu County | Honolulu | Downtown,hei.com,William S. Richardson,11/14/2003
 bf3cc1a5-c932-4312-ba72-d9dc94b53c0a,007956,Leigh Rodriguez,Inactive - Voluntary,Attorney at Law,United States | California | Monterey County | Monterey,yahoo.com,New College of CA,11/24/2003
-6cddca1e-2f22-45a2-96a0-b314ba72cbf1,007957,Rebeka Maeroa Takayama,Active,Adams Krek LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,adamskrek.com,William S. Richardson,11/26/2003
+6cddca1e-2f22-45a2-96a0-b314ba72cbf1,007957,Rebeka Maeroa Takayama,Active,,,,William S. Richardson,11/26/2003
 f2b7f653-8248-454f-8bda-50302a846211,007958,J Grant Giventer,Inactive - Voluntary,"Dept. of Health, State of Hawai`i",United States | Hawaii | Honolulu County | Kapolei,doh.hawaii.gov,California Western School of Law,11/14/2003
 df4c3039-862f-41f8-9b2b-564caff429c7,007959,Daniel Marc Gluck,Government,Dept. of the Corporation Counsel,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,Harvard U.,11/14/2003
 2f73c78a-defe-43a9-9943-b142a004459b,007960,Jeffrey Moore Goldman,Inactive - Voluntary,,United States | California | Los Angeles County | Burbank | Central LA,cardinalxd.com,William S. Richardson,11/14/2003
@@ -7914,7 +7914,7 @@ ef4b049c-20b6-4ecf-9409-d278a1231ff7,008004,Barbara Uphouse Wong,Resign - Volunt
 5ba30b78-41db-4f92-9ccd-b243480474ca,008010,"William V. Brilhante, Jr.",Active,County of Hawaii,United States | Hawaii | Hawaii County | Hilo,hotmail.com,Chapman U.,11/14/2003
 5f961495-ebff-4467-877f-9cd8d2f1756f,008011,Jill Dana Raznov,Active,Law Off. of Jill D. Raznov,United States | Hawaii | Hawaii County | Hilo,gmail.com,William S. Richardson,11/14/2003
 af088988-eb23-434f-a616-b01b85b5dfac,008012,Jennifer Marie Tyler,Suspended - Professionalism Course,Dept. of Interior,United States | Virginia | Fairfax County | Herndon,,Western New England College,11/14/2003
-8e2b1c30-33b0-4bdb-85e4-a1f38bac1a30,008013,Michael Yukio Yoshino,Suspended - Non Payment,"Locations, LLC",United States | Hawaii | Honolulu County | Honolulu | McCully - Moiliili,gmail.com,McGeorge School of Law,11/14/2003
+8e2b1c30-33b0-4bdb-85e4-a1f38bac1a30,008013,Michael Yukio Yoshino,Suspended - Non Payment,"Locations, LLC",United States | Hawaii | Honolulu County | Honolulu,gmail.com,McGeorge School of Law,11/14/2003
 56204104-40c9-45fb-bf35-c137243dcd1c,008014,"Joseph Camenzind, IV",Suspended - Non Payment,,United States | California | Santa Clara County | Santa Clara | Central San Jose,yahoo.com,Seton Hall U.,11/14/2003
 2e5f190c-addc-4000-8e81-465db9769f5a,008015,"Joaquin V. Espinosa Manibusan, III",Inactive - Voluntary,,,,William S. Richardson,11/14/2003
 f38c61dd-1d8a-4a88-baa0-645728c2e594,008016,Rina Chai Yum Chung,Government,DCCA,United States | Hawaii | Honolulu County | Honolulu | Downtown,dcca.hawaii.gov,William S. Richardson,11/14/2003
@@ -7935,7 +7935,7 @@ c1800fe8-53a1-44fe-9180-7ef7ba6e5964,008029,James Toshizo Ota,Active,PacMar Tech
 2f017344-260a-4d63-a442-f33d6b70ca3e,008031,"William Turman Reece, Jr.",Active,"Law Off. of William T. Reece, Jr.",United States | Hawaii | Hawaii County | Kailua-Kona,aol.com,U. of Baltimore,11/14/2003
 def2cef1-10be-4c35-b058-3381722e3e74,008032,Nathan Pohakea Roehrig,Active,"Attorney At Law, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,nprlawhawaii.com,William S. Richardson,11/14/2003
 f41eb68b-f5c9-41aa-8bb5-ee14cf2debf0,008033,Patrick Augustine Ryan,Active,Hagens Berman Sobol Shapiro,United States | Washington | King County | Seattle | Downtown Seattle,hbsslaw.com,U. of Colorado,11/14/2003
-f59d09c7-786d-4fc4-958f-e7fd1cf7f6e3,008034,Helen Cheukyan Ng,Inactive - Voluntary,SCIF,United States | California | Los Angeles County | Glendale | Vineyard,,William S. Richardson,12/2/2003
+f59d09c7-786d-4fc4-958f-e7fd1cf7f6e3,008034,Helen Cheukyan Ng,Inactive - Voluntary,SCIF,United States | California | Los Angeles County | Glendale,,William S. Richardson,12/2/2003
 ae920b64-88f2-4d37-9c4b-2b01520bdc48,008035,Cynthia Anne Thomas,Active,SoCal Penske Dealer Group,United States | California | Los Angeles County | Downey,socalpenske.com,Seton Hall U.,11/14/2003
 557bab5f-6846-4fd5-b662-c3bc7ecb1502,008036,Kristina Chiye Toshikiyo,Government,Dept. of the Corporation Counsel,United States | Hawaii | Maui County | Wailuku,co.maui.hi.us,William S. Richardson,11/14/2003
 98299c5b-9262-42ec-af7e-e2c17ce06c37,008037,Shanna Michelle Cleveland,Inactive - Voluntary,Energy Foundation,United States | Massachusetts | Middlesex County | Arlington,,U. of Virginia,11/14/2003
@@ -7951,7 +7951,7 @@ c29998f3-5008-4f3c-b8a7-52dbbb388aa5,008045,Russell Leonard Case,Suspended - Non
 b1988006-8698-4eef-b059-efc3280a6312,008047,Corinna Wong,Inactive - Voluntary,,,,Boston U.,12/20/2003
 267b6941-b3ff-4123-bac8-7d641e21935a,008048,Barbara Janean Ho,Inactive - Voluntary,Bank of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Downtown,boh.com,George Washington U.,12/18/2003
 1f54a96f-c0e1-4b5d-8618-e002d422730f,008049,Wendy Yamamoto Suetsugu,Inactive - Voluntary,,,hawaii.edu,William S. Richardson,12/30/2003
-d67c796e-7778-44ed-9952-90180e90e259,008050,David Leslie Williams,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,De Paul U.,1/5/2004
+d67c796e-7778-44ed-9952-90180e90e259,008050,David Leslie Williams,Inactive - Voluntary,,,,De Paul U.,1/5/2004
 4291b405-082d-4b89-8019-46605fd00eb5,008051,Mi Yung Claire Park,Active,"A21 USA, Inc.",United States | Texas | Tarrant County | Fort Worth | Fairway Bend,a21.org,U. of Virginia,1/4/2004
 635c7797-a8be-4a19-9f67-c36564a9cd57,008052,Juli Mae Horka-Ruiz,Inactive - Voluntary,,,,William & Mary Law School,1/2/2004
 a7c674f4-c9af-44d7-968c-8c1aba7cf613,008053,Julie Peterson,Inactive - Voluntary,Midwest Reliability Organization,United States | Minnesota | Hennepin County | Plymouth,,U. of North Dakota,12/31/2003
@@ -8015,7 +8015,7 @@ e05a2082-d2b0-42ba-8ed1-f92bfed4d834,008110,Karen Sue Baldwin,Inactive - Volunta
 446c725e-8a7f-46b0-9e92-80abc1021d8b,008111,Denny Esme Cowger,Inactive - Voluntary,,,,U. of Cincinnati,6/14/2004
 e8f433c4-1300-40a7-a63b-2e3eb5c1f6ec,008112,Shawn Michael Rosenzweig,Suspended - Non Payment,McCombs Enterprises,United States | Texas | Bexar County | San Antonio | Alamo Heights,mccombshq.com,U. of Texas,6/23/2004
 a1996886-5a58-4084-b76d-1e11a8bf96c0,008113,Shannon Hiileilani Edie,Active,Nakupuna Companies,United States | Hawaii | Honolulu County | Honolulu,nakupuna.com,Santa Clara U.,7/10/2004
-5aad925f-6691-4792-8c96-ff8b6580886c,008114,Darrin Michael Skousen,Inactive - Voluntary,The Church of Jesus Christ of Latter-Day Saints,Czechia | Hlavní město Praha | Hlavní město Praha | Praha 6 | Letná,churchofjesuschrist.org,American U.,7/12/2004
+5aad925f-6691-4792-8c96-ff8b6580886c,008114,Darrin Michael Skousen,Active,The Church of Jesus Christ of Latter-Day Saints,United States | Utah | Salt Lake County | Salt Lake City | Capitol Hill,churchofjesuschrist.org,American U.,7/12/2004
 f6e44bfa-93c1-4367-ad1f-541c257be1e6,008115,Scott Kamuela Holbrook,Active,Atkinson Andelson Loya Ruud & Romo,United States | California | Sacramento County | Sacramento | North Sacramento,aalrr.com,U. of the Pacific,7/20/2004
 caabb70b-2cfd-479e-83e4-e77059b934c3,008116,David Bradley Merchant,Inactive - Voluntary,Off. of the Attorney General,United States | Washington | Thurston County | Olympia,atg.wa.gov,U. of Washington,8/26/2004
 05c3ed30-58a3-4f42-ab2d-fb306dcf9a41,008117,Christopher S. P. Gregory,Inactive - Voluntary,"The Gregory Law Firm, LLC",United States | Colorado | Boulder County | Longmont,thegregorylawfirm.net,Willamette U.,9/9/2004
@@ -8132,7 +8132,7 @@ cb9b293f-354c-4caf-b4dd-e19e9a83d819,008224,Lalii Antolina Chin,Suspended - Non 
 d16ec4cf-f08a-43fe-a79a-c697347d1129,008228,Carol Monahan Jung,Active,"Jung & Vassar, P.C.",United States | Hawaii | Hawaii County | Kailua-Kona,jungvassar.com,Dickinson School of Law,1/13/2005
 f9d6d6e5-3e34-436d-85b1-e5569295997f,008229,Emiko Lee Tsuneyoshi Meyers,Active,Meyers Law LLLC,United States | Hawaii | Kauai County | Lihue,meyerslawhawaii.com,Seattle U.,1/14/2005
 3a091805-1811-48ab-bdf8-2933bb1aacc3,008230,Jill Margaret Ward,Inactive - Voluntary,,,,Loyola U.,1/18/2005
-9d043445-04ee-4c10-96ed-7af4f16e145b,008231,Richard Scott Levinthal,Active,Thammasat University,Thailand | Krung Thep Maha Nakhon | Khet Phasi Charoen | Khwaeng Pak Khlong Phasi Charoen,hotmail.com,William S. Richardson,1/27/2005
+9d043445-04ee-4c10-96ed-7af4f16e145b,008231,Richard Scott Levinthal,Active,Thammasat University,Thailand | Krung Thep Maha Nakhon | Khet Phra Nakhon | Khwaeng Phra Borom Maha Ratchawang,hotmail.com,William S. Richardson,1/27/2005
 b14c5a9b-9893-4d8b-b348-2556a9eba8a7,008232,Ethan Ray Okura,Active,Okura & Associates,United States | Hawaii | Honolulu County | Honolulu | Makiki/Lower/ Punchbowl/Tantalus,,Columbia U.,3/4/2005
 607f5cac-9457-4a0b-a15c-1c16615ef4fb,008233,Howard Grant Law,Active,Shook Hardy & Bacon,United States | California | San Francisco County | San Francisco | SoMa,shb.com,Santa Clara U.,3/8/2005
 7f21298b-957b-4538-baac-6b81cde45c7a,008234,Michael George Callahan,Inactive - Voluntary,Washington Technology Solutions,United States | Washington | Thurston County | Olympia,watech.wa.gov,St. Thomas U.,4/29/2005
@@ -8211,7 +8211,7 @@ b9683cee-36fa-4c5e-b311-644ea83a7aa7,008308,Miranda Tsai,Active,Bank of Hawaii,U
 39f39941-c47c-42aa-aff7-d1f443230184,008309,Rebekah Wyndie Moore,Inactive - Voluntary,,,me.com,U. of California - Davis,6/20/2005
 789f71df-b885-40c8-9051-7676d7ebbef6,008310,Barry Lloyd Sooalo,Active,Law Off. of Barry Sooalo,United States | Hawaii | Honolulu County | Honolulu | Downtown,yahoo.com,U. of District of Columbia,7/22/2005
 e0f10e17-5e51-4312-88b9-f361e4fefd8d,008311,Mark David DeBofsky,Active,"DeBofsky Law, Ltd.",United States | Illinois | Cook County | Chicago | West Loop,debofsky.com,U. of Illinois,8/22/2005
-19e078a1-c218-4335-b404-38584c3da2a0,008312,"John Augustine Sopuch, III",Suspended - Non Payment,The Collins Law Firm,United States | Illinois | DuPage County | Naperville Township | Naperville | Naperville Park District,collinslaw.com,Pepperdine U.,9/15/2005
+19e078a1-c218-4335-b404-38584c3da2a0,008312,"John Augustine Sopuch, III",Active,The Collins Law Firm,United States | Texas | Nueces County | Corpus Christi | South Side,sopuchlawvi.com,Pepperdine U.,9/15/2005
 0e534394-8925-46c2-90a5-3d6bca5ec943,008313,Daniel Ross Weltin,Active,Law Off. of Daniel Weltin,United States | California | Alameda County | San Leandro | Davis Tract,danielweltin.com,Santa Clara U.,9/19/2005
 96604d5e-5c9e-4606-b571-fc72e8892a87,008314,"Edward Morris Robbins, Jr.",Active,"Hochman Salkin Toscher Perez, PC",United States | California | Los Angeles County | Beverly Hills,taxlitigator.com,Golden Gate U.,9/26/2005
 ca31c24f-bbfe-48c0-b464-aecf181289aa,008315,Shabnaum Quezon Amjad,Inactive - Voluntary,Dept. of Homeland Security,United States | District of Columbia | Washington | Southwest Washington,fema.dhs.gov,U. of Pittsburgh,9/20/2005
@@ -8282,7 +8282,7 @@ d9c6403a-9d2c-4773-9b47-6dd78379d182,008376,Brianne Leolani Wong Leong,Active,"W
 90a60010-0997-49d5-82bc-692a7a76a769,008380,Kelly Lynn Mendoza,Suspended - Non Payment,Tiffany & Bosco,United States | Arizona | Maricopa County | Phoenix | Camelback East Village,tblaw.com,Arizona State U.,11/9/2005
 3586fa1b-67e3-4ddb-8055-fb54b97562cd,008381,"Dennis Earl Phillips, Jr.",Government,Off. of the Inspector General,United States | District of Columbia | Washington | Northwest Washington,cftc.gov,William S. Richardson,11/9/2005
 62fb48d8-e7c6-4cb6-8906-502b773f0133,008382,Michael Allison Ragsdale,Resign - Voluntary,,,,William S. Richardson,11/9/2005
-d7d3ac35-53c0-48a9-8f90-0d2e506a6e54,008383,Nathan Kanale Sadowski,Government,U.S. Army Corps of Engineers,,usace.army.mil,William S. Richardson,11/9/2005
+d7d3ac35-53c0-48a9-8f90-0d2e506a6e54,008383,Nathan Kanale Sadowski,Government,U.S. Army Corps of Engineers,United States | Hawaii | Honolulu County | Honolulu | Fort Shafter,usace.army.mil,William S. Richardson,11/9/2005
 6b6d3147-2efd-48b3-b86a-e419720225f6,008384,Micah Yasuro Sadoyama,Active,INPEX Corporation,Japan | Tokyo | Minato City | Akasaka | 5-chōme | 3,inpex.co.jp,William S. Richardson,11/9/2005
 fff5311b-c16c-4587-b417-5dce3a6436b3,008385,Rosemarie Shih Jia Sam,Active,Goodsill Anderson Quinn & Stifel LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,goodsill.com,William S. Richardson,11/9/2005
 03a7a386-256f-470e-beac-aed7a9cec673,008386,Malia Emerson Schreck,Active,Lyons Brandt Cook & Hiramatsu,United States | Hawaii | Honolulu County | Honolulu | Downtown,lbchlaw.com,William S. Richardson,11/9/2005
@@ -8345,7 +8345,7 @@ c6d3e8a8-0bcc-4861-8dea-70d4a01b6d62,008441,Ralph William Adams,Inactive - Volun
 adc0e677-aa24-4903-a725-190bbfe092c3,008443,Bosko Petricevic,Active,Attorney At Law LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,gmail.com,Creighton U.,1/13/2006
 9930e632-c158-4f97-947d-1e8f179be019,008444,Harris Nathan Hanson,Suspended - Non Payment,Hanson Assoc.,Canada | Alberta | Calgary | Acadia,hansonassociates.ca,U. of Calgary,1/2/2006
 8903964f-6e3a-46a4-93a8-9be3f776a6a7,008445,Robert Andrew Schauble,Active,Attorney at Law,United States | California | San Diego County | San Diego | Black Mountain Ranch,outlook.com,Thomas Jefferson School of Law,1/13/2006
-732f1e53-92be-4d12-923a-444ed84bffaa,008446,Gary Charles Zamber,Active,"Gary C. Zamber AAL, Inc.",United States | Hawaii | Hawaii County | Hilo,gmail.com,Nebraska College of Law,1/9/2006
+732f1e53-92be-4d12-923a-444ed84bffaa,008446,Gary Charles Zamber,Restrained from Practice,"Gary C. Zamber AAL, Inc.",United States | Hawaii | Hawaii County | Hilo,gmail.com,Nebraska College of Law,1/9/2006
 81906413-1051-4724-868b-8b513e0c5f68,008447,Alan Ray Barnes,Suspended - Non Payment,Law Off. of Alan R. Barnes,United States | California | Sacramento County | Sacramento | Downtown,barnes-law.com,U. of Texas,1/20/2006
 d82b6b63-0443-46c4-a977-92fe771ff6ca,008448,Trisha Marie Blake,Inactive - Voluntary,,,,William S. Richardson,1/25/2006
 a1f729e0-3550-4421-9fa8-9e5ae661075a,008449,Joy Shitoko Watanabe,Active,Joy Watanabe,United States | Hawaii | Honolulu County | Honolulu | Makiki/Lower/ Punchbowl/Tantalus,,Seattle U.,1/23/2006
@@ -8503,7 +8503,7 @@ e5c287cd-3581-47d1-a828-a92478db429a,008600,Linda Jean Nye,Active,Attorney At La
 dbd55bf4-9e54-4fcf-a3e0-9856f3f4ee5c,008601,Nathan Tetsuo Okubo,Active,Cades Schutte LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,cades.com,William S. Richardson,11/6/2006
 44404dff-bd68-470b-8fb9-a43f394e3c84,008602,Daniel Shin Park,Inactive - Voluntary,,,,William S. Richardson,11/6/2006
 bb023fd5-1559-4297-89a8-b65c934b0605,008603,Shannon Parrott,Inactive - Voluntary,"Law Office of Shannon Parrott, LLC",United States | Oregon | Multnomah County | Portland | Southwest Portland,gmail.com,U. of Washington,11/6/2006
-39a924de-b9a4-48c8-8230-d395fe05cb47,008604,Lars Peterson,Active,808 BK LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,abelmannlaw.com,U. of Cincinnati,11/6/2006
+39a924de-b9a4-48c8-8230-d395fe05cb47,008604,Lars Peterson,Active,808 BK LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,808bk.com,U. of Cincinnati,11/6/2006
 63751a0c-f038-40c1-9c39-e58945822cde,008605,Danilo Mikhail Luis Ponce,Inactive - Voluntary,,,,William S. Richardson,11/6/2006
 2e3e37cb-2084-4696-9f1c-1eecc57c3081,008606,"James Blaine Rogers, III",Active,Davis Levin Livingston,United States | Hawaii | Honolulu County | Honolulu | Downtown,davislevin.com,William S. Richardson,11/6/2006
 426dc832-b869-43da-b466-62e0d8bcfcb7,008607,"Joseph Nolan Anthony Ryan, Jr.",Active,"Attorney At Law, LLLC",United States | Hawaii | Honolulu County | Waimānalo,outlook.com,William S. Richardson,10/11/2006
@@ -8893,7 +8893,7 @@ d62830dc-45b1-4068-868a-701022007db8,008986,Charles Arthur Foster,Government,Off
 9fc25cf0-0ade-4718-a860-d8ab6ed75581,008991,Rhoda Yabes Alvarez,Active,Law Off. of Rhoda Yabes Alvarez LLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,gmail.com,Ateneo de Manila Univ,11/19/2008
 1a3f0f11-f1fd-4c32-b8f1-9956daab9f49,008992,David Eric Austin,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Kuliouou - Kalani Iki,davidaustinlaw.com,U. of Maryland,11/19/2008
 f7efdf2b-bfb5-4180-85d2-70825772b2e7,008993,Lisa Doo Ayabe,Active,Cades Schutte LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,cades.com,William S. Richardson,11/19/2008
-06ae9c65-9fd6-4899-8a6e-cd7d45a73005,008994,Jason Ali'i Baker,Government,Dept. of the Corporation Counsel,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,William S. Richardson,11/19/2008
+06ae9c65-9fd6-4899-8a6e-cd7d45a73005,008994,Jason Ali'i Baker,Active,Kamehameha Schools,United States | Hawaii | Honolulu County | Honolulu | Downtown,ksbe.edu,William S. Richardson,11/19/2008
 ab187086-4f2c-4d16-87e4-091f47c0d09e,008995,Hope Tryon Bennett,Inactive - Voluntary,,,,Stanford Law School,11/19/2008
 1dbbf616-5873-4c7a-ba8f-8ff83a077b52,008996,Connie Yun Hee Chang,Active,,,yahoo.com,U. of California,11/19/2008
 3c7a9918-dbed-41ec-a1ea-78dc6dbeac89,008997,Stanley Pai Chang,Inactive - Voluntary,,,,Harvard U.,11/19/2008
@@ -8959,12 +8959,12 @@ ed3ae0b4-8aaa-431f-b8fe-eeb0dd2eea20,009056,Elizabeth Kilohana Wilcox,Government
 9b1d9eee-f848-401c-9eb4-973272ae98b0,009057,Lauren Anne Wilcoxon,Active,Law Office of Brian S. Kim,United States | Hawaii | Honolulu County | Honolulu | Downtown,oahulawfirm.com,William S. Richardson,11/19/2008
 20e1cb8f-34c9-453e-8112-f0324fc0f9fb,009058,Sarah Shaw Pomaika'i Moriarty,Inactive - Voluntary,University of Hawaii at Manoa,United States | Hawaii | Honolulu County | Honolulu,hawaii.edu,William S. Richardson,11/19/2008
 f564f699-9a86-4635-a76e-3acaf57f0094,009059,Allen Yadao,Inactive - Voluntary,Bank Of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Downtown,boh.com,Oklahoma City U.,11/19/2008
-d886199a-4310-4b75-90a3-3d4e8c6d788f,009060,Audrey Malia Yap,Government,U.S. Department of Justice,United States | District of Columbia | Washington | Northeast Washington,usdoj.gov,Emory U.,11/19/2008
+d886199a-4310-4b75-90a3-3d4e8c6d788f,009060,Audrey Malia Yap,Government,Dept. of Justice,United States | District of Columbia | Washington | Northeast Washington,usdoj.gov,Emory U.,11/19/2008
 a6efa92a-c194-4b0f-9eb0-2857b9916e38,009061,Anosh Hanook Yaqoob,Suspended - Non Payment,,,,William S. Richardson,11/19/2008
 47d4dda6-afdf-44bc-a19a-92d43f98b7db,009062,Daniel Wing Sheu Lawrence,Inactive - Voluntary,,,,Northwestern U. School of Law,11/19/2008
 6cf2bf72-863c-414b-8e15-c1e060e769d3,009063,Scott Edward Hovey,Active,National Labor Relations Board,United States | Hawaii | Honolulu County | Honolulu,nlrb.gov,William S. Richardson,11/19/2008
 e197e799-b8b5-4aa9-ae53-9c6cb93dd73b,009064,Nathaniel Atsushi Higa,Active,Chun Kerr LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,chunkerr.com,Pepperdine School of Law,11/3/2008
-19a3feef-5bf9-43e4-a1b6-773e18ab9b83,009065,Constance Liu,Suspended - Non Payment,Hanson Bridgett LLP,United States | California | San Francisco County | San Francisco | SoMa,hansonbridgett.com,U. of California,11/19/2008
+19a3feef-5bf9-43e4-a1b6-773e18ab9b83,009065,Constance Liu,Suspended - Non Payment,Hanson Bridgett LLP,United States | California | San Francisco County | San Francisco | Financial District,hansonbridgett.com,U. of California,11/19/2008
 23d3cdc0-9178-440a-b6e9-bf1ec5f5a43c,009066,William Lee Shipley,Active,"Law Offices of William L. Shipley, LLC",United States | Hawaii | Honolulu County | Kailua,gmail.com,George Mason U.,11/10/2008
 86fb55fa-a99a-4811-a825-8f12ad22bade,009067,Allan Michael Quinto Alicuben,Inactive - Voluntary,Amazon,United States | Washington | King County | Seattle | Downtown Seattle,amazon.com,William S. Richardson,11/19/2008
 1ac01b06-2baa-490f-a630-e8d1c33312c4,009068,Ryan Michael Kazumi Anderson-Teshima,Government,Dept. of the Prosecuting Attorney,United States | Hawaii | Maui County | Wailuku,co.maui.hi.us,Southwestern U.,11/19/2008
@@ -9197,7 +9197,7 @@ c5baee38-cd42-4f90-9a7f-9242d934eefb,009293,Nicole Alice Borromeo,Suspended - No
 465861a9-c496-421b-a524-4f5af7cfb980,009295,William Chace Bullard,Active,Law Off. of William C Bullard,United States | Hawaii | Honolulu County | Honolulu | Downtown,gmail.com,Thurgood Marshall School of Law,6/10/2010
 63e03204-c4fe-4b9f-b5cc-2a77d340a24a,009296,Moanike'ala Ruth Crowell,Suspended - Discipline,"The MRC Firm by Moani R. Crowell & Assoc., LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,themrcfirm.com,William S. Richardson,6/10/2010
 a03dc618-4829-4db3-a411-767bf3b06fd9,009297,Chad Norito Enoki,Active,Public Defender Service Corp.,Guam | Sinajana,guampdsc.org,William S. Richardson,6/10/2010
-dc898268-b730-4333-a705-8a05c7ada3d6,009298,Kelsey Dionne Gaddy,Active,,United States | District of Columbia | Washington | Northwest Washington,sol.doi.gov,U. of Idaho,6/10/2010
+dc898268-b730-4333-a705-8a05c7ada3d6,009298,Kelsey Dionne Gaddy,Active,US Dept. of the Interior,United States | District of Columbia | Washington | Northwest Washington,sol.doi.gov,U. of Idaho,6/10/2010
 22690b0e-4189-44ea-9b32-899f5620e404,009299,Sofia Hirosane McGuire,Active,Devens Nakano Saito Lee Wong & Ching,United States | Hawaii | Honolulu County | Honolulu | Downtown,dnslwc.com,Seattle U.,6/10/2010
 6acefd8e-2887-42fb-9f5c-0d424db5bba1,009300,Bartholomew Wayne Howk,Inactive - Voluntary,KBP Brands,United States | Kansas | Johnson County | Leawood | Hallbrook,kbpbrands.com,U. of Kansas,6/10/2010
 7318f2e1-fe12-4b58-a7d5-583b71d954c0,009301,Anne O'Brien Jordan,Inactive - Voluntary,North Colonie Central School District,United States | New York | Albany County | Colonie | Latham,,William S. Richardson,6/10/2010
@@ -9246,7 +9246,7 @@ c722c216-453c-4cea-979c-cef98377d2ec,009342,Kim Huong Nguyen,Inactive - Voluntar
 7f5006dd-569c-44b1-8206-f795471deaf8,009344,Heatherlynn Nicole Cutter,Inactive - Voluntary,Cutter Management Co.,United States | Hawaii | Honolulu County | Aiea,cuttercars.com,California Western School of Law,10/21/2010
 c6d05124-3930-4b8c-ae85-333c946c52a4,009345,Brent Eric Cassell,Inactive - Voluntary,,United States | Hawaii | Honolulu County | Honolulu | Downtown,,California Western School of Law,10/21/2010
 609d8a62-dd46-4cfc-81d4-2fc80e052434,009346,Joseph Anthony Weismantel,Government,U.S. Navy,United States | Hawaii | Honolulu County | Joint Base Pearl Harbor Hickam | Naval Station Pearl Harbor,navy.mil,William S. Richardson,10/27/2010
-576ff8c9-ec8c-45bf-984d-7a124534edc7,009347,Jacob George Delaplane,Active,Attorney at Law,United States | Hawaii | Hawaii County | Hilo,oahu.law,U. of Mississippi,10/27/2010
+576ff8c9-ec8c-45bf-984d-7a124534edc7,009347,Jacob George Delaplane,Active,Attorney at Law,United States | Hawaii | Hawaii County | Hilo,hilo.law,U. of Mississippi,10/27/2010
 7de79bfc-e00e-4456-82b1-a85f6a7b6db7,009348,Travis Michael Agustin,Active,"Agustin Hawaii Law, LLLC",United States | Hawaii | Honolulu County | Honolulu,agustinhilaw.com,Northeastern U.,11/10/2010
 36403430-4d82-4198-94b1-a79ae2e3466d,009349,Dane Kristofer Anderson,Active,"Attorney At Law, LLLC",United States | Hawaii | Honolulu County | Honolulu | Kuliouou - Kalani Iki,andersonlawhawaii.com,William S. Richardson,11/10/2010
 7fb7916c-1c6b-45e6-9145-a35d11d3c8ee,009350,Anh Viet Pham,Active,Law Off. of Anh Viet Pham,United States | California | Orange County | Westminster,yahoo.com,Western State U.,6/6/2011
@@ -9406,7 +9406,7 @@ fdeaed59-b124-46f3-82d8-0c8ff71fb77a,009503,Ka'upenaikaika Francis Soon,Active,"
 0514b618-47d6-4399-92b6-c3b8beb81d0f,009504,Anna Valiente Gomez,Inactive - Voluntary,Law Office of Anna Valiente Gomez,United States | California | Los Angeles County | La Verne,avalientegomezlaw.com,UC Davis,6/3/2011
 53b1347c-c9aa-4951-bf01-bab8e4b96d24,009505,"Rodney Parry Bridgers, Jr.",Active,"Law Off. of Rodney Bridgers, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,helpingemployeeshi.com,South Texas College of Law,6/3/2011
 2704061e-7587-4c92-9606-8c34f6891d8a,009506,Patrick Dennis Collins,Inactive - Voluntary,,United States | California | Napa County | Napa,countyofnapa.org,U. of Hastings,6/3/2011
-a019d175-dae8-47e0-b1ce-c7ed65424d0d,009507,Zeina Jafar,Suspended - Non Payment,The Collins Firm,United States | California | Orange County | Newport Beach,the-collinsfirm.com,Southwestern U.,6/3/2011
+a019d175-dae8-47e0-b1ce-c7ed65424d0d,009507,Zeina Jafar,Inactive - Voluntary,,,,Southwestern U.,6/3/2011
 796e7ca4-a33c-497b-98e2-01ceb0d0038a,009508,Nicole Pilialoha Kalakau,Active,Leavitt Yamane & Soldner,United States | Hawaii | Honolulu County | Honolulu | Downtown,lyslaw.com,Gonzaga U.,6/1/2011
 deb311c2-69ba-4679-990b-412d696c6268,009509,Robert Saburo Miyashita,Active,Miyashita & O'Steen LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,molawhawaii.com,Florida Coastal School of Law,6/1/2011
 45f6df2a-207b-4f0a-a1af-b8a8397f5780,009510,Ronson Suriya Ibarra,Government,Dept. of the Prosecuting Attorney,United States | Hawaii | Maui County | Wailuku,co.maui.hi.us,Willamette U.,6/3/2011
@@ -9575,7 +9575,7 @@ e5019a63-c049-4874-ac65-5078d9fa44d0,009671,Ericka Shea Hunter,Suspended - Non P
 51798490-77c7-413f-8f6c-d970e2dfcb4a,009673,Sarah Rose Devine,Inactive - Voluntary,,,,Golden Gate U.,6/1/2012
 aef7f862-02e2-4bbf-8c67-73a8e568b79f,009674,Jessica Robyn Domingo,Government,Off. of the Public Defender,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,hawaii.gov,William S. Richardson,6/1/2012
 67cdd5bc-7ea6-44bc-b716-8ed5f9afb6e6,009675,Erin Hisano Kogen,Active,Hisano Kogen LLLC,United States | Hawaii | Honolulu County | Honolulu | Waialae - Kahala,hisanokogenlaw.com,Lewis & Clark Law School,6/1/2012
-db3ab3bf-8870-48ca-962d-2cf2ecd25dad,009676,Kai Kakana Alii Lawrence,Active,Kai Law LLC,United States | Hawaii | Honolulu County | Honolulu | Kaka'ako,gmail.com,Pepperdine School of Law,5/30/2012
+db3ab3bf-8870-48ca-962d-2cf2ecd25dad,009676,Kai Kakana Alii Lawrence,Active,Kai Law LLC,United States | Hawaii | Honolulu County | Kailua,gmail.com,Pepperdine School of Law,5/30/2012
 886e27bf-c45e-43aa-80c0-584e2bbb177e,009677,Derek Hoohauoli Kauanoe,Inactive - Voluntary,,,,William S. Richardson,6/1/2012
 4ba75f2e-4c34-4913-91ac-8c9179c954b2,009678,William Frederick Ledoux,Inactive - Voluntary,Pasefika Legal Solutions Inc.,United States | California | Los Angeles County | Cerritos,,William S. Richardson,6/1/2012
 33f2d124-d4ad-4fc2-9151-494c98d23927,009679,Ryan Loeffers,Inactive - Voluntary,Hawaii Sheet Metal Workers Administrative Office,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,,William S. Richardson,6/1/2012
@@ -9703,7 +9703,7 @@ bf471eec-7134-4940-b23d-a6c0c163d29f,009800,Kristin Papa,Active,,,,William S. Ri
 06803a11-95dc-4a35-b85c-faffca9ea3a1,009801,Kelli Sakae Nakamura,Inactive - Voluntary,,,,William S. Richardson,11/5/2012
 b41d6bf3-056e-42bf-96ed-c3a1fc8021f1,009802,Lisa Lane Stevens,Government,U.S. Department of the Interior,United States | District of Columbia | Washington | Northwest Washington,sol.doi.gov,Vermont Law School,11/5/2012
 4f5dba98-321f-452c-911f-ab07bb20c51f,009803,Courtney Kehwei Sue-Ako,Government,Dept. of the Corporation Counsel,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,William S. Richardson,11/5/2012
-fcdbf2e8-f41d-4523-86e2-c1f4f0f224ba,009804,Titiimaea Norman Taase,Government,Off. of the Public Defender,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,hawaii.gov,William S. Richardson,11/5/2012
+fcdbf2e8-f41d-4523-86e2-c1f4f0f224ba,009804,Titiimaea Norman Taase,Active,The Taase Law Office LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,taaselaw.com,William S. Richardson,11/5/2012
 bd8035e0-7262-4560-974e-34cadb5f6cd9,009805,Stacy Kiku Takekawa,Active,Attorney At Law LLLC,United States | Hawaii | Honolulu County | Kaneohe,takekawalaw.com,William S. Richardson,11/5/2012
 c745a475-5888-4f0a-bdff-46e517add42c,009806,Ashley Malia Tanaka,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,McGeorge School of Law,11/5/2012
 7d17a04a-6b3d-4bae-90e7-be98c6080cf7,009807,Kimberly Asako Torigoe,Government,Off. of the County Attorney,United States | Hawaii | Kauai County | Lihue,kauai.gov,William S. Richardson,11/5/2012
@@ -9928,7 +9928,7 @@ aa792753-9684-41c5-ab58-8b79d9eba31a,010024,Porter DeVries,Active,DeVries & Asso
 ede98e38-d217-4e34-98a6-491e9666f9d0,010026,Jamie Mariko Fukumoto,Active,Goodsill Anderson Quinn & Stifel LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,goodsill.com,William S. Richardson,11/15/2013
 e24804f7-c210-4c05-91f6-fbcb26c70ac0,010027,Suzanne Marie Furgeson,Active,Attorney At Law,United States | Hawaii | Kauai County | Kilauea,gmail.com,Loyola U.,11/15/2013
 9b9d90d7-cfd4-4003-aa2a-4078eb2f686b,010028,Yea Jin Lee,Inactive - Voluntary,,,,William S. Richardson,11/15/2013
-84ffe700-6630-4cd3-8fcf-45aa44ae6d6c,010029,Clayton Robert Leonard,Active,"Law Office of Robert L. Bolick, Ltd",United States | Nevada | Clark County | Las Vegas | Summerlin North,rlbolick.com,U. of Toledo,11/15/2013
+84ffe700-6630-4cd3-8fcf-45aa44ae6d6c,010029,Clayton Robert Leonard,Active,"Taylor & Leonard Law, PLLC",United States | Nevada | Clark County | Las Vegas | Summerlin North,taylorleonardlaw.com,U. of Toledo,11/15/2013
 ca05d51f-a7de-4481-a552-a8ce512cf6ff,010030,Adam Daniel Mackie,Suspended - Non Payment,University of Connecticut School of Law,United States | Connecticut | Capitol Planning Region | Hartford | West End,uconn.edu,William S. Richardson,11/15/2013
 26c6d5c1-9c89-4520-8c2c-e966a3639f84,010031,Karen Ann McCarthy,Suspended - Non Payment,,,,Washington College of Law,11/15/2013
 16376218-8ac0-47c7-88b2-d6a9d60ee98e,010032,Maxx Elizabeth Phillips,Active,The Center for Biological Diversity,United States | Hawaii | Honolulu County | Honolulu | Downtown,biologicaldiversity.org,William S. Richardson,11/15/2013
@@ -9966,7 +9966,7 @@ a72d8a32-2219-4b6d-acef-1b1f3b3ba35c,010063,Kristin Liisa Holland,Active,Dentons
 cdb20af0-4108-4938-ad2c-533cb180dac7,010064,Amanda Joyce Fernandes,Active,,,changelabsolutions.org,Georgetown U.,12/2/2013
 dfd69bfb-04c0-4ed3-b285-72f85150b332,010065,Lisa Monica Winebarger,Inactive - Voluntary,California Department of Toxic Substances Control,United States | California | Los Angeles County | Los Angeles | Chatsworth,dtsc.ca.gov,Washington College of Law,11/27/2013
 d74bbd98-84f2-4ff6-ad21-f5db1bd47b20,010066,Tristan Scott Demei Andres,Active,Deeley King Pang & Van Etten,United States | Hawaii | Honolulu County | Honolulu | Downtown,dkpvlaw.com,William S. Richardson,12/2/2013
-6d6f225f-25e3-4ef8-924f-24fcf8f0d397,010067,Sarah Cochran DiMarzo,Active,,United States | Hawaii | Honolulu County | Honolulu | Naval Station Pearl Harbor,us.navy.mil,Michigan State U.,12/5/2013
+6d6f225f-25e3-4ef8-924f-24fcf8f0d397,010067,Sarah Cochran DiMarzo,Active,,United States | Hawaii | Honolulu County | Joint Base Pearl Harbor Hickam | Naval Station Pearl Harbor,us.navy.mil,Michigan State U.,12/5/2013
 7669c880-f3df-4686-b176-6eb114587a72,010068,Jeremy Christian Sadatoshi Patton,Government,Hawaii State House of Representatives,United States | Hawaii | Honolulu County | Honolulu | Downtown,capitol.hawaii.gov,William S. Richardson,12/6/2013
 6a722e64-54e1-4685-a459-842d65fcfd69,010069,Jennifer Margret Porter,Suspended - Non Payment,"Porter McGuire Kiakona, LLP",United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiilegal.com,William S. Richardson,12/12/2013
 9ef85524-da7a-49db-8a16-70142db661ac,010070,Sidney Stillerman Royer,Active,"Leemon + Royer, PLLC",United States | Washington | King County | Seattle | Junction,leeroylaw.com,Seattle U.,12/12/2013
@@ -10206,7 +10206,7 @@ a26565a8-6fec-4fb9-8e65-917ebd3a3330,010304,Calli Misa Nakagawa Chinen,Inactive 
 58d321e7-0396-434d-b47e-7705343220fc,010305,Christopher Yiu Wai Chui,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Waikiki,gmail.com,Indiana U.,6/12/2015
 b00dd7d8-dbc6-4d45-a70d-5f65fd9fe007,010306,Marissa Mariko Ji-Ae Lew,Inactive - Voluntary,,,,U. of Oregon,6/12/2015
 997002f7-161b-4e0d-b7ba-78c4b776bc8a,010307,Jennifer Anne Mayumi Sobol Coburn,Government,U.S. Department of Veterans Affairs,United States | District of Columbia | Washington | Mount Vernon Triangle,va.gov,William S. Richardson,6/12/2015
-12c06563-186f-45b5-b68f-91f0fe2ee5b3,010308,Valerie B. McKelvey,Active,Cain & Herren,United States | Hawaii | Maui County | Wailuku,cainandherren.com,William S. Richardson,6/12/2015
+12c06563-186f-45b5-b68f-91f0fe2ee5b3,010308,Valerie B. McKelvey,Active,Cain Herren & McKelvey,United States | Hawaii | Maui County | Wailuku,cainandherren.com,William S. Richardson,6/12/2015
 06efb0b8-96cb-4473-8b9f-1f1da2f5820c,010309,Stephen Joseph Downes,Inactive - Voluntary,State of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Downtown,doh.hawaii.gov,William S. Richardson,6/12/2015
 4689b008-ed4c-4fc9-a195-c766012c23fc,010310,Vanessa Licia Santos Gama,Inactive - Voluntary,Hawaii State Judiciary,United States | Hawaii | Honolulu County | Honolulu | Downtown,courts.hawaii.gov,Thomas M. Cooley Law School,6/12/2015
 3c786bd7-ece3-4a9c-93bb-1c42ad9d456e,010311,Daylin-Rose H Y L G Heather,Inactive - Voluntary,Hawai?i State Judiciary,United States | Hawaii | Honolulu County | Honolulu | Downtown,courts.hawaii.gov,William S. Richardson,6/12/2015
@@ -10235,7 +10235,7 @@ d847b929-3f7e-4c7d-bfaa-bb6dd23c2018,010332,Victoria Merritt Hasty,Inactive - Vo
 9a406511-7ef9-4270-aec5-d59be2f7ee1a,010334,Stephen Michael Lim,Active,"Level Home, Inc.",United States | California | San Mateo County | Redwood City | Centennial,level.co,U. of California - Hastings,6/12/2015
 65d82785-e952-4298-9544-b9cd75a1495c,010335,"Arnold Frederick Lueders, III",Inactive - Voluntary,Credit Solutions,United States | Wisconsin | Milwaukee County | Milwaukee | Juneau Town,gmail.com,Marquette U.,6/12/2015
 e00f9e51-0366-43a7-8883-b2fbaa11bd11,010336,Michelle Mei Girn Lum,Active,Single Point Partners,United States | Massachusetts | Suffolk County | Boston | Back Bay,gmail.com,Hamline U.,6/12/2015
-aa4bdec7-dc6e-47b8-8cd2-20fa34c195f1,010337,Aurora Jaqueline Nevarez Mena,Active,,,hionlinelawyer.com,Arizona Summit Law School,6/12/2015
+aa4bdec7-dc6e-47b8-8cd2-20fa34c195f1,010337,Aurora Jaqueline Nevarez Mena,Active,Tirado & Associates PLC,United States | Arizona | Maricopa County | Phoenix | Midtown,tiradolaw.com,Arizona Summit Law School,6/12/2015
 17cab4c5-3c5b-491b-94cc-cf606b022bcc,010338,Neil Norio Okuna,Active,,,,William S. Richardson,6/12/2015
 0ca6245f-cbb0-47dd-886f-d32c5a3623fe,010339,Jeffrey Patrick Phelan,Active,"Law Offices of Jeffrey P. Phelan, MD,JD",United States | California | Los Angeles County | La Puente | Bassett,yahoo.com,Loyola Law School,6/12/2015
 f9d2b31d-1163-4a8d-a6bf-6bf2d165c3a8,010340,Clayton Harrison Rather,Suspended - Non Payment,"Havens Law, LLC",United States | Utah | Utah County | Provo | Grand View North,gmail.com,U. of Utah,6/12/2015
@@ -10342,7 +10342,7 @@ c1a190e7-0460-4f72-bcee-a647d2734926,010440,Jermaine Jerome Hughes,Inactive - Vo
 8b8e0643-c8f7-4026-841b-b16a324a3cc2,010441,Alese Kristine Rajaniemi,Active,Anderson McPharlin & Conners LLP,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,gmail.com,William S. Richardson,11/13/2015
 93317836-2a11-44ee-8ae8-c59bf260cebe,010442,Jill Aiko Otake,Judge,U.S. District Court,United States | Hawaii | Honolulu County | Honolulu | Downtown,,U. of Washington,11/13/2015
 12ab1a90-ffb6-4c08-9538-da07cafa72b7,010443,William Adam Pannell,Government,Off. of the Public Defender,United States | Hawaii | Maui County | Wailuku,hawaii.gov,Georgia State U.,11/13/2015
-8062967d-3639-49c1-a9a7-0c60525db57c,010444,Brendan Ohara Prince,Active,,United States | Alabama | Madison County | Huntsville,gmail.com,Stetson U.,11/13/2015
+8062967d-3639-49c1-a9a7-0c60525db57c,010444,Brendan Ohara Prince,Active,,United States | Alabama | Madison County | Huntsville | Meridian,gmail.com,Stetson U.,11/13/2015
 2acad164-3deb-48ef-a650-75e8bb09cb04,010445,Adrienne Mine Shergill,Government,U.S. District Court,United States | Hawaii | Honolulu County | Honolulu | Downtown,hid.uscourts.gov,Michigan State U.,11/13/2015
 f47da613-cc5c-4374-b44e-c0ce6c21c58e,010446,Jeanie Sohn,Inactive - Voluntary,University of Hawaii System Office,United States | Hawaii | Honolulu County | Honolulu | Manoa,hawaii.edu,William S. Richardson,11/13/2015
 709a2e27-575d-4c8c-8ede-263bde5715ed,010447,Sharlynne Solomon,Inactive - Voluntary,The Watkins Firm,United States | California | San Diego County | San Diego | Scripps Ranch,watkinsfirm.com,Pepperdine U.,11/13/2015
@@ -10403,7 +10403,7 @@ f082c3fc-aa3e-4128-9b43-8ec170caf0c3,010497,Marissa Lynne Abraham,Inactive - Vol
 f003b1db-169e-43d0-919d-fbc664226780,010502,Charissa Baradi Cabrera,Inactive - Voluntary,,,,U. of San Diego,6/3/2016
 eefb3716-bfad-4ecc-a833-1aa49b405e0d,010503,Jennifer Leigh Rose,Active,Bank of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Downtown,boh.com,U. of Michigan,6/3/2016
 531f3d00-ad81-4e33-9116-5199508f4183,010504,Dana Michi Harada,Government,Off. of Disciplinary Counsel,United States | Hawaii | Honolulu County | Honolulu | Downtown,dbhawaii.org,William S. Richardson,6/3/2016
-574fc5f2-212d-41b9-a01e-bb0fdcf00f92,010505,Shauna Lee Keanuenueokeko'olau Kahiapo,Suspended - Professionalism Course,,United States | Hawaii | Honolulu County | Kailua,shaunakahiapo.com,William S. Richardson,6/3/2016
+574fc5f2-212d-41b9-a01e-bb0fdcf00f92,010505,Shauna Lee Keanuenueokeko'olau Kahiapo,Active,"Attorney At Law, LLLC",United States | Hawaii | Honolulu County | Kaneohe,shaunakahiapo.com,William S. Richardson,6/3/2016
 419fc0e4-d48b-4ac1-95df-403d43e4b445,010506,Daniel Ken Kikawa,Active,"Leu Okuda & Doi, Attorneys at Law",United States | Hawaii | Honolulu County | Honolulu | Downtown,leu-okuda.com,William S. Richardson,6/3/2016
 0224665c-7bfc-4367-a07a-d446a0caf4aa,010507,Brandon Yoshiyuki Moriki,Government,Dept. of the Corporation Counsel,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,Seattle U.,6/3/2016
 1aa0ecf4-c469-4f0a-aea9-ae6cf2373270,010508,David Alan Morris,Active,"Law Office of J. Lootens, PC",United States | Hawaii | Honolulu County | Honolulu | Downtown,lootenslaw.com,William S. Richardson,6/3/2016
@@ -10431,16 +10431,16 @@ ab078494-1024-413d-a197-6ddfeb106711,010529,Midori Kristina Hirai,Inactive - Vol
 0859f4ad-289c-425f-85c6-8c67a567f535,010530,William Dee Houser,Active,Hastings Laun & Houser LLLC,United States | Hawaii | Hawaii County | Waimea,hawaiiep.com,Baylor U.,6/3/2016
 ad328e0a-a330-4ac9-8c6f-9439ab2a212f,010531,Kristin Nicole Ivanco,Active,Seyfarth Shaw LLP,United States | California | Sacramento County | Sacramento | Downtown,seyfarth.com,McGeorge School of Law,6/3/2016
 c6c91598-98bb-4da6-b03e-d45434811e46,010532,Ryan Mark Kaufman,Active,Rosenberg McKay Hoffman,United States | Hawaii | Honolulu County | Honolulu | Downtown,rmhlawhawaii.com,U. of San Francisco,6/3/2016
-c683a266-771b-48da-b395-4996d5b23b45,010533,Tuan Nha Nguyen La,Inactive - Voluntary,Beacon Fund,Vietnam | Hồ Chí Minh | Quận 3 | Khu Phố 4,beaconfund.com,William S. Richardson,6/3/2016
+c683a266-771b-48da-b395-4996d5b23b45,010533,Tuan Nha Nguyen La,Inactive - Voluntary,Beacon Fund,Vietnam | Hồ Chí Minh | Quận 1,beaconfund.com,William S. Richardson,6/3/2016
 70677ba6-3a4b-4cac-894d-ca75680ce934,010534,Daniel Richard Lam,Active,Goodsill Anderson Quinn & Stifel LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,goodsill.com,Creighton U.,6/3/2016
 778eaa30-7710-4fca-9708-750b56495639,010535,David Bartley Leas,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Manoa,gmail.com,McGeorge School of Law,6/3/2016
-6363d829-8371-4366-b0db-e1369d61d4e0,010536,Ryan Summers Little,Active,,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,littlelegal.com,William S. Richardson,6/3/2016
+6363d829-8371-4366-b0db-e1369d61d4e0,010536,Ryan Summers Little,Active,"Little Legal, LLLC",United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,littlelegal.com,William S. Richardson,6/3/2016
 a081fa6e-e9d4-4654-95d0-27b4d3cf6e91,010537,Stacy Yu-Hao Kanani Ma,Active,Goodsill Anderson Quinn & Stifel LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,goodsill.com,George Washington U.,6/3/2016
 7074e040-b89f-479a-b96e-713a9401d95a,010538,Serena Lucile O'Grady,Inactive - Voluntary,Department of the Navy Office of General Counsel,,,William S. Richardson,6/3/2016
 f8370fda-249d-4e3b-8c80-b580c77fb997,010539,Gregory William O'Neill,Active,"Greg O'Neill, P.C.",United States | Oregon | Deschutes County | Bend | Southern Crossing,gregoneill-attorney.com,Lewis & Clark College,6/3/2016
 33991afd-5baf-4e65-82a0-a5e69ad38fbe,010540,Jedediah Oscar Peterson,Inactive - Voluntary,O'Connor Weber LLC,United States | Oregon | Multnomah County | Portland | Southwest Portland,oconnorweber.com,Lewis & Clark College,6/3/2016
 b6e91ae8-7caa-47ba-8be5-4c2a7f4987d2,010541,Steven Slavitt,Active,Attorney at Law,United States | Hawaii | Honolulu County | Honolulu | Waikiki,gmail.com,UC Berkeley - Boalt Hall,6/3/2016
-44a9be50-9a25-421b-ae24-c3b2e8d13612,010542,Wing Shan Julie Suen,Active,Infinity Estate Group LLLC,,infinityestatelaw.com,William S. Richardson,6/3/2016
+44a9be50-9a25-421b-ae24-c3b2e8d13612,010542,Wing Shan Julie Suen,Active,,,infinityestatelaw.com,William S. Richardson,6/3/2016
 712a2df8-99be-47ce-8714-3fbc23b6075d,010543,Nancy Hong Jiao Zhao,Active,Greenberg Glusker Fields Claman & Machtinger LLP,United States | California | Los Angeles County | Los Angeles | Century City,greenbergglusker.com,U. of Michigan,6/3/2016
 e8e90b44-d07a-4548-994a-a69880ca9a61,010544,Roy Hyuk Kwon,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,5/24/2016
 54dbae2e-3e3a-4557-b365-919838b18ed1,010545,Joyce Chungwhei Wang,Active,Carlson Calladine & Peterson LLP,United States | California | San Francisco County | San Francisco | Union Square,ccplaw.com,U. of California - Hastings,6/3/2016
@@ -10543,7 +10543,7 @@ a5fe0b3e-310b-41eb-82aa-7d3de7a0fad5,010641,Matthew Keola Masahiko Kaaihue,Gover
 a356c629-8045-48e1-b48d-48f6d15c8bbc,010642,Jason Thomas Kuzma,Inactive - Voluntary,"Puget Sound Energy, Inc.",United States | Washington | King County | Bellevue | West Bellevue,pse.com,U. of Michigan,11/18/2016
 6e73ff98-92ee-417a-8bd8-8a453383fbfc,010643,Demetri Guy Lametti,Government,Off. of Corporation Counsel,United States | Hawaii | Hawaii County | Hilo,hawaiicounty.gov,St. Thomas U.,11/18/2016
 d9f2b736-dd5b-487a-a33b-2efbcec1a39b,010644,"Philip Lansdale Pillsbury, Jr.",Active,Pillsbury & Coleman LLP,United States | California | San Francisco County | San Francisco | Northern Waterfront,pillsburycoleman.com,Lewis & Clark College,11/18/2016
-b6a1ba29-ac74-4b36-b38c-b393fed699fe,010645,Raven Julia Sevilleja,Government,Dept. of the Prosecuting Attorney,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,William S. Richardson,11/18/2016
+b6a1ba29-ac74-4b36-b38c-b393fed699fe,010645,Raven Julia Sevilleja,Inactive - Voluntary,,,,William S. Richardson,11/18/2016
 da72d392-4a77-4ef6-ac47-eed16a53005a,010646,Daniel Martin Shanley,Active,"Shanley, A.P.C.",United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,shanleyapc.com,Suffolk U.,11/18/2016
 49bd8242-6d5b-4d70-b005-d6f08e157017,010647,Selina Rose Pannell,Government,Dept. of the Corporation Counsel,United States | Hawaii | Maui County | Wailuku,co.maui.hi.us,Loyola Law School,11/18/2016
 57b0e246-c3d7-4f57-9442-d84129460800,010648,Peter Maxwell Yovanovich,Active,Law Off. of Preston Easley APC,United States | California | Los Angeles County | Los Angeles | San Pedro,prestoneasley.com,Loyola Law School,11/18/2016
@@ -10619,7 +10619,7 @@ f12cb008-8d54-4c9e-838a-47409b534adf,010718,Stephenie Yeh Chan,Inactive - Volunt
 db229ccc-a13d-49f4-af3a-f151edc869fb,010720,Colby Evelyn Mangonon,Active,Forma,United States | California | Alameda County | Fremont | Warm Springs,joinforma.com,UC Irvine,5/26/2017
 79ae31ad-aa2c-4871-b624-122ea56789cd,010721,Rebecca Justine Iolani Soon,Inactive - Voluntary,Solutions Pacific,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,sphawaii.com,William S. Richardson,5/23/2017
 fead81f1-1fb0-4738-9fc3-d3193878e0ac,010722,Roxana Ahmadian,Inactive - Voluntary,Attorney at Law,United States | California | Los Angeles County | Los Angeles | Encino,roxana-law.com,U. of Southern California,6/9/2017
-fb0f9512-226a-4691-a794-c9488ddeeb1c,010723,Katherine Adair Hight,Inactive - Voluntary,,United States | California | Los Angeles County | Los Angeles | Encino,gmail.com,Pepperdine School of Law,6/9/2017
+fb0f9512-226a-4691-a794-c9488ddeeb1c,010723,Katherine Adair Hight,Inactive - Voluntary,Yukevich Cavanaugh,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,yukelaw.com,Pepperdine School of Law,6/9/2017
 4a4b16b1-e8fc-4b0c-bd98-3c464368ad77,010724,"Archibald Magill Smith, IV",Active,Law Offices of Ames Smith,United States | California | Los Angeles County | Los Angeles | Encino,ames-law.com,UC Berkeley - Boalt Hall,6/9/2017
 f6d8e96b-c127-4755-85f3-690ee8a9d291,010725,"Marker Ellsworth Lovell, Jr.",Active,Gibson Robb &  Lindh LLP,United States | California | Alameda County | Emeryville,gibsonrobb.com,Santa Clara,6/13/2017
 8b1a3955-c3ad-4bd3-a461-8a3a5658e902,010726,David Yi Chen,Inactive - Voluntary,,,,Washington U.,6/14/2017
@@ -10636,7 +10636,7 @@ c2c506ab-38fc-40a2-86e3-525a0766bf96,010736,Jasmine Maria Egan,Inactive - Volunt
 03e4a594-2638-41bd-9150-baa48b14ae28,010737,Stephanie Yeun Kwun Lee,Government,US Dept. of Health and Human Services,United States | District of Columbia | Washington | Southwest Washington,gmail.com,William S. Richardson,9/14/2017
 9556d2bb-9911-4977-8815-dd533df02204,010738,James Takeshi Ogiwara,Active,"Miyoshi & Hironaka, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,808-law.com,La Verne Law School,9/20/2017
 5d349ee5-78c6-4a25-b6d0-ae6ed6595918,010739,Sol Vivian Yi,Active,Central Pacific Bank,United States | Hawaii | Honolulu County | Honolulu | Downtown,cpb.bank,Santa Clara U.,9/18/2017
-4af845ed-fb56-4efc-8f9c-f7f82906547a,010740,Jason Alexander Economou,Inactive - Voluntary,Maui United Way,United States | Hawaii | Maui County | Kahului,gmail.com,Charleston School of Law,9/19/2017
+4af845ed-fb56-4efc-8f9c-f7f82906547a,010740,Jason Alexander Economou,Active,,,,Charleston School of Law,9/19/2017
 bc6e3886-1ea4-418c-bf75-99d00eddb4b5,010741,Steven Dennis Johnson,Active,Bank of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Downtown,boh.com,U. of Illinois,9/19/2017
 05ea0ea5-59b3-4f55-9805-affe85edb44c,010742,Nathan Alexander Wersal,Government,Off. of the Prosecuting Attorney,United States | Hawaii | Hawaii County | Hilo,hawaiiprosecutors.gov,U. of Minnesota,9/22/2017
 03bbecab-2c8b-4f6a-bec6-eff628cfbb91,010743,Ross Renzo Kawika Uehara-Tilton,Active,Damon Key Leong Kupchak Hastert,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiilawyer.com,William S. Richardson,10/5/2017
@@ -10846,7 +10846,7 @@ c6da3325-0fbf-48f0-973d-0723bcdf955d,010946,Lucy Elizabeth Brown,Government,Dept
 4b24e336-c51d-4bf4-a7ee-99328d453216,010947,Alex Masatoshi Chun,Active,"The Gas Co., LLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiigas.com,William S. Richardson,11/9/2018
 3217e1b7-3127-4509-904e-cb54bcb1f2e6,010948,Lianne Tomiko Chung,Active,"Hawaiian Electric Co., Inc.",United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiianelectric.com,William S. Richardson,11/9/2018
 49653ea2-9824-4bd1-8268-ef1d97502f00,010949,Seth J. Corpuz-Lahne,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,11/9/2018
-49020359-7324-47c8-b972-98df090cc3f7,010950,Fernando Pastor Cosio,Active,Medical-Legal Partnership for Children in Hawaii,United States | Hawaii | Honolulu County | Honolulu | Manoa,hawaii.edu,William S. Richardson,11/9/2018
+49020359-7324-47c8-b972-98df090cc3f7,010950,Fernando Pastor Cosio,Active,Legal Aid Society of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Arts District,legalaidhawaii.org,William S. Richardson,11/9/2018
 ed9e1a4f-52c5-4a70-9022-24bcbbf7e5a4,010951,Manta Kainalukea Dircks,Active,"Alapa & Otake, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,pacificlaw.com,Roger Williams U.,11/9/2018
 52f42874-b518-47ea-9f4b-04224d7cf9b3,010952,Lisa Emily Engebretsen,Government,Public Utilities Comm.,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,11/9/2018
 c2321c05-b2e4-4be0-bd8e-aa2c185297d8,010953,Matthew Daniel Hogan Ezer,Active,Goodsill Anderson Quinn & Stifel LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,goodsill.com,Stanford Law School,11/9/2018
@@ -10878,7 +10878,7 @@ df1c6021-abed-485e-a8df-49213f3d052b,010977,Sharron Ileane Rancourt,Inactive - V
 cc1e0c9d-2793-416f-bb13-4ce636c9a8ce,010979,Robert Hideichi Shimizu,Government,Office of Information Practices,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,Santa Clara U.,11/9/2018
 1dab5e7d-ece3-45ff-ba35-7d588e4a99dd,010980,Mark Danielson Suzuki,Suspended - Non Payment,Skydance Media,United States | California | Los Angeles County | Santa Monica | Pico,skydance.com,William S. Richardson,11/9/2018
 e577590b-7ffd-4148-9842-e3a896300ffb,010981,Justin Reid Tanaka,Government,Off. of the Public Defender,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,hawaii.gov,William S. Richardson,11/9/2018
-9f6c9edd-5072-4841-b010-775786b7f196,010982,Dwane Ikaika Tegman,Government,Dept. of the Prosecuting Attorney,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,William S. Richardson,11/9/2018
+9f6c9edd-5072-4841-b010-775786b7f196,010982,Dwane Ikaika Tegman,Government,Off. of the Prosecuting Attorney,United States | Hawaii | Hawaii County | Hilo,hawaiiprosecutors.gov,William S. Richardson,11/9/2018
 9737658e-d793-4194-9ec6-5ed85d1f9046,010983,Lauren Ashley Thompson,Active,Naval Facilities Engineering Systems Command,United States | Virginia | Norfolk | Larchmont/Edgewater,gmail.com,William S. Richardson,11/9/2018
 eb9e71b0-2158-4fd4-9c7f-bae54e38c783,010984,Kevin Christopher Tongg,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,11/9/2018
 f3fa49e9-c330-4a88-9b86-ef6fcc674623,010985,Kelli Mae Torigoe,Active,KYA Inc.,United States | Hawaii | Honolulu County | Honolulu | McCully - Moiliili,kya.design,William S. Richardson,11/9/2018
@@ -10986,7 +10986,7 @@ c7e3ffa8-d6e4-4929-8ca0-207e0d55f787,011087,Ryan Kkf Soon,Inactive - Voluntary,N
 0b610959-68ed-4706-a803-14a27267b33d,011088,David John Tubman,Active,"Matson Navigation Company, Inc.",United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,matson.com,U. of Maryland,6/21/2019
 513c4989-2433-427e-a4fd-835fbc80b7bf,011089,Michael Downing Turner,Active,Kasdan Turner Thomson Booth LLLC,United States | California | Orange County | Irvine | Irvine Business Complex,kasdancdlaw.com,U. of Michigan,6/21/2019
 6503ec29-7968-4ae9-81bb-8995bbcc5f09,011090,Marc Jeffrey Victor,Active,Attorneys for Freedom Law Firm,United States | Hawaii | Honolulu County | Honolulu | Downtown,attorneysforfreedom.com,Southwestern U.,6/21/2019
-a680a77e-23c4-4277-a260-d6600e73fbee,011091,Rachel Marie Weckhorst Espejo,Inactive - Voluntary,Tlingit & Haida,United States | Alaska | Juneau City and Borough | Stikine Region | Juneau,tlingitandhaida.gov,Thomas Jefferson School of Law,6/21/2019
+a680a77e-23c4-4277-a260-d6600e73fbee,011091,Rachel Marie Weckhorst Espejo,Inactive - Voluntary,Tlingit & Haida,United States | Alaska | Juneau City and Borough | Juneau | Downtown Juneau,tlingitandhaida.gov,Thomas Jefferson School of Law,6/21/2019
 e23654da-d883-412b-bdb1-ac1905cf3f99,011092,Bobbie Takiko Harada,Active,,,gmail.com,Willamette U.,6/12/2019
 0f05bf8f-919d-4057-8541-7816d64f340a,011093,Mark Allen Ziebold,Active,Family Law Office,United States | California | Orange County | Costa Mesa | South Coast Metro,zieboldlaw.com,Chapman U.,6/21/2019
 dab93560-9417-44c2-ba17-7a9e0d6260f6,011094,Shannon Kele Calt,Active,Aldridge Pite LLP,United States | Oregon | Washington County | Hillsboro | AmberGlen,aldridgepite.com,Lewis & Clark College,6/27/2019
@@ -11028,7 +11028,7 @@ d93e037e-a746-4bbb-aec8-a74b0a951706,011125,Stacey Fineran Gray,Active,,,grayenv
 4b5752c9-894e-4ec7-bdc5-6426befa8154,011130,Rachel Marie James,Inactive - Voluntary,,,,William S. Richardson,11/15/2019
 7cff831a-9643-4fff-bf6f-3790777822ea,011131,David Paul Jordan,Active,"Torkildson Katz , A Law Corp.",United States | Hawaii | Honolulu County | Honolulu | Downtown,torkildson.com,William S. Richardson,11/15/2019
 d7a65403-5654-4b96-ab58-06be3fbe16ae,011132,Ciara W.K. Kahahane,Government,Dept. of Land & Natural Resources,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,11/15/2019
-c00b2357-a05e-44d0-bbc2-8178b75ce920,011133,Jacob Adrian Kamstra,Inactive - Voluntary,,,,William S. Richardson,11/15/2019
+c00b2357-a05e-44d0-bbc2-8178b75ce920,011133,Jacob Adrian Kamstra,Inactive - Voluntary,Warren Kash Warren LLP,United States | California | San Francisco County | San Francisco | The Castro,,William S. Richardson,11/15/2019
 603f79c3-e5ac-484c-a16a-911d656c0ad1,011134,Katya J.A. Katano,Active,Kleintop & Luria,United States | Hawaii | Honolulu County | Honolulu | Downtown,hifamlaw.com,William S. Richardson,11/15/2019
 9c434ee1-a6cc-44c5-9255-b710c625e19c,011135,Alyssa-Marie Yukiko Kau,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,11/15/2019
 c8e35655-eb5f-4556-8159-0a1280872928,011136,Kenory Emma Khuy,Active,Goodsill Anderson Quinn & Stifel LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,goodsill.com,William S. Richardson,11/15/2019
@@ -11038,7 +11038,7 @@ cd85f2f3-8d9a-4581-8a10-67e88b95f4ea,011139,Aaron Dayton Larrimore,Government,Ha
 01b0db31-9c5d-4651-a905-9fba4a9a6efc,011140,Diana Huynh Ro,Government,Off. of Hearings Operations,United States | Hawaii | Honolulu County | Honolulu | Downtown,ssa.gov,William S. Richardson,11/15/2019
 bdf41bfa-d087-4ef1-9bb0-9610ab8b7e42,011141,Jacquelynn Kendra Mahina Levien,Inactive - Voluntary,"Brown Neri Smith & Khan, LLP",United States | California | Los Angeles County | Los Angeles | Brentwood,bnsklaw.com,UCLA,11/15/2019
 e963f244-64fe-496a-b009-7dd3a14791e1,011142,Chase Howell Livingston,Active,Davis Levin Livingston,United States | Hawaii | Honolulu County | Honolulu | Downtown,davislevin.com,William S. Richardson,11/15/2019
-0369fd75-add0-4240-88a0-e8a9bf895b78,011143,Kaitlyn Kawehilani Mark,Active,Law Office of Seth R. Harris LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,harrisfamilylawhi.com,William S. Richardson,11/15/2019
+0369fd75-add0-4240-88a0-e8a9bf895b78,011143,Kaitlyn Kawehilani Mark,Active,Law Off. of Seth R. Harris LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,harrisfamilylawhawaii.com,William S. Richardson,11/15/2019
 0f634f3a-0211-4ee4-9c69-0b7bec5365dc,011144,Ryan Dinsmore McDermott,Government,US Environmental Protection Agency,United States | Pennsylvania | Philadelphia County | Philadelphia | Center City,epa.gov,William S. Richardson,11/15/2019
 103bafa2-cdd2-4825-858c-cc377dfc62ab,011145,Casey Tadakazu Miyashiro,Active,Damon Key Leong Kupchak Hastert,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiilawyer.com,William S. Richardson,11/15/2019
 a355b7b3-75f7-4b3e-a407-70900da5944a,011146,Caitlin Mahinalani Moon,Active,Cades Schutte LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,cades.com,William S. Richardson,11/15/2019
@@ -11210,7 +11210,7 @@ d0feda6b-95f4-4f24-b59b-2cdadf8aa930,011312,Thomas Edward Christensen,Government
 15317a11-9faf-4b71-99c8-8630863c905d,011313,Casey Michelle Hutnick,Active,Meyers Law LLLC,United States | Hawaii | Kauai County | Lihue,meyerslawhawaii.com,William S. Richardson,11/20/2020
 d7d6f355-092f-497d-911e-9b73a59f0305,011314,Emmitt Hannibal Ford,Active,,United States | Hawaii | Honolulu County | Honolulu | McCully - Moiliili,ehfordlaw.com,William S. Richardson,11/20/2020
 e8426ebb-be55-43fc-adb4-630e752f23c1,011315,Thomas Verlin Nafziger,Active,Smith Haughey Rice & Roegge,United States | Michigan | Kent County | Grand Rapids | Downtown,shrr.com,William S. Richardson,11/20/2020
-c11583be-6866-414e-9b00-78cf643bb86e,011316,Katherine Brooke Hughes,Active,,,,William S. Richardson,11/20/2020
+c11583be-6866-414e-9b00-78cf643bb86e,011316,Katherine Brooke Hughes,Active,"Case Lombardi, A Law Corp",United States | Hawaii | Honolulu County | Honolulu | Downtown,caselombardi.com,William S. Richardson,11/20/2020
 4c1115f3-d276-4e03-99a0-4dd5c6649f17,011317,Troy Christopher Young,Active,Cades Schutte LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,cades.com,William S. Richardson,11/20/2020
 d4150199-1eb5-4cbb-9093-fc6fa213e13b,011318,Henderson Kainoa Huihui,Active,Native Hawaiian Legal Corp.,United States | Hawaii | Honolulu County | Honolulu | Downtown,nhlchi.org,William S. Richardson,11/20/2020
 9c563d0a-30ea-40c2-93e0-110a103b8d45,011319,Patrick Joseph Sus Inouye,Inactive - Voluntary,Office of the Attorney General,United States | Washington | Thurston County | Olympia,atg.wa.gov,U. of Oregon,11/20/2020
@@ -11218,7 +11218,7 @@ d4150199-1eb5-4cbb-9093-fc6fa213e13b,011318,Henderson Kainoa Huihui,Active,Nativ
 619ceb8a-03ec-4d0f-bb15-e4835e25f070,011321,Christopher Michael Phillips,Active,Law Office of Alen Kaneshiro,United States | Hawaii | Honolulu County | Honolulu | Downtown,kaneshirolaw.com,William S. Richardson,11/20/2020
 06aa099e-0667-48c0-b882-dbbb7ea12014,011322,Miki Noelani Nakamura,Active,Cades Schutte LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,cades.com,William S. Richardson,11/20/2020
 e0f422ba-737b-4066-b413-b8070f567a4b,011323,Michael Yasuichi Ige,Inactive - Voluntary,,,gmail.com,William S. Richardson,11/20/2020
-d7049e26-b0c0-464e-b5b8-ed8dc88b789f,011324,Michael Lopaka Hoke,Government,Dept. of the Prosecuting Attorney,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,William S. Richardson,11/20/2020
+d7049e26-b0c0-464e-b5b8-ed8dc88b789f,011324,Michael Lopaka Hoke,Active,Tateishi & Tanaka,United States | Hawaii | Maui County | Wailuku,tateishilaw.com,William S. Richardson,11/20/2020
 12d44613-ddbe-4a43-b6fd-e291ce8e4184,011325,James Thomas Daugherty,Government,US Coast Guard,United States | California | Los Angeles County | Los Angeles | San Pedro,,William S. Richardson,11/20/2020
 1a3a699b-f638-4dd7-b744-cb7c5ba0a92e,011326,Samantha Meilin Pang,Active,,,gmail.com,William S. Richardson,11/20/2020
 9482b15c-73df-427c-9453-85b5a633c14f,011327,Kristi Teiko Nagamine,Inactive - Voluntary,Department of the Navy,,,William S. Richardson,11/20/2020
@@ -11247,11 +11247,11 @@ d8a9c8a5-dbc4-4a73-9149-e8a7b9a26014,011346,Joel Robert Garner,Government,Dept. 
 a0670037-a13a-428e-a42d-45e89a8399ca,011350,Sharon Joyce Williams,Inactive - Voluntary,,,,U. of Georgia,12/4/2020
 bec61e03-71a9-4b8a-950e-039561f236f6,011351,Deon Anne Kiyomi Young,Active,First Hawaiian Bank,United States | Hawaii | Honolulu County | Honolulu | Downtown,fhb.com,U. of Washington,12/9/2020
 e0b4fe35-bb8c-471f-8de3-be3224b16a41,011352,Andrew Gavin Ronan,Active,Blumenthal Nordrehaug Bhowmik De Blouw LLP,United States | California | San Diego County | San Diego | La Jolla,bamlawca.com,U. of San Diego,12/7/2020
-41789972-ffd4-4be9-aba1-fdc2df1e44ed,011353,Asia Elizabeth Vanavichai,Active,BFL Law,United States | Hawaii | Hawaii County | Kailua-Kona,bfl.law,Thomas M. Cooley Law School,12/17/2020
+41789972-ffd4-4be9-aba1-fdc2df1e44ed,011353,Asia Elizabeth Vanavichai,Active,Vanavichai Law LLC,United States | Hawaii | Hawaii County | Kailua-Kona,vanavichai.law,Thomas M. Cooley Law School,12/17/2020
 6c1263af-fa7c-4c2c-a0de-0d66117f7491,011354,Anna Patricia Koethe,Inactive - Voluntary,Hawaii Medical Service Association,United States | Hawaii | Honolulu County | Honolulu | Ala Moana,hmsa.com,William S. Richardson,12/12/2020
 2a826713-6bf8-4411-aafd-bb11f6b33abe,011355,Caitlin Strother Doyle Musson,Active,Horovitz Tilley LLLC,United States | Hawaii | Maui County | Wailuku,mhmaui.com,U. of Colorado,12/17/2020
 729675bb-5561-4a95-ae7a-dca0309a7867,011356,Melissa Lynn Braswell,Active,Braswell Law,United States | Hawaii | Hawaii County | Kailua-Kona,blaw.pro,Northwestern U.,12/11/2020
-f822a9b8-6be1-4b7a-b15d-ce8b6d50c3a0,011357,Inha Kandatsu Kang,Active,Attorney At Law,United States | Hawaii | Hawaii County | Kailua-Kona,kandatsukang.com,George Washington U.,12/24/2020
+f822a9b8-6be1-4b7a-b15d-ce8b6d50c3a0,011357,Inha Kandatsu Kang,Active,Attorney At Law,United States | Hawaii | Hawaii County | Kailua-Kona,gmail.com,George Washington U.,12/24/2020
 a79ade5e-968c-4cd0-bb80-b40d8147d4a3,011358,Andrew George Burnett,Active,Law Off. of Einwechter & Hyatt,United States | Hawaii | Honolulu County | Haleiwa | North Shore,eandhlegal.com,U. of San Diego,11/12/2021
 b8b2faaf-2cfe-47b0-89b3-97d07f65ef13,011359,Peter Kurt Simon,Deceased,"Simon Law, LLLC",United States | Hawaii | Maui County | Wailuku,simonlawmaui.com,Florida Coastal School of Law,1/14/2021
 bddabb45-9e32-49d1-8c15-d3fb00094416,011360,Bruce Alexander Thabit,Active,Attorney At Law,United States | Nevada | Clark County | Las Vegas,passmail.net,National U. School of Law,1/13/2021
@@ -11268,7 +11268,7 @@ fdec29f9-0e81-4665-8854-6191fce95b84,011370,William Casey Bowen,Suspended - Non 
 c68cb9a9-4467-4fa8-866b-c3861c37ee96,011372,Richard Charles Beckett,Active,Peterson Russell Kelly Livengood PLLC,United States | Washington | King County | Bellevue | West Bellevue,prklaw.com,Gonzaga U.,6/4/2021
 89cdf0e8-e7fd-4ec1-8750-3dad2694171f,011373,Katherine Elinor Bruce,Active,Latham & Watkins LLP,United States | California | San Diego County | San Diego | Carmel Valley,lw.com,U. of Chicago,6/4/2021
 a1e7d604-c8c0-453b-84ec-dccecfb43c7c,011374,Nicole Chang,Active,BlackSand Capital,United States | Hawaii | Honolulu County | Honolulu | Waikiki,blacksandcapital.com,Georgetown U.,6/4/2021
-d4e68025-e946-4c4d-af2d-4a59591ee0af,011375,Alec Micah Jacobs,Government,U. S. Navy,United States | Illinois | Lake County | Shields Township | North Chicago | Great Lakes,gmail.com,William S. Richardson,6/4/2021
+d4e68025-e946-4c4d-af2d-4a59591ee0af,011375,Alec Micah Jacobs,Government,U. S. Navy,United States | Virginia | Norfolk,,William S. Richardson,6/4/2021
 ba0fb9db-07bd-41b8-9ba6-a0e5e1cac1fe,011376,Jason Shawn Kasamoto,Active,"Clay Iwamura Pulice & Nervell, AAL, ALC",United States | Hawaii | Honolulu County | Honolulu | Downtown,paclawteam.com,William S. Richardson,6/4/2021
 666ec1d2-0260-4238-8cd5-e28fae2d9dba,011377,Joshua Jungho Lee,Inactive - Voluntary,"Ross, Wolcott, Teinert & Prout",United States | California | Orange County | Costa Mesa,rossllp.com,U. of Washington,6/4/2021
 99d2ed71-305b-4c0f-8b09-5a28d4383634,011378,Michael Chien-Kung Masato Louis,Government,U.S. Air Force,United States | Washington | Spokane County | Fairchild Air Force Base,us.af.mil,William S. Richardson,6/4/2021
@@ -11341,7 +11341,7 @@ f2853a60-b763-49a1-a317-99af388cd3d0,011441,Aron Joshua Estaver,Active,Morrison 
 a8c7474a-bc54-472a-b60f-4eebacd6623b,011445,Suzette Jo Hill,Active,Law Offices of Robert S. Gitmeid & Associates PLLC,United States | New York | New York County | New York | Manhattan,gitmeidlaw.com,Mitchell Hamline School of Law,11/12/2021
 541c330c-4578-48f5-bfe4-dceeb18e7206,011446,KellyAnn Lai Kam Lee,Inactive - Voluntary,Hawaii Department of Health,United States | Hawaii | Honolulu County | Pearl City,doh.hawaii.gov,William S. Richardson,11/12/2021
 786cff1e-4d66-4951-8992-15a667f2033b,011447,Alexander Huixing McCabe,Active,Dubin Research and Consulting,United States | New York | New York County | New York | Manhattan,,Fordham U.,11/12/2021
-b2cdf13c-7556-4248-98d9-89b8444b14a5,011448,Nikki Yuk Moi Sen Loh,Active,Ekimoto & Morris LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiicondolaw.com,California Western School of Law,11/12/2021
+b2cdf13c-7556-4248-98d9-89b8444b14a5,011448,Nikki Yuk Moi Sen Loh,Government,Dept. of the Corporation Counsel,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,California Western School of Law,11/12/2021
 111e7c13-932b-44d5-90c8-77a8fa2319ae,011449,Kyle Kiyoshi Shiroma,Government,Off. of Council Services,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,Pepperdine U.,11/12/2021
 e9e7d31c-8d2c-4ea9-a6ae-bd414942b605,011450,Truc Thanh Yung,Active,,,,U. of California,11/12/2021
 9e3b3b4e-21c5-4a2d-867d-9126fafc7fbe,011451,Teresa Dawn Zetwick,Active,,,,Gonzaga U.,11/12/2021
@@ -11363,7 +11363,7 @@ de7ca858-ab4e-46ed-b5c1-7a6c64efdaeb,011466,"Xavier Antonio Navarro, Jr.",Active
 5c9bde01-01ce-4e32-82c6-715d55007040,011467,Daniel Bryant Woolston,Active,"Woolston Law, PLLC",United States | Arizona | Maricopa County | Mesa,gmail.com,Arizona State U.,10/7/2021
 c85051f6-1572-4c17-b0f7-bf715c5fb6b3,011468,John Mahaffey Blanchard,Active,Lung Rose Voss & Wagnild,United States | Hawaii | Honolulu County | Honolulu | Downtown,legalhawaii.com,William S. Richardson,11/12/2021
 42dd0e1a-c0a4-46f1-aa19-9d6a3d9ce388,011469,Annie Yu-Suan Chuang,Active,Shook Hardy & Bacon,United States | California | San Francisco County | San Francisco | SoMa,shb.com,Southwestern U.,11/12/2021
-c5e14c6c-143d-4bda-b4d6-f963b24ccac8,011470,Frank Stevens Gorup,Active,,United States | Illinois | Kendall County | Little Rock Township | Plano,kendallcountyil.gov,John Marshall Law School,11/12/2021
+c5e14c6c-143d-4bda-b4d6-f963b24ccac8,011470,Frank Stevens Gorup,Active,,United States | Illinois | Kendall County | Bristol Township | Yorkville,kendallcountyil.gov,John Marshall Law School,11/12/2021
 804ffdcc-f99b-4dba-8cbb-8337d6dae662,011471,Ethan Higa,Active,Catholic Charities Hawaii,United States | Hawaii | Honolulu County | Honolulu | Makiki/Lower/ Punchbowl/Tantalus,catholiccharitieshawaii.org,William S. Richardson,11/12/2021
 2f828f9d-3a1f-44b8-9960-62e647a75fcc,011472,Kevin Jisu Kunde,Active,,United States | California | Orange County | Santa Ana | Meredith Parkwood,kalattorneys.com,Chapman U.,11/12/2021
 0f1ebf61-7ac3-482e-8a1c-5aaaf31ffdb6,011473,Tyler David Mincavage,Active,"Bickerton Law Group, LLLP",United States | Hawaii | Honolulu County | Honolulu | Downtown,bsds.com,William S. Richardson,11/12/2021
@@ -11402,7 +11402,7 @@ eb7caf96-bad3-49a2-98cb-16faa308c01a,011505,Brittney Michiko Wu,Active,"Schlack 
 07fecf2f-e954-4f9c-b7ae-dc9461f83cbe,011507,Nalani Lin Crisologo,Active,Shook Hardy & Bacon,United States | California | Los Angeles County | Los Angeles | Century City,shb.com,Hastings College of Law,11/12/2021
 17162c24-92dc-4936-afd3-3c47e7266e75,011508,Brent John Lopianetzky,Inactive - Voluntary,,,,William S. Richardson,11/12/2021
 1a7a021f-9290-4cc4-96dc-32fe44507c8a,011509,Kauluponookaleilehua Maren Lu'uwai,Active,Ka Huli Ao Center for Excellence in Native Hawaiian Law,United States | Hawaii | Honolulu County | Honolulu | Manoa,hawaii.edu,William S. Richardson,11/12/2021
-30b4714d-a79e-43ff-9564-94028ead5e54,011510,Jaime Hokuliiliialohilani Chun,Active,Ka Huli Ao Center for Excellence in Native Hawaiian Law,,,William S. Richardson,11/12/2021
+30b4714d-a79e-43ff-9564-94028ead5e54,011510,Jaime Hokuliiliialohilani Chun,Active,,,,William S. Richardson,11/12/2021
 22883534-371a-4576-afa8-84b97b72a26f,011511,Terina Kamailelauli'i Fa'agau,Active,Native Hawaiian Legal Corp.,United States | Hawaii | Honolulu County | Honolulu | Downtown,nhlchi.org,William S. Richardson,11/12/2021
 aa60fcc1-85d5-4d7e-9e44-d7ccdce15822,011512,Devon Hideo Miller,Active,,,,William S. Richardson,11/12/2021
 79f9062f-88d2-423e-96b5-e226ded07fd4,011513,William Keizo Morrison,Active,Cades Schutte LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,cades.com,William S. Richardson,11/12/2021
@@ -11429,7 +11429,7 @@ f79016fc-184a-4f0f-a245-ee0d1c8f5d5b,011533,Kristin Yukiko Fujiyama,Active,Goods
 c47fcd9b-cc9a-43f6-b367-54ca4e1c5e5f,011534,Rachel Kikuye Xiaodan Murakami,Government,Off. of the Public Defender,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,hawaii.gov,,11/29/2021
 fb2e97a8-27d4-4b0f-bf62-9d14c6a52e24,011535,Rihui Yuan,Active,Watanabe Ing LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,wik.com,William S. Richardson,11/29/2021
 e2d07a9a-048f-4207-a163-92a23d22c5bf,011536,Ian Phillip Luthringer,Active,Settle Meyer Law,United States | Hawaii | Honolulu County | Honolulu | Downtown,settlemeyerlaw.com,Florida Coastal School of Law,12/6/2021
-20d0a397-504b-44f4-b75b-b2214484b1bc,011537,Samantha Hokulani Gabriel,Inactive - Voluntary,First Hawaiian Bank,United States | Hawaii | Honolulu County | Pearl City,fhb.com,William S. Richardson,12/6/2021
+20d0a397-504b-44f4-b75b-b2214484b1bc,011537,Samantha Hokulani Gabriel,Inactive - Voluntary,First Hawaiian Bank,,fhb.com,William S. Richardson,12/6/2021
 80727628-1c94-4fea-a9a9-b0c94f96456a,011538,Kaitlyn Mackenzie Waki,Active,,,gmail.com,William S. Richardson,12/9/2021
 75086d0f-55df-4aac-b263-40e0b6bb9a03,011539,Maria Elizabeth Brosnan-Faltas,Active,Wayfinders Law & Mediation LLLC,United States | Hawaii | Hawaii County | Kailua-Kona,wayfinderslaw.com,Chapman U.,12/9/2021
 78f56be6-4c8d-4675-9595-1d0a22ccc708,011540,Maria Helena Ruiz,Active,Kasowitz LLP,United States | Florida | Miami-Dade County | Miami | Brickell,kasowitz.com,U. of Miami,12/14/2021
@@ -11456,7 +11456,7 @@ f3381c7a-88ae-4805-8ad6-b4f49ac23df9,011562,Karly Aoki,Active,"Law Office of K. 
 e4dcb38a-9391-4b0d-bb5e-975a6ba7b43f,011563,Diana Sumarna,Active,,,,William S. Richardson,5/9/2022
 8fcb85ea-ca7d-4983-8118-86caabca7f31,011564,Daniel Jack Knight,Active,"Law Off. of Daniel J. Knight, APLC",United States | Hawaii | Maui County | Kihei,danknightlaw.com,Santa Barbara College of Law,5/13/2022
 a14635d4-2c5d-4fb1-9f6e-02f3988b5923,011565,William Keaupuni Akina,Government,U.S. Attorney's Office,United States | Hawaii | Honolulu County | Honolulu | Downtown,usdoj.gov,Brooklyn Law School,6/3/2022
-7b0807e1-eb1b-4ed7-a04d-3f197c3d7250,011566,Amberlynn Otara Alualu,Active,"Coates Frey & Hackett, AAL, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,coatesandfrey.com,St. Thomas U.,6/3/2022
+7b0807e1-eb1b-4ed7-a04d-3f197c3d7250,011566,Amberlynn Otara Alualu,Active,Tsugawa Lau & Muzzi LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,hilaw.us,St. Thomas U.,6/3/2022
 9af3581d-b54d-4369-8b70-9b424ae87890,011567,Justin James Andrews,Inactive - Voluntary,"Law Office of Justin J. Andrews, PLLC",United States | Washington | Benton County | Kennewick,gmail.com,U. of Washington,6/3/2022
 17868bb3-372d-4f87-aba3-98eaf760a6ff,011568,Jauwan Alan Barron,Active,,,gmail.com,U. of Cincinnati,6/3/2022
 411413ec-8444-4edd-9cb1-363ee9e388ff,011569,Jake Karl Brown,Active,,,jbrownlaw.com,Southern Methodist U.,6/3/2022
@@ -11487,7 +11487,7 @@ b4330ab0-9db3-4806-af34-b9baa4dd4209,011587,Andria Renee Schumann,Active,Kasdan 
 af669921-c21c-441d-a3f5-3dea15206e79,011594,Julia Lynn Bryant,Active,,,bryanthawaii.com,U. of Idaho,5/16/2022
 b5da3953-1d56-4218-b821-3c75fdc733c7,011595,Ian Kenichi Ross,Inactive - Voluntary,Utah Attorney General's Office,United States | Utah | Salt Lake County | Taylorsville,agutah.gov,Willamette U.,5/17/2022
 40572438-0d48-4fd0-9313-3fead98e49d0,011596,Taylor Steven Strosnider,Active,GE Aerospace,United States | Ohio | Hamilton County | Cincinnati,geaerospace.com,Michigan State U.,5/19/2022
-ab8ccd34-741e-447e-83af-8c597064fd34,011597,Katherine Grace Magruder,Inactive - Voluntary,Lawyers Without Borders,Marshall Islands | Majuro Atoll | Majuro,lwob.org,William S. Richardson,5/25/2022
+ab8ccd34-741e-447e-83af-8c597064fd34,011597,Katherine Grace Magruder,Inactive - Voluntary,Lawyers Without Borders,Marshall Islands | Majuro Atoll,lwob.org,William S. Richardson,5/25/2022
 0ec39e24-5a5b-442a-9211-c741d9ecff48,011598,Stephen James Massaro,Active,"Kaiser Foundation Health Plan, Inc",United States | California | Alameda County | Oakland | Downtown Oakland,,U. of Texas,5/26/2022
 b6b97f90-d93b-4106-9923-80b2294c4823,011599,Andrew Keir Hedin,Inactive - Voluntary,New Jersey Office of the Attorney General,United States | New Jersey | Mercer County | Trenton | Mill Hill,gmail.com,U. of Georgia,5/31/2022
 b69bf6ec-b2c9-4607-9c88-0d7a78917f05,011600,Kari Keiko Noborikawa,Active,Starn O'Toole Marcus & Fisher,United States | Hawaii | Honolulu County | Honolulu | Downtown,starnlaw.com,George Washington U.,5/31/2022
@@ -11575,7 +11575,7 @@ fef40d6c-b33b-4050-b3f9-3c32d6ea94fb,011681,Tyler Gordon Simpson,Inactive - Volu
 86142ef0-8dfc-4edf-8a1a-3e12f111cebd,011682,Yanita Venelinova Spiker,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,11/18/2022
 eef6230a-85fe-42a8-81c2-2befc60bf48f,011683,Olivia Pearl Staubus,Inactive - Voluntary,"Cherokee Nation, Office of the Attorney General",United States | Oklahoma | Cherokee County | Tahlequah,cherokee.org,William S. Richardson,11/18/2022
 2d27509e-cccf-4395-b0bc-63eefc2954d7,011684,Olivia Christine Stevens,Government,Off. of the Prosecuting Attorney,United States | Hawaii | Hawaii County | Hilo,hawaiiprosecutors.gov,Indiana U.,11/18/2022
-26761cb9-a81c-4577-9bbe-81f4c83b9cde,011685,Emily Kosei Tanaka,Active,"Cades Schutte, LLP",United States | Hawaii | Honolulu County | Honolulu | Downtown,cades.com,U. of California,11/18/2022
+26761cb9-a81c-4577-9bbe-81f4c83b9cde,011685,Emily Kosei Tanaka,Active,,,,U. of California,11/18/2022
 7f59f0bf-92c4-435c-8b36-597905a68325,011686,Nina Gabrielle Tholl,Active,Law Off. of Einwechter & Hyatt,United States | Hawaii | Honolulu County | Haleiwa | North Shore,eandhlegal.com,U. of Illinois,11/18/2022
 8ebfd881-0ec2-4221-9d89-9f5554fadee9,011687,Alexander Mun Hao Toshihiro Wong,Inactive - Voluntary,,,,William S. Richardson,11/18/2022
 621002a0-6bcb-4a0b-a35e-eca4e38bc87b,011688,Turner Mei Yi Wong,Government,Dept. of the Attorney General,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,11/18/2022
@@ -11615,7 +11615,7 @@ c7a745f8-802d-4250-a277-aa05095d806f,011718,Laura Marie Bowen,Active,,,my.asl.ed
 8f6e839f-6672-4d69-bc5f-0ab8491ba964,011723,Terri Finkbine Arnold,Active,,United States | Hawaii | Honolulu County | Waimanalo,gmail.com,U. of California - Hastings,1/9/2023
 53bb53d5-01f1-490c-8f1a-2f97de446c73,011724,Elise Carolene Anderson,Active,"Gordon Rees Scully Mansukhani, LLP",United States | Hawaii | Honolulu County | Honolulu | Downtown,grsm.com,Georgetown U.,1/20/2023
 db70a0c1-01bb-4881-a014-4e1a466249a0,011725,Gil Gabriel Silberman,Suspended - Professionalism Course,Equity LLP,United States | Hawaii | Honolulu County | Honolulu | Waikiki,equityllp.com,Boalt Hall-UC Berkeley,1/19/2023
-217055c5-d06d-427d-8201-d1ef5a34806b,011726,Nephi Dale Hardman,Active,"Nephi D. Hardman Attorney at Law, LLC",United States | Hawaii | Honolulu County | Laie,turnaraoundbk.com,Brigham Young U.,2/9/2023
+217055c5-d06d-427d-8201-d1ef5a34806b,011726,Nephi Dale Hardman,Active,"Attorney At Law, LLC",United States | Hawaii | Honolulu County | Laie,turnaraoundbk.com,Brigham Young U.,2/9/2023
 a0cd49df-9607-473c-a956-c4783ba7c10c,011727,Codie Emi Murata,Active,"Colin K. K. Goo, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,ckkglaw.com,William S. Richardson,3/2/2023
 fb78380a-2489-4a83-ab75-5b50dae5f806,011728,Brendan Patrick O'Connor,Active,,United States | Hawaii | Maui County | Haiku-Pauwela | Haiku,gmail.com,U. of San Diego,3/22/2023
 b9c7de8b-cc26-42be-addb-1035666a8a34,011729,"Harvey Glenn Alexander, Jr.",Government,Dept. of the Prosecuting Attorney,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,William S. Richardson,4/24/2023
@@ -11630,7 +11630,7 @@ dc05c9b6-837f-4a04-b61d-c7d57bc91fd8,011736,Morgan Kiyomi Sasaki,Active,Legal Ai
 813e16b7-6b44-44d6-8d09-724097633479,011738,Joanna Nineen Amberger,Active,,United States | Hawaii | Honolulu County | Honolulu | Waikiki,3fg-law.com,William S. Richardson,6/9/2023
 2e6efd89-8b93-4253-a106-bc11aab2e287,011739,Bronson Andrew Barna,Active,,,gmail.com,Elisabeth Haub School of Law,6/9/2023
 34b2cbbf-e789-4258-be1d-92c46f041aa3,011740,Erica Che,Active,"Matson Navigation Co., Inc",United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,matson.com,Columbia Law School,6/9/2023
-964ddb1b-2852-414b-9853-a325e3527135,011741,Emily Jane Dresslar,Active,Women's Law Center of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Waikiki,,U. of Michigan,6/9/2023
+964ddb1b-2852-414b-9853-a325e3527135,011741,Emily Jane Dresslar,Active,Women's Law Center of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Kaka'ako,,U. of Michigan,6/9/2023
 05bcabf0-b469-4023-a595-149ce3abb97e,011742,Austen Shea Gersonde,Active,Daye Law LLLC,United States | Hawaii | Maui County | Kahului,hawaiidayelaw.com,William S. Richardson,6/14/2023
 75fb9e73-77fe-4361-a552-0038469f740f,011743,Marshall Jeffrey Greenberg,Government,US Army,United States | Hawaii | Honolulu County | Schofield Barracks,army.mil,Indiana U.,6/9/2023
 2e01fa3a-31a8-45db-99e6-a1b0412aa765,011744,Noah Wong Hoshino,Active,,,hawaii.edu,William S. Richardson,6/9/2023
@@ -11663,7 +11663,7 @@ e0f6e161-168d-4a7d-a23f-a8f94be02998,011770,Rayner Mathias Bettendorf,Active,"Th
 0e98a0bc-c3d9-4557-a750-f41fb770ac2e,011771,Andrew Michael Carmody,Active,Kobayashi Sugita & Goda,United States | Hawaii | Honolulu County | Honolulu | Downtown,ksglaw.com,William S. Richardson,6/30/2023
 23f1b40a-c710-4e14-950c-f7946583d0fe,011772,Catelin Kawahinekoa Aiwohi,Active,Dentons US LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,dentons.com,U. of Wisconsin,7/1/2023
 64bd902a-28f8-4e32-bb18-b058f9c6fdc5,011773,Fred Mark Chesbro,Active,,,gmail.com,George Washington U.,7/19/2023
-6cada186-8d81-4c98-a688-d3cd319c3e8f,011774,Adrian Pierce Reifsnyder,Inactive - Voluntary,,,,William S. Richardson,8/9/2023
+6cada186-8d81-4c98-a688-d3cd319c3e8f,011774,Adrian Pierce Reifsnyder,Government,Dept. of the Corporation Counsel,United States | Hawaii | Maui County | Wailuku,co.maui.hi.us,William S. Richardson,8/9/2023
 7f33847a-83c9-47b3-a6d4-22f3ceadd8fd,011775,Martin Scott Michelman,Active,Shook Hardy & Bacon,United States | Texas | Harris County | Houston | Central Business District,shb.com,U. of Florida,8/23/2023
 1e75c4e4-daea-42b4-bf21-86cad05e3b01,011776,Lillianna Marie Baczeski,Government,US Patent & Trademark Office,United States | Virginia | Alexandria | Eisenhower East,,U. of Connecticut,8/23/2023
 1a1a218c-7473-4d1e-b1c8-1bde96d8f958,011777,John Alan Kawai,Active,Trial Lawyers for Justice,United States | California | Ventura County | Ventura,tl4j.com,Loyola Law School,9/11/2023
@@ -11674,7 +11674,7 @@ e0f6e161-168d-4a7d-a23f-a8f94be02998,011770,Rayner Mathias Bettendorf,Active,"Th
 4b95fc5b-19b9-495b-9ff1-b100abd58e61,011782,Andrew Chee Keong Oh,Inactive - Voluntary,,,gmail.com,Allard School of Law,9/28/2023
 c1871441-5dd4-49e3-8f46-dfca8bab5073,011783,Adam Joseph Pike,Active,,,gmail.com,Roger Williams U.,10/3/2023
 6d5b5480-b20d-4067-992e-169775416471,011784,"William Randall Bassett, Jr.",Active,King & Spalding LLP,United States | Florida | Miami-Dade County | Miami | Downtown Miami,kslaw.com,U. of Georgia,10/3/2023
-7f1c7aff-5b28-4daf-98ea-4ae5e0fe5098,011785,Devanand Jonathan Singh,Suspended - Professionalism Course,Singh Law Group,United States | Hawaii | Honolulu County | Honolulu | Hawaii Kai,dsinghlaw.com,U. of California - Hastings,10/4/2023
+7f1c7aff-5b28-4daf-98ea-4ae5e0fe5098,011785,Devanand Jonathan Singh,Suspended - Non Payment,Singh Law Group,United States | Hawaii | Honolulu County | Honolulu | Hawaii Kai,dsinghlaw.com,U. of California - Hastings,10/4/2023
 62df4321-bad5-4004-8724-51a1d09ad0dc,011786,Drew Thompson Bell,Active,King & Spalding LLP,United States | Texas | Travis County | Austin | Downtown Austin,,Emory U.,10/10/2023
 f7975b0b-9a65-4602-8109-27a119a03d06,011787,Abigail Lazo,Inactive - Voluntary,"Circuit Court, First Circuit",United States | Hawaii | Honolulu County | Honolulu | Downtown,gmail.com,William S. Richardson,10/12/2023
 d1a6b6fe-6061-4908-a27e-d9bb3353ccb7,011788,Rockyner Hadley,Government,Off. of the Public Defender,United States | Hawaii | Honolulu County | Honolulu | Kalihi - Palama,hawaii.gov,William S. Richardson,10/13/2023
@@ -11713,7 +11713,7 @@ c3f68015-730c-4e04-b482-0196c1f63b4c,011819,David William Horger,Government,Inte
 de6c478a-3c82-455a-9d45-b34dbdb225a7,011821,Gaurav Bobby Kalra,Active,Jackson Lewis,United States | California | Sacramento County | Sacramento | Downtown,jacksonlewis.com,UC Berkeley Law,11/9/2023
 7544ef6f-4c72-4968-bf69-2e2f0c600629,011822,Gayle Lynne Ketchie-Barry,Active,MG+M The Law Firm,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,mgmlaw.com,U. of San Francisco,11/9/2023
 35949f32-f2dd-4e07-a3b6-4dd58f14c63b,011823,Gillian Schefer Kim,Government,Intermediate Court of Appeals,United States | Hawaii | Honolulu County | Honolulu | Downtown,courts.hawaii.gov,William S. Richardson,11/9/2023
-add37247-3923-4efd-8e30-5696094fb28b,011824,Daniel Jeffrey Koller,Active,Damon Key Leong Kupchak Hastert,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiilawyer.com,William S. Richardson,11/9/2023
+add37247-3923-4efd-8e30-5696094fb28b,011824,Daniel Jeffrey Koller,Active,,,,William S. Richardson,11/9/2023
 78712ffd-0fb9-445b-bfd2-64ac4a014708,011825,Jung Min Lee,Active,Motooka Oyama & Lau LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,myhawaiilaw.com,William S. Richardson,11/9/2023
 d4c87a93-73bf-4802-9bf7-1f93efa24581,011826,Mike Masaaki Matsuura,Active,Lee & Martin,United States | Hawaii | Honolulu County | Honolulu | Downtown,leemartinhi.com,William S. Richardson,11/9/2023
 4769402f-8c77-4833-abbc-8f67cb9bf9f1,011827,Kathryn Ashley Mayer,Active,Hawaii Disability Rights Center,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiidisabilityrights.org,The Ohio State U.,11/9/2023
@@ -11745,7 +11745,7 @@ a6a972f8-884e-445b-8508-b7c0569e754a,011850,Noelle Batacan Guerrero,Active,"Port
 ba0284fd-1064-4ed0-ab7a-b1f34eeced30,011853,Chelsea Marie Puaolena Cobb,Active,Tamashiro Sogi & Bonner ALC,United States | Hawaii | Honolulu County | Honolulu | Downtown,bsahawaii.com,William S. Richardson,12/26/2023
 72cc265a-f449-462e-9ca6-18f9239482fc,011854,Stefanie Louise Prinsloo,Active,"Coates Frey & Hackett, AAL, LLLC",United States | Hawaii | Honolulu County | Honolulu | Downtown,coatesandfrey.com,William S. Richardson,12/26/2023
 f3d0fb15-755e-4616-8f6e-45ea8375811f,011855,Jessica Erin La Londe,Active,Duane Morris LLP,United States | California | San Francisco County | San Francisco | Embarcadero,duanemorris.com,George Washington U.,1/2/2024
-c2ceb672-f349-451f-9289-acebeacf1e11,011856,Kyla Ann Livingston,Government,Dept. of Justice,United States | New York | New York County | New York | Manhattan,gmail.com,William S. Richardson,1/2/2024
+c2ceb672-f349-451f-9289-acebeacf1e11,011856,Kyla Ann Livingston,Government,Off. of the Public Defender,United States | Hawaii | Hawaii County | Kailua-Kona,hawaii.gov,William S. Richardson,1/2/2024
 d01a84a7-8036-4429-adf9-0af0c2551dfb,011857,Keoni Moen Williams,Active,Dentons US LLP,United States | Hawaii | Honolulu County | Honolulu | Downtown,dentons.com,William S. Richardson,1/3/2024
 673bafef-d602-46b2-a47a-4570de4cfad6,011858,Kelly Anne Cournoyer,Active,Baughman Kroup Bosse PLLC,United States | Virginia | Norfolk | Downtown,bkbfirm.com,George Washington U.,1/8/2024
 29ef0168-68c5-4719-9054-20c14911cdc2,011859,Ian Neville Feinberg,Active,,,feinfamily.net,Stanford Law School,1/18/2024
@@ -11772,11 +11772,11 @@ feffe0cb-2eb0-495a-8cc0-96981d9a5a44,011877,Elena Pavlovna Begunova,Active,McCor
 33fce8f1-9235-41d4-ba44-d0e95c4a5565,011880,Kelly Shannon Earls,Government,"State of Hawaii, Public Utilities Commission",United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,Indiana U.,6/14/2024
 9ac93d34-a608-4d0f-b002-13488a71d731,011881,Jason Ebe,Active,Snell & Wilmer LLP,United States | Arizona | Maricopa County | Phoenix,swlaw.com,U. of Arizona,6/14/2024
 c42e245d-9f19-494d-8573-d050cbdd33e5,011882,Nike Sarah Ho,Active,,,gmail.com,Benjamin N. Cardozo School of Law,6/14/2024
-a4522c9a-c7fa-4351-9a21-a5cd81037bb0,011883,Angie Suk Lee,Active,Bergman & Lee LLP,United States | California | Los Angeles County | Culver City | Downtown,bergmanlee.com,U. of San Diego,6/14/2024
+a4522c9a-c7fa-4351-9a21-a5cd81037bb0,011883,Angie Suk Lee,Active,Angie Lee A Professional Law Corp.,United States | California | Orange County | Irvine | Irvine Business Complex,leelawcorp.com,U. of San Diego,6/14/2024
 28d4c1ab-700e-4951-8768-6fe8356ed88b,011884,Mary Lee,Active,,United States | California | Riverside County | Palm Desert,aol.com,U. of West Los Angeles,6/14/2024
 9455f3bb-0193-4426-ae43-9d70d407fd26,011885,Shari Toshie Matsudo,Active,Research Corporation of the University of Hawaii,United States | Hawaii | Honolulu County | Kailua,gmail.com,William S. Richardson,6/14/2024
 6f0db634-4b38-47e9-842a-c0b6f392736b,011886,Amelia Sakiko McKenzie,Active,,,hawaii.edu,William S. Richardson,6/14/2024
-1ea96702-14d0-48a0-9a5c-bd57aea22159,011887,Amanda Bernarr Mendenhall,Active,Bennett Tueller Johnson & Deere,United States | Utah | Salt Lake County | Salt Lake City,btjd.com,U. of Utah,6/14/2024
+1ea96702-14d0-48a0-9a5c-bd57aea22159,011887,Amanda Bernarr Mendenhall,Active,FFP Legal,United States | Utah | Salt Lake County | Murray,ffplegalgroup.com,U. of Utah,6/14/2024
 7890eb15-afd6-4846-adab-bc4ca0941b31,011888,Shawna Moeschler,Active,U.S. Coast Guard,United States | Connecticut | Southeastern Connecticut Planning Region | New London,gmail.com,William S. Richardson,6/14/2024
 b42c2f96-bff6-4123-a1c5-d5cc0b90f41c,011889,Danicole Sakay Ramos,Active,William S. Richardson School of Law Refugee & Immigration Clinic,United States | Hawaii | Honolulu County | Honolulu | Manoa,hawaii.edu,William S. Richardson,6/14/2024
 25fdf383-1dd9-4a63-b91b-61af31165ec4,011890,Diego Alberto Rivera,Active,Kessner Umebayashi Bain & Matsunaga,United States | Hawaii | Honolulu County | Honolulu | Downtown,kdubm.com,William S. Richardson,6/14/2024
@@ -11840,7 +11840,7 @@ f3157c3f-037d-4a13-9b91-5f4f13caa358,011942,Holly Yvonne Crawford,Active,,,gmail
 7d46c406-4485-4ae9-849d-5765db54386e,011948,Kacey Yoshio Fujino,Active,Law Office of George N. Nam,United States | Hawaii | Honolulu County | Aiea,,William S. Richardson,11/15/2024
 e351996a-12b0-4f78-83fc-f26155878304,011949,Nakoa Seraphim Gabriel,Inactive - Voluntary,Hawaii Family Court,,,William S. Richardson,11/15/2024
 afadd200-e613-4a17-87cd-d9934ee30163,011950,Robin William Girard,Government,Supreme Court of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Downtown,courts.hawaii.gov,William S. Richardson,11/15/2024
-6494a0c4-2832-4df0-b4d3-2860de1a5bc3,011951,Grace Han,Active,MK Law LLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,hotmail.com,Loyola Law School,11/15/2024
+6494a0c4-2832-4df0-b4d3-2860de1a5bc3,011951,Grace Han,Active,"Circuit Court, First Circuit",United States | Hawaii | Honolulu County | Honolulu | Downtown,,Loyola Law School,11/15/2024
 5c42bbe7-31ae-4b78-9c67-016932147ea1,011952,Karen Sue Hanson,Active,,,gmail.com,Mitchell Hamline School of Law,11/15/2024
 5886c029-86e7-402e-92a1-d2e9d9153b49,011953,Dru Keanuenue Okealii La Hara,Government,Supreme Court of Hawai?i,United States | Hawaii | Honolulu County | Honolulu | Downtown,courts.hawaii.gov,William S. Richardson,11/15/2024
 4a6e3fea-fa2c-4378-ba38-ae8e84b5d717,011954,Michelle He,Active,Case Lombardi A Law Corp.,United States | Hawaii | Honolulu County | Honolulu | Downtown,caselombardi.com,William S. Richardson,11/15/2024
@@ -11931,20 +11931,23 @@ baf71eb2-4dbb-4adb-aa73-092b9e3596bf,012037,Jaehee Choi,Active,Carlsmith Ball LL
 c4238d44-3e0d-4250-a5c6-c49e2f7b9d1a,012039,McKenzie Nalani Au,Inactive - Voluntary,Hawaii Civil Rights Comm.,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,6/6/2025
 b3026fa9-0150-478d-91db-660f6a20a405,012040,Bryan Yanos Baniaga,Inactive - Voluntary,Wilmer Hale,United States | California | Santa Clara County | Palo Alto,wilmerhale.com,UC Davis,6/6/2025
 e209345e-7bbe-4c79-a8f7-af94b113eae7,012041,Paul Patrick Billinson,Government,Off. of the Public Defender,United States | Hawaii | Hawaii County | Hilo,,U. of Denver,6/6/2025
+ea76f294-d6c9-4eee-a714-3307dd6e0621,012042,"Francis Elias Chandler, IV",Active,,,gmail.com,William S. Richardson,6/6/2025
 d39d1fa0-037f-4f68-8006-e1cdfcf15c88,012043,Sanaz Cherazaie,Active,Amaro Baldwin,United States | California | Los Angeles County | Long Beach | Waterfront,amarolawyers.com,Western State U.,6/6/2025
 2dfc75fd-5135-4c53-adc2-9e1c13cf7022,012044,Tracy Chuc,Active,Fukunaga Matayoshi Ching & Kon-Herrera,United States | Hawaii | Honolulu County | Honolulu | Downtown,fmhc-law.com,William S. Richardson,6/6/2025
 88c9c5bb-8e85-4909-9a4d-bbf5099224f4,012045,Meyer A.K.T.M. Cummins,Active,Dept. of Accounting & General Services,United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaii.gov,William S. Richardson,6/6/2025
 f8eca753-3e7b-4a7f-8b69-3190a3a5a32e,012046,Dennelle Ann Makana NLN Elaban,Active,"Weber Van Dyke & Fujimoto, LLLP",United States | Hawaii | Honolulu County | Honolulu | Downtown,hawaiilawteam.com,William S. Richardson,6/6/2025
-b1d0cbd5-9308-4903-ac84-1a873cf3807a,012047,Christian Supleo Ferrer,Active,JMY Law Group LLLC,United States | Hawaii | Honolulu County | Honolulu | Downtown,jmylawgroup.com,William S. Richardson,6/6/2025
-63733d0b-a36d-48b3-a041-e489beab44d0,012048,Sameera Yasmeen Hasan,Active,"Barrs Bay Investment Holding Co., Ltd.",United States | Delaware | New Castle County | Claymont,gmail.com,Case Western Reserve U.,6/6/2025
+b1d0cbd5-9308-4903-ac84-1a873cf3807a,012047,Christian Supleo Ferrer,Active,Lung Rose Voss & Wagnild,United States | Hawaii | Honolulu County | Honolulu | Downtown,legalhawaii.com,William S. Richardson,6/6/2025
+63733d0b-a36d-48b3-a041-e489beab44d0,012048,Sameera Yasmeen Hasan,Active,"Barrs Bay Investment Holding Co., Ltd.",United States | Delaware | New Castle County | Claymont,,Case Western Reserve U.,6/6/2025
+1bf88fbf-c568-4277-bf6c-1a86f594dd72,012049,Arisa Rachel Herman,Government,U.S. District Court,United States | Hawaii | Honolulu County | Honolulu | Downtown,,Cornell Law School,6/6/2025
 64c203c4-1503-434c-bd89-5d9e62a70232,012050,Jacob Marc Honigman,Active,RLSO HAWAII,United States | Hawaii | Honolulu County | Honolulu | Naval Station Pearl Harbor,gmail.com,Columbia U.,6/6/2025
 5096a6c1-2864-423b-8056-b6e48d2e9175,012051,Christopher Robert Hooks,Active,DLA Piper US LLP,United States | Pennsylvania | Philadelphia County | Philadelphia | Center City West,us.dlapiper.com,Temple U.,6/6/2025
 de86d714-0ae0-4476-85b9-b9f0cf3df6c6,012052,Samantha Rose RMM Hussey,Active,Wilson Sonsini,United States | Washington | King County | Seattle | Downtown Seattle,wsgr.com,U. of Washington,6/6/2025
 f1df3b5e-4ea4-4a48-8666-998c63c8abd2,012053,Kristen Mikiko Izuo,Inactive - Voluntary,,,protonmail.com,U. of California,6/6/2025
 53ae0413-5c49-4acf-b6c3-10737c66475f,012054,Annette Gee Kim,Active,,,,U. of Baltimore,6/6/2025
-2775a71a-cc92-4f4b-8019-d7c65ad278ab,012055,Nayeon Moon Kim,Inactive - Voluntary,,,,City University of New York,6/6/2025
+2775a71a-cc92-4f4b-8019-d7c65ad278ab,012055,Nayeon Moon Kim,Inactive - Voluntary,,,gmail.com,City University of New York,6/6/2025
 a6c52dca-b02c-4aab-856d-0aba52594b27,012056,Nicholas James Kittleson,Active,Legal Aid Society of Hawaii,United States | Hawaii | Hawaii County | Kailua-Kona,legalaidhawaii.org,Willamette U.,8/8/2023
 a0d4c793-50c0-4051-aae2-72baa456d0a0,012057,David Saewon Kwon,Active,Recovery Law Center,United States | Hawaii | Honolulu County | Honolulu | Downtown,rlchawaii.com,U. of Baltimore,6/6/2025
+8b1cd405-270f-4172-8b02-aa481cc27d41,012058,Brian Christopher Zuanich,Active,Zuanic Law PLLC,United States | Washington | King County | Seattle | Downtown Seattle,zuanichlaw.com,Suffolk U.,6/13/2025
 9d106ada-db9c-4087-8c23-bb0948430fda,012059,Kevin Thai Hung Lam,Government,Dept. of the Prosecuting Attorney,United States | Hawaii | Honolulu County | Honolulu | Downtown,honolulu.gov,Santa Clara U.,6/6/2025
 bf0ce009-6a3f-4a87-9854-a69b2101850b,012060,Catherine Anne LaRose,Active,,,,Fordham U.,6/6/2025
 d0cf2d46-ba42-4076-8cae-28bb7ff27e6d,012061,Christopher Edward Lee,Active,Attorney At Law,United States | Alabama | Madison County | Huntsville,cleefirm.com,American U.,6/6/2025
@@ -11954,8 +11957,13 @@ d8c92265-5e9c-4a4c-bdc3-66030fffa7bd,012064,Sara Makanalani Nakayama,Active,Port
 8bdfce23-b9e1-43d0-b41e-bdc007d27ce9,012065,Ethan Ross Rabinowitz,Active,Volunteer Legal Services Hawaii,United States | Hawaii | Honolulu County | Honolulu | Downtown,vlsh.org,Hofstra U.,6/6/2025
 f8ebc772-6649-46cc-8c36-5917334cf009,012066,Megan Amanda Nalani Risso,Active,"Case Lombardi, A Law Corp.",United States | Hawaii | Honolulu County | Honolulu | Downtown,,William S. Richardson,6/6/2025
 f1bce61b-9cf5-408b-b224-9ce7542e2eca,012067,Ann Marie Schmid,Active,,,,William Mitchell College of Law,6/6/2025
+21340a14-b7f6-482f-b03b-fe11bb548149,012068,Taylor Lee Takeuchi,Inactive - Voluntary,"Circuit Court, First Circuit",United States | Hawaii | Honolulu County | Honolulu | Downtown,courts.hawaii.gov,William S. Richardson,6/6/2025
+a6beb40b-ab7a-4acf-b3e7-eab59462cea6,012069,Joseph Anthony West,Active,The West Law Firm of California,United States | California | Fresno County | Fresno,wlfofca.com,Loyola Law School,6/6/2025
 65ae0aea-396b-478d-815a-43826b312e5a,012070,Matthew Timothy Wood,Active,Cozen O'Connor,United States | Washington | King County | Seattle | Downtown Seattle,cozen.com,Emory U.,6/6/2025
-1c2398b9-0c8c-4136-9e3d-417d58c45796,012071,Michael Covenant Ratcliffe,Active,Koshiba Price,United States | Hawaii | Honolulu County | Honolulu | Downtown,koshibalaw.com,William S. Richardson,5/27/2025
+1c2398b9-0c8c-4136-9e3d-417d58c45796,012071,Michael Covenant Ratcliffe,Active,Koshiba & Price,United States | Hawaii | Honolulu County | Honolulu | Downtown,koshibalaw.com,William S. Richardson,5/27/2025
+2b03560c-74c4-4cda-a1e7-be977808b66a,012072,James Patrick Ward,Government,US Navy,United States | Virginia | Norfolk,us.navy.mil,William S. Richardson,6/17/2025
+6c6c3a63-8f5e-4ad2-8ff5-0c0ccd923cdf,012073,Geoffrey B.J. Polk,Active,Attorney At Law,United States | Illinois | Cook County | River Forest Township | River Forest,geoffreypolk.com,Northwestern U.,6/26/2025
+8d71c5f8-6f44-4534-b85f-e9b6e1588380,012074,Alana Kahili Cammack,Inactive - Voluntary,,United States | Alabama | Montgomery County | Montgomery,alabamaag.gov,U. of Alabama,7/1/2025
 fe6763c5-0701-4ff8-a6af-94e63a6ea46f,050107,Akira Miyazaki,Foreign Law Consultant,"Daylight Law Firm, LLLC",United States | Hawaii | Honolulu County | Honolulu | Ala Moana,daylight-law.jp,,8/27/2020
 b4592fb4-7513-4279-a900-faa6c1990525,060234,Gregg Douglas Barton,Pro Hac Vice,Perkins Coie LLP,United States | Washington | King County | Seattle | Downtown Seattle,perkinscoie.com,,
 0404b9d3-4679-4aed-b090-344b21f85a72,060274,Scott Hendler,Pro Hac Vice,Hendler Flores Law PLLC,United States | Texas | Travis County | Austin | Barton Hills,hendlerlaw.com,,
@@ -11966,12 +11974,12 @@ f89ad250-055b-4d1a-9129-455478582d62,060676,Matthew Jay Fink,Pro Hac Vice,Nicola
 cb581017-d3df-4eb3-8e47-a6e687c7eed3,061046,Michael L. Brem,Pro Hac Vice,Schirrmeister Diaz-Arrastia Brem LLP,United States | Texas | Harris County | Houston | Central Business District,sdablaw.com,,
 8dcccdee-fd4c-4deb-bc31-8f1b8d9f0749,061088,"Theodore J. Boutrous, Jr.",Pro Hac Vice,Gibson Dunn & Crutcher LLC,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,gibsondunn.com,,
 168b8e5a-a451-4b0c-807a-1162cbc9758c,061202,"Clay Robbins, III",Pro Hac Vice,Wisner Baum LLP,United States | California | Los Angeles County | Los Angeles | Sawtelle,wisnerbaum.com,,
-b243a750-7522-4ae7-bbae-d1e36bc77d12,061390,Andrea E. Neuman,Pro Hac Vice,Gibson Dunn & Crutcher LLP,United States | Texas | Harris County | Houston | Central Business District,gibsondunn.com,,
+b243a750-7522-4ae7-bbae-d1e36bc77d12,061390,Andrea Ellen Smith,Pro Hac Vice,Gibson Dunn & Crutcher LLP,United States | Texas | Harris County | Houston | Central Business District,gibsondunn.com,,
 a85b1e67-b2e5-4222-9226-68721c51d9ab,061444,Richard George Morgan,Pro Hac Vice,Husch Blackwell LLC,United States | Minnesota | Hennepin County | Minneapolis | Central Minneapolis,huschblackwell.com,,
 5e3cc85c-5d2c-4fb2-aba9-ca1a2533968d,061542,Stephen Gerard Larson,Pro Hac Vice,Larson LLLP,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,larsonllp.com,,
 adbabf39-8b2e-4cc2-a899-2873498f2927,061728,"John Patrick McNicholas, IV",Pro Hac Vice,McNicholas & McNicholas LLP,United States | California | Los Angeles County | Los Angeles | Westwood,mcnicholaslaw.com,,
 d4a82bd9-246d-484e-bc6a-68b6fbf7da1e,061788,Evan Michael Zucker,Pro Hac Vice,"Baron & Budd, P. C",United States | California | Los Angeles County | Los Angeles | Encino,baronbudd.com,,
-4e1def2e-e96d-4c04-beb5-0300e6e3faa4,061864,Daniel S. Pariser,Pro Hac Vice,Arnold & Porter Kaye Scholer LLP,United States | District of Columbia | Washington | Mount Vernon Triangle,arnoldporter.com,,
+4e1def2e-e96d-4c04-beb5-0300e6e3faa4,061864,Daniel S. Pariser,Pro Hac Vice,Arnold & Porter Kaye Scholer LLP,United States | District of Columbia | Washington | Northwest Washington,arnoldporter.com,,
 196d96c5-c13d-4106-9f68-9d77fed70a5c,061865,Anand Agneshwar,Pro Hac Vice,Arnold & Porter Kaye Scholer LLP,United States | New York | New York County | New York | Manhattan,arnoldporter.com,,
 431f0573-f22d-4419-a64f-afa2d35934cf,061980,Daniel Alberstone,Pro Hac Vice,"Baron & Budd, P. C",United States | California | Los Angeles County | Los Angeles | Encino,baronbudd.com,,
 73f58525-a7eb-4138-9ab0-98a64f0381b4,061984,Peter Klausner,Pro Hac Vice,"Baron & Budd, P. C",United States | California | Los Angeles County | Los Angeles | Encino,baronbudd.com,,
@@ -12008,6 +12016,7 @@ d5942732-9297-4015-88f3-a6178593e430,062344,Sean Robert O'Connor,Pro Hac Vice,Ro
 e8652cc6-6a5a-441e-a348-ddd1c15460f0,062354,Michele Borens,Pro Hac Vice,Eversheds Sutherland (US) LLP,United States | District of Columbia | Washington | Northwest Washington,eversheds-sutherland.com,,
 2cfb7f07-31ec-454d-97bb-c020e742eac0,062355,Jeffrey Alan Friedman,Pro Hac Vice,Eversheds Sutherland (US) LLP,United States | District of Columbia | Washington | Northwest Washington,eversheds-sutherland.com,,
 db985d34-6935-471e-aa89-8aed147fa641,062361,Courtney Megan Johnson,Pro Hac Vice,Gibson Dunn & Crutcher LLC,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,gibsondunn.com,,
+2754839c-c495-41c0-b691-3a01a95351e1,062370,Kimberly Olvey Branscome,Pro Hac Vice,Paul Weiss Rifkind Wharton & Garrison,United States | California | Los Angeles County | Los Angeles | Century City,paulweiss.com,,
 2738571b-faf9-4bc2-826a-868341ed8c46,062374,Scott Robert Frieling,Pro Hac Vice,"Allen Stewart, PC",United States | Texas | Dallas County | Dallas | Dallas Downtown Historic District,allenstewart.com,,
 65771cbd-9701-4937-bff6-f6303c3bcaa8,062375,Allen Mark Stewart,Pro Hac Vice,"Allen Stewart, PC",United States | Texas | Dallas County | Dallas | Dallas Downtown Historic District,allenstewart.com,,
 9658a15c-116b-4a75-998a-0e2898dcdaec,062381,Joshua Steven Ostler,Pro Hac Vice,Mortensen & Milne,United States | Utah | Salt Lake County | Salt Lake City | Rio Grande,mortmilnelaw.com,,
@@ -12125,6 +12134,7 @@ ec31d5f7-86e0-4b22-9aa1-a52aa932527f,062803,Donald James Magilligan,Pro Hac Vice
 db4fbefc-42c0-4117-8242-473ff769e360,062804,Frank Mario Pitre,Pro Hac Vice,Cotchett Pitre & McCarthy LLP,United States | California | San Mateo County | Burlingame | Ingold - Milldale,cpmlegal.com,,
 ee3d2e58-8566-4c6e-afe1-bb34c6a5453c,062805,Joseph Hawkins Low IV,Pro Hac Vice,The Law Firm of Joseph H Low IV,United States | California | Los Angeles County | Long Beach | Waterfront,jhllaw.com,,
 405d73c1-f4bf-4918-8539-93be873d8a19,062806,Nabilah Akhtar Hossain,Pro Hac Vice,Cotchett Pitre & McCarthy LLP,United States | California | San Mateo County | Burlingame | Ingold - Milldale,cpmlegal.com,,
+524c22d4-40b7-42e3-aa8d-07ac41f493b5,062807,Michael Anthony Alvarez,Pro Hac Vice,The Alvarez Law Firm,United States | Florida | Miami-Dade County | Coral Gables,talf.law,,
 d55c9121-d26b-4a22-a37a-9a13bfeb8ade,062808,Mikal Carter Watts,Pro Hac Vice,Watts Law Firm LLP,United States | Texas | Travis County | Austin | Bouldin Creek,wattsllp.com,,
 244a878d-cee6-4d4b-835d-8aadd0857ffa,062810,Robert Sean Siko,Pro Hac Vice,Andrews & Thornton,United States | California | Orange County | Newport Beach,andrewsthornton.com,,
 9859f94a-e23b-490a-a6bc-50abcc01daa8,062811,Anne Andrews,Pro Hac Vice,Andrews & Thornton,United States | California | Orange County | Newport Beach,andrewsthornton.com,,
@@ -12176,18 +12186,18 @@ b1d334b3-ff96-44ce-8322-595c3d735634,062900,"George Theodore Stiefel, III",Pro H
 c60cdab7-f220-4fe7-8f19-96aa867b2425,062907,Jillian Chou Joseph,Pro Hac Vice,Mayer Brown LLP,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,mayerbrown.com,,
 7b247a41-be34-470b-bb77-24e5e0de8474,062908,Matthew Corey Sostrin,Pro Hac Vice,Mayer Brown LLP,United States | Illinois | Cook County | Chicago | Chicago Loop,mayerbrown.com,,
 e775ee4e-a47c-450e-994f-04ce5daaa7e0,062909,Michael Anthony Scodro,Pro Hac Vice,Mayer Brown LLP,United States | Illinois | Cook County | Chicago | Chicago Loop,mayerbrown.com,,
-024f81f3-55dd-4d9c-afcf-63a9b9de51a3,062910,Christine Yau Sum Wong,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Francisco County | San Francisco | SoMa,mofo.com,,
+024f81f3-55dd-4d9c-afcf-63a9b9de51a3,062910,Christine Yau Sum Wong,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Francisco County | San Francisco | Financial District,mofo.com,,
 c669edc4-0d35-494e-a704-85de306d927a,062911,Mikayla Lauren-Irene O'Neal,Pro Hac Vice,Allen Matkins Leck Gamble Mallory & Natsis,United States | California | San Francisco County | San Francisco | Financial District,allenmatkins.com,,
 50b22b5e-0ff3-4ee0-9921-712e1de882cd,062914,John Eric Thickstun,Pro Hac Vice,Law Off. of Gregory A. Montegna,United States | California | San Diego County | Chula Vista,montegnathickstun.com,,
 0f9488b5-1d73-4d43-bcc3-dd63d34bdfc2,062915,Rachel Grogan Roosth,Pro Hac Vice,Norton Rose Fulbright US LLP,United States | Texas | Harris County | Houston | Central Business District,nortonrosefulbright.com,,
-6ca9ceec-99e2-42af-914e-d34efa4d9170,062916,Michael Edward Komorowski,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Francisco County | San Francisco | SoMa,mofo.com,,
+6ca9ceec-99e2-42af-914e-d34efa4d9170,062916,Michael Edward Komorowski,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Francisco County | San Francisco | Financial District,mofo.com,,
 4768e70b-4fbd-4e47-8e78-0fab561cec50,062917,Mitchell Allen Hokanson,Pro Hac Vice,Morrison & Forrester LLP,United States | California | San Diego County | San Diego | Carmel Valley,mofo.com,,
-056ea568-876e-4a47-8000-50023e7164ef,062918,Hanna Marlene Lauritzen,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Francisco County | San Francisco | SoMa,mofo.com,,
+056ea568-876e-4a47-8000-50023e7164ef,062918,Hanna Marlene Lauritzen,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Francisco County | San Francisco | Financial District,mofo.com,,
 01e3ae98-0c74-48d2-bc38-da70c56b1547,062919,Brittany Lynn Scheinok,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Diego County | San Diego | Carmel Valley,mofo.com,,
 4b528ff5-7e2b-4113-91df-b51084055cb1,062920,Dan Edward Marmalefsky,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Diego County | San Diego | Carmel Valley,mofo.com,,
 f48ef4c2-0f76-4051-b7b3-d98dc1a09b33,062921,Adam Lorne Braverman,Pro Hac Vice,Morrison & Foester LLP,United States | California | San Diego County | San Diego | Carmel Valley,mofo.com,,
 26f0bd0a-53ec-42bd-94ad-aa5ea1e130cc,062922,Julie Yongsun Park,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Diego County | San Diego | Carmel Valley,mofo.com,,
-44c314db-fff1-42b0-bae6-86bc5cc6e360,062923,Tiffany Cheung,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Francisco County | San Francisco | SoMa,mofo.com,,
+44c314db-fff1-42b0-bae6-86bc5cc6e360,062923,Tiffany Cheung,Pro Hac Vice,Morrison & Foerster LLP,United States | California | San Francisco County | San Francisco | Financial District,mofo.com,,
 c833b8d9-4815-4b92-be5d-13fdd1f4c83e,062924,Layne Edwin Kruse,Pro Hac Vice,Norton Rose Fulbright US LLP,United States | Texas | Harris County | Houston | Central Business District,nortonrosefulbright.com,,
 22bbe1f0-2cfb-4f33-a1a0-d56cd1dc9146,062925,Eliot Fielding Turner,Pro Hac Vice,Norton Rose Fulbright US LLP,United States | Texas | Harris County | Houston | Central Business District,nortonrosefulbright.com,,
 dd6508d0-b414-434c-b716-066c07ef0154,062929,Daniel Joseph Taylor,Pro Hac Vice,Musick Peeler & Garrett LLP,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,musickpeeler.com,,
@@ -12316,7 +12326,20 @@ a18493bb-e17d-47b4-90bd-472fa35207e2,063075,Mohammed Sadegh Mandegary,Pro Hac Vi
 b12e772b-2b3c-4a12-86c7-765e8e2a9137,063076,Michael Thomas Lane,Pro Hac Vice,Lewis Kohn & Walker LLP,United States | California | San Diego County | San Diego | Rancho Bernardo,lewiskohn.com,,
 999d81f2-ce56-4638-9c8c-e727f27f7f0b,063077,John Matthew Houkom,Pro Hac Vice,Lewis Kohn & Walker LLP,United States | California | San Diego County | San Diego | Rancho Bernardo,lewiskohn.com,,
 54db18aa-647a-48a6-b18a-f9fa2428cc1e,063078,Zachary Scott Tedford,Pro Hac Vice,Lewis Kohn & Walker LLP,United States | California | San Diego County | San Diego | Rancho Bernardo,lewiskohn.com,,
+27af2303-d83a-4d13-809e-36bbd5df409b,063079,Mark Edward Chavez,Pro Hac Vice,Matthews & Assoc,United States | Texas | Harris County | Houston | Greenway / Upper Kirby Area,thematthewslawfirm.com,,
+9d7a431d-28ee-451d-9273-148cbf26104e,063080,David Paul Matthews,Pro Hac Vice,Matthews & Assoc.,United States | Texas | Harris County | Houston | Greenway / Upper Kirby Area,thematthewslawfirm.com,,
+3dacec27-7dcb-4d7f-889a-b1ef3ec25506,063081,Daniel Connor Deacon,Pro Hac Vice,Conn Michael Carey LLP,United States | District of Columbia | Washington | Northwest Washington,connmaciel.com,,
 0e8b158b-fe23-4383-a3df-012716687191,063082,Ursula Marie Henninger,Pro Hac Vice,King & Spalding LLP,United States | Florida | Miami-Dade County | Miami | Downtown Miami,kslaw.com,,
 1c9b22b1-9c45-494b-b5a7-bb191a62c758,063083,Frank Charles Gradishar,Pro Hac Vice,Gordon Rees Scully Mansukhani LLP,United States | Illinois | Cook County | Chicago | Chicago Loop,grsm.com,,
+3e872691-72e7-4cc4-869e-011f411d5dc0,063085,Jonathan Derek Quick,Pro Hac Vice,Salck Davis Sanger LLP,United States | Texas | Travis County | Austin | Davenport Lake Austin,slackdavis.com,,
+0a110639-1a8f-45ed-b7a4-c8c176070d85,063086,Mark Andre Pasculli,Pro Hac Vice,Law Off. of Edward H. Cross,United States | Hawaii | Honolulu County | Honolulu | Waikiki,,,6/30/2025
+2fbc0b0d-4a33-4bf9-ba1e-685828b6f299,063087,Alison Marielle Johnson,Pro Hac Vice,Gibson Dunn & Crutcher,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,gibsondunn.com,,7/1/2025
+179852b6-b4e3-4047-9077-75c9400a2501,063088,Kahn Abrahm Scolnick,Pro Hac Vice,Gibson Dunn & Crutcher,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,gibsondunn.com,,7/1/2025
+11c87ca8-dbd2-43ef-9cfa-d8c125ab471b,063089,Daniel Glen Swanson,Pro Hac Vice,"Gibson, Dunn & Crutcher LLP",United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,gibsondunn.com,,7/1/2025
+0ab1102f-1e7b-4c7f-8605-d3bb18df9641,063090,Valentin Leppert,Pro Hac Vice,King & Spalding LLP,United States | Florida | Miami-Dade County | Miami | Downtown Miami,kslaw.com,,
+d7e4bac2-3c09-4c10-8c97-257191fc761f,063091,David Joseph Sales,Pro Hac Vice,"David J. Sales, PA",United States | Florida | Sarasota County | Sarasota | Downtown,salesappeals.com,,
+a86a2762-7283-4cae-b6a5-2604338378a4,063092,Sabrina Heron Strong,Pro Hac Vice,O'Melveny & Myers LLP,United States | California | Los Angeles County | Los Angeles | Downtown Los Angeles,omm.com,,
+95d3791c-a347-4977-ae83-e5a98d00522e,063093,Amy Riley Lucas,Pro Hac Vice,O'Melveny & Myers LLP,United States | California | Los Angeles County | Los Angeles | Century City,omm.com,,
+88ebf7df-a738-4536-a467-a40c6628f9da,063094,Taino James Palermo,Pro Hac Vice,Center for Indigenous Peoples Rights,United States | Rhode Island | Providence County | Providence,thecipr.org,,
 7ee78bbd-585e-48af-abef-df450c675892,070002,Alicia Leilani Pitts,RLSA,Legal Aid Society of Hawaii,United States | Hawaii | Honolulu County | Honolulu | Arts District,legalaidhawaii.org,U. of California - Hastings,2/21/2024
 69cb60ae-f268-48d7-88d7-e7efbf4af7fa,070004,Elizabeth Ann Geddes,RLSA,Legal Aid Society of Hawaii,United States | Hawaii | Hawaii County | Kailua-Kona,legalaidhawaii.org,Brooklyn Law School,5/20/2025

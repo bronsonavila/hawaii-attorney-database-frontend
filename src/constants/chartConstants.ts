@@ -13,6 +13,7 @@ export const LICENSE_TYPE_ORDER = [
   'Inactive',
   'Suspended',
   'Resign',
+  'Restrained from Practice',
   'Disbarred',
   'Criminal Conviction',
   'Deceased'

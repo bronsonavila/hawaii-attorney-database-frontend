@@ -36,7 +36,7 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
       .filter(key => key !== 'year' && key !== 'count')
       .sort((a, b) => LICENSE_TYPE_ORDER.indexOf(a) - LICENSE_TYPE_ORDER.indexOf(b))
 
-    const licenseTypeColorPalette = [...TEAL_NAVY[4], ...AMBER_BROWN[3], ...ROSE_VIOLET[6]]
+    const licenseTypeColorPalette = [...TEAL_NAVY[4], ...AMBER_BROWN[3], ...ROSE_VIOLET[7]]
 
     const licenseTypeColors = Object.fromEntries(
       LICENSE_TYPE_ORDER.map((type, index) => [type, licenseTypeColorPalette[index % licenseTypeColorPalette.length]])
