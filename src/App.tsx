@@ -97,9 +97,13 @@ export const App = () => {
 
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
 
-  const [paletteMode, setPaletteMode] = useState<PaletteMode>(
-    (localStorage.getItem('theme') as PaletteMode) || (prefersDarkMode ? 'dark' : 'light')
-  )
+  const [paletteMode, setPaletteMode] = useState<PaletteMode>(() => {
+    try {
+      return (localStorage.getItem('theme') as PaletteMode) || (prefersDarkMode ? 'dark' : 'light')
+    } catch {
+      return prefersDarkMode ? 'dark' : 'light'
+    }
+  })
 
   const theme = useMemo(
     () => createTheme({ components: DATA_GRID_THEME_OVERRIDES, palette: { mode: paletteMode } }),
@@ -109,7 +113,11 @@ export const App = () => {
   // Effects
 
   useEffect(() => {
-    localStorage.setItem('theme', paletteMode)
+    try {
+      localStorage.setItem('theme', paletteMode)
+    } catch {
+      // `localStorage` access denied – silently fail.
+    }
   }, [paletteMode])
 
   useEffect(() => {
