@@ -61,7 +61,7 @@ export const MultiValueCell: FC<MultiValueCellProps> = ({ values, emptyText = ''
   )
 
   return values.length >= 2 ? (
-    <Tooltip enterDelay={350} placement="top-start" title={tooltipTitle}>
+    <Tooltip enterDelay={350} enterTouchDelay={0} leaveTouchDelay={1500} placement="top-start" title={tooltipTitle}>
       {content}
     </Tooltip>
   ) : (
