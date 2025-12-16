@@ -57,4 +57,4 @@ The application is deployed using Netlify with continuous deployment from the `m
 
 ## Data Source
 
-The attorney data is obtained from the [Hawaii State Bar Association's Member Directory](https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx). It is scraped and processed using a custom Node.js application from a [private backend repository](https://github.com/bronsonavila/hawaii-attorney-database-backend) and stored in a CSV file (`public/processed-member-records.csv`), which the application loads at runtime.
+The attorney data is obtained from the [Hawaii State Bar Association's Member Directory](https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx). It is scraped and processed using a custom Node.js application from a [private backend repository](https://github.com/bronsonavila/hawaii-attorney-database-backend) and stored in a CSV file (`public/hsba-member-records.csv`), which the application loads at runtime.

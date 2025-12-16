@@ -1,6 +1,6 @@
 import { DatasetType } from '@mui/x-charts/internals'
 import { getTopLawSchools } from './commonUtils'
-import { Row } from '../../App'
+import { Row } from '../../types/row'
 import { ViewType } from '../../enums/chartEnums'
 
 // Constants

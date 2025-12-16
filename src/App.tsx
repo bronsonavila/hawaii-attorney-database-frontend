@@ -1,23 +1,26 @@
-import { createTheme, CssBaseline, GlobalStyles, PaletteMode, ThemeProvider, useMediaQuery } from '@mui/material'
+import {
+  Box,
+  createTheme,
+  CssBaseline,
+  GlobalStyles,
+  Link,
+  PaletteMode,
+  ThemeProvider,
+  useMediaQuery
+} from '@mui/material'
+import { compareMultiValueCells, getMultiValueFilterOperators, getValuesForDisplay } from './utils/dataGrid/multiValue'
+import { countByRowPresence, sortByPrevalence } from './utils/rows/prevalence'
+import { DataGridPro, GridColDef, GridRenderCellParams } from '@mui/x-data-grid-pro'
 import { Footer } from './components/Footer'
 import { getUniqueLicenseTypes } from './utils/charts/commonUtils'
-import { GridColDef, DataGridPro } from '@mui/x-data-grid-pro'
+import { HsbaCsvRow, mapHsbaCsvRowToRow } from './utils/hsbaCsv'
+import { MultiValueCell } from './components/MultiValueCell'
+import { Row } from './types/row'
 import { Toolbar } from './components/Toolbar'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, WheelEvent } from 'react'
 import { useFilterModelTracking } from './hooks/useFilterModelTracking'
 import { useLoadingContext } from './hooks/useLoadingContext'
 import Papa from 'papaparse'
-
-export interface Row {
-  jdNumber: string
-  name: string
-  licenseType: string
-  employer: string
-  location: string
-  emailDomain: string
-  lawSchool: string
-  barAdmissionDate: string
-}
 
 const DATA_GRID_THEME_OVERRIDES = {
   MuiButtonBase: { defaultProps: { disableRipple: true } },
@@ -53,29 +56,71 @@ const DATA_GRID_THEME_OVERRIDES = {
 export const App = () => {
   const { isLoading, setIsLoading } = useLoadingContext()
   const [licenseTypes, setLicenseTypes] = useState<string[]>([])
+  const [membershipSectionOptions, setMembershipSectionOptions] = useState<string[]>([])
+  const [otherLicenseOptions, setOtherLicenseOptions] = useState<string[]>([])
   const [rows, setRows] = useState<Row[]>([])
 
-  const columns: GridColDef[] = useMemo(
+  const handleGridWheelCapture = (event: WheelEvent<HTMLDivElement>) => {
+    const isHorizontalWheel = Math.abs(event.deltaX) > 0 || (event.shiftKey && Math.abs(event.deltaY) > 0)
+
+    if (!isHorizontalWheel) return
+
+    const activeElement = document.activeElement as HTMLElement | null
+
+    if (!activeElement) return
+    if (!event.currentTarget.contains(activeElement)) return
+
+    // Prevent the grid from snapping horizontally to keep a focused header/cell in view
+    // while the user is doing a horizontal scroll gesture.
+    if (activeElement.closest('.MuiDataGrid-columnHeader') || activeElement.closest('.MuiDataGrid-cell')) {
+      activeElement.blur()
+    }
+  }
+
+  const columns: GridColDef<Row>[] = useMemo(
     () => [
+      {
+        field: 'name',
+        headerName: 'Name',
+        renderCell: params => (
+          <Link
+            color="inherit"
+            href={`https://hsba.org/member-directory/${encodeURIComponent(params.row.id)}`}
+            onClick={event => event.stopPropagation()}
+            rel="noopener noreferrer"
+            sx={{
+              display: 'inline-block',
+              maxWidth: '100%',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}
+            target="_blank"
+            underline="hover"
+          >
+            {params.value as string}
+          </Link>
+        ),
+        width: 220
+      },
       {
         align: 'left',
         field: 'jdNumber',
         headerAlign: 'left',
         headerName: 'JD Number',
         type: 'number',
-        valueFormatter: (value: number) => value.toString(),
+        valueFormatter: (value: number | null) => (value === null || value === undefined ? '' : value.toString()),
         valueGetter: (value: string) => Number(value),
         width: 150
       },
-      { field: 'name', headerName: 'Name', width: 200 },
       {
         field: 'licenseType',
-        headerName: 'License Type',
+        headerName: 'License Status',
         type: 'singleSelect',
         valueOptions: licenseTypes,
         width: 200
       },
-      { field: 'employer', headerName: 'Employer', width: 200 },
+      { field: 'employer', headerName: 'Organization', width: 240 },
       { field: 'location', headerName: 'Location', width: 350 },
       { field: 'emailDomain', headerName: 'Email Domain', width: 175 },
       { field: 'lawSchool', headerName: 'Law School', width: 200 },
@@ -86,9 +131,48 @@ export const App = () => {
         valueFormatter: (value: Date | null) => (value instanceof Date ? value.toLocaleDateString() : ''),
         valueGetter: (value: string | null) => (value ? new Date(value) : null),
         width: 200
+      },
+      {
+        field: 'membershipSections',
+        filterOperators: getMultiValueFilterOperators(),
+        headerName: 'Membership Sections',
+        renderCell: (params: GridRenderCellParams<Row>) => {
+          const filterModel = params.api.state.filter.filterModel
+          const displayValues = getValuesForDisplay(params.row.membershipSections, filterModel, 'membershipSections')
+
+          return <MultiValueCell values={displayValues} />
+        },
+        sortComparator: (v1, v2, p1, p2) =>
+          compareMultiValueCells(
+            v1,
+            v2,
+            p1.api.getRow(p1.id).membershipSections,
+            p2.api.getRow(p2.id).membershipSections
+          ),
+        type: 'singleSelect',
+        valueGetter: (_value, row) => row.membershipSections.join('; '),
+        valueOptions: membershipSectionOptions,
+        width: 280
+      },
+      {
+        field: 'otherLicenses',
+        filterOperators: getMultiValueFilterOperators(),
+        headerName: 'Also Licensed In',
+        renderCell: (params: GridRenderCellParams<Row>) => {
+          const filterModel = params.api.state.filter.filterModel
+          const displayValues = getValuesForDisplay(params.row.otherLicenses, filterModel, 'otherLicenses')
+
+          return <MultiValueCell values={displayValues} />
+        },
+        sortComparator: (v1, v2, p1, p2) =>
+          compareMultiValueCells(v1, v2, p1.api.getRow(p1.id).otherLicenses, p2.api.getRow(p2.id).otherLicenses),
+        type: 'singleSelect',
+        valueGetter: (_value, row) => row.otherLicenses.join('; '),
+        valueOptions: otherLicenseOptions,
+        width: 200
       }
     ],
-    [licenseTypes]
+    [licenseTypes, membershipSectionOptions, otherLicenseOptions]
   )
 
   const handleFilterModelChange = useFilterModelTracking()
@@ -121,15 +205,31 @@ export const App = () => {
   }, [paletteMode])
 
   useEffect(() => {
-    fetch('/processed-member-records.csv')
+    fetch('/hsba-member-records.csv')
       .then(response => response.text())
       .then(csvString => {
-        const { data: rows } = Papa.parse<Row>(csvString, { header: true })
-        const filteredRows = rows.filter(row => row.jdNumber) // Omit blank rows.
+        const { data: rawRows } = Papa.parse<HsbaCsvRow>(csvString, { header: true, skipEmptyLines: 'greedy' })
+        const mappedRows = rawRows
+          .filter(row => row && row.jd_number)
+          .map(mapHsbaCsvRowToRow)
+          .filter(row => row.jdNumber) // Omit blank rows.
 
-        setRows(filteredRows)
+        const membershipSectionsCounts = countByRowPresence(mappedRows, row => row.membershipSections)
+        const otherLicensesCounts = countByRowPresence(mappedRows, row => row.otherLicenses)
 
-        setLicenseTypes(getUniqueLicenseTypes(filteredRows))
+        const sortedRows = mappedRows.map(row => ({
+          ...row,
+          membershipSections: sortByPrevalence(row.membershipSections, membershipSectionsCounts),
+          otherLicenses: sortByPrevalence(row.otherLicenses, otherLicensesCounts)
+        }))
+
+        setRows(sortedRows)
+
+        setLicenseTypes(getUniqueLicenseTypes(sortedRows))
+
+        // Populate dropdown options sorted alphabetically
+        setMembershipSectionOptions(Object.keys(membershipSectionsCounts).sort((a, b) => a.localeCompare(b)))
+        setOtherLicenseOptions(Object.keys(otherLicensesCounts).sort((a, b) => a.localeCompare(b)))
       })
       // Prevent flicker of "Total Rows: 0" on initial load. See: https://github.com/mui/mui-x/issues/12504
       .finally(() => setTimeout(() => setIsLoading(false)))
@@ -144,22 +244,27 @@ export const App = () => {
       {/* Apply color scheme to all browser elements. See: https://github.com/mui/material-ui/issues/25016 */}
       <GlobalStyles styles={{ html: { colorScheme: paletteMode } }} />
 
-      <DataGridPro
-        autosizeOptions={{ includeHeaders: true, includeOutliers: true, outliersFactor: 1 }}
-        columns={columns}
-        density="compact"
-        disableMultipleRowSelection
-        disableRowSelectionOnClick
-        ignoreDiacritics
-        loading={isLoading}
-        onFilterModelChange={handleFilterModelChange}
-        rows={rows}
-        slotProps={{ columnsManagement: { disableShowHideToggle: true }, toolbar: { showQuickFilter: true } }}
-        slots={{
-          footer: Footer,
-          toolbar: props => <Toolbar {...props} paletteMode={paletteMode} rows={rows} setPaletteMode={setPaletteMode} />
-        }}
-      />
+      <Box onWheelCapture={handleGridWheelCapture}>
+        <DataGridPro
+          autosizeOptions={{ includeHeaders: true, includeOutliers: true, outliersFactor: 1 }}
+          columns={columns}
+          density="compact"
+          disableMultipleRowSelection
+          disableRowSelectionOnClick
+          ignoreDiacritics
+          initialState={{ pinnedColumns: { left: ['name'] } }}
+          loading={isLoading}
+          onFilterModelChange={handleFilterModelChange}
+          rows={rows}
+          slotProps={{ columnsManagement: { disableShowHideToggle: true }, toolbar: { showQuickFilter: true } }}
+          slots={{
+            footer: Footer,
+            toolbar: props => (
+              <Toolbar {...props} paletteMode={paletteMode} rows={rows} setPaletteMode={setPaletteMode} />
+            )
+          }}
+        />
+      </Box>
     </ThemeProvider>
   )
 }

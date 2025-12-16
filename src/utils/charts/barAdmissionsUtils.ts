@@ -1,14 +1,24 @@
 import { DatasetType } from '@mui/x-charts/internals'
 import { getTopLawSchools } from './commonUtils'
 import { LICENSE_TYPE_ORDER } from '../../constants/chartConstants'
-import { Row } from '../../App'
+import { Row } from '../../types/row'
 import { ViewType } from '../../enums/chartEnums'
+
+const normalizeBarAdmissionsLicenseType = (licenseType: string): string => {
+  if (licenseType === 'Inactive Pro Bono' || licenseType === 'Inactive Voluntary') return 'Inactive'
+  if (licenseType === 'Suspended - Disciplined' || licenseType === 'Suspended - Non-Payment') return 'Suspended'
+
+  return licenseType
+}
 
 export const calculateBarAdmissions = (rows: Row[], viewType: ViewType): DatasetType => {
   const topLawSchools = getTopLawSchools(rows)
 
   const barAdmissions = rows.reduce((result, row) => {
-    if (row.barAdmissionDate && row.licenseType !== 'Pro Hac Vice') {
+    // Exclude Pro Hac Vice from all Bar Admissions charts.
+    if (row.licenseType === 'Pro Hac Vice') return result
+
+    if (row.barAdmissionDate) {
       const year = new Date(row.barAdmissionDate).getFullYear().toString()
 
       if (!result[year]) {
@@ -31,12 +41,7 @@ export const calculateBarAdmissions = (rows: Row[], viewType: ViewType): Dataset
         }
 
         case ViewType.BY_LICENSE_TYPE: {
-          let licenseType = row.licenseType
-
-          // Consolidate the variations of Inactive, Resign, and Suspended license types into a single category.
-          if (licenseType.startsWith('Inactive')) licenseType = 'Inactive'
-          if (licenseType.startsWith('Resign')) licenseType = 'Resign'
-          if (licenseType.startsWith('Suspended')) licenseType = 'Suspended'
+          const licenseType = normalizeBarAdmissionsLicenseType(row.licenseType)
 
           result[year][licenseType] = (result[year][licenseType] || 0) + 1
         }
@@ -45,6 +50,26 @@ export const calculateBarAdmissions = (rows: Row[], viewType: ViewType): Dataset
 
     return result
   }, {} as Record<string, Record<string, number>>)
+
+  const licenseTypesInDataset =
+    viewType === ViewType.BY_LICENSE_TYPE
+      ? (() => {
+          const presentTypes = new Set<string>()
+
+          Object.values(barAdmissions).forEach(types => {
+            Object.keys(types).forEach(key => {
+              if (key !== 'count') presentTypes.add(key)
+            })
+          })
+
+          const orderedKnownTypes = LICENSE_TYPE_ORDER.filter(type => presentTypes.has(type))
+          const orderedUnknownTypes = [...presentTypes]
+            .filter(type => !LICENSE_TYPE_ORDER.includes(type))
+            .sort((a, b) => a.localeCompare(b))
+
+          return [...orderedKnownTypes, ...orderedUnknownTypes]
+        })()
+      : []
 
   return Object.entries(barAdmissions)
     .map(([year, types]) => {
@@ -57,7 +82,7 @@ export const calculateBarAdmissions = (rows: Row[], viewType: ViewType): Dataset
           return {
             count: types.count,
             year,
-            ...LICENSE_TYPE_ORDER.reduce((result, type) => ({ ...result, [type]: types[type] || 0 }), {})
+            ...licenseTypesInDataset.reduce((result, type) => ({ ...result, [type]: types[type] || 0 }), {})
           }
         }
 

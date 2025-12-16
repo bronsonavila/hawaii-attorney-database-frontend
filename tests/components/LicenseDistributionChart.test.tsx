@@ -4,7 +4,7 @@ import { getUniqueLicenseTypes } from '../../src/utils/charts/commonUtils'
 import { LicenseDistributionChart } from '../../src/components/charts/LicenseDistributionChart'
 import { loadTestRows } from '../utils/testUtils'
 import { render, screen } from '@testing-library/react'
-import { Row } from '../../src/App'
+import { Row } from '../../src/types/row'
 import React from 'react'
 
 describe('LicenseDistributionChart', () => {

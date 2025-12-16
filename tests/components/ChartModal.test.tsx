@@ -13,7 +13,7 @@ describe('ChartModal', () => {
     expect(screen.getByText('Select Chart')).toBeInTheDocument()
     expect(screen.getByText('Bar Admissions Over Time')).toBeInTheDocument()
     expect(screen.getByText('Total Count')).toBeInTheDocument()
-    expect(screen.getByText('License Type')).toBeInTheDocument()
+    expect(screen.getByText('License Status')).toBeInTheDocument()
     expect(screen.getByText('Law School')).toBeInTheDocument()
   })
 
@@ -34,7 +34,7 @@ describe('ChartModal', () => {
   it('changes chart type and updates view options', async () => {
     const { selectChart } = await renderChartModal({ onClose: mockOnClose })
 
-    selectChart('License Type Distribution')
+    selectChart('License Status Distribution')
 
     expect(screen.getByText('Admission Date')).toBeInTheDocument()
 
@@ -48,9 +48,9 @@ describe('ChartModal', () => {
   it('handles view type changes for Bar Admissions chart', async () => {
     await renderChartModal({ onClose: mockOnClose })
 
-    await act(async () => fireEvent.click(screen.getByLabelText('License Type')))
+    await act(async () => fireEvent.click(screen.getByLabelText('License Status')))
 
-    expect(screen.getByLabelText('License Type')).toBeChecked()
+    expect(screen.getByLabelText('License Status')).toBeChecked()
 
     await act(async () => fireEvent.click(screen.getByLabelText('Law School')))
 
@@ -60,7 +60,7 @@ describe('ChartModal', () => {
   it('handles view type changes for License Distribution chart', async () => {
     const { selectChart } = await renderChartModal({ onClose: mockOnClose })
 
-    selectChart('License Type Distribution')
+    selectChart('License Status Distribution')
 
     await act(async () => fireEvent.click(screen.getByLabelText('Admission Date')))
 

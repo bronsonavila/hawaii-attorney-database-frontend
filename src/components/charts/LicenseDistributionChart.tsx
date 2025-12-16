@@ -4,7 +4,7 @@ import { DatasetType } from '@mui/x-charts/internals'
 import { FC } from 'react'
 import { getTopLawSchools } from '../../utils/charts/commonUtils'
 import { LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
-import { Row } from '../../App'
+import { Row } from '../../types/row'
 import { TEAL_NAVY, ROSE_VIOLET } from '../../constants/colors'
 
 const COMMON_CHART_PROPS = {

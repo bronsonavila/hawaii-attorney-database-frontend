@@ -12,7 +12,7 @@ vi.mock('@mui/material', async () => {
 })
 
 global.fetch = vi.fn(url => {
-  if (url === '/processed-member-records.csv') {
+  if (url === '/hsba-member-records.csv') {
     // Mock a successful response with an empty body.
     const response = new Response('', { headers: new Headers(), status: 200, statusText: 'OK' })
 
@@ -78,12 +78,14 @@ describe('App', () => {
     await waitFor(() => {
       expect(screen.getByText('JD Number')).toBeInTheDocument()
       expect(screen.getByText('Name')).toBeInTheDocument()
-      expect(screen.getByText('License Type')).toBeInTheDocument()
-      expect(screen.getByText('Employer')).toBeInTheDocument()
+      expect(screen.getByText('License Status')).toBeInTheDocument()
+      expect(screen.getByText('Organization')).toBeInTheDocument()
       expect(screen.getByText('Location')).toBeInTheDocument()
       expect(screen.getByText('Email Domain')).toBeInTheDocument()
       expect(screen.getByText('Law School')).toBeInTheDocument()
       expect(screen.getByText('Bar Admission Date')).toBeInTheDocument()
+      expect(screen.getByText('Membership Sections')).toBeInTheDocument()
+      expect(screen.getByText('Also Licensed In')).toBeInTheDocument()
     })
   })
 })

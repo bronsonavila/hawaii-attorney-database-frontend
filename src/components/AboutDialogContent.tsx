@@ -17,24 +17,29 @@ export const AboutDialogContent: FC<AboutDialogContentProps> = ({ onClose, onFee
       <DialogContent>
         <Stack spacing={1.5}>
           <Typography variant="body2">
-            Data source:{' '}
-            <ExternalLink href="https://hsba.org/HSBA_2020/For_the_Public/Find_a_Lawyer/HSBA_2020/Public/Find_a_Lawyer.aspx">
-              HSBA Member Directory
-            </ExternalLink>
+            Data source: <ExternalLink href="https://hsba.org/member-directory">HSBA Member Directory</ExternalLink>
+          </Typography>
+
+          <Typography color="text.secondary" variant="body2">
+            Disclaimer: Data may be incorrect or incomplete.
           </Typography>
 
           <Typography variant="body2">
-            License types:{' '}
-            <ExternalLink href="https://hsba.org/images/HSBA/MembershipStatus.pdf">HSBA Membership Status</ExternalLink>
+            License information:{' '}
+            <ExternalLink href="https://legacy.sailamx.com/hsba/images/HSBA/MembershipStatus.pdf">
+              HSBA Membership Status
+            </ExternalLink>
           </Typography>
         </Stack>
 
         <Divider sx={{ my: 2.5 }} />
 
         <Stack spacing={1.5}>
-          <Typography variant="body2">Independently maintained by: {METADATA.author.name}</Typography>
+          <Typography variant="body2">
+            Independently maintained by: <ExternalLink href={METADATA.author.url}>{METADATA.author.name}</ExternalLink>
+          </Typography>
 
-          <Typography variant="body2">Last updated: November 1, 2025</Typography>
+          <Typography variant="body2">Last updated: December 15, 2025</Typography>
         </Stack>
       </DialogContent>
 

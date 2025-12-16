@@ -5,7 +5,7 @@ import { FC } from 'react'
 import { getTopLawSchools } from '../../utils/charts/commonUtils'
 import { LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
 import { ROSE_VIOLET, AMBER_BROWN, TEAL_NAVY } from '../../constants/colors'
-import { Row } from '../../App'
+import { Row } from '../../types/row'
 
 const COMMON_CHART_PROPS = { grid: { horizontal: true }, slotProps: { legend: { hidden: true } } }
 
@@ -34,12 +34,22 @@ export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, vi
 
     const licenseTypes = Object.keys(attorneyData[0])
       .filter(key => key !== 'year' && key !== 'count')
-      .sort((a, b) => LICENSE_TYPE_ORDER.indexOf(a) - LICENSE_TYPE_ORDER.indexOf(b))
+      .sort((a, b) => {
+        const indexA = LICENSE_TYPE_ORDER.indexOf(a)
+        const indexB = LICENSE_TYPE_ORDER.indexOf(b)
 
-    const licenseTypeColorPalette = [...TEAL_NAVY[4], ...AMBER_BROWN[3], ...ROSE_VIOLET[7]]
+        const effectiveIndexA = indexA === -1 ? Number.MAX_SAFE_INTEGER : indexA
+        const effectiveIndexB = indexB === -1 ? Number.MAX_SAFE_INTEGER : indexB
+
+        if (effectiveIndexA !== effectiveIndexB) return effectiveIndexA - effectiveIndexB
+
+        return a.localeCompare(b)
+      })
+
+    const licenseTypeColorPalette = [...TEAL_NAVY[4], ...AMBER_BROWN[3], ...ROSE_VIOLET[4]]
 
     const licenseTypeColors = Object.fromEntries(
-      LICENSE_TYPE_ORDER.map((type, index) => [type, licenseTypeColorPalette[index % licenseTypeColorPalette.length]])
+      licenseTypes.map((type, index) => [type, licenseTypeColorPalette[index % licenseTypeColorPalette.length]])
     )
 
     return (

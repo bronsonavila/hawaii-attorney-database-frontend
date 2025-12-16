@@ -1,19 +1,23 @@
-import { Row } from '../../src/App'
+import { ChartModal } from '../../src/components/charts/ChartModal'
+import { HsbaCsvRow, mapHsbaCsvRowToRow } from '../../src/utils/hsbaCsv'
+import { Row } from '../../src/types/row'
+import { screen, fireEvent, act, render } from '@testing-library/react'
+import { vi } from 'vitest'
 import fs from 'fs'
 import Papa from 'papaparse'
 import path from 'path'
-import { screen, fireEvent, act, render } from '@testing-library/react'
-import { vi } from 'vitest'
-import { ChartModal } from '../../src/components/charts/ChartModal'
 import React from 'react'
 
 export const loadTestRows = (): Row[] => {
-  const csvPath = path.join(__dirname, '../../public/processed-member-records.csv')
+  const csvPath = path.join(__dirname, '../../public/hsba-member-records.csv')
   const csvString = fs.readFileSync(csvPath, 'utf-8')
 
-  const { data } = Papa.parse<Row>(csvString, { header: true })
+  const { data: rawRows } = Papa.parse<HsbaCsvRow>(csvString, { header: true, skipEmptyLines: 'greedy' })
 
-  return data.filter(row => row.jdNumber) // Omit blank rows.
+  return rawRows
+    .filter(row => row && row.jd_number)
+    .map(mapHsbaCsvRowToRow)
+    .filter(row => row.jdNumber) // Omit blank rows.
 }
 
 export const renderChartModal = async (props: {

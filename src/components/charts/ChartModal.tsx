@@ -19,7 +19,7 @@ import { calculateTopEmployers } from '../../utils/charts/topEmployersUtils'
 import { ChangeEvent, FC, useMemo, useState } from 'react'
 import { ChartType, ViewType } from '../../enums/chartEnums'
 import { LicenseDistributionChart } from './LicenseDistributionChart'
-import { Row } from '../../App'
+import { Row } from '../../types/row'
 import { TopEmployersChart } from './TopEmployersChart'
 
 // Constants
@@ -40,7 +40,7 @@ const MODAL_BOX_SX = {
 const VIEW_TYPE_OPTIONS: Record<ChartType, RadioOption[]> = {
   [ChartType.BAR_ADMISSIONS]: [
     { label: 'Total Count', value: ViewType.TOTAL },
-    { label: 'License Type', value: ViewType.BY_LICENSE_TYPE },
+    { label: 'License Status', value: ViewType.BY_LICENSE_TYPE },
     { label: 'Law School', value: ViewType.BY_LAW_SCHOOL }
   ],
   [ChartType.LICENSE_DISTRIBUTION]: [
@@ -125,7 +125,7 @@ export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, 
               <Select onChange={handleChartTypeChange} size="small" value={chartType}>
                 <MenuItem value={ChartType.BAR_ADMISSIONS}>Bar Admissions Over Time</MenuItem>
 
-                <MenuItem value={ChartType.LICENSE_DISTRIBUTION}>License Type Distribution</MenuItem>
+                <MenuItem value={ChartType.LICENSE_DISTRIBUTION}>License Status Distribution</MenuItem>
 
                 <MenuItem value={ChartType.TOP_EMPLOYERS}>Top 25 Employers (Non-Government)</MenuItem>
               </Select>

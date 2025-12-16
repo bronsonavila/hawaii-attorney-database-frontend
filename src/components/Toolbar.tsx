@@ -8,7 +8,7 @@ import {
   GridToolbarFilterButton,
   GridToolbarQuickFilter
 } from '@mui/x-data-grid-pro'
-import { Row } from '../App'
+import { Row } from '../types/row'
 import { useLoadingContext } from '../hooks/useLoadingContext'
 import { useQuickFilterTracking } from '../hooks/useQuickFilterTracking'
 import BarChartIcon from '@mui/icons-material/BarChart'

@@ -2,7 +2,7 @@ import { calculateTopEmployers } from '../../src/utils/charts/topEmployersUtils'
 import { ChartTestId, ViewType } from '../../src/enums/chartEnums'
 import { loadTestRows } from '../utils/testUtils'
 import { render, screen } from '@testing-library/react'
-import { Row } from '../../src/App'
+import { Row } from '../../src/types/row'
 import { TopEmployersChart } from '../../src/components/charts/TopEmployersChart'
 import React from 'react'
 
