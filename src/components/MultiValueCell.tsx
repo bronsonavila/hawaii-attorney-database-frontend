@@ -12,12 +12,14 @@ export const MultiValueCell = ({ emptyText = '', values }: MultiValueCellProps) 
 
   const open = Boolean(anchorEl)
 
-  const handleClick = useCallback((event: MouseEvent<HTMLDivElement>) => {
-    // Stop propagation to prevent row selection or other grid events if needed.
-    event.stopPropagation()
+  const handleClick = useCallback(
+    (event: MouseEvent<HTMLDivElement>) => {
+      event.stopPropagation() // Stop propagation to prevent row selection or other grid events if needed.
 
-    setAnchorEl(event.currentTarget)
-  }, [])
+      setAnchorEl(anchorEl ? null : event.currentTarget) // Toggle the popup.
+    },
+    [anchorEl]
+  )
 
   const handleClose = useCallback(() => setAnchorEl(null), [])
 
