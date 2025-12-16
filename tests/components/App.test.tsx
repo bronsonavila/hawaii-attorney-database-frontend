@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { App } from '../../src/App'
-import { LoadingProvider } from '../../src/contexts/LoadingContext'
-import { loadTestRows } from '../utils/testUtils'
+import { App } from '@/App'
+import { LoadingProvider } from '@/contexts/LoadingContext'
+import { loadTestRows } from '@tests/utils/testUtils'
 import { vi } from 'vitest'
 
 vi.mock('@mui/material', async () => {
@@ -75,8 +75,8 @@ describe('App', () => {
     })
 
     await waitFor(() => {
-      expect(screen.getByText('JD Number')).toBeInTheDocument()
       expect(screen.getByText('Name')).toBeInTheDocument()
+      expect(screen.getByText('JD Number')).toBeInTheDocument()
       expect(screen.getByText('License Status')).toBeInTheDocument()
       expect(screen.getByText('Organization')).toBeInTheDocument()
       expect(screen.getByText('Location')).toBeInTheDocument()

@@ -1,10 +1,10 @@
-import { calculateLicenseDistribution } from '../../src/utils/charts/licenseDistributionUtils'
-import { ChartTestId, ViewType } from '../../src/enums/chartEnums'
-import { getUniqueLicenseTypes } from '../../src/utils/charts/commonUtils'
-import { LicenseDistributionChart } from '../../src/components/charts/LicenseDistributionChart'
-import { loadTestRows } from '../utils/testUtils'
+import { calculateLicenseDistribution } from '@/utils/charts/licenseDistributionUtils'
+import { ChartTestId, ViewType } from '@/enums/chartEnums'
+import { getUniqueLicenseTypes } from '@/utils/charts/commonUtils'
+import { LicenseDistributionChart } from '@/components/charts/LicenseDistributionChart'
+import { loadTestRows } from '@tests/utils/testUtils'
 import { render, screen } from '@testing-library/react'
-import { Row } from '../../src/types/row'
+import { Row } from '@/types/row'
 
 describe('LicenseDistributionChart', () => {
   let rows: Row[] = []

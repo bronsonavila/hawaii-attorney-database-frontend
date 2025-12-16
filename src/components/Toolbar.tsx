@@ -1,20 +1,20 @@
 import { Box, Button, PaletteMode, Skeleton, Switch, Typography } from '@mui/material'
-import { ChartModal } from './charts/ChartModal'
-import { ExportButton } from './ExportButton'
-import { FC, useState } from 'react'
+import { ChartModal } from '@/components/charts/ChartModal'
+import { ExportButton } from '@/components/ExportButton'
 import {
   GridToolbarColumnsButton,
   GridToolbarContainer,
   GridToolbarFilterButton,
   GridToolbarQuickFilter
 } from '@mui/x-data-grid-pro'
-import { Row } from '../types/row'
-import { useLoadingContext } from '../hooks/useLoadingContext'
-import { useQuickFilterTracking } from '../hooks/useQuickFilterTracking'
+import { Row } from '@/types/row'
+import { useLoadingContext } from '@/hooks/useLoadingContext'
+import { useQuickFilterTracking } from '@/hooks/useQuickFilterTracking'
+import { useState } from 'react'
 import BarChartIcon from '@mui/icons-material/BarChart'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
-import useWindowResizeEffect from '../hooks/useWindowResizeEffect'
+import useWindowResizeEffect from '@/hooks/useWindowResizeEffect'
 
 interface ToolbarProps {
   paletteMode: PaletteMode
@@ -22,7 +22,7 @@ interface ToolbarProps {
   setPaletteMode: (paletteMode: PaletteMode) => void
 }
 
-export const Toolbar: FC<ToolbarProps> = ({ paletteMode, setPaletteMode, rows }) => {
+export const Toolbar = ({ paletteMode, setPaletteMode, rows }: ToolbarProps) => {
   const { isLoading } = useLoadingContext()
   const [isChartModalOpen, setIsChartModalOpen] = useState(false)
 

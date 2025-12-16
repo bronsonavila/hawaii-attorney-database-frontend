@@ -1,18 +1,18 @@
-import { AboutDialogContent } from './AboutDialogContent'
+import { AboutDialogContent } from '@/components/AboutDialogContent'
 import { Button, Dialog, Skeleton, Typography, Snackbar } from '@mui/material'
 import { captureFeedback } from '@sentry/react'
-import { CloseButton } from './CloseButton'
-import { FC, SyntheticEvent, useState } from 'react'
-import { FeedbackForm } from './FeedbackForm'
+import { CloseButton } from '@/components/CloseButton'
+import { FeedbackForm } from '@/components/FeedbackForm'
 import {
   gridFilteredTopLevelRowCountSelector,
   GridFooterContainer,
   useGridApiContext,
   useGridSelector
 } from '@mui/x-data-grid-pro'
-import { useLoadingContext } from '../hooks/useLoadingContext'
+import { SyntheticEvent, useState } from 'react'
+import { useLoadingContext } from '@/hooks/useLoadingContext'
 
-export const Footer: FC = () => {
+export const Footer = () => {
   const [email, setEmail] = useState('')
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [isFeedbackMode, setIsFeedbackMode] = useState(false)

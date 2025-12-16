@@ -1,4 +1,4 @@
-import type { Row } from '../types/row'
+import type { Row } from '@/types/row'
 
 export interface HsbaCsvRow {
   first_name?: string

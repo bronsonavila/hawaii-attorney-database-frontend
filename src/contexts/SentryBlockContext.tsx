@@ -1,4 +1,4 @@
-import { createContext, FC, ReactNode, useState, useEffect } from 'react'
+import { createContext, ReactNode, useState, useEffect } from 'react'
 
 interface SentryBlockContextType {
   isSentryBlocked: boolean | null
@@ -8,13 +8,13 @@ interface SentryBlockProviderProps {
   children: ReactNode
 }
 
-interface SentryRequest extends PerformanceResourceTiming {
+type SentryRequest = Omit<PerformanceResourceTiming, 'responseStatus'> & {
   responseStatus?: number // Optional because it's not available in Safari.
 }
 
 export const SentryBlockContext = createContext<SentryBlockContextType | null>(null)
 
-export const SentryBlockProvider: FC<SentryBlockProviderProps> = ({ children }) => {
+export const SentryBlockProvider = ({ children }: SentryBlockProviderProps) => {
   const [isSentryBlocked, setIsSentryBlocked] = useState<boolean | null>(null)
   const sentryUrlPattern = /sentry\.io\/api\/.+\/envelope/
 

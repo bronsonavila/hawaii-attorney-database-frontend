@@ -1,9 +1,8 @@
 import { BarChart } from '@mui/x-charts'
-import { ChartTestId, ViewType } from '../../enums/chartEnums'
+import { ChartTestId, ViewType } from '@/enums/chartEnums'
 import { DatasetType } from '@mui/x-charts/internals'
-import { FC } from 'react'
-import { LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
-import { TEAL_NAVY } from '../../constants/colors'
+import { LAW_SCHOOL_COLOR_PALETTE } from '@/constants/chartConstants'
+import { TEAL_NAVY } from '@/constants/colors'
 
 const COMMON_CHART_PROPS = {
   grid: { vertical: true },
@@ -18,7 +17,7 @@ interface TopEmployersChartProps {
   viewType: ViewType
 }
 
-export const TopEmployersChart: FC<TopEmployersChartProps> = ({ data, viewType }) => {
+export const TopEmployersChart = ({ data, viewType }: TopEmployersChartProps) => {
   if (viewType === ViewType.TOTAL) {
     return (
       <BarChart

@@ -1,5 +1,5 @@
 import { Button, DialogActions, DialogContent, Stack, TextField } from '@mui/material'
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent } from 'react'
 
 interface FeedbackFormProps {
   email: string
@@ -20,7 +20,7 @@ interface FieldProps {
   value: string
 }
 
-export const FeedbackForm: FC<FeedbackFormProps> = ({
+export const FeedbackForm = ({
   email,
   message,
   name,
@@ -29,7 +29,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   setEmail,
   setMessage,
   setName
-}) => (
+}: FeedbackFormProps) => (
   <>
     <DialogContent sx={{ width: { md: 400, lg: 500 } }}>
       <Stack spacing={2}>
@@ -53,7 +53,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   </>
 )
 
-const Field: FC<FieldProps> = ({ label, multiline = false, onChange, required = false, value }) => (
+const Field = ({ label, multiline = false, onChange, required = false, value }: FieldProps) => (
   <TextField
     fullWidth
     label={label}

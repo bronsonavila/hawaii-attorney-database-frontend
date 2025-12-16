@@ -1,8 +1,8 @@
 import { DatasetType } from '@mui/x-charts/internals'
-import { getTopLawSchools } from './commonUtils'
-import { LICENSE_TYPE_ORDER } from '../../constants/chartConstants'
-import { Row } from '../../types/row'
-import { ViewType } from '../../enums/chartEnums'
+import { getTopLawSchools } from '@/utils/charts/commonUtils'
+import { LICENSE_TYPE_ORDER } from '@/constants/chartConstants'
+import { Row } from '@/types/row'
+import { ViewType } from '@/enums/chartEnums'
 
 const normalizeBarAdmissionsLicenseType = (licenseType: string): string => {
   if (licenseType === 'Inactive Pro Bono' || licenseType === 'Inactive Voluntary') return 'Inactive'

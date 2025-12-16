@@ -1,6 +1,6 @@
 import { getGridSingleSelectOperators } from '@mui/x-data-grid-pro'
 import type { GridFilterModel, GridFilterOperator } from '@mui/x-data-grid-pro'
-import type { Row } from '../../types/row'
+import type { Row } from '@/types/row'
 
 // Uses a dropdown like singleSelect but matches if the cell's multi-value content contains the selected value.
 // Note: This currently operates on the joined string returned by the column's valueGetter.
@@ -14,7 +14,7 @@ export const getMultiValueFilterOperators = (): GridFilterOperator<Row, string>[
 
       const filterValue = String(filterItem.value)
 
-      // "is" operator: check if any value in the array matches
+      // "is" operator: check if any value in the array matches.
       if (operator.value === 'is') {
         return (cellValue: string) => {
           if (!cellValue) return false
@@ -25,7 +25,7 @@ export const getMultiValueFilterOperators = (): GridFilterOperator<Row, string>[
         }
       }
 
-      // "not" operator: check if no value in the array matches
+      // "not" operator: check if no value in the array matches.
       if (operator.value === 'not') {
         return (cellValue: string) => {
           if (!cellValue) return true
@@ -36,7 +36,7 @@ export const getMultiValueFilterOperators = (): GridFilterOperator<Row, string>[
         }
       }
 
-      // "isAnyOf" operator: check if any value in the array matches any filter value
+      // "isAnyOf" operator: check if any value in the array matches any filter value.
       if (operator.value === 'isAnyOf') {
         const filterValues = Array.isArray(filterItem.value)
           ? filterItem.value.map((value: string) => value.toLowerCase())
@@ -51,7 +51,7 @@ export const getMultiValueFilterOperators = (): GridFilterOperator<Row, string>[
         }
       }
 
-      // Fallback to original operator
+      // Fallback to original operator.
       return singleSelectOperators.find(op => op.value === operator.value)?.getApplyFilterFn(filterItem, column) ?? null
     }
   }))
@@ -86,27 +86,21 @@ export const getValuesForDisplay = (values: string[], filterModel: GridFilterMod
     const matched: string[] = []
     const unmatched: string[] = []
 
-    // First, find matches in the order they appear in the filter selection
+    // First, find matches in the order they appear in the filter selection.
     for (const filterValue of filterValues) {
       const matchIndex = values.findIndex(
         value => value.toLowerCase() === filterValue && !matched.some(m => m.toLowerCase() === filterValue)
       )
 
-      if (matchIndex !== -1) {
-        matched.push(values[matchIndex])
-      }
+      if (matchIndex !== -1) matched.push(values[matchIndex])
     }
 
-    // Then add unmatched values
+    // Then add unmatched values.
     for (const value of values) {
-      if (!matched.some(m => m.toLowerCase() === value.toLowerCase())) {
-        unmatched.push(value)
-      }
+      if (!matched.some(m => m.toLowerCase() === value.toLowerCase())) unmatched.push(value)
     }
 
-    if (matched.length > 0) {
-      return [...matched, ...unmatched]
-    }
+    if (matched.length > 0) return [...matched, ...unmatched]
   }
 
   return values

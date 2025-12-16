@@ -1,9 +1,9 @@
 import './index.css'
-import { SentryBlockProvider } from './contexts/SentryBlockContext.tsx'
-import { App } from './App.tsx'
+import { App } from '@/App.tsx'
 import { createRoot } from 'react-dom/client'
 import { LicenseInfo } from '@mui/x-license'
-import { LoadingProvider } from './contexts/LoadingContext.tsx'
+import { LoadingProvider } from '@/contexts/LoadingContext.tsx'
+import { SentryBlockProvider } from '@/contexts/SentryBlockContext.tsx'
 import { StrictMode } from 'react'
 import * as Sentry from '@sentry/react'
 

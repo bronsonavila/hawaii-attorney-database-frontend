@@ -1,15 +1,14 @@
 import { DialogContent, DialogActions, Button, Stack, Typography, Divider } from '@mui/material'
 import { ExternalLink } from './ExternalLink'
-import { FC } from 'react'
-import { METADATA } from '../constants/metadata'
-import { useSentryBlockDetection } from '../hooks/useSentryBlockDetection'
+import { METADATA } from '@/constants/metadata'
+import { useSentryBlockDetection } from '@/hooks/useSentryBlockDetection'
 
 interface AboutDialogContentProps {
   onClose: () => void
   onFeedbackMode: () => void
 }
 
-export const AboutDialogContent: FC<AboutDialogContentProps> = ({ onClose, onFeedbackMode }) => {
+export const AboutDialogContent = ({ onClose, onFeedbackMode }: AboutDialogContentProps) => {
   const { isSentryBlocked } = useSentryBlockDetection()
 
   return (

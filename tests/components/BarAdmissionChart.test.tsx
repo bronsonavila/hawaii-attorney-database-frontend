@@ -1,9 +1,9 @@
-import { BarAdmissionsChart } from '../../src/components/charts/BarAdmissionsChart'
-import { calculateBarAdmissions } from '../../src/utils/charts/barAdmissionsUtils'
-import { ChartTestId, ViewType } from '../../src/enums/chartEnums'
-import { loadTestRows } from '../utils/testUtils'
+import { BarAdmissionsChart } from '@/components/charts/BarAdmissionsChart'
+import { calculateBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
+import { ChartTestId, ViewType } from '@/enums/chartEnums'
+import { loadTestRows } from '@tests/utils/testUtils'
 import { render, screen } from '@testing-library/react'
-import { Row } from '../../src/types/row'
+import { Row } from '@/types/row'
 
 describe('BarAdmissionsChart', () => {
   let rows: Row[] = []

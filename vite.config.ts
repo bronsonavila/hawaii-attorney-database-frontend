@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { fileURLToPath } from 'node:url'
 import { generateJsonLd } from './src/utils/metadata/generateJsonLd'
 import { generateMetaTags } from './src/utils/metadata/generateMetaTags'
 import { sentryVitePlugin } from '@sentry/vite-plugin'
@@ -17,6 +18,12 @@ const injectMetaTags = () => ({
 // https://vitejs.dev/config/
 export default defineConfig({
   build: { sourcemap: true },
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@tests': fileURLToPath(new URL('./tests', import.meta.url))
+    }
+  },
   plugins: [
     react(),
     injectMetaTags(),

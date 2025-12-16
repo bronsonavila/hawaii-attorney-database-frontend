@@ -1,12 +1,12 @@
 export const countByRowPresence = <R>(rows: R[], getValues: (row: R) => string[]): Record<string, number> =>
-  rows.reduce((acc, row) => {
+  rows.reduce((accumulator, row) => {
     const uniqueValues = new Set(getValues(row))
 
     uniqueValues.forEach(value => {
-      acc[value] = (acc[value] || 0) + 1
+      accumulator[value] = (accumulator[value] || 0) + 1
     })
 
-    return acc
+    return accumulator
   }, {} as Record<string, number>)
 
 export const sortByPrevalence = (values: string[], counts: Record<string, number>): string[] =>

@@ -1,11 +1,10 @@
 import { BarChart } from '@mui/x-charts'
-import { ChartTestId, ViewType } from '../../enums/chartEnums'
+import { ChartTestId, ViewType } from '@/enums/chartEnums'
 import { DatasetType } from '@mui/x-charts/internals'
-import { FC } from 'react'
-import { getTopLawSchools } from '../../utils/charts/commonUtils'
-import { LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '../../constants/chartConstants'
-import { ROSE_VIOLET, AMBER_BROWN, TEAL_NAVY } from '../../constants/colors'
-import { Row } from '../../types/row'
+import { getTopLawSchools } from '@/utils/charts/commonUtils'
+import { LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '@/constants/chartConstants'
+import { ROSE_VIOLET, AMBER_BROWN, TEAL_NAVY } from '@/constants/colors'
+import { Row } from '@/types/row'
 
 const COMMON_CHART_PROPS = { grid: { horizontal: true }, slotProps: { legend: { hidden: true } } }
 
@@ -15,7 +14,7 @@ interface BarAdmissionsChartProps {
   viewType: ViewType
 }
 
-export const BarAdmissionsChart: FC<BarAdmissionsChartProps> = ({ data, rows, viewType }) => {
+export const BarAdmissionsChart = ({ data, rows, viewType }: BarAdmissionsChartProps) => {
   if (viewType === ViewType.TOTAL) {
     const attorneyData = data as { year: string; count: number }[]
 

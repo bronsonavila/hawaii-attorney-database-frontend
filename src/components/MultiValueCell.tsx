@@ -1,13 +1,12 @@
 import { Box, Chip, Tooltip, Typography } from '@mui/material'
-import { FC } from 'react'
 
 interface MultiValueCellProps {
-  values: string[]
   emptyText?: string
   maxVisible?: number
+  values: string[]
 }
 
-export const MultiValueCell: FC<MultiValueCellProps> = ({ values, emptyText = '', maxVisible = 1 }) => {
+export const MultiValueCell = ({ emptyText = '', maxVisible = 1, values }: MultiValueCellProps) => {
   if (values.length === 0) {
     return emptyText ? (
       <Box sx={{ alignItems: 'center', display: 'flex', height: '100%' }}>

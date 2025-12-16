@@ -1,4 +1,4 @@
-import { createContext, Dispatch, FC, ReactNode, SetStateAction, useState } from 'react'
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react'
 
 interface LoadingContextType {
   isLoading: boolean
@@ -7,7 +7,7 @@ interface LoadingContextType {
 
 export const LoadingContext = createContext<LoadingContextType | null>(null)
 
-export const LoadingProvider: FC<{ children: ReactNode }> = ({ children }) => {
+export const LoadingProvider = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true)
 
   return <LoadingContext.Provider value={{ isLoading, setIsLoading }}>{children}</LoadingContext.Provider>

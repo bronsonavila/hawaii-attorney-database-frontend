@@ -13,13 +13,13 @@ import {
   Select,
   SelectChangeEvent
 } from '@mui/material'
-import { calculateBarAdmissions } from '../../utils/charts/barAdmissionsUtils'
-import { calculateLicenseDistribution } from '../../utils/charts/licenseDistributionUtils'
-import { calculateTopEmployers } from '../../utils/charts/topEmployersUtils'
-import { ChangeEvent, FC, useMemo, useState } from 'react'
-import { ChartType, ViewType } from '../../enums/chartEnums'
+import { calculateBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
+import { calculateLicenseDistribution } from '@/utils/charts/licenseDistributionUtils'
+import { calculateTopEmployers } from '@/utils/charts/topEmployersUtils'
+import { ChangeEvent, useMemo, useState } from 'react'
+import { ChartType, ViewType } from '@/enums/chartEnums'
 import { LicenseDistributionChart } from './LicenseDistributionChart'
-import { Row } from '../../types/row'
+import { Row } from '@/types/row'
 import { TopEmployersChart } from './TopEmployersChart'
 
 // Constants
@@ -71,7 +71,7 @@ interface RadioOption {
 
 // Component
 
-export const ChartModal: FC<ChartModalProps> = ({ isOpen, onClose, paletteMode, rows }) => {
+export const ChartModal = ({ isOpen, onClose, paletteMode, rows }: ChartModalProps) => {
   const [chartType, setChartType] = useState<ChartType>(ChartType.BAR_ADMISSIONS)
   const [viewTypes, setViewTypes] = useState<Record<ChartType, ViewType>>({
     [ChartType.BAR_ADMISSIONS]: ViewType.TOTAL,

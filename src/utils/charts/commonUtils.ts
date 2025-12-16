@@ -1,4 +1,4 @@
-import { Row } from '../../types/row'
+import { Row } from '@/types/row'
 
 export const getTopLawSchools = (rows: Row[], topN: number = 10): string[] => {
   const lawSchoolCount = rows.reduce((result, row) => {

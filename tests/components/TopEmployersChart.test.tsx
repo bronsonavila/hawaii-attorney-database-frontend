@@ -1,9 +1,9 @@
-import { calculateTopEmployers } from '../../src/utils/charts/topEmployersUtils'
-import { ChartTestId, ViewType } from '../../src/enums/chartEnums'
-import { loadTestRows } from '../utils/testUtils'
+import { calculateTopEmployers } from '@/utils/charts/topEmployersUtils'
+import { ChartTestId, ViewType } from '@/enums/chartEnums'
+import { loadTestRows } from '@tests/utils/testUtils'
 import { render, screen } from '@testing-library/react'
-import { Row } from '../../src/types/row'
-import { TopEmployersChart } from '../../src/components/charts/TopEmployersChart'
+import { Row } from '@/types/row'
+import { TopEmployersChart } from '@/components/charts/TopEmployersChart'
 
 describe('TopEmployersChart', () => {
   let rows: Row[] = []

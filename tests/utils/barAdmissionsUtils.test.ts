@@ -1,6 +1,6 @@
-import { calculateBarAdmissions } from '../../src/utils/charts/barAdmissionsUtils'
-import { ViewType } from '../../src/enums/chartEnums'
-import { Row } from '../../src/types/row'
+import { calculateBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
+import { ViewType } from '@/enums/chartEnums'
+import { Row } from '@/types/row'
 
 const makeRow = (overrides: Partial<Row>): Row => ({
   barAdmissionDate: '',

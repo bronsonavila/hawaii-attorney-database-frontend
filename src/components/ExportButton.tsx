@@ -1,7 +1,7 @@
-import { Button, ButtonProps, createSvgIcon } from '@mui/material'
+import { Button, createSvgIcon } from '@mui/material'
 import { captureMessage } from '@sentry/react'
-import { FC, useRef } from 'react'
 import { GridFilterModel, useGridApiContext } from '@mui/x-data-grid-pro'
+import { useRef } from 'react'
 
 // Functions
 
@@ -31,7 +31,7 @@ const generateExportFilename = (filterModel: GridFilterModel) => {
 
 // Components
 
-export const ExportButton: FC<ButtonProps> = () => {
+export const ExportButton = () => {
   const apiRef = useGridApiContext()
   const exportHistoryRef = useRef<Set<string>>(new Set())
 

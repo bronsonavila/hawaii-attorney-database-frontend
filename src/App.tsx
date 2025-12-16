@@ -8,18 +8,18 @@ import {
   ThemeProvider,
   useMediaQuery
 } from '@mui/material'
-import { compareMultiValueCells, getMultiValueFilterOperators, getValuesForDisplay } from './utils/dataGrid/multiValue'
-import { countByRowPresence, sortByPrevalence } from './utils/rows/prevalence'
+import { compareMultiValueCells, getMultiValueFilterOperators, getValuesForDisplay } from '@/utils/dataGrid/multiValue'
+import { countByRowPresence, sortByPrevalence } from '@/utils/rows/prevalence'
 import { DataGridPro, GridColDef, GridRenderCellParams } from '@mui/x-data-grid-pro'
-import { Footer } from './components/Footer'
-import { getUniqueLicenseTypes } from './utils/charts/commonUtils'
-import { HsbaCsvRow, mapHsbaCsvRowToRow } from './utils/hsbaCsv'
-import { MultiValueCell } from './components/MultiValueCell'
-import { Row } from './types/row'
-import { Toolbar } from './components/Toolbar'
+import { Footer } from '@/components/Footer'
+import { getUniqueLicenseTypes } from '@/utils/charts/commonUtils'
+import { HsbaCsvRow, mapHsbaCsvRowToRow } from '@/utils/hsbaCsv'
+import { MultiValueCell } from '@/components/MultiValueCell'
+import { Row } from '@/types/row'
+import { Toolbar } from '@/components/Toolbar'
 import { useEffect, useMemo, useState, WheelEvent } from 'react'
-import { useFilterModelTracking } from './hooks/useFilterModelTracking'
-import { useLoadingContext } from './hooks/useLoadingContext'
+import { useFilterModelTracking } from '@/hooks/useFilterModelTracking'
+import { useLoadingContext } from '@/hooks/useLoadingContext'
 import Papa from 'papaparse'
 
 const DATA_GRID_THEME_OVERRIDES = {
