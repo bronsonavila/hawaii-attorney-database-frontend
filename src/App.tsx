@@ -59,6 +59,7 @@ export const App = () => {
   const [membershipSectionOptions, setMembershipSectionOptions] = useState<string[]>([])
   const [otherLicenseOptions, setOtherLicenseOptions] = useState<string[]>([])
   const [rows, setRows] = useState<Row[]>([])
+  const isTouchLike = useMediaQuery('(hover: none), (pointer: coarse)')
 
   const handleGridWheelCapture = (event: WheelEvent<HTMLDivElement>) => {
     const isHorizontalWheel = Math.abs(event.deltaX) > 0 || (event.shiftKey && Math.abs(event.deltaY) > 0)
@@ -96,7 +97,7 @@ export const App = () => {
               whiteSpace: 'nowrap'
             }}
             target="_blank"
-            underline="hover"
+            underline={isTouchLike ? 'always' : 'hover'}
           >
             {params.value as string}
           </Link>
@@ -172,7 +173,7 @@ export const App = () => {
         width: 200
       }
     ],
-    [licenseTypes, membershipSectionOptions, otherLicenseOptions]
+    [isTouchLike, licenseTypes, membershipSectionOptions, otherLicenseOptions]
   )
 
   const handleFilterModelChange = useFilterModelTracking()
