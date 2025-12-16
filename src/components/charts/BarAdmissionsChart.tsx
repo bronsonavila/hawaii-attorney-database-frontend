@@ -45,7 +45,7 @@ export const BarAdmissionsChart = ({ data, rows, viewType }: BarAdmissionsChartP
         return a.localeCompare(b)
       })
 
-    const licenseTypeColorPalette = [...TEAL_NAVY[4], ...AMBER_BROWN[3], ...ROSE_VIOLET[4]]
+    const licenseTypeColorPalette = [...TEAL_NAVY[4], ...AMBER_BROWN[3], ...ROSE_VIOLET[3]]
 
     const licenseTypeColors = Object.fromEntries(
       licenseTypes.map((type, index) => [type, licenseTypeColorPalette[index % licenseTypeColorPalette.length]])

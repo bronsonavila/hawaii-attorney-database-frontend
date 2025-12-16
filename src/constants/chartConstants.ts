@@ -10,7 +10,6 @@ export const LICENSE_TYPE_ORDER = [
   'RLSA',
   'RMSA',
   'Foreign Law Consultant',
-  'Law Student',
   'Inactive',
   'Suspended',
   'Unknown'
