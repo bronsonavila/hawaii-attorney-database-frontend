@@ -29,11 +29,8 @@ export const calculateBarAdmissions = (rows: Row[], viewType: ViewType): Dataset
 
       switch (viewType) {
         case ViewType.BY_LAW_SCHOOL: {
-          let lawSchool = row.lawSchool?.trim() || 'Unknown'
-
-          if (!topLawSchools.includes(lawSchool) && lawSchool !== 'Unknown') {
-            lawSchool = 'Other'
-          }
+          const trimmedLawSchool = row.lawSchool?.trim()
+          const lawSchool = trimmedLawSchool && topLawSchools.includes(trimmedLawSchool) ? trimmedLawSchool : 'Other'
 
           result[year][lawSchool] = (result[year][lawSchool] || 0) + 1
 
@@ -87,7 +84,7 @@ export const calculateBarAdmissions = (rows: Row[], viewType: ViewType): Dataset
         }
 
         case ViewType.BY_LAW_SCHOOL: {
-          const schools = [...topLawSchools, 'Other', 'Unknown']
+          const schools = [...topLawSchools, 'Other']
 
           return {
             count: types.count,

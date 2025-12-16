@@ -71,7 +71,7 @@ export const BarAdmissionsChart = ({ data, rows, viewType }: BarAdmissionsChartP
 
     const topLawSchools = getTopLawSchools(rows)
 
-    const schools = [...topLawSchools, 'Other', 'Unknown']
+    const schools = [...topLawSchools, 'Other']
 
     const lawSchoolColors = Object.fromEntries(
       schools.map((school, index) => [school, LAW_SCHOOL_COLOR_PALETTE[index % LAW_SCHOOL_COLOR_PALETTE.length]])

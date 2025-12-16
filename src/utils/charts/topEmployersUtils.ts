@@ -106,11 +106,8 @@ export const calculateTopEmployers = (rows: Row[], viewType: ViewType): DatasetT
 
           result[employerName].count += 1
 
-          let lawSchool = row.lawSchool?.trim() || 'Unknown'
-
-          if (!topLawSchools.includes(lawSchool) && lawSchool !== 'Unknown') {
-            lawSchool = 'Other'
-          }
+          const trimmedLawSchool = row.lawSchool?.trim()
+          const lawSchool = trimmedLawSchool && topLawSchools.includes(trimmedLawSchool) ? trimmedLawSchool : 'Other'
 
           result[employerName][lawSchool] = (result[employerName][lawSchool] || 0) + 1
 
@@ -122,11 +119,7 @@ export const calculateTopEmployers = (rows: Row[], viewType: ViewType): DatasetT
           count: data.count,
           label: firm,
           ...topLawSchools.reduce((result, school) => ({ ...result, [school]: data[school] || 0 }), {}),
-          Other:
-            Object.entries(data)
-              .filter(([key]) => key !== 'count' && !topLawSchools.includes(key) && key !== 'Unknown')
-              .reduce((sum, [, value]) => sum + value, 0) || 0,
-          Unknown: data['Unknown'] || 0
+          Other: data['Other'] || 0
         }))
         .sort((a, b) => b.count - a.count)
         .slice(0, 25)

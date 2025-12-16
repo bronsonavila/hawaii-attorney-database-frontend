@@ -34,11 +34,8 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: ViewType): D
       }
 
       case ViewType.BY_LAW_SCHOOL: {
-        let lawSchool = row.lawSchool?.trim() || 'Unknown'
-
-        if (!topLawSchools.includes(lawSchool) && lawSchool !== 'Unknown') {
-          lawSchool = 'Other'
-        }
+        const trimmedLawSchool = row.lawSchool?.trim()
+        const lawSchool = trimmedLawSchool && topLawSchools.includes(trimmedLawSchool) ? trimmedLawSchool : 'Other'
 
         result[row.licenseType][lawSchool] = (result[row.licenseType][lawSchool] || 0) + 1
 
@@ -58,7 +55,7 @@ export const calculateLicenseDistribution = (rows: Row[], viewType: ViewType): D
     }
 
     case ViewType.BY_LAW_SCHOOL: {
-      const schools = [...topLawSchools, 'Other', 'Unknown']
+      const schools = [...topLawSchools, 'Other']
 
       return Object.entries(distribution)
         .map(([licenseType, data]) => ({

@@ -62,4 +62,24 @@ describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
     expect(year2001.Inactive).toBe(0)
     expect(year2001.Suspended).toBe(2)
   })
+
+  it('consolidates unknown law schools into Other for the Law School view', () => {
+    const rows: Row[] = [
+      makeRow({ barAdmissionDate: '1/15/2000', id: 'a', lawSchool: 'Top School' }),
+      makeRow({ barAdmissionDate: '2/15/2000', id: 'b', lawSchool: '' }),
+      makeRow({ barAdmissionDate: '3/15/2000', id: 'c', lawSchool: 'Unknown' })
+    ]
+
+    const data = calculateBarAdmissions(rows, ViewType.BY_LAW_SCHOOL) as Array<Record<string, unknown>>
+
+    expect(data).toHaveLength(1)
+
+    const year2000 = data[0] as Record<string, number | string>
+
+    expect(year2000.year).toBe('2000')
+    expect(year2000.count).toBe(3)
+    expect(year2000['Top School']).toBe(1)
+    expect(year2000.Other).toBe(2)
+    expect('Unknown' in year2000).toBe(false)
+  })
 })
