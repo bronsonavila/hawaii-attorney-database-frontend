@@ -4,11 +4,10 @@ import { useSingletonOpen } from '@/hooks/useSingletonOpen'
 
 interface MultiValueCellProps {
   emptyText?: string
-  maxVisible?: number
   values: string[]
 }
 
-export const MultiValueCell = ({ emptyText = '', maxVisible = 1, values }: MultiValueCellProps) => {
+export const MultiValueCell = ({ emptyText = '', values }: MultiValueCellProps) => {
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null)
 
   const open = Boolean(anchorEl)
@@ -53,26 +52,16 @@ export const MultiValueCell = ({ emptyText = '', maxVisible = 1, values }: Multi
     ) : null
   }
 
-  const visibleValues = values.slice(0, maxVisible)
-  const hiddenValues = values.slice(maxVisible)
-  const remainingCount = values.length - visibleValues.length
+  const firstValue = values[0]
+  const hiddenValues = values.slice(1)
+  const remainingCount = hiddenValues.length
 
   return (
     <Box sx={{ alignItems: 'center', display: 'flex', height: '100%' }}>
-      <Box sx={{ alignItems: 'center', display: 'flex', gap: 0.5, overflow: 'hidden' }}>
-        {visibleValues.map(value => (
-          <Chip
-            key={value}
-            label={value}
-            size="small"
-            sx={{
-              height: 20,
-              maxWidth: 260,
-              '.MuiChip-label': { lineHeight: '18px', overflow: 'hidden', px: 0.75, textOverflow: 'ellipsis' }
-            }}
-            variant="outlined"
-          />
-        ))}
+      <Box sx={{ alignItems: 'center', display: 'flex', gap: 1, overflow: 'hidden' }}>
+        <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} variant="body2">
+          {firstValue}
+        </Typography>
 
         {remainingCount > 0 ? (
           <>
