@@ -1,4 +1,6 @@
-import { Box, Chip, Tooltip, Typography } from '@mui/material'
+import { Box, Chip, ClickAwayListener, Paper, Popper, Typography } from '@mui/material'
+import { MouseEvent, useCallback, useEffect, useState } from 'react'
+import { useSingletonOpen } from '@/hooks/useSingletonOpen'
 
 interface MultiValueCellProps {
   emptyText?: string
@@ -7,6 +9,40 @@ interface MultiValueCellProps {
 }
 
 export const MultiValueCell = ({ emptyText = '', maxVisible = 1, values }: MultiValueCellProps) => {
+  const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null)
+
+  const open = Boolean(anchorEl)
+
+  const handleClick = useCallback((event: MouseEvent<HTMLDivElement>) => {
+    // Stop propagation to prevent row selection or other grid events if needed.
+    event.stopPropagation()
+
+    setAnchorEl(event.currentTarget)
+  }, [])
+
+  const handleClose = useCallback(() => setAnchorEl(null), [])
+
+  useSingletonOpen({ eventName: 'multiValueCellPopperOpen', isOpen: open, onClose: handleClose })
+
+  // Close the popup on actual scroll events.
+  // Do not close on wheel/touchpad events, because that often consumes the first scroll gesture.
+  useEffect(() => {
+    if (!anchorEl) return
+
+    const handleScroll = () => handleClose()
+
+    const dataGridScroller = anchorEl.closest('.MuiDataGrid-virtualScroller') as HTMLElement | null
+    dataGridScroller?.addEventListener('scroll', handleScroll, { capture: true, passive: true })
+
+    window.addEventListener('scroll', handleScroll, true)
+
+    return () => {
+      dataGridScroller?.removeEventListener('scroll', handleScroll, true)
+
+      window.removeEventListener('scroll', handleScroll, true)
+    }
+  }, [anchorEl, handleClose])
+
   if (values.length === 0) {
     return emptyText ? (
       <Box sx={{ alignItems: 'center', display: 'flex', height: '100%' }}>
@@ -18,19 +54,10 @@ export const MultiValueCell = ({ emptyText = '', maxVisible = 1, values }: Multi
   }
 
   const visibleValues = values.slice(0, maxVisible)
+  const hiddenValues = values.slice(maxVisible)
   const remainingCount = values.length - visibleValues.length
 
-  const tooltipTitle = (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.25, py: 0.25 }}>
-      {values.map(value => (
-        <Typography key={value} sx={{ fontSize: 12, lineHeight: 1.25 }} variant="body2">
-          {value}
-        </Typography>
-      ))}
-    </Box>
-  )
-
-  const content = (
+  return (
     <Box sx={{ alignItems: 'center', display: 'flex', height: '100%' }}>
       <Box sx={{ alignItems: 'center', display: 'flex', gap: 0.5, overflow: 'hidden' }}>
         {visibleValues.map(value => (
@@ -48,22 +75,37 @@ export const MultiValueCell = ({ emptyText = '', maxVisible = 1, values }: Multi
         ))}
 
         {remainingCount > 0 ? (
-          <Chip
-            label={`+${remainingCount}`}
-            size="small"
-            sx={{ height: 20, '.MuiChip-label': { lineHeight: '18px', px: 0.75 } }}
-            variant="outlined"
-          />
+          <>
+            <Chip
+              clickable
+              label={`+${remainingCount}`}
+              onClick={handleClick}
+              size="small"
+              sx={{
+                cursor: 'pointer',
+                height: 20,
+                '.MuiChip-label': { lineHeight: '18px', px: 0.75 },
+                '&:hover': { backgroundColor: 'action.hover' }
+              }}
+              variant="outlined"
+            />
+
+            <Popper anchorEl={anchorEl} open={open} placement="bottom-start">
+              <ClickAwayListener onClickAway={handleClose}>
+                <Paper elevation={4} sx={{ mt: 0.5, p: 1 }}>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                    {hiddenValues.map(value => (
+                      <Typography key={value} sx={{ fontSize: 12 }} variant="body2">
+                        {value}
+                      </Typography>
+                    ))}
+                  </Box>
+                </Paper>
+              </ClickAwayListener>
+            </Popper>
+          </>
         ) : null}
       </Box>
     </Box>
-  )
-
-  return values.length >= 2 ? (
-    <Tooltip enterDelay={350} enterTouchDelay={0} leaveTouchDelay={2000} placement="top-start" title={tooltipTitle}>
-      {content}
-    </Tooltip>
-  ) : (
-    content
   )
 }
