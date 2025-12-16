@@ -6,7 +6,6 @@ import { vi } from 'vitest'
 import fs from 'fs'
 import Papa from 'papaparse'
 import path from 'path'
-import React from 'react'
 
 export const loadTestRows = (): Row[] => {
   const csvPath = path.join(__dirname, '../../public/hsba-member-records.csv')

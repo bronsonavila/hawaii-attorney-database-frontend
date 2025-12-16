@@ -3,7 +3,6 @@ import { App } from '../../src/App'
 import { LoadingProvider } from '../../src/contexts/LoadingContext'
 import { loadTestRows } from '../utils/testUtils'
 import { vi } from 'vitest'
-import React from 'react'
 
 vi.mock('@mui/material', async () => {
   const actual = await vi.importActual('@mui/material')

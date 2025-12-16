@@ -4,7 +4,6 @@ import { loadTestRows } from '../utils/testUtils'
 import { render, screen } from '@testing-library/react'
 import { Row } from '../../src/types/row'
 import { TopEmployersChart } from '../../src/components/charts/TopEmployersChart'
-import React from 'react'
 
 describe('TopEmployersChart', () => {
   let rows: Row[] = []
