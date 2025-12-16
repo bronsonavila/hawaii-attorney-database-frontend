@@ -32,7 +32,9 @@ export const TopEmployersChart = ({ data, viewType }: TopEmployersChartProps) =>
   if (viewType === ViewType.BY_ADMISSION_DATE) {
     const categoryColorPalette = [...TEAL_NAVY[7]]
 
-    const decades = Object.keys(data[0]).filter(key => key !== 'label' && key !== 'count')
+    const decades = Array.from(
+      new Set(data.flatMap(item => Object.keys(item).filter(key => key !== 'label' && key !== 'count')))
+    ).sort()
 
     const decadeColors = decades.reduce((acc, decade, index) => {
       acc[decade] = categoryColorPalette[index % categoryColorPalette.length]
