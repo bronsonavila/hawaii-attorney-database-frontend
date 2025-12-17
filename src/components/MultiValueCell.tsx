@@ -1,5 +1,5 @@
 import { Box, Chip, ClickAwayListener, Paper, Popper, Typography } from '@mui/material'
-import { MouseEvent, useCallback, useEffect, useState } from 'react'
+import { MouseEvent, TouchEvent, useCallback, useEffect, useState } from 'react'
 import { useSingletonOpen } from '@/hooks/useSingletonOpen'
 
 interface MultiValueCellProps {
@@ -15,6 +15,16 @@ export const MultiValueCell = ({ emptyText = '', values }: MultiValueCellProps) 
   const handleClick = useCallback(
     (event: MouseEvent<HTMLDivElement>) => {
       event.stopPropagation() // Stop propagation to prevent row selection or other grid events if needed.
+
+      setAnchorEl(anchorEl ? null : event.currentTarget) // Toggle the popup.
+    },
+    [anchorEl]
+  )
+
+  const handleTouchEnd = useCallback(
+    (event: TouchEvent<HTMLDivElement>) => {
+      event.stopPropagation() // Stop propagation to prevent row selection or other grid events if needed.
+      event.preventDefault() // Prevent touch from also triggering a synthetic click event.
 
       setAnchorEl(anchorEl ? null : event.currentTarget) // Toggle the popup.
     },
@@ -71,6 +81,7 @@ export const MultiValueCell = ({ emptyText = '', values }: MultiValueCellProps) 
               clickable
               label={`+${remainingCount}`}
               onClick={handleClick}
+              onTouchEnd={handleTouchEnd}
               size="small"
               sx={{
                 cursor: 'pointer',
