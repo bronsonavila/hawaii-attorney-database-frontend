@@ -1,5 +1,5 @@
 import { BarChart } from '@mui/x-charts'
-import { ChartTestId, ViewType } from '@/enums/chartEnums'
+import { ChartTestId, ViewType } from '@/types/chart'
 import { DatasetType } from '@mui/x-charts/internals'
 import { LAW_SCHOOL_COLOR_PALETTE } from '@/constants/chartConstants'
 import { TEAL_NAVY } from '@/constants/colors'

@@ -1,6 +1,6 @@
 import { DialogContent, DialogActions, Button, Stack, Typography, Divider } from '@mui/material'
 import { ExternalLink } from './ExternalLink'
-import { METADATA } from '@/constants/metadata'
+import { METADATA } from '@/constants/siteMetadata'
 import { useSentryBlockDetection } from '@/hooks/useSentryBlockDetection'
 
 interface AboutDialogContentProps {

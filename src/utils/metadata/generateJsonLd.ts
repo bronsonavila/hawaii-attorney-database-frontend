@@ -1,4 +1,4 @@
-import { METADATA } from '../../constants/metadata'
+import { METADATA } from '../../constants/siteMetadata'
 
 export const generateJsonLd = () => {
   const jsonLd = {

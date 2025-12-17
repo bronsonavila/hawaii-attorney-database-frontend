@@ -1,5 +1,5 @@
 import { calculateTopEmployers } from '@/utils/charts/topEmployersUtils'
-import { ViewType } from '@/enums/chartEnums'
+import { ViewType } from '@/types/chart'
 import { Row } from '@/types/row'
 
 const makeRow = (overrides: Partial<Row>): Row => ({

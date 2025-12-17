@@ -1,5 +1,5 @@
 import { ChartModal } from '@/components/charts/ChartModal'
-import { HsbaCsvRow, mapHsbaCsvRowToRow } from '@/utils/hsbaCsv'
+import { HsbaCsvRow, mapHsbaCsvRowToRow } from '@/utils/rows/hsbaCsv'
 import { Row } from '@/types/row'
 import { screen, fireEvent, act, render } from '@testing-library/react'
 import { vi } from 'vitest'

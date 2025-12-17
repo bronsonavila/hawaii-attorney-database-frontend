@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const useWindowResizeEffect = (
+export const useWindowResizeEffect = (
   condition: (width: number, height: number) => boolean,
   callback: () => void,
   debounceDelay: number = 0
@@ -30,5 +30,3 @@ const useWindowResizeEffect = (
     }
   }, [condition, callback, debounceDelay])
 }
-
-export default useWindowResizeEffect

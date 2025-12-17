@@ -10,11 +10,11 @@ import {
 import { Row } from '@/types/row'
 import { useLoadingContext } from '@/hooks/useLoadingContext'
 import { useQuickFilterTracking } from '@/hooks/useQuickFilterTracking'
+import { useWindowResizeEffect } from '@/hooks/useWindowResizeEffect'
 import { useState } from 'react'
 import BarChartIcon from '@mui/icons-material/BarChart'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
-import useWindowResizeEffect from '@/hooks/useWindowResizeEffect'
 
 interface ToolbarProps {
   paletteMode: PaletteMode
