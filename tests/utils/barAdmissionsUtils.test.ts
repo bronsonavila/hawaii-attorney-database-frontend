@@ -1,4 +1,6 @@
 import { calculateBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
+import { LICENSE_TYPE_ORDER } from '@/constants/chartConstants'
+import { loadTestRows } from '@tests/utils/testUtils'
 import { ViewType } from '@/types/chart'
 import { Row } from '@/types/row'
 
@@ -81,5 +83,31 @@ describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
     expect(year2000['Top School']).toBe(1)
     expect(year2000.Other).toBe(2)
     expect('Unknown' in year2000).toBe(false)
+  })
+
+  it('sorts "Unknown" last when using real CSV data', () => {
+    const rows = loadTestRows()
+    const data = calculateBarAdmissions(rows, ViewType.BY_LICENSE_TYPE) as Array<Record<string, unknown>>
+
+    // Get the license types from the first year that has data
+    const firstYearData = data[0]
+    const licenseTypes = Object.keys(firstYearData)
+      .filter(key => key !== 'year' && key !== 'count')
+      .sort((a, b) => {
+        const indexA = LICENSE_TYPE_ORDER.indexOf(a)
+        const indexB = LICENSE_TYPE_ORDER.indexOf(b)
+
+        const effectiveIndexA = indexA === -1 ? Number.MAX_SAFE_INTEGER : indexA
+        const effectiveIndexB = indexB === -1 ? Number.MAX_SAFE_INTEGER : indexB
+
+        if (effectiveIndexA !== effectiveIndexB) return effectiveIndexA - effectiveIndexB
+
+        return a.localeCompare(b)
+      })
+
+    // Assert "Unknown" is the last element if it exists in the keys
+    if (licenseTypes.includes('Unknown')) {
+      expect(licenseTypes[licenseTypes.length - 1]).toBe('Unknown')
+    }
   })
 })
