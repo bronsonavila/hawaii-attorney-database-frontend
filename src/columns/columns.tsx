@@ -2,7 +2,11 @@ import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid-pro'
 import { Link } from '@mui/material'
 import { MultiValueCell } from '@/components/MultiValueCell'
 import { Row } from '@/types/row'
-import { getMultiValueFilterOperators, getValuesForDisplay, compareMultiValueCells } from '@/utils/dataGrid/multiValue'
+import {
+  getMultiValueFilterOperators,
+  getValuesForDisplay,
+  createMultiValueSortComparator
+} from '@/utils/dataGrid/multiValue'
 
 interface GetColumnsOptions {
   isTouchLike: boolean
@@ -80,8 +84,7 @@ export const getColumns = ({
 
       return <MultiValueCell values={displayValues} />
     },
-    sortComparator: (v1, v2, p1, p2) =>
-      compareMultiValueCells(v1, v2, p1.api.getRow(p1.id).membershipSections, p2.api.getRow(p2.id).membershipSections),
+    sortComparator: createMultiValueSortComparator('membershipSections'),
     type: 'singleSelect',
     valueGetter: (_value, row) => row.membershipSections.join('; '),
     valueOptions: membershipSectionOptions,
@@ -97,8 +100,7 @@ export const getColumns = ({
 
       return <MultiValueCell values={displayValues} />
     },
-    sortComparator: (v1, v2, p1, p2) =>
-      compareMultiValueCells(v1, v2, p1.api.getRow(p1.id).otherLicenses, p2.api.getRow(p2.id).otherLicenses),
+    sortComparator: createMultiValueSortComparator('otherLicenses'),
     type: 'singleSelect',
     valueGetter: (_value, row) => row.otherLicenses.join('; '),
     valueOptions: otherLicenseOptions,

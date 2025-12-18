@@ -1,5 +1,5 @@
 import { getGridSingleSelectOperators } from '@mui/x-data-grid-pro'
-import type { GridFilterModel, GridFilterOperator } from '@mui/x-data-grid-pro'
+import type { GridComparatorFn, GridFilterModel, GridFilterOperator } from '@mui/x-data-grid-pro'
 import type { Row } from '@/types/row'
 
 // Uses a dropdown like singleSelect but matches if the cell's multi-value content contains the selected value.
@@ -119,4 +119,21 @@ export const compareMultiValueCells = (_a: unknown, _b: unknown, aRow: string[],
   if (aCount !== bCount) return aCount - bCount
 
   return aRow.join('; ').localeCompare(bRow.join('; '), undefined, { sensitivity: 'base' })
+}
+
+// Creates a sort comparator that respects the filtered display order (i.e., sorts by the matched filter value).
+export const createMultiValueSortComparator = (field: keyof Row): GridComparatorFn<Row> => {
+  return (v1, v2, p1, p2) => {
+    const filterModel = p1.api.state.filter.filterModel
+    const row1 = p1.api.getRow(p1.id)
+    const row2 = p2.api.getRow(p2.id)
+
+    const val1 = (row1[field] as string[]) || []
+    const val2 = (row2[field] as string[]) || []
+
+    const display1 = getValuesForDisplay(val1, filterModel, field as string)
+    const display2 = getValuesForDisplay(val2, filterModel, field as string)
+
+    return compareMultiValueCells(v1, v2, display1, display2)
+  }
 }
