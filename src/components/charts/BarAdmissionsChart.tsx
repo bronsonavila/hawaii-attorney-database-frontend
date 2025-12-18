@@ -2,8 +2,8 @@ import { BarChart } from '@mui/x-charts'
 import { ChartTestId, ViewType } from '@/types/chart'
 import { DatasetType } from '@mui/x-charts/internals'
 import { getTopLawSchools } from '@/utils/charts/commonUtils'
-import { LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '@/constants/chartConstants'
-import { ROSE_VIOLET, AMBER_BROWN, TEAL_NAVY } from '@/constants/colors'
+import { LICENSE_TYPE_COLOR_PALETTE, LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '@/constants/chartConstants'
+import { TEAL_NAVY } from '@/constants/colors'
 import { Row } from '@/types/row'
 
 const COMMON_CHART_PROPS = { grid: { horizontal: true }, slotProps: { legend: { hidden: true } } }
@@ -45,10 +45,8 @@ export const BarAdmissionsChart = ({ data, rows, viewType }: BarAdmissionsChartP
         return a.localeCompare(b)
       })
 
-    const licenseTypeColorPalette = [...TEAL_NAVY[4], ...AMBER_BROWN[3], ...ROSE_VIOLET[3]]
-
     const licenseTypeColors = Object.fromEntries(
-      licenseTypes.map((type, index) => [type, licenseTypeColorPalette[index % licenseTypeColorPalette.length]])
+      licenseTypes.map((type, index) => [type, LICENSE_TYPE_COLOR_PALETTE[index % LICENSE_TYPE_COLOR_PALETTE.length]])
     )
 
     return (
