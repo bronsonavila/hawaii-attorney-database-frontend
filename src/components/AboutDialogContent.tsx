@@ -38,7 +38,7 @@ export const AboutDialogContent = ({ onClose, onFeedbackMode }: AboutDialogConte
             Independently maintained by: <ExternalLink href={METADATA.author.url}>{METADATA.author.name}</ExternalLink>
           </Typography>
 
-          <Typography variant="body2">Last updated: December 30, 2025</Typography>
+          <Typography variant="body2">Last updated: January 30, 2026</Typography>
         </Stack>
       </DialogContent>
 

@@ -1,5 +1,6 @@
 import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid-pro'
-import { Link } from '@mui/material'
+import { Box, Link, Tooltip } from '@mui/material'
+import { InfoOutlined } from '@mui/icons-material'
 import { MultiValueCell } from '@/components/MultiValueCell'
 import { Row } from '@/types/row'
 import {
@@ -25,23 +26,43 @@ export const getColumns = ({
     field: 'name',
     headerName: 'Name',
     renderCell: params => (
-      <Link
-        color="inherit"
-        href={`https://hsba.org/member-directory/${encodeURIComponent(params.row.id)}`}
-        onClick={event => event.stopPropagation()}
-        rel="noopener noreferrer"
-        sx={{
-          display: 'inline-block',
-          maxWidth: '100%',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap'
-        }}
-        target="_blank"
-        underline={isTouchLike ? 'always' : 'hover'}
-      >
-        {params.value as string}
-      </Link>
+      <Box sx={{ alignItems: 'center', display: 'flex', gap: 0.5, maxWidth: '100%' }}>
+        {params.row.isMissingFromSource ? (
+          <Box
+            component="span"
+            sx={{
+              display: 'inline-block',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            {params.value as string}
+          </Box>
+        ) : (
+          <Link
+            color="inherit"
+            href={`https://hsba.org/member-directory/${encodeURIComponent(params.row.id)}`}
+            onClick={event => event.stopPropagation()}
+            rel="noopener noreferrer"
+            sx={{
+              display: 'inline-block',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}
+            target="_blank"
+            underline={isTouchLike ? 'always' : 'hover'}
+          >
+            {params.value as string}
+          </Link>
+        )}
+        {params.row.isMissingFromSource && (
+          <Tooltip title="Not found in HSBA directory. Data may be outdated.">
+            <InfoOutlined color="action" sx={{ fontSize: 16, opacity: 0.6 }} />
+          </Tooltip>
+        )}
+      </Box>
     ),
     width: 220
   },

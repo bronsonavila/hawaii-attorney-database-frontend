@@ -14,6 +14,7 @@ export interface HsbaCsvRow {
   law_school?: string
   admitted_hi_bar?: string
   location?: string
+  is_missing_from_source?: string
 }
 
 export const splitSemicolonList = (value: string | null | undefined): string[] =>
@@ -33,5 +34,6 @@ export const mapHsbaCsvRowToRow = (raw: HsbaCsvRow): Row => ({
   location: raw.location || '',
   membershipSections: splitSemicolonList(raw.membership_section),
   name: raw.full_name || '',
-  otherLicenses: splitSemicolonList(raw.licenses)
+  otherLicenses: splitSemicolonList(raw.licenses),
+  isMissingFromSource: raw.is_missing_from_source === 'true'
 })

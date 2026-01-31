@@ -10,4 +10,5 @@ export interface Row {
   barAdmissionDate: string
   otherLicenses: string[]
   membershipSections: string[]
+  isMissingFromSource: boolean
 }
