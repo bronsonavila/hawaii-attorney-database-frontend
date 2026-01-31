@@ -1,58 +1,60 @@
-import { Box, Chip, ClickAwayListener, Paper, Popper, Typography } from '@mui/material'
-import { MouseEvent, TouchEvent, useCallback, useEffect, useState } from 'react'
+import { Box, Chip, Tooltip, Typography } from '@mui/material'
+import { MouseEvent, useEffect, useRef, useState } from 'react'
 import { useSingletonOpen } from '@/hooks/useSingletonOpen'
 
 interface MultiValueCellProps {
   emptyText?: string
+  isTouchDevice: boolean
   values: string[]
 }
 
-export const MultiValueCell = ({ emptyText = '', values }: MultiValueCellProps) => {
-  const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null)
+export const MultiValueCell = ({ emptyText = '', isTouchDevice, values }: MultiValueCellProps) => {
+  const [open, setOpen] = useState(false)
+  const chipRef = useRef<HTMLDivElement>(null)
 
-  const open = Boolean(anchorEl)
+  // Desktop: hover handlers
+  const handleOpen = () => !isTouchDevice && setOpen(true)
+  const handleClose = () => setOpen(false)
 
-  const handleClick = useCallback(
-    (event: MouseEvent<HTMLDivElement>) => {
-      event.stopPropagation() // Stop propagation to prevent row selection or other grid events if needed.
+  // Touch: click handler
+  const handleClick = (event: MouseEvent) => {
+    event.stopPropagation()
+    if (isTouchDevice) setOpen(prev => !prev)
+  }
 
-      setAnchorEl(anchorEl ? null : event.currentTarget) // Toggle the popup.
-    },
-    [anchorEl]
-  )
-
-  const handleTouchEnd = useCallback(
-    (event: TouchEvent<HTMLDivElement>) => {
-      event.stopPropagation() // Stop propagation to prevent row selection or other grid events if needed.
-      event.preventDefault() // Prevent touch from also triggering a synthetic click event.
-
-      setAnchorEl(anchorEl ? null : event.currentTarget) // Toggle the popup.
-    },
-    [anchorEl]
-  )
-
-  const handleClose = useCallback(() => setAnchorEl(null), [])
-
+  // Keep singleton behavior for touch
   useSingletonOpen({ eventName: 'multiValueCellPopperOpen', isOpen: open, onClose: handleClose })
 
-  // Close the popup on actual scroll events.
-  // Do not close on wheel/touchpad events, because that often consumes the first scroll gesture.
+  // Close the tooltip on scroll or click-away (touch mode)
   useEffect(() => {
-    if (!anchorEl) return
+    if (!open || !chipRef.current) return
 
     const handleScroll = () => handleClose()
 
-    const dataGridScroller = anchorEl.closest('.MuiDataGrid-virtualScroller') as HTMLElement | null
+    const handleClickAway = (event: Event) => {
+      if (chipRef.current && !chipRef.current.contains(event.target as Node)) {
+        handleClose()
+      }
+    }
+
+    const dataGridScroller = chipRef.current.closest('.MuiDataGrid-virtualScroller') as HTMLElement | null
     dataGridScroller?.addEventListener('scroll', handleScroll, { capture: true, passive: true })
 
     window.addEventListener('scroll', handleScroll, true)
 
+    if (isTouchDevice) {
+      document.addEventListener('click', handleClickAway, true)
+    }
+
     return () => {
       dataGridScroller?.removeEventListener('scroll', handleScroll, true)
-
       window.removeEventListener('scroll', handleScroll, true)
+
+      if (isTouchDevice) {
+        document.removeEventListener('click', handleClickAway, true)
+      }
     }
-  }, [anchorEl, handleClose])
+  }, [open, isTouchDevice])
 
   if (values.length === 0) {
     return emptyText ? (
@@ -76,36 +78,37 @@ export const MultiValueCell = ({ emptyText = '', values }: MultiValueCellProps) 
         </Typography>
 
         {remainingCount > 0 ? (
-          <>
+          <Tooltip
+            disableFocusListener
+            disableHoverListener={isTouchDevice}
+            disableTouchListener
+            onClose={handleClose}
+            onOpen={handleOpen}
+            open={open}
+            title={
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                {hiddenValues.map(value => (
+                  <Typography key={value} sx={{ fontSize: 12 }} variant="body2">
+                    {value}
+                  </Typography>
+                ))}
+              </Box>
+            }
+          >
             <Chip
-              clickable
               label={`+${remainingCount}`}
               onClick={handleClick}
-              onTouchEnd={handleTouchEnd}
+              ref={chipRef}
               size="small"
               sx={{
-                cursor: 'pointer',
+                cursor: isTouchDevice ? 'pointer' : 'default',
                 height: 20,
                 '.MuiChip-label': { lineHeight: '18px', px: 0.75 },
-                '&:hover': { backgroundColor: 'action.hover' }
+                '&:hover': { backgroundColor: isTouchDevice ? 'action.hover' : undefined }
               }}
               variant="outlined"
             />
-
-            <Popper anchorEl={anchorEl} open={open} placement="bottom-start">
-              <ClickAwayListener onClickAway={handleClose}>
-                <Paper elevation={4} sx={{ mt: 0.5, p: 1 }}>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                    {hiddenValues.map(value => (
-                      <Typography key={value} sx={{ fontSize: 12 }} variant="body2">
-                        {value}
-                      </Typography>
-                    ))}
-                  </Box>
-                </Paper>
-              </ClickAwayListener>
-            </Popper>
-          </>
+          </Tooltip>
         ) : null}
       </Box>
     </Box>

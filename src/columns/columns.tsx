@@ -1,7 +1,7 @@
 import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid-pro'
-import { Box, Link, Tooltip } from '@mui/material'
-import { InfoOutlined } from '@mui/icons-material'
+import { Box, Link } from '@mui/material'
 import { MultiValueCell } from '@/components/MultiValueCell'
+import { MissingDataTooltip } from '@/components/MissingDataTooltip'
 import { Row } from '@/types/row'
 import {
   getMultiValueFilterOperators,
@@ -10,14 +10,14 @@ import {
 } from '@/utils/dataGrid/multiValue'
 
 interface GetColumnsOptions {
-  isTouchLike: boolean
+  isTouchDevice: boolean
   licenseTypes: string[]
   membershipSectionOptions: string[]
   otherLicenseOptions: string[]
 }
 
 export const getColumns = ({
-  isTouchLike,
+  isTouchDevice,
   licenseTypes,
   membershipSectionOptions,
   otherLicenseOptions
@@ -26,7 +26,7 @@ export const getColumns = ({
     field: 'name',
     headerName: 'Name',
     renderCell: params => (
-      <Box sx={{ alignItems: 'center', display: 'flex', gap: 0.5, maxWidth: '100%' }}>
+      <Box sx={{ alignItems: 'center', display: 'flex', gap: 1, maxWidth: '100%' }}>
         {params.row.isMissingFromSource ? (
           <Box
             component="span"
@@ -52,16 +52,12 @@ export const getColumns = ({
               whiteSpace: 'nowrap'
             }}
             target="_blank"
-            underline={isTouchLike ? 'always' : 'hover'}
+            underline={isTouchDevice ? 'always' : 'hover'}
           >
             {params.value as string}
           </Link>
         )}
-        {params.row.isMissingFromSource && (
-          <Tooltip title="Not found in HSBA directory. Data may be outdated.">
-            <InfoOutlined color="action" sx={{ fontSize: 16, opacity: 0.6 }} />
-          </Tooltip>
-        )}
+        {params.row.isMissingFromSource && <MissingDataTooltip isTouchDevice={isTouchDevice} />}
       </Box>
     ),
     width: 220
@@ -103,7 +99,7 @@ export const getColumns = ({
       const filterModel = params.api.state.filter.filterModel
       const displayValues = getValuesForDisplay(params.row.membershipSections, filterModel, 'membershipSections')
 
-      return <MultiValueCell values={displayValues} />
+      return <MultiValueCell isTouchDevice={isTouchDevice} values={displayValues} />
     },
     sortComparator: createMultiValueSortComparator('membershipSections'),
     type: 'singleSelect',
@@ -119,7 +115,7 @@ export const getColumns = ({
       const filterModel = params.api.state.filter.filterModel
       const displayValues = getValuesForDisplay(params.row.otherLicenses, filterModel, 'otherLicenses')
 
-      return <MultiValueCell values={displayValues} />
+      return <MultiValueCell isTouchDevice={isTouchDevice} values={displayValues} />
     },
     sortComparator: createMultiValueSortComparator('otherLicenses'),
     type: 'singleSelect',

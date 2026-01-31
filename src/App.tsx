@@ -13,7 +13,7 @@ import { usePaletteMode } from '@/hooks/usePaletteMode'
 export const App = () => {
   const { isLoading } = useLoadingContext()
   const { rows, licenseTypes, membershipSectionOptions, otherLicenseOptions } = useAttorneyData()
-  const isTouchLike = useMediaQuery('(hover: none), (pointer: coarse)')
+  const isTouchDevice = useMediaQuery('(hover: none), (pointer: coarse)')
 
   const blurFocusedGridElement = (container: HTMLElement) => {
     const activeElement = document.activeElement as HTMLElement | null
@@ -40,8 +40,8 @@ export const App = () => {
   }
 
   const columns = useMemo(
-    () => getColumns({ isTouchLike, licenseTypes, membershipSectionOptions, otherLicenseOptions }),
-    [isTouchLike, licenseTypes, membershipSectionOptions, otherLicenseOptions]
+    () => getColumns({ isTouchDevice, licenseTypes, membershipSectionOptions, otherLicenseOptions }),
+    [isTouchDevice, licenseTypes, membershipSectionOptions, otherLicenseOptions]
   )
 
   const handleFilterModelChange = useFilterModelTracking()
