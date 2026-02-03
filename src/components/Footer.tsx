@@ -67,7 +67,7 @@ export const Footer = () => {
       <Dialog
         onClose={handleCloseDialog}
         open={isDialogOpen}
-        PaperProps={{ sx: { bottom: 10, m: 0, minWidth: { xs: 359 }, position: 'fixed', right: 8 } }}
+        PaperProps={{ sx: { bottom: 10, m: 0, width: 365, position: 'fixed', right: 8 } }}
       >
         {isFeedbackMode ? (
           <FeedbackForm

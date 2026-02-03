@@ -6,7 +6,12 @@ import { ViewType } from '@/types/chart'
 
 const normalizeBarAdmissionsLicenseType = (licenseType: string): string => {
   if (licenseType === 'Inactive Pro Bono' || licenseType === 'Inactive Voluntary') return 'Inactive'
-  if (licenseType === 'Suspended - Disciplined' || licenseType === 'Suspended - Non-Payment') return 'Suspended'
+  if (
+    licenseType === 'Suspended - CLE' ||
+    licenseType === 'Suspended - Disciplined' ||
+    licenseType === 'Suspended - Non-Payment'
+  )
+    return 'Suspended'
 
   return licenseType
 }

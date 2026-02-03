@@ -16,7 +16,6 @@ const makeRow = (overrides: Partial<Row>): Row => ({
   membershipSections: [],
   name: 'Name',
   otherLicenses: [],
-  isMissingFromSource: false,
   ...overrides
 })
 

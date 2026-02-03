@@ -1,7 +1,6 @@
 import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid-pro'
-import { Box, Link } from '@mui/material'
+import { Link } from '@mui/material'
 import { MultiValueCell } from '@/components/MultiValueCell'
-import { MissingDataTooltip } from '@/components/MissingDataTooltip'
 import { Row } from '@/types/row'
 import {
   getMultiValueFilterOperators,
@@ -26,39 +25,23 @@ export const getColumns = ({
     field: 'name',
     headerName: 'Name',
     renderCell: params => (
-      <Box sx={{ alignItems: 'center', display: 'flex', gap: 1, maxWidth: '100%' }}>
-        {params.row.isMissingFromSource ? (
-          <Box
-            component="span"
-            sx={{
-              display: 'inline-block',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap'
-            }}
-          >
-            {params.value as string}
-          </Box>
-        ) : (
-          <Link
-            color="inherit"
-            href={`https://hsba.org/member-directory/${encodeURIComponent(params.row.id)}`}
-            onClick={event => event.stopPropagation()}
-            rel="noopener noreferrer"
-            sx={{
-              display: 'inline-block',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap'
-            }}
-            target="_blank"
-            underline={isTouchDevice ? 'always' : 'hover'}
-          >
-            {params.value as string}
-          </Link>
-        )}
-        {params.row.isMissingFromSource && <MissingDataTooltip isTouchDevice={isTouchDevice} />}
-      </Box>
+      <Link
+        color="inherit"
+        href={`https://hsba.org/member-directory/${encodeURIComponent(params.row.id)}`}
+        onClick={event => event.stopPropagation()}
+        rel="noopener noreferrer"
+        sx={{
+          display: 'inline-block',
+          maxWidth: '100%',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap'
+        }}
+        target="_blank"
+        underline={isTouchDevice ? 'always' : 'hover'}
+      >
+        {params.value as string}
+      </Link>
     ),
     width: 220
   },

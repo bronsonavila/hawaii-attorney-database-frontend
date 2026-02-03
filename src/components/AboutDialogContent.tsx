@@ -15,12 +15,16 @@ export const AboutDialogContent = ({ onClose, onFeedbackMode }: AboutDialogConte
     <>
       <DialogContent>
         <Stack spacing={1.5}>
+          <Typography color="text.secondary" variant="body2">
+            Content is sourced from public records as they appear on the HSBA Member Directory. Member records may be
+            hidden, incomplete, or incorrect.
+          </Typography>
+        </Stack>
+
+        <Divider sx={{ my: 2.5 }} />
+        <Stack spacing={1.5}>
           <Typography variant="body2">
             Data source: <ExternalLink href="https://hsba.org/member-directory">HSBA Member Directory</ExternalLink>
-          </Typography>
-
-          <Typography color="text.secondary" variant="body2">
-            Disclaimer: Data may be incorrect or incomplete.
           </Typography>
 
           <Typography variant="body2">
@@ -38,7 +42,7 @@ export const AboutDialogContent = ({ onClose, onFeedbackMode }: AboutDialogConte
             Independently maintained by: <ExternalLink href={METADATA.author.url}>{METADATA.author.name}</ExternalLink>
           </Typography>
 
-          <Typography variant="body2">Last updated: January 30, 2026</Typography>
+          <Typography variant="body2">Last updated: February 3, 2026</Typography>
         </Stack>
       </DialogContent>
 
