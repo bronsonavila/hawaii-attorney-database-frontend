@@ -1,6 +1,6 @@
 import { DialogContent, DialogActions, Button, Stack, Typography, Divider } from '@mui/material'
 import { ExternalLink } from './ExternalLink'
-import { METADATA } from '@/constants/siteMetadata'
+import { METADATA, LAST_UPDATED } from '@/constants/siteMetadata'
 import { useSentryBlockDetection } from '@/hooks/useSentryBlockDetection'
 
 interface AboutDialogContentProps {
@@ -42,7 +42,9 @@ export const AboutDialogContent = ({ onClose, onFeedbackMode }: AboutDialogConte
             Independently maintained by: <ExternalLink href={METADATA.author.url}>{METADATA.author.name}</ExternalLink>
           </Typography>
 
-          <Typography variant="body2">Last updated: February 3, 2026</Typography>
+          <Typography sx={{ display: { xs: 'block', sm: 'none' } }} variant="body2">
+            Last updated: {LAST_UPDATED}
+          </Typography>
         </Stack>
       </DialogContent>
 

@@ -1,3 +1,4 @@
+import { LAST_UPDATED } from '@/constants/siteMetadata'
 import { Box, Button, PaletteMode, Skeleton, Switch, Typography } from '@mui/material'
 import { ChartModal } from '@/components/charts/ChartModal'
 import { ExportButton } from '@/components/ExportButton'
@@ -44,9 +45,23 @@ export const Toolbar = ({ paletteMode, setPaletteMode, rows }: ToolbarProps) => 
       <Box
         sx={{ alignItems: 'center', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' }}
       >
-        <Typography sx={{ fontSize: { xs: 18, sm: 20 }, pl: 0.75 }} variant="h6">
-          Hawaii Attorney Database
-        </Typography>
+        <Box>
+          <Typography sx={{ fontSize: { xs: 18, sm: 20 }, pl: 0.75 }} variant="h6">
+            Hawaii Attorney Database
+          </Typography>
+
+          <Typography
+            sx={{
+              color: 'text.secondary',
+              display: { xs: 'none', sm: 'block' },
+              fontSize: { xs: 11, sm: 12 },
+              pl: 0.75
+            }}
+            variant="body2"
+          >
+            Last updated: {LAST_UPDATED}
+          </Typography>
+        </Box>
 
         <Box sx={{ alignItems: 'center', display: 'flex', gap: 0.5, pr: 0.25 }}>
           <DarkModeIcon sx={{ fontSize: { xs: 16, sm: 20 }, opacity: paletteMode === 'dark' ? 1 : 0.25 }} />

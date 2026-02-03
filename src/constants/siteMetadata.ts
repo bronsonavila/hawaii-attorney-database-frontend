@@ -1,5 +1,7 @@
 const BASE_URL = 'https://www.hawaiiattorneydatabase.com'
 
+export const LAST_UPDATED = '2/3/2026'
+
 export const METADATA = {
   alternativeHeadline:
     'Comprehensive Directory of Licensed Attorneys in Hawaii: Insights for Legal Professionals and the General Public',
