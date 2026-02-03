@@ -16,7 +16,7 @@ export const AboutDialogContent = ({ onClose, onFeedbackMode }: AboutDialogConte
       <DialogContent>
         <Stack spacing={1.5}>
           <Typography color="text.secondary" variant="body2">
-            Content is sourced from public records as they appear on the HSBA Member Directory. Member records may be
+            Content is sourced from public records as they appear on the HSBA Member Directory. Some records may be
             hidden, incomplete, or incorrect.
           </Typography>
         </Stack>
