@@ -20,49 +20,73 @@ const makeRow = (overrides: Partial<Row>): Row => ({
 })
 
 describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
-  it('excludes Pro Hac Vice, consolidates Inactive/Suspended sub-statuses, and does not inject absent statuses', () => {
+  it('excludes Pro Hac Vice, consolidates Inactive/Suspended/Resigned sub-statuses, and does not inject absent statuses', () => {
     const rows: Row[] = [
       // Use HSBA-like date format (M/D/YYYY). ISO YYYY-MM-DD is parsed as UTC in JS and can shift years by timezone.
       makeRow({ barAdmissionDate: '1/15/2000', id: 'a', licenseType: 'Active' }),
       makeRow({ barAdmissionDate: '2/15/2000', id: 'b', licenseType: 'Inactive Pro Bono' }),
+      makeRow({ barAdmissionDate: '3/15/2000', id: 'b2', licenseType: 'Inactive - Emeritus' }),
+      makeRow({ barAdmissionDate: '4/15/2000', id: 'b3', licenseType: 'Inactive - Medical' }),
       makeRow({ barAdmissionDate: '1/15/2001', id: 'c', licenseType: 'Suspended - Disciplined' }),
       makeRow({ barAdmissionDate: '2/15/2001', id: 'd', licenseType: 'Suspended - Non-Payment' }),
+      makeRow({ barAdmissionDate: '3/15/2001', id: 'r1', licenseType: 'Resigned Discipline' }),
+      makeRow({ barAdmissionDate: '4/15/2001', id: 'r2', licenseType: 'Resigned Voluntary' }),
+      makeRow({ barAdmissionDate: '1/15/2002', id: 's1', licenseType: 'Restrained from Practice' }),
+      makeRow({ barAdmissionDate: '2/15/2002', id: 's2', licenseType: 'Disbarred' }),
+      makeRow({ barAdmissionDate: '3/15/2002', id: 's3', licenseType: 'Deceased' }),
       // Should always be excluded from Bar Admissions, even if a date is present.
       makeRow({ barAdmissionDate: '3/15/2000', id: 'e', licenseType: 'Pro Hac Vice' })
     ]
 
     const data = calculateBarAdmissions(rows, ViewType.BY_LICENSE_TYPE) as Array<Record<string, unknown>>
 
-    expect(data).toHaveLength(2)
+    expect(data).toHaveLength(3)
     expect(data[0].year).toBe('2000')
     expect(data[1].year).toBe('2001')
+    expect(data[2].year).toBe('2002')
 
     const year2000 = data[0] as Record<string, number | string>
     const year2001 = data[1] as Record<string, number | string>
+    const year2002 = data[2] as Record<string, number | string>
 
-    // No injected/legacy keys.
+    // No raw sub-type keys appear in output.
     expect('Government' in year2000).toBe(false)
     expect('Pro Hac Vice' in year2000).toBe(false)
     expect('Inactive Pro Bono' in year2000).toBe(false)
     expect('Inactive Voluntary' in year2000).toBe(false)
+    expect('Inactive - Emeritus' in year2000).toBe(false)
+    expect('Inactive - Medical' in year2000).toBe(false)
     expect('Suspended - Disciplined' in year2000).toBe(false)
     expect('Suspended - Non-Payment' in year2000).toBe(false)
+    expect('Resigned Discipline' in year2001).toBe(false)
+    expect('Resigned Voluntary' in year2001).toBe(false)
+    expect('Restrained from Practice' in year2002).toBe(false)
+    expect('Disbarred' in year2002).toBe(false)
 
     // Consolidated buckets exist.
     expect('Inactive' in year2000).toBe(true)
     expect('Suspended' in year2000).toBe(true)
+    expect('Resigned / Restrained / Disbarred' in year2001).toBe(true)
+    expect('Resigned / Restrained / Disbarred' in year2002).toBe(true)
+    expect('Deceased' in year2002).toBe(true)
 
-    // Counts: 2000 includes Active + Inactive Pro Bono; Pro Hac Vice excluded.
-    expect(year2000.count).toBe(2)
+    // Counts: 2000 includes Active + Inactive Pro Bono + Inactive - Emeritus + Inactive - Medical; Pro Hac Vice excluded.
+    expect(year2000.count).toBe(4)
     expect(year2000.Active).toBe(1)
-    expect(year2000.Inactive).toBe(1)
+    expect(year2000.Inactive).toBe(3)
     expect(year2000.Suspended).toBe(0)
 
-    // Counts: 2001 includes two suspended variants consolidated.
-    expect(year2001.count).toBe(2)
+    // Counts: 2001 includes two suspended variants consolidated, two resigned variants consolidated.
+    expect(year2001.count).toBe(4)
     expect(year2001.Active).toBe(0)
     expect(year2001.Inactive).toBe(0)
     expect(year2001.Suspended).toBe(2)
+    expect(year2001['Resigned / Restrained / Disbarred']).toBe(2)
+
+    // Counts: 2002 includes Resigned/Restrained/Disbarred consolidated (2) and Deceased (1).
+    expect(year2002.count).toBe(3)
+    expect(year2002['Resigned / Restrained / Disbarred']).toBe(2)
+    expect(year2002.Deceased).toBe(1)
   })
 
   it('consolidates unknown law schools into Other for the Law School view', () => {
