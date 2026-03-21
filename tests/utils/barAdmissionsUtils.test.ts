@@ -24,13 +24,14 @@ describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
     const rows: Row[] = [
       // Use HSBA-like date format (M/D/YYYY). ISO YYYY-MM-DD is parsed as UTC in JS and can shift years by timezone.
       makeRow({ barAdmissionDate: '1/15/2000', id: 'a', licenseType: 'Active' }),
-      makeRow({ barAdmissionDate: '2/15/2000', id: 'b', licenseType: 'Inactive Pro Bono' }),
+      makeRow({ barAdmissionDate: '2/15/2000', id: 'b', licenseType: 'Inactive - Pro Bono' }),
       makeRow({ barAdmissionDate: '3/15/2000', id: 'b2', licenseType: 'Inactive - Emeritus' }),
       makeRow({ barAdmissionDate: '4/15/2000', id: 'b3', licenseType: 'Inactive - Medical' }),
+      makeRow({ barAdmissionDate: '5/15/2000', id: 'b4', licenseType: 'Inactive - Voluntary' }),
       makeRow({ barAdmissionDate: '1/15/2001', id: 'c', licenseType: 'Suspended - Disciplined' }),
       makeRow({ barAdmissionDate: '2/15/2001', id: 'd', licenseType: 'Suspended - Non-Payment' }),
-      makeRow({ barAdmissionDate: '3/15/2001', id: 'r1', licenseType: 'Resigned Discipline' }),
-      makeRow({ barAdmissionDate: '4/15/2001', id: 'r2', licenseType: 'Resigned Voluntary' }),
+      makeRow({ barAdmissionDate: '3/15/2001', id: 'r1', licenseType: 'Resigned - Discipline' }),
+      makeRow({ barAdmissionDate: '4/15/2001', id: 'r2', licenseType: 'Resigned - Voluntary' }),
       makeRow({ barAdmissionDate: '1/15/2002', id: 's1', licenseType: 'Restrained from Practice' }),
       makeRow({ barAdmissionDate: '2/15/2002', id: 's2', licenseType: 'Disbarred' }),
       makeRow({ barAdmissionDate: '3/15/2002', id: 's3', licenseType: 'Deceased' }),
@@ -52,14 +53,14 @@ describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
     // No raw sub-type keys appear in output.
     expect('Government' in year2000).toBe(false)
     expect('Pro Hac Vice' in year2000).toBe(false)
-    expect('Inactive Pro Bono' in year2000).toBe(false)
-    expect('Inactive Voluntary' in year2000).toBe(false)
+    expect('Inactive - Pro Bono' in year2000).toBe(false)
+    expect('Inactive - Voluntary' in year2000).toBe(false)
     expect('Inactive - Emeritus' in year2000).toBe(false)
     expect('Inactive - Medical' in year2000).toBe(false)
     expect('Suspended - Disciplined' in year2000).toBe(false)
     expect('Suspended - Non-Payment' in year2000).toBe(false)
-    expect('Resigned Discipline' in year2001).toBe(false)
-    expect('Resigned Voluntary' in year2001).toBe(false)
+    expect('Resigned - Discipline' in year2001).toBe(false)
+    expect('Resigned - Voluntary' in year2001).toBe(false)
     expect('Restrained from Practice' in year2002).toBe(false)
     expect('Disbarred' in year2002).toBe(false)
 
@@ -70,10 +71,10 @@ describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
     expect('Resigned / Restrained / Disbarred' in year2002).toBe(true)
     expect('Deceased' in year2002).toBe(true)
 
-    // Counts: 2000 includes Active + Inactive Pro Bono + Inactive - Emeritus + Inactive - Medical; Pro Hac Vice excluded.
-    expect(year2000.count).toBe(4)
+    // Counts: 2000 includes Active + four Inactive sub-statuses; Pro Hac Vice excluded.
+    expect(year2000.count).toBe(5)
     expect(year2000.Active).toBe(1)
-    expect(year2000.Inactive).toBe(3)
+    expect(year2000.Inactive).toBe(4)
     expect(year2000.Suspended).toBe(0)
 
     // Counts: 2001 includes two suspended variants consolidated, two resigned variants consolidated.

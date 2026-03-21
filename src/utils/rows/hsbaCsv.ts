@@ -22,6 +22,16 @@ export const splitSemicolonList = (value: string | null | undefined): string[] =
     .map(item => item.trim())
     .filter(Boolean)
 
+const RAW_LICENSE_TYPE_ALIASES: Record<string, string> = {
+  'Inactive Pro Bono': 'Inactive - Pro Bono',
+  'Inactive Voluntary': 'Inactive - Voluntary',
+  'Suspended Non-Payment': 'Suspended - Non-Payment',
+  'Resigned Discipline': 'Resigned - Discipline',
+  'Resigned Voluntary': 'Resigned - Voluntary'
+}
+
+const normalizeRawLicenseType = (value: string): string => RAW_LICENSE_TYPE_ALIASES[value] ?? value
+
 export const mapHsbaCsvRowToRow = (raw: HsbaCsvRow): Row => ({
   barAdmissionDate: raw.admitted_hi_bar || '',
   emailDomain: raw.email_domain || '',
@@ -29,7 +39,7 @@ export const mapHsbaCsvRowToRow = (raw: HsbaCsvRow): Row => ({
   id: raw.id || raw.jd_number || `${raw.full_name || ''}-${raw.organization || ''}`.trim(),
   jdNumber: raw.jd_number || '',
   lawSchool: raw.law_school || '',
-  licenseType: raw.membership_status?.trim() || 'Unknown',
+  licenseType: normalizeRawLicenseType(raw.membership_status?.trim() || '') || 'Unknown',
   location: raw.location || '',
   membershipSections: splitSemicolonList(raw.membership_section),
   name: raw.full_name || '',
