@@ -26,6 +26,8 @@ const RAW_LICENSE_TYPE_ALIASES: Record<string, string> = {
   'Inactive Pro Bono': 'Inactive - Pro Bono',
   'Inactive Voluntary': 'Inactive - Voluntary',
   'Suspended Non-Payment': 'Suspended - Non-Payment',
+  'Suspended for Non-Payment': 'Suspended - Non-Payment',
+  'Suspended Discipline': 'Suspended - Disciplined',
   'Resigned Discipline': 'Resigned - Discipline',
   'Resigned Voluntary': 'Resigned - Voluntary'
 }
