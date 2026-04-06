@@ -1,6 +1,7 @@
 import { LAST_UPDATED } from '@/constants/siteMetadata'
 import { Box, Button, PaletteMode, Skeleton, Switch, Typography } from '@mui/material'
 import { ChartModal } from '@/components/charts/ChartModal'
+import { SlideshowBarAdmissionsModal } from '@/components/charts/SlideshowBarAdmissionsModal'
 import { ExportButton } from '@/components/ExportButton'
 import {
   GridToolbarColumnsButton,
@@ -26,6 +27,7 @@ interface ToolbarProps {
 export const Toolbar = ({ paletteMode, setPaletteMode, rows }: ToolbarProps) => {
   const { isLoading } = useLoadingContext()
   const [isChartModalOpen, setIsChartModalOpen] = useState(false)
+  const [isSlideshowChartModalOpen, setIsSlideshowChartModalOpen] = useState(false)
 
   const quickFilterRef = useQuickFilterTracking()
 
@@ -33,11 +35,18 @@ export const Toolbar = ({ paletteMode, setPaletteMode, rows }: ToolbarProps) => 
 
   const handleChartModalOpen = () => setIsChartModalOpen(true)
 
+  const handleSlideshowChartModalClose = () => setIsSlideshowChartModalOpen(false)
+
+  const handleSlideshowChartModalOpen = () => setIsSlideshowChartModalOpen(true)
+
   const handlePaletteModeToggle = () => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')
 
   useWindowResizeEffect(
-    width => width < 1200 && isChartModalOpen,
-    () => setIsChartModalOpen(false)
+    width => width < 1200 && (isChartModalOpen || isSlideshowChartModalOpen),
+    () => {
+      setIsChartModalOpen(false)
+      setIsSlideshowChartModalOpen(false)
+    }
   )
 
   return (
@@ -96,6 +105,16 @@ export const Toolbar = ({ paletteMode, setPaletteMode, rows }: ToolbarProps) => 
               Charts
             </Button>
 
+            <Button
+              color="primary"
+              onClick={handleSlideshowChartModalOpen}
+              size="small"
+              startIcon={<BarChartIcon />}
+              sx={{ display: { xs: 'none', lg: 'inline-flex' } }}
+            >
+              Slideshow Charts
+            </Button>
+
             <ExportButton />
           </Box>
         )}
@@ -109,6 +128,12 @@ export const Toolbar = ({ paletteMode, setPaletteMode, rows }: ToolbarProps) => 
       </Box>
 
       <ChartModal isOpen={isChartModalOpen} onClose={handleChartModalClose} paletteMode={paletteMode} rows={rows} />
+
+      <SlideshowBarAdmissionsModal
+        isOpen={isSlideshowChartModalOpen}
+        onClose={handleSlideshowChartModalClose}
+        rows={rows}
+      />
     </GridToolbarContainer>
   )
 }

@@ -5,6 +5,9 @@ export enum ChartTestId {
   LICENSE_DISTRIBUTION_BY_ADMISSION_DATE = 'license-distribution-by-admission-date-chart',
   LICENSE_DISTRIBUTION_BY_LAW_SCHOOL = 'license-distribution-by-law-school-chart',
   LICENSE_DISTRIBUTION_TOTAL = 'license-distribution-total-chart',
+  SLIDESHOW_BAR_ADMISSIONS_BY_LAW_SCHOOL = 'slideshow-bar-admissions-by-law-school-chart',
+  SLIDESHOW_BAR_ADMISSIONS_BY_LICENSE_TYPE = 'slideshow-bar-admissions-by-license-type-chart',
+  SLIDESHOW_BAR_ADMISSIONS_TOTAL = 'slideshow-bar-admissions-total-chart',
   TOP_EMPLOYERS_BY_ADMISSION_DATE = 'top-employers-by-admission-date-chart',
   TOP_EMPLOYERS_BY_LAW_SCHOOL = 'top-employers-by-law-school-chart',
   TOP_EMPLOYERS_TOTAL = 'top-employers-total-chart'

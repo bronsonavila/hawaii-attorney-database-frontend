@@ -1,4 +1,4 @@
-import { calculateBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
+import { calculateBarAdmissions, calculateSlideshowBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
 import { LICENSE_TYPE_ORDER } from '@/constants/chartConstants'
 import { loadTestRows } from '@tests/utils/testUtils'
 import { ViewType } from '@/types/chart'
@@ -134,5 +134,66 @@ describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
     if (licenseTypes.includes('Unknown')) {
       expect(licenseTypes[licenseTypes.length - 1]).toBe('Unknown')
     }
+  })
+})
+
+describe('calculateSlideshowBarAdmissions', () => {
+  it('crops to 1987 onward, excludes Pro Hac Vice, and groups license statuses into eligibility buckets', () => {
+    const rows: Row[] = [
+      makeRow({ barAdmissionDate: '1/15/1986', id: 'pre-1987', licenseType: 'Active' }),
+      makeRow({ barAdmissionDate: '1/15/1987', id: 'active', licenseType: 'Active' }),
+      makeRow({ barAdmissionDate: '2/15/1987', id: 'government', licenseType: 'Government' }),
+      makeRow({ barAdmissionDate: '3/15/1987', id: 'judge', licenseType: 'Judge' }),
+      makeRow({ barAdmissionDate: '4/15/1987', id: 'inactive-pro-bono', licenseType: 'Inactive - Pro Bono' }),
+      makeRow({ barAdmissionDate: '5/15/1987', id: 'rlsa', licenseType: 'RLSA' }),
+      makeRow({ barAdmissionDate: '6/15/1987', id: 'suspended', licenseType: 'Suspended - Non-Payment' }),
+      makeRow({ barAdmissionDate: '7/15/1987', id: 'unknown', licenseType: 'Unknown' }),
+      makeRow({ barAdmissionDate: '8/15/1987', id: 'pro-hac-vice', licenseType: 'Pro Hac Vice' }),
+      makeRow({ barAdmissionDate: '1/15/1988', id: 'deceased', licenseType: 'Deceased' })
+    ]
+
+    const data = calculateSlideshowBarAdmissions(rows, ViewType.BY_LICENSE_TYPE) as Array<Record<string, unknown>>
+
+    expect(data).toHaveLength(2)
+    expect(data[0].year).toBe('1987')
+    expect(data[1].year).toBe('1988')
+
+    const year1987 = data[0] as Record<string, number | string>
+    const year1988 = data[1] as Record<string, number | string>
+
+    expect(year1987.count).toBe(7)
+    expect(year1987['Eligible to practice']).toBe(3)
+    expect(year1987['Limited eligibility to practice']).toBe(2)
+    expect(year1987['Not eligible to practice']).toBe(2)
+    expect('Active' in year1987).toBe(false)
+    expect('Government' in year1987).toBe(false)
+    expect('Judge' in year1987).toBe(false)
+    expect('Pro Hac Vice' in year1987).toBe(false)
+
+    expect(year1988.count).toBe(1)
+    expect(year1988['Eligible to practice']).toBe(0)
+    expect(year1988['Limited eligibility to practice']).toBe(0)
+    expect(year1988['Not eligible to practice']).toBe(1)
+  })
+
+  it('uses only William S. Richardson and Other in the law school view', () => {
+    const rows: Row[] = [
+      makeRow({ barAdmissionDate: '1/15/1987', id: 'richardson', lawSchool: 'William S. Richardson' }),
+      makeRow({ barAdmissionDate: '2/15/1987', id: 'other', lawSchool: 'Harvard U.' }),
+      makeRow({ barAdmissionDate: '3/15/1987', id: 'blank', lawSchool: '' }),
+      makeRow({ barAdmissionDate: '1/15/1986', id: 'pre-1987', lawSchool: 'William S. Richardson' })
+    ]
+
+    const data = calculateSlideshowBarAdmissions(rows, ViewType.BY_LAW_SCHOOL) as Array<Record<string, unknown>>
+
+    expect(data).toHaveLength(1)
+
+    const year1987 = data[0] as Record<string, number | string>
+
+    expect(year1987.year).toBe('1987')
+    expect(year1987.count).toBe(3)
+    expect(year1987['William S. Richardson']).toBe(1)
+    expect(year1987.Other).toBe(2)
+    expect('Harvard U.' in year1987).toBe(false)
   })
 })

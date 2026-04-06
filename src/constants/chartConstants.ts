@@ -19,3 +19,13 @@ export const LICENSE_TYPE_ORDER = [
   'Deceased',
   'Unknown'
 ]
+
+export const SLIDESHOW_BAR_ADMISSIONS_START_YEAR = 1987
+
+export const SLIDESHOW_LICENSE_TYPE_ORDER = [
+  'Eligible to practice',
+  'Limited eligibility to practice',
+  'Not eligible to practice'
+]
+
+export const SLIDESHOW_LAW_SCHOOL_ORDER = ['William S. Richardson', 'Other']
