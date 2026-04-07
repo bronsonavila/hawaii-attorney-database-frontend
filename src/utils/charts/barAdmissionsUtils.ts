@@ -2,6 +2,7 @@ import { DatasetType } from '@mui/x-charts/internals'
 import { getTopLawSchools } from '@/utils/charts/commonUtils'
 import {
   LICENSE_TYPE_ORDER,
+  SLIDESHOW_BAR_ADMISSIONS_END_YEAR,
   SLIDESHOW_BAR_ADMISSIONS_START_YEAR,
   SLIDESHOW_LAW_SCHOOL_ORDER,
   SLIDESHOW_LICENSE_TYPE_ORDER
@@ -164,7 +165,12 @@ export const calculateSlideshowBarAdmissions = (rows: Row[], viewType: ViewType)
 
     const yearValue = getBarAdmissionYear(row.barAdmissionDate)
 
-    if (yearValue === null || yearValue < SLIDESHOW_BAR_ADMISSIONS_START_YEAR) return result
+    if (
+      yearValue === null ||
+      yearValue < SLIDESHOW_BAR_ADMISSIONS_START_YEAR ||
+      yearValue > SLIDESHOW_BAR_ADMISSIONS_END_YEAR
+    )
+      return result
 
     const year = yearValue.toString()
 

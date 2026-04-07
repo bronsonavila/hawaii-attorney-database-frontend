@@ -23,7 +23,7 @@ const LAW_SCHOOL_OTHER_FALLBACK_SERIES_ID = 'auto-generated-id-1'
 const COMMON_CHART_PROPS = {
   axisHighlight: { x: 'none', y: 'none' } as const,
   grid: { horizontal: true },
-  margin: { bottom: 88, left: 50, right: 20, top: 24 },
+  margin: { bottom: 110, left: 76, right: 20, top: 24 },
   slotProps: {
     legend: {
       direction: 'row' as const,
@@ -232,9 +232,11 @@ export const SlideshowBarAdmissionsChart = ({ data, viewType }: SlideshowBarAdmi
   const xAxis = [
     {
       data: years,
+      label: 'Bar Admission Year',
+      labelStyle: { fontSize: 12 },
       scaleType: 'band' as const,
       tickLabelInterval: () => true,
-      tickLabelStyle: { fontSize: 10 } as const,
+      tickLabelStyle: { fontSize: 11 } as const,
       valueFormatter: (value: string) => value.toString()
     }
   ]
@@ -257,6 +259,9 @@ export const SlideshowBarAdmissionsChart = ({ data, viewType }: SlideshowBarAdmi
     <Box ref={containerReference} sx={{ flex: 1, minHeight: 320, minWidth: 0, width: '100%' }}>
       <BarChart
         {...COMMON_CHART_PROPS}
+        {...(viewType === ViewType.TOTAL
+          ? { slotProps: { ...COMMON_CHART_PROPS.slotProps, legend: { hidden: true } } }
+          : {})}
         barLabel={buildBarLabelFormatter(viewType, attorneyData)}
         data-testid={getChartTestId(viewType)}
         height={chartSize.height}
@@ -265,11 +270,17 @@ export const SlideshowBarAdmissionsChart = ({ data, viewType }: SlideshowBarAdmi
         slots={{ barLabel: SlideshowBarLabel }}
         sx={{
           '& .MuiBarElement-root': { fillOpacity: 1 },
-          '& .MuiChartsAxis-label': { fontSize: 12 },
-          '& .MuiChartsAxis-tickLabel': { fontSize: 10 }
+          '& .MuiChartsAxis-tickLabel': { fontSize: 11 },
+          '& .MuiChartsAxis-directionY .MuiChartsAxis-label': {
+            transform: 'translateX(-20px)'
+          },
+          '& .MuiChartsAxis-directionX .MuiChartsAxis-label': {
+            transform: 'translateY(10px)'
+          }
         }}
         width={chartSize.width}
         xAxis={xAxis}
+        yAxis={[{ label: 'Attorneys Admitted', labelStyle: { fontSize: 12 } }]}
       />
     </Box>
   )

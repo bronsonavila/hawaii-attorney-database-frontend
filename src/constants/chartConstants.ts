@@ -22,6 +22,8 @@ export const LICENSE_TYPE_ORDER = [
 
 export const SLIDESHOW_BAR_ADMISSIONS_START_YEAR = 1987
 
+export const SLIDESHOW_BAR_ADMISSIONS_END_YEAR = 2025
+
 export const SLIDESHOW_LICENSE_TYPE_ORDER = [
   'Eligible to practice',
   'Limited eligibility to practice',

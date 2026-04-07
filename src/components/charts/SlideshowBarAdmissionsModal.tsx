@@ -1,20 +1,9 @@
-import FullscreenIcon from '@mui/icons-material/Fullscreen'
-import FullscreenExitIcon from '@mui/icons-material/FullscreenExit'
-import {
-  Box,
-  Button,
-  FormControl,
-  FormControlLabel,
-  IconButton,
-  Modal,
-  Radio,
-  RadioGroup,
-  Typography
-} from '@mui/material'
-import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Box, Modal, Typography } from '@mui/material'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Row } from '@/types/row'
 import { SlideshowBarAdmissionsChart } from './SlideshowBarAdmissionsChart'
 import { ViewType } from '@/types/chart'
+import { SLIDESHOW_BAR_ADMISSIONS_END_YEAR, SLIDESHOW_BAR_ADMISSIONS_START_YEAR } from '@/constants/chartConstants'
 import { calculateSlideshowBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
 
 const MODAL_BOX_SX = {
@@ -36,36 +25,37 @@ const MODAL_BOX_SX = {
   width: '100vw'
 }
 
-const VIEW_TYPE_OPTIONS = [
-  { label: 'Total Count', value: ViewType.TOTAL },
-  { label: 'License Status', value: ViewType.BY_LICENSE_TYPE },
-  { label: 'Law School', value: ViewType.BY_LAW_SCHOOL }
-]
-
 interface SlideshowBarAdmissionsModalProps {
   isOpen: boolean
   onClose: () => void
   rows: Row[]
 }
 
+const VIEW_TYPE_ORDER: ViewType[] = [ViewType.TOTAL, ViewType.BY_LICENSE_TYPE, ViewType.BY_LAW_SCHOOL]
+
 const getChartTitle = (viewType: ViewType) => {
   switch (viewType) {
     case ViewType.TOTAL:
-      return 'Total Count'
+      return 'Hawaii Bar Admissions'
     case ViewType.BY_LICENSE_TYPE:
-      return 'License Status'
+      return 'Hawaii Attorneys by License Status'
     case ViewType.BY_LAW_SCHOOL:
-      return 'Law School'
+      return 'Hawaii Attorneys by Law School'
     default:
       throw new Error(`Unhandled slideshow view type: ${viewType}`)
   }
 }
 
+const getAdjacentViewType = (currentViewType: ViewType, direction: -1 | 1) => {
+  const currentIndex = VIEW_TYPE_ORDER.indexOf(currentViewType)
+  const nextIndex = (currentIndex + direction + VIEW_TYPE_ORDER.length) % VIEW_TYPE_ORDER.length
+
+  return VIEW_TYPE_ORDER[nextIndex]
+}
+
 export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: SlideshowBarAdmissionsModalProps) => {
   const modalSurfaceReference = useRef<HTMLDivElement>(null)
   const [viewType, setViewType] = useState<ViewType>(ViewType.TOTAL)
-  const [isFullscreen, setIsFullscreen] = useState(false)
-  const [fullscreenSupported, setFullscreenSupported] = useState(false)
 
   const chartData = useMemo(() => calculateSlideshowBarAdmissions(rows, viewType), [rows, viewType])
 
@@ -99,86 +89,90 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
   }, [])
 
   useEffect(() => {
-    setFullscreenSupported(typeof document.documentElement.requestFullscreen === 'function')
-  }, [])
-
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(document.fullscreenElement === modalSurfaceReference.current)
-    }
-
-    document.addEventListener('fullscreenchange', handleFullscreenChange)
-
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
-  }, [])
-
-  useEffect(() => {
     if (!isOpen && document.fullscreenElement) {
       void document.exitFullscreen()
     }
   }, [isOpen])
 
-  const handleViewTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setViewType(event.target.value as ViewType)
-  }
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target
+
+      if (
+        event.defaultPrevented ||
+        event.altKey ||
+        event.ctrlKey ||
+        event.metaKey ||
+        (target instanceof HTMLElement &&
+          (target.isContentEditable || ['INPUT', 'SELECT', 'TEXTAREA'].includes(target.tagName)))
+      )
+        return
+
+      switch (event.key) {
+        case '1':
+          event.preventDefault()
+          setViewType(ViewType.TOTAL)
+          break
+        case '2':
+          event.preventDefault()
+          setViewType(ViewType.BY_LICENSE_TYPE)
+          break
+        case '3':
+          event.preventDefault()
+          setViewType(ViewType.BY_LAW_SCHOOL)
+          break
+        case 'ArrowLeft':
+          event.preventDefault()
+          setViewType(currentViewType => getAdjacentViewType(currentViewType, -1))
+          break
+        case 'ArrowRight':
+          event.preventDefault()
+          setViewType(currentViewType => getAdjacentViewType(currentViewType, 1))
+          break
+        case 'f':
+        case 'F':
+          event.preventDefault()
+          void handleFullscreenToggle()
+          break
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [handleFullscreenToggle, isOpen])
 
   return (
     <Modal open={isOpen} onClose={handleModalClose}>
       <Box ref={modalSurfaceReference} sx={MODAL_BOX_SX}>
         <Box
           sx={{
-            alignItems: 'flex-start',
+            alignItems: 'center',
             display: 'flex',
             flexShrink: 0,
-            flexWrap: 'wrap',
-            gap: 2,
-            justifyContent: 'space-between',
             pb: 1,
             pt: 2,
             px: 2
           }}
         >
-          <Box sx={{ minWidth: 0 }}>
-            <Typography sx={{ fontSize: 20, fontWeight: 600, lineHeight: 1.25 }} variant="h2">
-              Hawaii Bar Admissions
+          <Box
+            sx={{ alignItems: 'baseline', columnGap: 1, display: 'flex', flexWrap: 'wrap', minWidth: 0, rowGap: 0.5 }}
+          >
+            <Typography component="span" sx={{ fontSize: 20, fontWeight: 600, lineHeight: 1.25 }} variant="h2">
+              {getChartTitle(viewType)}
             </Typography>
 
-            <Typography sx={{ color: 'text.secondary', mt: 0.25 }} variant="body2">
-              1987 to present
+            <Typography component="span" sx={{ color: 'text.disabled' }} variant="body2">
+              |
             </Typography>
-          </Box>
 
-          <Box sx={{ alignItems: 'center', display: 'flex', flexShrink: 0, flexWrap: 'wrap', gap: 1 }}>
-            {fullscreenSupported ? (
-              <IconButton
-                aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
-                color="inherit"
-                edge="end"
-                onClick={() => void handleFullscreenToggle()}
-                size="small"
-              >
-                {isFullscreen ? <FullscreenExitIcon /> : <FullscreenIcon />}
-              </IconButton>
-            ) : null}
-
-            <FormControl sx={{ flexShrink: 0 }}>
-              <RadioGroup onChange={handleViewTypeChange} row sx={{ flexWrap: 'wrap', gap: 1 }} value={viewType}>
-                {VIEW_TYPE_OPTIONS.map(option => (
-                  <FormControlLabel
-                    control={<Radio size="small" />}
-                    key={option.value}
-                    label={option.label}
-                    value={option.value}
-                  />
-                ))}
-              </RadioGroup>
-            </FormControl>
+            <Typography component="span" sx={{ color: 'text.secondary' }} variant="body2">
+              {SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to {SLIDESHOW_BAR_ADMISSIONS_END_YEAR}
+            </Typography>
           </Box>
         </Box>
-
-        <Typography sx={{ flexShrink: 0, fontSize: 16, fontWeight: 600, px: 2, py: 0.5 }}>
-          {getChartTitle(viewType)}
-        </Typography>
 
         <Box
           sx={{
@@ -194,10 +188,6 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
             <SlideshowBarAdmissionsChart data={chartData} viewType={viewType} />
           </Box>
         </Box>
-
-        <Button onClick={handleModalClose} sx={{ display: 'block', flexShrink: 0, mb: 1.5, ml: 'auto', mr: 2 }}>
-          Close
-        </Button>
       </Box>
     </Modal>
   )

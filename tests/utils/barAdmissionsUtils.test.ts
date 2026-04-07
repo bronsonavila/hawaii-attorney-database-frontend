@@ -138,7 +138,7 @@ describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
 })
 
 describe('calculateSlideshowBarAdmissions', () => {
-  it('crops to 1987 onward, excludes Pro Hac Vice, and groups license statuses into eligibility buckets', () => {
+  it('crops to 1987 through 2025, excludes Pro Hac Vice, and groups license statuses into eligibility buckets', () => {
     const rows: Row[] = [
       makeRow({ barAdmissionDate: '1/15/1986', id: 'pre-1987', licenseType: 'Active' }),
       makeRow({ barAdmissionDate: '1/15/1987', id: 'active', licenseType: 'Active' }),
@@ -195,5 +195,19 @@ describe('calculateSlideshowBarAdmissions', () => {
     expect(year1987['William S. Richardson']).toBe(1)
     expect(year1987.Other).toBe(2)
     expect('Harvard U.' in year1987).toBe(false)
+  })
+
+  it('omits bar admission years after 2025', () => {
+    const rows: Row[] = [
+      makeRow({ barAdmissionDate: '1/15/2025', id: 'in-range', licenseType: 'Active' }),
+      makeRow({ barAdmissionDate: '6/15/2026', id: 'after-end', licenseType: 'Active' }),
+      makeRow({ barAdmissionDate: '1/15/2030', id: 'far-future', licenseType: 'Active' })
+    ]
+
+    const data = calculateSlideshowBarAdmissions(rows, ViewType.TOTAL) as Array<Record<string, unknown>>
+
+    expect(data).toHaveLength(1)
+    expect(data[0].year).toBe('2025')
+    expect((data[0] as Record<string, number>).count).toBe(1)
   })
 })
