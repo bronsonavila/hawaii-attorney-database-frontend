@@ -1,4 +1,8 @@
-import { calculateBarAdmissions, calculateSlideshowBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
+import {
+  calculateBarAdmissions,
+  calculateSlideshowBarAdmissions,
+  calculateSlideshowEligibleLineData
+} from '@/utils/charts/barAdmissionsUtils'
 import { LICENSE_TYPE_ORDER } from '@/constants/chartConstants'
 import { loadTestRows } from '@tests/utils/testUtils'
 import { ViewType } from '@/types/chart'
@@ -209,5 +213,37 @@ describe('calculateSlideshowBarAdmissions', () => {
     expect(data).toHaveLength(1)
     expect(data[0].year).toBe('2025')
     expect((data[0] as Record<string, number>).count).toBe(1)
+  })
+})
+
+describe('calculateSlideshowEligibleLineData', () => {
+  it('fills missing years with zero and keeps eligible and limited-eligibility counts from 1987 through 2025', () => {
+    const rows: Row[] = [
+      makeRow({ barAdmissionDate: '1/15/1986', id: 'pre-range', licenseType: 'Active' }),
+      makeRow({ barAdmissionDate: '1/15/1987', id: 'year-1987', licenseType: 'Active' }),
+      makeRow({ barAdmissionDate: '1/15/1988', id: 'year-1988-limited', licenseType: 'RLSA' }),
+      makeRow({ barAdmissionDate: '1/15/1989', id: 'year-1989-eligible', licenseType: 'Government' }),
+      makeRow({ barAdmissionDate: '2/15/1989', id: 'year-1989-not-eligible', licenseType: 'Suspended - Non-Payment' }),
+      makeRow({ barAdmissionDate: '1/15/2025', id: 'year-2025', licenseType: 'Judge' }),
+      makeRow({ barAdmissionDate: '1/15/2026', id: 'post-range', licenseType: 'Active' })
+    ]
+
+    const data = calculateSlideshowEligibleLineData(rows) as Array<Record<string, unknown>>
+
+    expect(data).toHaveLength(39)
+    expect(data[0].year).toBe('1987')
+    expect(data[data.length - 1].year).toBe('2025')
+
+    const year1987 = data.find(item => item.year === '1987') as Record<string, number | string>
+    const year1988 = data.find(item => item.year === '1988') as Record<string, number | string>
+    const year1989 = data.find(item => item.year === '1989') as Record<string, number | string>
+    const year2025 = data.find(item => item.year === '2025') as Record<string, number | string>
+
+    expect(year1987.count).toBe(1)
+    expect(year1988.count).toBe(1)
+    expect(year1989.count).toBe(1)
+    expect(year2025.count).toBe(1)
+    expect(data.find(item => item.year === '1986')).toBeUndefined()
+    expect(data.find(item => item.year === '2026')).toBeUndefined()
   })
 })

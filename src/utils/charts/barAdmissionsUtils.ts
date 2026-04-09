@@ -243,6 +243,32 @@ export const calculateSlideshowBarAdmissions = (rows: Row[], viewType: ViewType)
     .sort((a, b) => a.year.localeCompare(b.year))
 }
 
+export const calculateSlideshowEligibleLineData = (rows: Row[]): DatasetType => {
+  const yearlyEligibilityData = calculateSlideshowBarAdmissions(rows, ViewType.BY_LICENSE_TYPE) as Array<
+    Record<string, number | string>
+  >
+
+  const eligibleCountsByYear = new Map(
+    yearlyEligibilityData.map(yearData => [
+      String(yearData.year),
+      Number(yearData[ELIGIBLE_TO_PRACTICE] || 0) + Number(yearData[LIMITED_ELIGIBILITY_TO_PRACTICE] || 0)
+    ])
+  )
+
+  return Array.from(
+    { length: SLIDESHOW_BAR_ADMISSIONS_END_YEAR - SLIDESHOW_BAR_ADMISSIONS_START_YEAR + 1 },
+    (_, yearIndex) => {
+      const year = SLIDESHOW_BAR_ADMISSIONS_START_YEAR + yearIndex
+      const yearKey = year.toString()
+
+      return {
+        count: eligibleCountsByYear.get(yearKey) || 0,
+        year: yearKey
+      }
+    }
+  )
+}
+
 export const calculateSlideshowEligibilitySummary = (rows: Row[]) => {
   const counts = rows.reduce(
     (result, row) => {

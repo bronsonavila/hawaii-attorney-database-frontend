@@ -1,6 +1,11 @@
 import { BarAdmissionsChart } from '@/components/charts/BarAdmissionsChart'
 import { SlideshowBarAdmissionsChart } from '@/components/charts/SlideshowBarAdmissionsChart'
-import { calculateBarAdmissions, calculateSlideshowBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
+import { SlideshowEligibilityLineChart } from '@/components/charts/SlideshowEligibilityLineChart'
+import {
+  calculateBarAdmissions,
+  calculateSlideshowBarAdmissions,
+  calculateSlideshowEligibleLineData
+} from '@/utils/charts/barAdmissionsUtils'
 import { ChartTestId, ViewType } from '@/types/chart'
 import { loadTestRows } from '@tests/utils/testUtils'
 import { Box } from '@mui/material'
@@ -32,8 +37,23 @@ describe('BarAdmissionsChart', () => {
     })
   })
 
+  describe('slideshow total view', () => {
+    it('renders without crashing', () => {
+      const data = calculateSlideshowBarAdmissions(rows, ViewType.TOTAL)
+
+      render(
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: 480, width: '100%' }}>
+          <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column', minHeight: 0 }}>
+            <SlideshowBarAdmissionsChart data={data} viewType={ViewType.TOTAL} />
+          </Box>
+        </Box>
+      )
+
+      expect(screen.getByTestId(ChartTestId.SLIDESHOW_BAR_ADMISSIONS_TOTAL)).toBeInTheDocument()
+    })
+  })
+
   const slideshowTestViews = [
-    { legendLabels: ['Count'], testId: ChartTestId.SLIDESHOW_BAR_ADMISSIONS_TOTAL, viewType: ViewType.TOTAL },
     {
       legendLabels: ['Eligible to practice', 'Limited eligibility to practice', 'Not eligible to practice'],
       testId: ChartTestId.SLIDESHOW_BAR_ADMISSIONS_BY_LICENSE_TYPE,
@@ -67,6 +87,22 @@ describe('BarAdmissionsChart', () => {
           expect(within(chartRoot).getByText(label)).toBeInTheDocument()
         })
       })
+    })
+  })
+
+  describe('slideshow eligibility line view', () => {
+    it('renders without crashing', () => {
+      const data = calculateSlideshowEligibleLineData(rows)
+
+      render(
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: 480, width: '100%' }}>
+          <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column', minHeight: 0 }}>
+            <SlideshowEligibilityLineChart data={data} />
+          </Box>
+        </Box>
+      )
+
+      expect(screen.getByTestId(ChartTestId.SLIDESHOW_ELIGIBILITY_LINE)).toBeInTheDocument()
     })
   })
 })

@@ -4,8 +4,13 @@ import { Row } from '@/types/row'
 import { SlideshowBarAdmissionsChart } from './SlideshowBarAdmissionsChart'
 import { ViewType } from '@/types/chart'
 import { SLIDESHOW_BAR_ADMISSIONS_END_YEAR, SLIDESHOW_BAR_ADMISSIONS_START_YEAR } from '@/constants/chartConstants'
-import { calculateSlideshowBarAdmissions, calculateSlideshowEligibilitySummary } from '@/utils/charts/barAdmissionsUtils'
+import {
+  calculateSlideshowBarAdmissions,
+  calculateSlideshowEligibilitySummary,
+  calculateSlideshowEligibleLineData
+} from '@/utils/charts/barAdmissionsUtils'
 import { SlideshowEligibilityDonutChart } from './SlideshowEligibilityDonutChart'
+import { SlideshowEligibilityLineChart } from './SlideshowEligibilityLineChart'
 
 const MODAL_BOX_SX = {
   bgcolor: 'background.paper',
@@ -36,6 +41,7 @@ const VIEW_TYPE_ORDER: ViewType[] = [
   ViewType.TOTAL,
   ViewType.BY_LICENSE_TYPE,
   ViewType.BY_LAW_SCHOOL,
+  ViewType.SLIDESHOW_ELIGIBILITY_LINE,
   ViewType.SLIDESHOW_ELIGIBILITY_DONUT
 ]
 
@@ -47,6 +53,8 @@ const getChartTitle = (viewType: ViewType) => {
       return 'Hawaii Attorneys by License Status'
     case ViewType.BY_LAW_SCHOOL:
       return 'Hawaii Attorneys by Law School'
+    case ViewType.SLIDESHOW_ELIGIBILITY_LINE:
+      return 'Hawaii Attorneys Eligible to Practice by Bar Admission Year'
     case ViewType.SLIDESHOW_ELIGIBILITY_DONUT:
       return 'Hawaii Attorneys by Eligibility to Practice'
     default:
@@ -62,15 +70,20 @@ const getAdjacentViewType = (currentViewType: ViewType, direction: -1 | 1) => {
 }
 
 const isEligibilitySummaryView = (viewType: ViewType) => viewType === ViewType.SLIDESHOW_ELIGIBILITY_DONUT
+const isEligibilityLineView = (viewType: ViewType) => viewType === ViewType.SLIDESHOW_ELIGIBILITY_LINE
 
 export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: SlideshowBarAdmissionsModalProps) => {
   const modalSurfaceReference = useRef<HTMLDivElement>(null)
   const [viewType, setViewType] = useState<ViewType>(ViewType.TOTAL)
 
   const chartData = useMemo(
-    () => (isEligibilitySummaryView(viewType) ? [] : calculateSlideshowBarAdmissions(rows, viewType)),
+    () =>
+      isEligibilitySummaryView(viewType) || isEligibilityLineView(viewType)
+        ? []
+        : calculateSlideshowBarAdmissions(rows, viewType),
     [rows, viewType]
   )
+  const eligibilityLineData = useMemo(() => calculateSlideshowEligibleLineData(rows), [rows])
   const eligibilitySummaryData = useMemo(() => calculateSlideshowEligibilitySummary(rows), [rows])
 
   const exitFullscreenIfActive = useCallback(async () => {
@@ -139,6 +152,10 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
           break
         case '4':
           event.preventDefault()
+          setViewType(ViewType.SLIDESHOW_ELIGIBILITY_LINE)
+          break
+        case '5':
+          event.preventDefault()
           setViewType(ViewType.SLIDESHOW_ELIGIBILITY_DONUT)
           break
         case 'ArrowLeft':
@@ -182,11 +199,11 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
               {getChartTitle(viewType)}
             </Typography>
 
-            <Typography component="span" sx={{ color: 'text.disabled' }} variant="body2">
+            <Typography component="span" sx={{ color: 'text.disabled', fontSize: 16 }} variant="body2">
               |
             </Typography>
 
-            <Typography component="span" sx={{ color: 'text.secondary' }} variant="body2">
+            <Typography component="span" sx={{ color: 'text.secondary', fontSize: 16 }} variant="body2">
               {viewType === ViewType.SLIDESHOW_ELIGIBILITY_DONUT
                 ? `As of ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`
                 : `${SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`}
@@ -207,6 +224,8 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
           <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column', minHeight: 0 }}>
             {viewType === ViewType.SLIDESHOW_ELIGIBILITY_DONUT ? (
               <SlideshowEligibilityDonutChart data={eligibilitySummaryData} />
+            ) : viewType === ViewType.SLIDESHOW_ELIGIBILITY_LINE ? (
+              <SlideshowEligibilityLineChart data={eligibilityLineData} />
             ) : (
               <SlideshowBarAdmissionsChart data={chartData} viewType={viewType} />
             )}
