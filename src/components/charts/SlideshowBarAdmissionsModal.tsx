@@ -4,7 +4,8 @@ import { Row } from '@/types/row'
 import { SlideshowBarAdmissionsChart } from './SlideshowBarAdmissionsChart'
 import { ViewType } from '@/types/chart'
 import { SLIDESHOW_BAR_ADMISSIONS_END_YEAR, SLIDESHOW_BAR_ADMISSIONS_START_YEAR } from '@/constants/chartConstants'
-import { calculateSlideshowBarAdmissions } from '@/utils/charts/barAdmissionsUtils'
+import { calculateSlideshowBarAdmissions, calculateSlideshowEligibilitySummary } from '@/utils/charts/barAdmissionsUtils'
+import { SlideshowEligibilityDonutChart } from './SlideshowEligibilityDonutChart'
 
 const MODAL_BOX_SX = {
   bgcolor: 'background.paper',
@@ -31,7 +32,12 @@ interface SlideshowBarAdmissionsModalProps {
   rows: Row[]
 }
 
-const VIEW_TYPE_ORDER: ViewType[] = [ViewType.TOTAL, ViewType.BY_LICENSE_TYPE, ViewType.BY_LAW_SCHOOL]
+const VIEW_TYPE_ORDER: ViewType[] = [
+  ViewType.TOTAL,
+  ViewType.BY_LICENSE_TYPE,
+  ViewType.BY_LAW_SCHOOL,
+  ViewType.SLIDESHOW_ELIGIBILITY_DONUT
+]
 
 const getChartTitle = (viewType: ViewType) => {
   switch (viewType) {
@@ -41,6 +47,8 @@ const getChartTitle = (viewType: ViewType) => {
       return 'Hawaii Attorneys by License Status'
     case ViewType.BY_LAW_SCHOOL:
       return 'Hawaii Attorneys by Law School'
+    case ViewType.SLIDESHOW_ELIGIBILITY_DONUT:
+      return 'Hawaii Attorneys by Eligibility to Practice'
     default:
       throw new Error(`Unhandled slideshow view type: ${viewType}`)
   }
@@ -53,11 +61,17 @@ const getAdjacentViewType = (currentViewType: ViewType, direction: -1 | 1) => {
   return VIEW_TYPE_ORDER[nextIndex]
 }
 
+const isEligibilitySummaryView = (viewType: ViewType) => viewType === ViewType.SLIDESHOW_ELIGIBILITY_DONUT
+
 export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: SlideshowBarAdmissionsModalProps) => {
   const modalSurfaceReference = useRef<HTMLDivElement>(null)
   const [viewType, setViewType] = useState<ViewType>(ViewType.TOTAL)
 
-  const chartData = useMemo(() => calculateSlideshowBarAdmissions(rows, viewType), [rows, viewType])
+  const chartData = useMemo(
+    () => (isEligibilitySummaryView(viewType) ? [] : calculateSlideshowBarAdmissions(rows, viewType)),
+    [rows, viewType]
+  )
+  const eligibilitySummaryData = useMemo(() => calculateSlideshowEligibilitySummary(rows), [rows])
 
   const exitFullscreenIfActive = useCallback(async () => {
     const surface = modalSurfaceReference.current
@@ -123,6 +137,10 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
           event.preventDefault()
           setViewType(ViewType.BY_LAW_SCHOOL)
           break
+        case '4':
+          event.preventDefault()
+          setViewType(ViewType.SLIDESHOW_ELIGIBILITY_DONUT)
+          break
         case 'ArrowLeft':
           event.preventDefault()
           setViewType(currentViewType => getAdjacentViewType(currentViewType, -1))
@@ -169,7 +187,9 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
             </Typography>
 
             <Typography component="span" sx={{ color: 'text.secondary' }} variant="body2">
-              {SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to {SLIDESHOW_BAR_ADMISSIONS_END_YEAR}
+              {viewType === ViewType.SLIDESHOW_ELIGIBILITY_DONUT
+                ? `As of ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`
+                : `${SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`}
             </Typography>
           </Box>
         </Box>
@@ -185,7 +205,11 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
           }}
         >
           <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column', minHeight: 0 }}>
-            <SlideshowBarAdmissionsChart data={chartData} viewType={viewType} />
+            {viewType === ViewType.SLIDESHOW_ELIGIBILITY_DONUT ? (
+              <SlideshowEligibilityDonutChart data={eligibilitySummaryData} />
+            ) : (
+              <SlideshowBarAdmissionsChart data={chartData} viewType={viewType} />
+            )}
           </Box>
         </Box>
       </Box>

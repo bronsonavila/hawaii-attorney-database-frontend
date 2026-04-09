@@ -71,41 +71,44 @@ const normalizeSlideshowBarAdmissionsLicenseType = (licenseType: string): string
 export const calculateBarAdmissions = (rows: Row[], viewType: ViewType): DatasetType => {
   const topLawSchools = getTopLawSchools(rows)
 
-  const barAdmissions = rows.reduce((result, row) => {
-    // Exclude Pro Hac Vice from all Bar Admissions charts.
-    if (EXCLUDED_BAR_ADMISSIONS_LICENSE_TYPES.has(row.licenseType)) return result
+  const barAdmissions = rows.reduce(
+    (result, row) => {
+      // Exclude Pro Hac Vice from all Bar Admissions charts.
+      if (EXCLUDED_BAR_ADMISSIONS_LICENSE_TYPES.has(row.licenseType)) return result
 
-    const yearValue = getBarAdmissionYear(row.barAdmissionDate)
+      const yearValue = getBarAdmissionYear(row.barAdmissionDate)
 
-    if (yearValue !== null) {
-      const year = yearValue.toString()
+      if (yearValue !== null) {
+        const year = yearValue.toString()
 
-      if (!result[year]) {
-        result[year] = { count: 0 }
-      }
-
-      result[year].count += 1
-
-      switch (viewType) {
-        case ViewType.BY_LAW_SCHOOL: {
-          const trimmedLawSchool = row.lawSchool?.trim()
-          const lawSchool = trimmedLawSchool && topLawSchools.includes(trimmedLawSchool) ? trimmedLawSchool : 'Other'
-
-          result[year][lawSchool] = (result[year][lawSchool] || 0) + 1
-
-          break
+        if (!result[year]) {
+          result[year] = { count: 0 }
         }
 
-        case ViewType.BY_LICENSE_TYPE: {
-          const licenseType = normalizeBarAdmissionsLicenseType(row.licenseType)
+        result[year].count += 1
 
-          result[year][licenseType] = (result[year][licenseType] || 0) + 1
+        switch (viewType) {
+          case ViewType.BY_LAW_SCHOOL: {
+            const trimmedLawSchool = row.lawSchool?.trim()
+            const lawSchool = trimmedLawSchool && topLawSchools.includes(trimmedLawSchool) ? trimmedLawSchool : 'Other'
+
+            result[year][lawSchool] = (result[year][lawSchool] || 0) + 1
+
+            break
+          }
+
+          case ViewType.BY_LICENSE_TYPE: {
+            const licenseType = normalizeBarAdmissionsLicenseType(row.licenseType)
+
+            result[year][licenseType] = (result[year][licenseType] || 0) + 1
+          }
         }
       }
-    }
 
-    return result
-  }, {} as Record<string, Record<string, number>>)
+      return result
+    },
+    {} as Record<string, Record<string, number>>
+  )
 
   const licenseTypesInDataset =
     viewType === ViewType.BY_LICENSE_TYPE
@@ -160,46 +163,49 @@ export const calculateBarAdmissions = (rows: Row[], viewType: ViewType): Dataset
 }
 
 export const calculateSlideshowBarAdmissions = (rows: Row[], viewType: ViewType): DatasetType => {
-  const barAdmissions = rows.reduce((result, row) => {
-    if (EXCLUDED_BAR_ADMISSIONS_LICENSE_TYPES.has(row.licenseType)) return result
+  const barAdmissions = rows.reduce(
+    (result, row) => {
+      if (EXCLUDED_BAR_ADMISSIONS_LICENSE_TYPES.has(row.licenseType)) return result
 
-    const yearValue = getBarAdmissionYear(row.barAdmissionDate)
+      const yearValue = getBarAdmissionYear(row.barAdmissionDate)
 
-    if (
-      yearValue === null ||
-      yearValue < SLIDESHOW_BAR_ADMISSIONS_START_YEAR ||
-      yearValue > SLIDESHOW_BAR_ADMISSIONS_END_YEAR
-    )
+      if (
+        yearValue === null ||
+        yearValue < SLIDESHOW_BAR_ADMISSIONS_START_YEAR ||
+        yearValue > SLIDESHOW_BAR_ADMISSIONS_END_YEAR
+      )
+        return result
+
+      const year = yearValue.toString()
+
+      if (!result[year]) {
+        result[year] = { count: 0 }
+      }
+
+      result[year].count += 1
+
+      switch (viewType) {
+        case ViewType.BY_LAW_SCHOOL: {
+          const lawSchool = row.lawSchool?.trim() === 'William S. Richardson' ? 'William S. Richardson' : 'Other'
+
+          result[year][lawSchool] = (result[year][lawSchool] || 0) + 1
+
+          break
+        }
+
+        case ViewType.BY_LICENSE_TYPE: {
+          const licenseType = normalizeSlideshowBarAdmissionsLicenseType(row.licenseType)
+
+          result[year][licenseType] = (result[year][licenseType] || 0) + 1
+
+          break
+        }
+      }
+
       return result
-
-    const year = yearValue.toString()
-
-    if (!result[year]) {
-      result[year] = { count: 0 }
-    }
-
-    result[year].count += 1
-
-    switch (viewType) {
-      case ViewType.BY_LAW_SCHOOL: {
-        const lawSchool = row.lawSchool?.trim() === 'William S. Richardson' ? 'William S. Richardson' : 'Other'
-
-        result[year][lawSchool] = (result[year][lawSchool] || 0) + 1
-
-        break
-      }
-
-      case ViewType.BY_LICENSE_TYPE: {
-        const licenseType = normalizeSlideshowBarAdmissionsLicenseType(row.licenseType)
-
-        result[year][licenseType] = (result[year][licenseType] || 0) + 1
-
-        break
-      }
-    }
-
-    return result
-  }, {} as Record<string, Record<string, number>>)
+    },
+    {} as Record<string, Record<string, number>>
+  )
 
   return Object.entries(barAdmissions)
     .map(([year, groups]) => {
@@ -235,4 +241,29 @@ export const calculateSlideshowBarAdmissions = (rows: Row[], viewType: ViewType)
       }
     })
     .sort((a, b) => a.year.localeCompare(b.year))
+}
+
+export const calculateSlideshowEligibilitySummary = (rows: Row[]) => {
+  const counts = rows.reduce(
+    (result, row) => {
+      if (EXCLUDED_BAR_ADMISSIONS_LICENSE_TYPES.has(row.licenseType)) return result
+
+      const yearValue = getBarAdmissionYear(row.barAdmissionDate)
+
+      if (yearValue === null || yearValue > SLIDESHOW_BAR_ADMISSIONS_END_YEAR) return result
+
+      const licenseType = normalizeSlideshowBarAdmissionsLicenseType(row.licenseType)
+
+      result[licenseType] = (result[licenseType] || 0) + 1
+
+      return result
+    },
+    {} as Record<string, number>
+  )
+
+  return SLIDESHOW_LICENSE_TYPE_ORDER.map((label, index) => ({
+    id: `eligibility-${index}`,
+    label,
+    value: counts[label] || 0
+  }))
 }
