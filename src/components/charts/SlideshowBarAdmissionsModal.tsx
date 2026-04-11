@@ -11,6 +11,7 @@ import {
 } from '@/utils/charts/barAdmissionsUtils'
 import { SlideshowEligibilityDonutChart } from './SlideshowEligibilityDonutChart'
 import { SlideshowEligibilityLineChart } from './SlideshowEligibilityLineChart'
+import { SlideshowActiveAttorneysLineChart } from './SlideshowActiveAttorneysLineChart'
 
 const MODAL_BOX_SX = {
   bgcolor: 'background.paper',
@@ -42,7 +43,8 @@ const VIEW_TYPE_ORDER: ViewType[] = [
   ViewType.BY_LICENSE_TYPE,
   ViewType.BY_LAW_SCHOOL,
   ViewType.SLIDESHOW_ELIGIBILITY_LINE,
-  ViewType.SLIDESHOW_ELIGIBILITY_DONUT
+  ViewType.SLIDESHOW_ELIGIBILITY_DONUT,
+  ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS
 ]
 
 const getChartTitle = (viewType: ViewType) => {
@@ -57,6 +59,8 @@ const getChartTitle = (viewType: ViewType) => {
       return 'Hawaii Attorneys Eligible to Practice by Bar Admission Year'
     case ViewType.SLIDESHOW_ELIGIBILITY_DONUT:
       return 'Hawaii Attorneys by Eligibility to Practice'
+    case ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS:
+      return 'HSBA Active Attorneys by Year'
     default:
       throw new Error(`Unhandled slideshow view type: ${viewType}`)
   }
@@ -71,6 +75,7 @@ const getAdjacentViewType = (currentViewType: ViewType, direction: -1 | 1) => {
 
 const isEligibilitySummaryView = (viewType: ViewType) => viewType === ViewType.SLIDESHOW_ELIGIBILITY_DONUT
 const isEligibilityLineView = (viewType: ViewType) => viewType === ViewType.SLIDESHOW_ELIGIBILITY_LINE
+const isHsbaActiveAttorneysView = (viewType: ViewType) => viewType === ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS
 
 export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: SlideshowBarAdmissionsModalProps) => {
   const modalSurfaceReference = useRef<HTMLDivElement>(null)
@@ -78,7 +83,7 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
 
   const chartData = useMemo(
     () =>
-      isEligibilitySummaryView(viewType) || isEligibilityLineView(viewType)
+      isEligibilitySummaryView(viewType) || isEligibilityLineView(viewType) || isHsbaActiveAttorneysView(viewType)
         ? []
         : calculateSlideshowBarAdmissions(rows, viewType),
     [rows, viewType]
@@ -158,6 +163,10 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
           event.preventDefault()
           setViewType(ViewType.SLIDESHOW_ELIGIBILITY_DONUT)
           break
+        case '6':
+          event.preventDefault()
+          setViewType(ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS)
+          break
         case 'ArrowLeft':
           event.preventDefault()
           setViewType(currentViewType => getAdjacentViewType(currentViewType, -1))
@@ -206,7 +215,9 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
             <Typography component="span" sx={{ color: 'text.secondary', fontSize: 16 }} variant="body2">
               {viewType === ViewType.SLIDESHOW_ELIGIBILITY_DONUT
                 ? `As of ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`
-                : `${SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`}
+                : viewType === ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS
+                  ? '2010 to 2025'
+                  : `${SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`}
             </Typography>
           </Box>
         </Box>
@@ -226,6 +237,8 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
               <SlideshowEligibilityDonutChart data={eligibilitySummaryData} />
             ) : viewType === ViewType.SLIDESHOW_ELIGIBILITY_LINE ? (
               <SlideshowEligibilityLineChart data={eligibilityLineData} />
+            ) : viewType === ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS ? (
+              <SlideshowActiveAttorneysLineChart />
             ) : (
               <SlideshowBarAdmissionsChart data={chartData} viewType={viewType} />
             )}

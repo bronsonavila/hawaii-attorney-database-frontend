@@ -31,3 +31,22 @@ export const SLIDESHOW_LICENSE_TYPE_ORDER = [
 ]
 
 export const SLIDESHOW_LAW_SCHOOL_ORDER = ['William S. Richardson', 'Other']
+
+export const HSBA_ACTIVE_ATTORNEYS_BY_YEAR = [
+  { count: 4667, year: '2010' },
+  { count: 4632, year: '2011' },
+  { count: 4670, year: '2012' },
+  { count: 4737, year: '2013' },
+  { count: 4813, year: '2014' },
+  { count: 4834, year: '2015' },
+  { count: 4858, year: '2016' },
+  { count: 4879, year: '2017' },
+  { count: 4931, year: '2018' },
+  { count: 4955, year: '2019' },
+  { count: 4933, year: '2020' },
+  { count: 4895, year: '2021' },
+  { count: 4957, year: '2022' },
+  { count: 4944, year: '2023' },
+  { count: 4946, year: '2024' },
+  { count: 4944, year: '2025' }
+]

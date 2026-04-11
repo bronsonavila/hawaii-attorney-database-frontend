@@ -10,6 +10,7 @@ export enum ChartTestId {
   SLIDESHOW_BAR_ADMISSIONS_TOTAL = 'slideshow-bar-admissions-total-chart',
   SLIDESHOW_ELIGIBILITY_LINE = 'slideshow-eligibility-line-chart',
   SLIDESHOW_ELIGIBILITY_DONUT = 'slideshow-eligibility-donut-chart',
+  SLIDESHOW_HSBA_ACTIVE_ATTORNEYS = 'slideshow-hsba-active-attorneys-chart',
   TOP_EMPLOYERS_BY_ADMISSION_DATE = 'top-employers-by-admission-date-chart',
   TOP_EMPLOYERS_BY_LAW_SCHOOL = 'top-employers-by-law-school-chart',
   TOP_EMPLOYERS_TOTAL = 'top-employers-total-chart'
@@ -27,5 +28,6 @@ export enum ViewType {
   BY_LICENSE_TYPE = 'byLicenseType',
   SLIDESHOW_ELIGIBILITY_LINE = 'slideshowEligibilityLine',
   SLIDESHOW_ELIGIBILITY_DONUT = 'slideshowEligibilityDonut',
+  SLIDESHOW_HSBA_ACTIVE_ATTORNEYS = 'slideshowHsbaActiveAttorneys',
   TOTAL = 'total'
 }
