@@ -25,7 +25,7 @@ const EMPLOYER_NAME_PATTERNS: Record<string, string[]> = {
   'Kamehameha Schools': ['kamehameha', 'schools'],
   'First Hawaiian Bank': ['first', 'hawaiian', 'bank'],
   'Rush Moore': ['rush', 'moore'],
-  'Clay Iwamura Pulice & Nervell': ['clay', 'iwamura', 'pulice', 'nervell'],
+  'Pulice Nervell': ['pulice', 'nervell'],
   'Bronster Fujichaku Robbins': ['bronster', 'fujichaku', 'robbins'],
   'Schlack Ito': ['schlack', 'ito'],
   'Gordon Rees Scully Mansukhani': ['gordon', 'rees', 'scully', 'mansukhani'],
