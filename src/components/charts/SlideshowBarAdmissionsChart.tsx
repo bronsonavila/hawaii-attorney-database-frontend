@@ -58,7 +58,7 @@ const SLIDESHOW_LAW_SCHOOL_SERIES = SLIDESHOW_LAW_SCHOOL_ORDER.map(label => ({
 }))
 
 /** Top inset for bar value text; `dominantBaseline="hanging"` keeps glyphs inside the bar (avoids clip-path cropping). */
-const TOP_INSIDE_LABEL_OFFSET_PX = 4
+const TOP_INSIDE_LABEL_OFFSET_PX = 6
 
 type BarLabelSpringStyle = {
   height: SpringValue<number>
@@ -81,7 +81,7 @@ type BarLabelContextInput = {
  * Places the value at the top inside the bar segment (MUI default centers the label).
  * Uses animated center Y and segment height from the bar label spring.
  */
-const SlideshowBarLabel = (props: BarLabelProps) => {
+export const SlideshowBarLabel = (props: BarLabelProps) => {
   const { children, className, style } = props
 
   const springStyle = style as unknown as BarLabelSpringStyle | undefined
@@ -97,11 +97,13 @@ const SlideshowBarLabel = (props: BarLabelProps) => {
     <animated.text
       className={className}
       dominantBaseline="hanging"
-      fill="#000000"
-      fontSize={11}
-      fontWeight={600}
+      fill="#424242"
+      fontSize={16}
+      fontWeight={700}
+      paintOrder="stroke"
       pointerEvents="none"
-      stroke="none"
+      stroke="#ffffff"
+      strokeWidth={4}
       textAnchor="middle"
       x={springStyle.x}
       y={labelY}
@@ -142,7 +144,7 @@ const getSeriesDefinitions = (viewType: ViewType) => {
   }
 }
 
-const minBarHeightForLabelStacked = 14
+const minBarHeightForLabelStacked = 24
 
 const buildBarLabelFormatter =
   (viewType: ViewType, rows: { count: number; [key: string]: number | string | undefined }[]) =>

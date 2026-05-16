@@ -32,6 +32,12 @@ export const SLIDESHOW_LICENSE_TYPE_ORDER = [
 
 export const SLIDESHOW_LAW_SCHOOL_ORDER = ['William S. Richardson', 'Other']
 
+export const SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKET_ORDER = ['Under 30', '30-39', '40-49', '50-59', '60-69', '70-79', '80+']
+
+export const SLIDESHOW_ACTIVE_ATTORNEY_STATUS_ORDER = ['Active', 'Government', 'Judge'] as const
+
+export const SLIDESHOW_ACTIVE_ATTORNEY_AGE_AS_OF_DATE = '2026-05-15'
+
 export const HSBA_ACTIVE_ATTORNEYS_BY_YEAR = [
   { count: 3964, year: '1994' },
   { count: 4026, year: '1995' },
