@@ -48,8 +48,8 @@ export const SlideshowActiveAttorneysLineChart = ({ data }: SlideshowActiveAttor
 
   const minCount = Math.min(...counts)
   const maxCount = Math.max(...counts)
-  const yAxisMin = Math.floor(minCount / 500) * 500
-  const yAxisMax = Math.ceil(maxCount / 500) * 500
+  const yAxisMin = Math.max(0, Math.floor(minCount / 100) * 100 - 100)
+  const yAxisMax = Math.ceil(maxCount / 100) * 100 + 100
   
   const yAxisTicks = Array.from(
     { length: (yAxisMax - yAxisMin) / 50 + 1 },
@@ -148,7 +148,7 @@ export const SlideshowActiveAttorneysLineChart = ({ data }: SlideshowActiveAttor
         }}
         viewBox={`0 0 ${chartSize.width} ${chartSize.height}`}
       >
-        {pointPositions.map(point => (
+        {pointPositions.map((point, index) => (
           <text
             key={`${point.year}-label`}
             fill="#424242"
@@ -157,7 +157,7 @@ export const SlideshowActiveAttorneysLineChart = ({ data }: SlideshowActiveAttor
             paintOrder="stroke"
             stroke="#ffffff"
             strokeWidth="4"
-            textAnchor="middle"
+            textAnchor={index === 0 ? 'start' : index === pointPositions.length - 1 ? 'end' : 'middle'}
             x={point.x}
             y={Math.max(point.y - POINT_LABEL_OFFSET, CHART_MARGIN.top + 10)}
           >
@@ -174,9 +174,13 @@ export const SlideshowActiveAttorneysLineChart = ({ data }: SlideshowActiveAttor
           position: 'absolute'
         }}
       >
-        * Source:{' '}
+        * Sources:{' '}
         <Link href="https://hsba.org/member-demographics" target="_blank" rel="noopener noreferrer">
           HSBA Member Demographics
+        </Link>{' '}
+        and{' '}
+        <Link href="https://dbedt.hawaii.gov/economic/databook-archive/" target="_blank" rel="noopener noreferrer">
+          DBEDT Databook Archive
         </Link>
       </Typography>
     </Box>

@@ -3,7 +3,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Row } from '@/types/row'
 import { SlideshowBarAdmissionsChart } from './SlideshowBarAdmissionsChart'
 import { ViewType } from '@/types/chart'
-import { SLIDESHOW_BAR_ADMISSIONS_END_YEAR, SLIDESHOW_BAR_ADMISSIONS_START_YEAR } from '@/constants/chartConstants'
+import {
+  HSBA_ACTIVE_ATTORNEYS_BY_YEAR,
+  SLIDESHOW_BAR_ADMISSIONS_END_YEAR,
+  SLIDESHOW_BAR_ADMISSIONS_START_YEAR
+} from '@/constants/chartConstants'
 import {
   calculateSlideshowBarAdmissions,
   calculateSlideshowEligibilitySummary,
@@ -216,7 +220,7 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
               {viewType === ViewType.SLIDESHOW_ELIGIBILITY_DONUT
                 ? `As of ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`
                 : viewType === ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS
-                  ? '2010 to 2025'
+                  ? `${HSBA_ACTIVE_ATTORNEYS_BY_YEAR[0].year} to ${HSBA_ACTIVE_ATTORNEYS_BY_YEAR[HSBA_ACTIVE_ATTORNEYS_BY_YEAR.length - 1].year}`
                   : `${SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`}
             </Typography>
           </Box>
