@@ -14,9 +14,9 @@ export const loadTestRows = (): Row[] => {
   const { data: rawRows } = Papa.parse<HsbaCsvRow>(csvString, { header: true, skipEmptyLines: 'greedy' })
 
   return rawRows
-    .filter(row => row && row.jd_number)
+    .filter(row => row?.id?.trim())
     .map(mapHsbaCsvRowToRow)
-    .filter(row => row.jdNumber) // Omit blank rows.
+    .filter(row => row.id)
 }
 
 export const renderChartModal = async (props: {
