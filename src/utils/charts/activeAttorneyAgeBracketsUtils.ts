@@ -1,5 +1,5 @@
 import Papa from 'papaparse'
-import hsbaMemberRecordsWithAgeCsv from '../../../logs/hsba-member-records.csv?raw'
+import memberStatisticsWithAgeCsv from '../../../logs/member-statistics-with-age.csv?raw'
 import {
   SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKET_ORDER,
   SLIDESHOW_ACTIVE_ATTORNEY_STATUS_ORDER
@@ -9,8 +9,10 @@ type ActiveAttorneyStatus = (typeof SLIDESHOW_ACTIVE_ATTORNEY_STATUS_ORDER)[numb
 
 type AgeBracketLabel = (typeof SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKET_ORDER)[number]
 
-interface HsbaAgeCsvRow {
-  membership_status?: string
+const MEMBERSHIP_PLAN_COLUMN = 'Primary Membership ? Plan Name With Level'
+
+interface MemberStatisticsWithAgeRow {
+  [MEMBERSHIP_PLAN_COLUMN]?: string
   age?: string
 }
 
@@ -43,6 +45,19 @@ const parseAge = (value: string | undefined): number | null => {
   return age
 }
 
+const normalizeActiveAttorneyStatus = (planName: string | undefined): ActiveAttorneyStatus | null => {
+  const trimmedPlanName = planName?.trim() ?? ''
+  if (!trimmedPlanName) return null
+
+  for (const status of SLIDESHOW_ACTIVE_ATTORNEY_STATUS_ORDER) {
+    if (trimmedPlanName.startsWith(status)) {
+      return status
+    }
+  }
+
+  return null
+}
+
 const createEmptyBracketCounts = (): Record<AgeBracketLabel, ActiveAttorneyAgeBracketRow> =>
   Object.fromEntries(
     SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKET_ORDER.map(bracket => [
@@ -57,14 +72,14 @@ const createEmptyBracketCounts = (): Record<AgeBracketLabel, ActiveAttorneyAgeBr
     ])
   ) as Record<AgeBracketLabel, ActiveAttorneyAgeBracketRow>
 
-const parseRows = (): HsbaAgeCsvRow[] => {
-  const { data, errors } = Papa.parse<HsbaAgeCsvRow>(hsbaMemberRecordsWithAgeCsv, {
+const parseRows = (): MemberStatisticsWithAgeRow[] => {
+  const { data, errors } = Papa.parse<MemberStatisticsWithAgeRow>(memberStatisticsWithAgeCsv, {
     header: true,
     skipEmptyLines: 'greedy'
   })
 
   if (errors.length > 0) {
-    throw new Error(`Failed to parse logs/hsba-member-records.csv: ${errors[0].message}`)
+    throw new Error(`Failed to parse logs/member-statistics-with-age.csv: ${errors[0].message}`)
   }
 
   return data
@@ -75,8 +90,8 @@ export const calculateActiveAttorneyAgeBrackets = (): ActiveAttorneyAgeBracketRo
   const countsByBracket = createEmptyBracketCounts()
 
   rows.forEach(row => {
-    const status = row.membership_status?.trim() as ActiveAttorneyStatus | undefined
-    if (!status || !SLIDESHOW_ACTIVE_ATTORNEY_STATUS_ORDER.includes(status)) return
+    const status = normalizeActiveAttorneyStatus(row[MEMBERSHIP_PLAN_COLUMN])
+    if (!status) return
 
     const age = parseAge(row.age)
     if (age === null) return
