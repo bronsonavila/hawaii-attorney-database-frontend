@@ -52,7 +52,7 @@ export const getColumns = ({
     headerName: 'JD Number',
     type: 'number',
     valueFormatter: (value: number | null) => (value === null || value === undefined ? '' : value.toString()),
-    valueGetter: (value: string) => Number(value),
+    valueGetter: (value: string) => (value ? Number(value) : null),
     width: 150
   },
   {
