@@ -69,7 +69,7 @@ const getChartTitle = (viewType: ViewType) => {
     case ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS:
       return 'HSBA Active Attorneys by Year'
     case ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS:
-      return 'Active Attorneys by Age Bracket'
+      return 'HSBA Active Attorneys by Age Bracket'
     default:
       throw new Error(`Unhandled slideshow view type: ${viewType}`)
   }
@@ -237,7 +237,7 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
                   ? `${HSBA_ACTIVE_ATTORNEYS_BY_YEAR[0].year} to ${HSBA_ACTIVE_ATTORNEYS_BY_YEAR[HSBA_ACTIVE_ATTORNEYS_BY_YEAR.length - 1].year}`
                   : viewType === ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS
                     ? `As of ${SLIDESHOW_ACTIVE_ATTORNEY_AGE_AS_OF_DATE}`
-                  : `${SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`}
+                    : `${SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`}
             </Typography>
           </Box>
         </Box>

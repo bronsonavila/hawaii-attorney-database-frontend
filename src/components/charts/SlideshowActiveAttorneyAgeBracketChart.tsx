@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import { BarChart } from '@mui/x-charts'
 import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { TEAL_NAVY } from '@/constants/colors'
@@ -15,7 +15,7 @@ const STACK_COLORS = {
   Judge: TEAL_NAVY[7][2]
 } as const
 
-const CHART_MARGIN = { bottom: 110, left: 86, right: 120, top: 24 }
+const CHART_MARGIN = { bottom: 72, left: 86, right: 120, top: 24 }
 const BAR_WIDTH_RATIO = 0.72
 const INSIDE_LABEL_MIN_HEIGHT_PX = 24
 const LABEL_FONT_SIZE_PX = 14
@@ -206,7 +206,8 @@ export const SlideshowActiveAttorneyAgeBracketChart = () => {
             transform: 'translateX(-24px)'
           },
           '& .MuiChartsAxis-tickLabel': {
-            fontSize: 14
+            fontSize: 15,
+            fontWeight: 500
           }
         }}
         width={chartSize.width}
@@ -217,13 +218,13 @@ export const SlideshowActiveAttorneyAgeBracketChart = () => {
             labelStyle: { fontSize: 18 },
             scaleType: 'band' as const,
             tickLabelInterval: () => true,
-            tickLabelStyle: { fontSize: 14 } as const
+            tickLabelStyle: { fontSize: 15, fontWeight: 500 } as const
           }
         ]}
         yAxis={[
           {
             label: 'Attorneys',
-            labelStyle: { fontSize: 16 },
+            labelStyle: { fontSize: 18 },
             max: yAxisCeiling,
             min: 0
           }
@@ -287,17 +288,6 @@ export const SlideshowActiveAttorneyAgeBracketChart = () => {
           </g>
         ))}
       </svg>
-      <Typography
-        sx={{
-          bottom: 12,
-          color: 'text.secondary',
-          fontSize: 14,
-          left: 86,
-          position: 'absolute'
-        }}
-      >
-        * Source: Hawaii State Bar Association
-      </Typography>
     </Box>
   )
 }
