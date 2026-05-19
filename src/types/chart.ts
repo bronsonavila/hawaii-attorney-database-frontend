@@ -28,6 +28,7 @@ export enum ViewType {
   BY_LAW_SCHOOL = 'byLawSchool',
   BY_LICENSE_TYPE = 'byLicenseType',
   SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS = 'slideshowActiveAttorneyAgeBrackets',
+  SLIDESHOW_ACTIVE_ATTORNEY_AGE_MAP = 'slideshowActiveAttorneyAgeMap',
   SLIDESHOW_ELIGIBILITY_LINE = 'slideshowEligibilityLine',
   SLIDESHOW_ELIGIBILITY_DONUT = 'slideshowEligibilityDonut',
   SLIDESHOW_HSBA_ACTIVE_ATTORNEYS = 'slideshowHsbaActiveAttorneys',

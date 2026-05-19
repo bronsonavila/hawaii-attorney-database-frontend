@@ -18,6 +18,7 @@ import { SlideshowEligibilityDonutChart } from './SlideshowEligibilityDonutChart
 import { SlideshowEligibilityLineChart } from './SlideshowEligibilityLineChart'
 import { SlideshowActiveAttorneysLineChart } from './SlideshowActiveAttorneysLineChart'
 import { SlideshowActiveAttorneyAgeBracketChart } from './SlideshowActiveAttorneyAgeBracketChart'
+import { AttorneyAgeMap } from '../maps/AttorneyAgeMap'
 
 const MODAL_BOX_SX = {
   bgcolor: 'background.paper',
@@ -51,7 +52,8 @@ const VIEW_TYPE_ORDER: ViewType[] = [
   ViewType.SLIDESHOW_ELIGIBILITY_LINE,
   ViewType.SLIDESHOW_ELIGIBILITY_DONUT,
   ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS,
-  ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS
+  ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS,
+  ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_MAP
 ]
 
 const getChartTitle = (viewType: ViewType) => {
@@ -70,6 +72,8 @@ const getChartTitle = (viewType: ViewType) => {
       return 'HSBA Active Attorneys by Year'
     case ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS:
       return 'HSBA Active Attorneys by Age Bracket'
+    case ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_MAP:
+      return 'Geocoded Hawaii Attorney Age Map'
     default:
       throw new Error(`Unhandled slideshow view type: ${viewType}`)
   }
@@ -87,6 +91,7 @@ const isEligibilityLineView = (viewType: ViewType) => viewType === ViewType.SLID
 const isHsbaActiveAttorneysView = (viewType: ViewType) => viewType === ViewType.SLIDESHOW_HSBA_ACTIVE_ATTORNEYS
 const isActiveAttorneyAgeBracketView = (viewType: ViewType) =>
   viewType === ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS
+const isActiveAttorneyAgeMapView = (viewType: ViewType) => viewType === ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_MAP
 
 export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: SlideshowBarAdmissionsModalProps) => {
   const modalSurfaceReference = useRef<HTMLDivElement>(null)
@@ -97,7 +102,8 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
       isEligibilitySummaryView(viewType) ||
       isEligibilityLineView(viewType) ||
       isHsbaActiveAttorneysView(viewType) ||
-      isActiveAttorneyAgeBracketView(viewType)
+      isActiveAttorneyAgeBracketView(viewType) ||
+      isActiveAttorneyAgeMapView(viewType)
         ? []
         : calculateSlideshowBarAdmissions(rows, viewType),
     [rows, viewType]
@@ -185,6 +191,10 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
           event.preventDefault()
           setViewType(ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS)
           break
+        case '8':
+          event.preventDefault()
+          setViewType(ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_MAP)
+          break
         case 'ArrowLeft':
           event.preventDefault()
           setViewType(currentViewType => getAdjacentViewType(currentViewType, -1))
@@ -237,7 +247,9 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
                   ? `${HSBA_ACTIVE_ATTORNEYS_BY_YEAR[0].year} to ${HSBA_ACTIVE_ATTORNEYS_BY_YEAR[HSBA_ACTIVE_ATTORNEYS_BY_YEAR.length - 1].year}`
                   : viewType === ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS
                     ? `As of ${SLIDESHOW_ACTIVE_ATTORNEY_AGE_AS_OF_DATE}`
-                    : `${SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`}
+                    : viewType === ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_MAP
+                      ? `As of ${SLIDESHOW_ACTIVE_ATTORNEY_AGE_AS_OF_DATE}`
+                      : `${SLIDESHOW_BAR_ADMISSIONS_START_YEAR} to ${SLIDESHOW_BAR_ADMISSIONS_END_YEAR}`}
             </Typography>
           </Box>
         </Box>
@@ -261,6 +273,8 @@ export const SlideshowBarAdmissionsModal = ({ isOpen, onClose, rows }: Slideshow
               <SlideshowActiveAttorneysLineChart />
             ) : viewType === ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS ? (
               <SlideshowActiveAttorneyAgeBracketChart />
+            ) : viewType === ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_MAP ? (
+              <AttorneyAgeMap />
             ) : (
               <SlideshowBarAdmissionsChart data={chartData} viewType={viewType} />
             )}
