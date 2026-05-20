@@ -6,6 +6,7 @@ const projectRoot = path.resolve(import.meta.dirname, '..')
 const inputPath = path.join(projectRoot, 'logs', 'member-statistics-with-age.csv')
 const geoJsonPath = path.join(projectRoot, 'public', 'hawaii-zcta.geojson')
 const outputPath = path.join(projectRoot, 'public', 'hawaii-attorney-by-zip.json')
+const zipRegionAuditPath = path.join(projectRoot, 'logs', 'zip-region-audit.json')
 
 const MEMBERSHIP_PLAN_COLUMN = 'Primary Membership ? Plan Name With Level'
 const ZIP_COLUMN = 'Work Address Zip'
@@ -185,10 +186,27 @@ function buildCentroidLookup(geoJson) {
   return centroidsByZip
 }
 
+async function loadZipLocalities() {
+  try {
+    const auditText = await fs.readFile(zipRegionAuditPath, 'utf8')
+    const audit = JSON.parse(auditText)
+
+    return Object.fromEntries(
+      Object.entries(audit.entries ?? {}).map(([zip, entry]) => [
+        zip,
+        entry.locality?.trim() || entry.neighborhood?.trim() || ''
+      ])
+    )
+  } catch {
+    return {}
+  }
+}
+
 async function main() {
-  const [statisticsCsv, geoJsonText] = await Promise.all([
+  const [statisticsCsv, geoJsonText, localityByZip] = await Promise.all([
     fs.readFile(inputPath, 'utf8'),
-    fs.readFile(geoJsonPath, 'utf8')
+    fs.readFile(geoJsonPath, 'utf8'),
+    loadZipLocalities()
   ])
 
   const geoJson = JSON.parse(geoJsonText)
@@ -269,6 +287,7 @@ async function main() {
     if (!zipData[resolvedZip]) {
       zipData[resolvedZip] = {
         zip: resolvedZip,
+        locality: localityByZip[resolvedZip] ?? '',
         totalAttorneys: 0,
         ageSum: 0,
         ageBrackets: createEmptyAgeBrackets(),

@@ -123,10 +123,8 @@ export const ROSE_VIOLET = {
 // Sequential green-to-red palette for retirement risk.
 // Green (low risk) transitions through yellow to red (high risk).
 export const RETIREMENT_RISK_PALETTE = [
-  '#e5f5e0', // < 20%: very pale green (visually quiet)
-  '#a1d99b', // 20-30%: soft green
-  '#fee08b', // 30-40%: soft yellow
-  '#fdae61', // 40-50%: orange
-  '#f46d43', // 50-60%: red-orange
-  '#d73027'  // 60%+: deep red
+  '#a1d99b', // < 25%: visible soft green
+  '#fee08b', // 25-49%: soft yellow
+  '#fdae61', // 50-74%: orange
+  '#d73027' // 75%+: deep red
 ]

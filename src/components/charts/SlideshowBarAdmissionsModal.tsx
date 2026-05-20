@@ -73,7 +73,7 @@ const getChartTitle = (viewType: ViewType) => {
     case ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_BRACKETS:
       return 'HSBA Active Attorneys by Age Bracket'
     case ViewType.SLIDESHOW_ACTIVE_ATTORNEY_AGE_MAP:
-      return 'Geocoded Hawaii Attorney Age Map'
+      return 'HSBA Active Attorneys - Age Map'
     default:
       throw new Error(`Unhandled slideshow view type: ${viewType}`)
   }
