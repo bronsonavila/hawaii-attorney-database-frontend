@@ -518,11 +518,11 @@ export const AttorneyAgeMap = () => {
             onEachFeature={(feature, layer) => {
               const featureKey = getFeatureKey(feature)
               const areaEntry = featureKey ? areaData[featureKey] : null
-              
+
               if (!featureKey || !areaEntry) return
 
               let isVisible = false
-              
+
               if (mapMetric === 'density') {
                 const showDensity = areaEntry && (areaEntry.population ?? 0) > 0
                 const densityVal = areaEntry?.attorneysPer1kPopulation ?? 0

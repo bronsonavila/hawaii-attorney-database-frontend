@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { BarChart } from '@mui/x-charts'
 import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { TEAL_NAVY } from '@/constants/colors'
@@ -288,6 +288,17 @@ export const SlideshowActiveAttorneyAgeBracketChart = () => {
           </g>
         ))}
       </svg>
+      <Typography
+        sx={{
+          bottom: 12,
+          color: 'text.secondary',
+          fontSize: 14,
+          left: CHART_MARGIN.left,
+          position: 'absolute'
+        }}
+      >
+        * Total Active Attorneys: {ageBracketData.reduce((sum, row) => sum + row.count, 0).toLocaleString()}
+      </Typography>
     </Box>
   )
 }
