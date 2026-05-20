@@ -412,7 +412,7 @@ export const AttorneyAgeMap = () => {
           }}
         >
           <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 500 }}>
-            Active Attorneys:
+            Active Attorneys (with Hawaii work address ZIP codes):
           </Typography>
           <Typography variant="body2" sx={{ fontWeight: 700 }}>
             {totalActiveAttorneys.toLocaleString()}
