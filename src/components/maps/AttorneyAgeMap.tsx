@@ -7,6 +7,9 @@ import {
   getColorForRetirementRisk,
   getTextColorForRetirementRisk,
   getColorForDensity,
+  getTextColorForDensity,
+  getDensityBucketIndex,
+  getRetirementRiskBucketIndex,
   RETIREMENT_RISK_BUCKETS,
   DENSITY_BUCKETS
 } from '@/utils/maps/hawaiiMapUtils'
@@ -92,7 +95,8 @@ const buildTooltipHtml = (title: string, entry: AreaData, mapMetric: MapMetric) 
 
   if (mapMetric === 'density') {
     const popText = entry.population !== undefined ? entry.population.toLocaleString() : 'N/A'
-    const densityText = entry.population !== undefined ? (entry.attorneysPer1kPopulation ?? 0).toFixed(2) : 'N/A'
+    const densityRaw = entry.population !== undefined ? (entry.attorneysPer1kPopulation ?? 0) : 0
+    const densityText = entry.population !== undefined ? densityRaw.toFixed(2) : 'N/A'
 
     return `
       <div style="font-family: monospace;">
@@ -101,7 +105,7 @@ const buildTooltipHtml = (title: string, entry: AreaData, mapMetric: MapMetric) 
           <tbody>
             <tr><td style="padding: 0 8px 0 0;">Active Attorneys:</td><td style="padding: 0; text-align: right;">${entry.totalAttorneys}</td></tr>
             <tr><td style="padding: 0 8px 0 0;">Population (2020):</td><td style="padding: 0; text-align: right;">${popText}</td></tr>
-            <tr style="font-weight: 700; color: #1565c0;"><td style="padding: 0 8px 0 0;">Attorneys per 1k:</td><td style="padding: 0; text-align: right;">${densityText}</td></tr>
+            <tr style="font-weight: 700; color: ${getTextColorForDensity(densityRaw)};"><td style="padding: 0 8px 0 0;">Attorneys per 1k:</td><td style="padding: 0; text-align: right;">${densityText}</td></tr>
           </tbody>
         </table>
       </div>
@@ -133,7 +137,7 @@ const buildTooltipHtml = (title: string, entry: AreaData, mapMetric: MapMetric) 
   `
 }
 
-const Legend = () => {
+const Legend = ({ visibleBuckets, onToggle }: { visibleBuckets: number[]; onToggle: (index: number) => void }) => {
   return (
     <Box
       sx={{
@@ -147,6 +151,7 @@ const Legend = () => {
         position: 'absolute',
         bottom: 24,
         right: 24,
+        width: 187,
         zIndex: 400
       }}
     >
@@ -156,24 +161,44 @@ const Legend = () => {
       <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 1 }}>
         % of Attorneys Age 60+
       </Typography>
-      {RETIREMENT_RISK_BUCKETS.map(bucket => (
-        <Box key={bucket.label} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+      {RETIREMENT_RISK_BUCKETS.map((bucket, index) => {
+        const isVisible = visibleBuckets.includes(index)
+        return (
           <Box
+            key={bucket.label}
+            onClick={() => onToggle(index)}
             sx={{
-              width: 16,
-              height: 16,
-              bgcolor: getColorForRetirementRisk(bucket.min),
-              border: '1px solid rgba(0,0,0,0.1)'
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
+              cursor: 'pointer',
+              opacity: isVisible ? 1 : 0.4,
+              '&:hover': { opacity: isVisible ? 0.8 : 0.6 }
             }}
-          />
-          <Typography variant="body2">{bucket.label}</Typography>
-        </Box>
-      ))}
+          >
+            <Box
+              sx={{
+                width: 16,
+                height: 16,
+                bgcolor: getColorForRetirementRisk(bucket.min),
+                border: '1px solid rgba(0,0,0,0.1)'
+              }}
+            />
+            <Typography variant="body2">{bucket.label}</Typography>
+          </Box>
+        )
+      })}
     </Box>
   )
 }
 
-const DensityLegend = () => {
+const DensityLegend = ({
+  visibleBuckets,
+  onToggle
+}: {
+  visibleBuckets: number[]
+  onToggle: (index: number) => void
+}) => {
   return (
     <Box
       sx={{
@@ -187,6 +212,7 @@ const DensityLegend = () => {
         position: 'absolute',
         bottom: 24,
         right: 24,
+        width: 187,
         zIndex: 400
       }}
     >
@@ -194,21 +220,35 @@ const DensityLegend = () => {
         Attorney Density
       </Typography>
       <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 1 }}>
-        Active Attorneys per 1k Residents
+        Attorneys per 1k Residents
       </Typography>
-      {DENSITY_BUCKETS.map(bucket => (
-        <Box key={bucket.label} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+      {DENSITY_BUCKETS.map((bucket, index) => {
+        const isVisible = visibleBuckets.includes(index)
+        return (
           <Box
+            key={bucket.label}
+            onClick={() => onToggle(index)}
             sx={{
-              width: 16,
-              height: 16,
-              bgcolor: getColorForDensity(bucket.min),
-              border: '1px solid rgba(0,0,0,0.1)'
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
+              cursor: 'pointer',
+              opacity: isVisible ? 1 : 0.4,
+              '&:hover': { opacity: isVisible ? 0.8 : 0.6 }
             }}
-          />
-          <Typography variant="body2">{bucket.label}</Typography>
-        </Box>
-      ))}
+          >
+            <Box
+              sx={{
+                width: 16,
+                height: 16,
+                bgcolor: getColorForDensity(bucket.min),
+                border: '1px solid rgba(0,0,0,0.1)'
+              }}
+            />
+            <Typography variant="body2">{bucket.label}</Typography>
+          </Box>
+        )
+      })}
     </Box>
   )
 }
@@ -216,6 +256,8 @@ const DensityLegend = () => {
 export const AttorneyAgeMap = () => {
   const [viewLevel, setViewLevel] = useState<ViewLevel>('district')
   const [mapMetric, setMapMetric] = useState<MapMetric>('density')
+  const [visibleDensityBuckets, setVisibleDensityBuckets] = useState<number[]>([0, 1, 2, 3, 4])
+  const [visibleRiskBuckets, setVisibleRiskBuckets] = useState<number[]>([0, 1, 2, 3, 4])
   const [zipGeoJson, setZipGeoJson] = useState<GeoJSON.GeoJsonObject | null>(null)
   const [districtGeoJson, setDistrictGeoJson] = useState<GeoJSON.GeoJsonObject | null>(null)
   const [attorneyByZip, setAttorneyByZip] = useState<AttorneyByZipJson | null>(null)
@@ -224,12 +266,7 @@ export const AttorneyAgeMap = () => {
   useEffect(() => {
     if (import.meta.env.VITE_STANDALONE === 'true') {
       void import('@/utils/maps/standaloneMapData').then(
-        ({
-          bundledGeoJson,
-          bundledDistrictsGeoJson,
-          bundledAttorneyByZip,
-          bundledAttorneyByDistrict
-        }) => {
+        ({ bundledGeoJson, bundledDistrictsGeoJson, bundledAttorneyByZip, bundledAttorneyByDistrict }) => {
           setZipGeoJson(bundledGeoJson)
           setDistrictGeoJson(bundledDistrictsGeoJson)
           setAttorneyByZip(bundledAttorneyByZip as unknown as AttorneyByZipJson)
@@ -241,20 +278,14 @@ export const AttorneyAgeMap = () => {
 
     const fetchData = async () => {
       try {
-        const [geoRes, attorneyRes, districtsGeoRes, attorneyDistrictRes] =
-          await Promise.all([
-            fetch('/hawaii-zcta.geojson'),
-            fetch('/hawaii-attorney-by-zip.json'),
-            fetch('/hawaii-judicial-districts.geojson'),
-            fetch('/hawaii-attorney-by-district.json')
-          ])
+        const [geoRes, attorneyRes, districtsGeoRes, attorneyDistrictRes] = await Promise.all([
+          fetch('/hawaii-zcta.geojson'),
+          fetch('/hawaii-attorney-by-zip.json'),
+          fetch('/hawaii-judicial-districts.geojson'),
+          fetch('/hawaii-attorney-by-district.json')
+        ])
 
-        if (
-          geoRes.ok &&
-          attorneyRes.ok &&
-          districtsGeoRes.ok &&
-          attorneyDistrictRes.ok
-        ) {
+        if (geoRes.ok && attorneyRes.ok && districtsGeoRes.ok && attorneyDistrictRes.ok) {
           setZipGeoJson(await geoRes.json())
           setAttorneyByZip(await attorneyRes.json())
           setDistrictGeoJson(await districtsGeoRes.json())
@@ -296,6 +327,14 @@ export const AttorneyAgeMap = () => {
     return null
   }, [viewLevel, zipGeoJson, attorneyByZip, districtGeoJson, attorneyByDistrict])
 
+  const totalActiveAttorneys = useMemo(() => {
+    const entries = attorneyByDistrict?.districtData ?? attorneyByZip?.zipData
+
+    if (!entries) return 0
+
+    return Object.values(entries).reduce((total, entry) => total + entry.totalAttorneys, 0)
+  }, [attorneyByDistrict, attorneyByZip])
+
   const handleLevelChange = (_: React.MouseEvent<HTMLElement>, newLevel: ViewLevel | null) => {
     if (newLevel) {
       setViewLevel(newLevel)
@@ -306,6 +345,24 @@ export const AttorneyAgeMap = () => {
     if (newMetric) {
       setMapMetric(newMetric)
     }
+  }
+
+  const toggleDensityBucket = (index: number) => {
+    setVisibleDensityBuckets(prev => {
+      if (prev.includes(index)) {
+        return prev.filter(b => b !== index)
+      }
+      return [...prev, index].sort((a, b) => a - b)
+    })
+  }
+
+  const toggleRiskBucket = (index: number) => {
+    setVisibleRiskBuckets(prev => {
+      if (prev.includes(index)) {
+        return prev.filter(b => b !== index)
+      }
+      return [...prev, index].sort((a, b) => a - b)
+    })
   }
 
   if (!activeMapData) {
@@ -336,12 +393,32 @@ export const AttorneyAgeMap = () => {
           alignItems: 'center',
           gap: 1,
           flexWrap: 'wrap',
+          minHeight: 32,
+          position: 'relative',
           '& .MuiToggleButton-root': {
             px: 2.5,
             textTransform: 'none'
           }
         }}
       >
+        <Box
+          sx={{
+            alignItems: 'baseline',
+            display: 'flex',
+            gap: 0.75,
+            left: 0,
+            position: { xs: 'static', md: 'absolute' },
+            width: { xs: '100%', md: 'auto' }
+          }}
+        >
+          <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 500 }}>
+            Active Attorneys:
+          </Typography>
+          <Typography variant="body2" sx={{ fontWeight: 700 }}>
+            {totalActiveAttorneys.toLocaleString()}
+          </Typography>
+        </Box>
+
         <ToggleButtonGroup
           value={mapMetric}
           exclusive
@@ -402,47 +479,73 @@ export const AttorneyAgeMap = () => {
           />
 
           <GeoJSON
-            key={`geojson-${viewLevel}-${mapMetric}`}
+            key={`geojson-${viewLevel}-${mapMetric}-${visibleDensityBuckets.join(',')}-${visibleRiskBuckets.join(',')}`}
             data={geoJson}
             style={feature => {
               const featureKey = feature ? getFeatureKey(feature as GeoJSON.Feature) : undefined
               const areaEntry = featureKey ? areaData[featureKey] : null
-              const shouldShowRisk = hasAttorneys(areaEntry)
+              const hasAtts = hasAttorneys(areaEntry)
 
               if (mapMetric === 'density') {
                 const showDensity = areaEntry && (areaEntry.population ?? 0) > 0
+                const densityVal = areaEntry?.attorneysPer1kPopulation ?? 0
+                const bucketIdx = getDensityBucketIndex(densityVal)
+                const isVisible = visibleDensityBuckets.includes(bucketIdx)
+                const shouldDisplay = showDensity && isVisible
+
                 return {
-                  fillColor: showDensity ? getColorForDensity(areaEntry.attorneysPer1kPopulation ?? 0) : 'transparent',
+                  fillColor: shouldDisplay ? getColorForDensity(densityVal) : 'transparent',
                   weight: viewLevel === 'zip' ? 1 : 2,
                   opacity: 1,
                   color: 'white',
-                  fillOpacity: showDensity ? 0.8 : 0
+                  fillOpacity: shouldDisplay ? 0.8 : 0
                 }
               }
 
+              const riskVal = areaEntry?.percentOver60 ?? 0
+              const bucketIdx = getRetirementRiskBucketIndex(riskVal)
+              const isVisible = visibleRiskBuckets.includes(bucketIdx)
+              const shouldDisplay = hasAtts && isVisible
+
               return {
-                fillColor: shouldShowRisk ? getColorForRetirementRisk(areaEntry.percentOver60) : 'transparent',
+                fillColor: shouldDisplay ? getColorForRetirementRisk(riskVal) : 'transparent',
                 weight: viewLevel === 'zip' ? 1 : 2,
                 opacity: 1,
                 color: 'white',
-                fillOpacity: shouldShowRisk ? 0.8 : 0
+                fillOpacity: shouldDisplay ? 0.8 : 0
               }
             }}
             onEachFeature={(feature, layer) => {
               const featureKey = getFeatureKey(feature)
               const areaEntry = featureKey ? areaData[featureKey] : null
-              const shouldShowTooltip = Boolean(
-                areaEntry && (areaEntry.totalAttorneys > 0 || (mapMetric === 'density' && (areaEntry.population ?? 0) > 0))
-              )
+              
+              if (!featureKey || !areaEntry) return
 
-              if (featureKey && areaEntry && shouldShowTooltip) {
+              let isVisible = false
+              
+              if (mapMetric === 'density') {
+                const showDensity = areaEntry && (areaEntry.population ?? 0) > 0
+                const densityVal = areaEntry?.attorneysPer1kPopulation ?? 0
+                const bucketIdx = getDensityBucketIndex(densityVal)
+                isVisible = showDensity && visibleDensityBuckets.includes(bucketIdx)
+              } else {
+                const riskVal = areaEntry?.percentOver60 ?? 0
+                const bucketIdx = getRetirementRiskBucketIndex(riskVal)
+                isVisible = hasAttorneys(areaEntry) && visibleRiskBuckets.includes(bucketIdx)
+              }
+
+              if (isVisible) {
                 layer.bindTooltip(buildTooltipHtml(getAreaLabel(featureKey, areaEntry), areaEntry, mapMetric))
               }
             }}
           />
         </MapContainer>
 
-        {mapMetric === 'density' ? <DensityLegend /> : <Legend />}
+        {mapMetric === 'density' ? (
+          <DensityLegend visibleBuckets={visibleDensityBuckets} onToggle={toggleDensityBucket} />
+        ) : (
+          <Legend visibleBuckets={visibleRiskBuckets} onToggle={toggleRiskBucket} />
+        )}
       </Box>
     </Box>
   )

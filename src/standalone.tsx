@@ -21,12 +21,26 @@ createRoot(document.getElementById('root')!).render(
           boxSizing: 'border-box'
         }}
       >
-        <Box sx={{ flexShrink: 0, pb: 1 }}>
+        <Box
+          sx={{
+            alignItems: 'baseline',
+            columnGap: 1,
+            display: 'flex',
+            flexShrink: 0,
+            flexWrap: 'wrap',
+            pb: 1,
+            rowGap: 0.5
+          }}
+        >
           <Typography component="h1" sx={{ fontSize: 20, fontWeight: 600, lineHeight: 1.25 }} variant="h2">
-            HSBA Active Attorneys - Geographic Map
+            Hawaii Active Attorneys Map
           </Typography>
 
-          <Typography sx={{ color: 'text.secondary', fontSize: 16 }} variant="body2">
+          <Typography component="span" sx={{ color: 'text.disabled', fontSize: 16 }} variant="body2">
+            |
+          </Typography>
+
+          <Typography component="span" sx={{ color: 'text.secondary', fontSize: 16 }} variant="body2">
             As of {SLIDESHOW_ACTIVE_ATTORNEY_AGE_AS_OF_DATE}
           </Typography>
         </Box>
