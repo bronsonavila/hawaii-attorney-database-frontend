@@ -6,7 +6,7 @@ import { ChartTestId } from '@/types/chart'
 import { HSBA_ACTIVE_ATTORNEYS_BY_YEAR } from '@/constants/chartConstants'
 
 const ACTIVE_ATTORNEYS_LINE_COLOR = '#a5dde8'
-const CHART_MARGIN = { bottom: 72, left: 88, right: 24, top: 24 }
+const CHART_MARGIN = { bottom: 72, left: 88, right: 40, top: 24 }
 const POINT_LABEL_OFFSET = 14
 
 interface SlideshowActiveAttorneysLineChartProps {
@@ -157,7 +157,7 @@ export const SlideshowActiveAttorneysLineChart = ({ data }: SlideshowActiveAttor
             paintOrder="stroke"
             stroke="#ffffff"
             strokeWidth="4"
-            textAnchor={index === 0 ? 'start' : index === pointPositions.length - 1 ? 'end' : 'middle'}
+            textAnchor={index === 0 ? 'start' : 'middle'}
             x={point.x}
             y={Math.max(point.y - POINT_LABEL_OFFSET, CHART_MARGIN.top + 10)}
           >
