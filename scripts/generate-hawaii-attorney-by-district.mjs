@@ -24,6 +24,7 @@ function createAreaEntry(idKey, id, labelKey, label) {
   return {
     [idKey]: id,
     [labelKey]: label,
+    population: 0,
     totalAttorneys: 0,
     ageSum: 0,
     ageBrackets: createEmptyAgeBrackets(),
@@ -32,6 +33,7 @@ function createAreaEntry(idKey, id, labelKey, label) {
 }
 
 function addZipEntryToArea(areaEntry, zipEntry) {
+  areaEntry.population += zipEntry.population || 0
   areaEntry.totalAttorneys += zipEntry.totalAttorneys
   areaEntry.ageSum += zipEntry.averageAge * zipEntry.totalAttorneys
   mergeAgeBrackets(areaEntry.ageBrackets, zipEntry.ageBrackets)
@@ -45,6 +47,10 @@ function finalizeAreaEntry(areaEntry) {
     areaEntry.totalAttorneys > 0 ? Number((areaEntry.ageSum / areaEntry.totalAttorneys).toFixed(1)) : 0
   areaEntry.percentOver60 =
     areaEntry.totalAttorneys > 0 ? Number(((over60Count / areaEntry.totalAttorneys) * 100).toFixed(1)) : 0
+
+  areaEntry.attorneysPer1kPopulation = areaEntry.population > 0
+    ? Number(((areaEntry.totalAttorneys / areaEntry.population) * 1000).toFixed(2))
+    : 0
 
   delete areaEntry.ageSum
 }

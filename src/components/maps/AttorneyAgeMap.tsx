@@ -1,22 +1,26 @@
 import { Box, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
 import type { Layer, Map as LeafletMap } from 'leaflet'
 import { useEffect, useMemo, useState } from 'react'
-import { MapContainer, TileLayer, CircleMarker, Tooltip, GeoJSON, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, GeoJSON, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import {
   getColorForRetirementRisk,
   getTextColorForRetirementRisk,
-  RETIREMENT_RISK_BUCKETS
+  getColorForDensity,
+  RETIREMENT_RISK_BUCKETS,
+  DENSITY_BUCKETS
 } from '@/utils/maps/hawaiiMapUtils'
 
-type ViewMode = 'choropleth' | 'bubble'
 type ViewLevel = 'zip' | 'district'
+type MapMetric = 'retirement_risk' | 'density'
 
 interface AreaData {
   totalAttorneys: number
   percentOver60: number
   centroid: [number, number] | null
   ageBrackets: Record<string, number>
+  population?: number
+  attorneysPer1kPopulation?: number
 }
 
 interface ZipData extends AreaData {
@@ -83,8 +87,26 @@ const getOver60Count = (entry: AreaData) =>
 
 const hasAttorneys = (entry: AreaData | null): entry is AreaData => Boolean(entry && entry.totalAttorneys > 0)
 
-const buildTooltipHtml = (title: string, entry: AreaData) => {
+const buildTooltipHtml = (title: string, entry: AreaData, mapMetric: MapMetric) => {
   const over60Count = getOver60Count(entry)
+
+  if (mapMetric === 'density') {
+    const popText = entry.population !== undefined ? entry.population.toLocaleString() : 'N/A'
+    const densityText = entry.population !== undefined ? (entry.attorneysPer1kPopulation ?? 0).toFixed(2) : 'N/A'
+
+    return `
+      <div style="font-family: monospace;">
+        <strong>${title}</strong><br/>
+        <table style="border-collapse: collapse;">
+          <tbody>
+            <tr><td style="padding: 0 8px 0 0;">Active Attorneys:</td><td style="padding: 0; text-align: right;">${entry.totalAttorneys}</td></tr>
+            <tr><td style="padding: 0 8px 0 0;">Population (2020):</td><td style="padding: 0; text-align: right;">${popText}</td></tr>
+            <tr style="font-weight: 700; color: #1565c0;"><td style="padding: 0 8px 0 0;">Attorneys per 1k:</td><td style="padding: 0; text-align: right;">${densityText}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    `
+  }
 
   return `
     <div style="font-family: monospace;">
@@ -151,10 +173,49 @@ const Legend = () => {
   )
 }
 
+const DensityLegend = () => {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 0.5,
+        p: 2,
+        bgcolor: 'background.paper',
+        borderRadius: 1,
+        boxShadow: 1,
+        position: 'absolute',
+        bottom: 24,
+        right: 24,
+        zIndex: 400
+      }}
+    >
+      <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0 }}>
+        Attorney Density
+      </Typography>
+      <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 1 }}>
+        Active Attorneys per 1k Residents
+      </Typography>
+      {DENSITY_BUCKETS.map(bucket => (
+        <Box key={bucket.label} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Box
+            sx={{
+              width: 16,
+              height: 16,
+              bgcolor: getColorForDensity(bucket.min),
+              border: '1px solid rgba(0,0,0,0.1)'
+            }}
+          />
+          <Typography variant="body2">{bucket.label}</Typography>
+        </Box>
+      ))}
+    </Box>
+  )
+}
+
 export const AttorneyAgeMap = () => {
-  const [viewMode, setViewMode] = useState<ViewMode>('choropleth')
-  const [viewLevel, setViewLevel] = useState<ViewLevel>('zip')
-  const [activeBubbleTooltipKey, setActiveBubbleTooltipKey] = useState<string | null>(null)
+  const [viewLevel, setViewLevel] = useState<ViewLevel>('district')
+  const [mapMetric, setMapMetric] = useState<MapMetric>('density')
   const [zipGeoJson, setZipGeoJson] = useState<GeoJSON.GeoJsonObject | null>(null)
   const [districtGeoJson, setDistrictGeoJson] = useState<GeoJSON.GeoJsonObject | null>(null)
   const [attorneyByZip, setAttorneyByZip] = useState<AttorneyByZipJson | null>(null)
@@ -209,10 +270,6 @@ export const AttorneyAgeMap = () => {
     void fetchData()
   }, [])
 
-  useEffect(() => {
-    setActiveBubbleTooltipKey(null)
-  }, [viewMode, viewLevel])
-
   const activeMapData = useMemo((): MapDataBundle | null => {
     if (viewLevel === 'zip' && zipGeoJson && attorneyByZip) {
       return {
@@ -239,15 +296,15 @@ export const AttorneyAgeMap = () => {
     return null
   }, [viewLevel, zipGeoJson, attorneyByZip, districtGeoJson, attorneyByDistrict])
 
-  const handleModeChange = (_: React.MouseEvent<HTMLElement>, newMode: ViewMode | null) => {
-    if (newMode) {
-      setViewMode(newMode)
-    }
-  }
-
   const handleLevelChange = (_: React.MouseEvent<HTMLElement>, newLevel: ViewLevel | null) => {
     if (newLevel) {
       setViewLevel(newLevel)
+    }
+  }
+
+  const handleMetricChange = (_: React.MouseEvent<HTMLElement>, newMetric: MapMetric | null) => {
+    if (newMetric) {
+      setMapMetric(newMetric)
     }
   }
 
@@ -268,7 +325,7 @@ export const AttorneyAgeMap = () => {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        gap: 2,
+        gap: 1,
         position: 'relative'
       }}
     >
@@ -276,6 +333,7 @@ export const AttorneyAgeMap = () => {
         sx={{
           display: 'flex',
           justifyContent: 'center',
+          alignItems: 'center',
           gap: 1,
           flexWrap: 'wrap',
           '& .MuiToggleButton-root': {
@@ -285,32 +343,32 @@ export const AttorneyAgeMap = () => {
         }}
       >
         <ToggleButtonGroup
+          value={mapMetric}
+          exclusive
+          onChange={handleMetricChange}
+          aria-label="map metric"
+          size="small"
+        >
+          <ToggleButton value="density" aria-label="attorney density">
+            Attorney Density
+          </ToggleButton>
+          <ToggleButton value="retirement_risk" aria-label="retirement risk">
+            Retirement Risk
+          </ToggleButton>
+        </ToggleButtonGroup>
+
+        <ToggleButtonGroup
           value={viewLevel}
           exclusive
           onChange={handleLevelChange}
           aria-label="map geographic level"
           size="small"
         >
-          <ToggleButton value="zip" aria-label="zip code level">
-            ZIP Code
-          </ToggleButton>
           <ToggleButton value="district" aria-label="judicial district level">
             Judicial District
           </ToggleButton>
-        </ToggleButtonGroup>
-
-        <ToggleButtonGroup
-          value={viewMode}
-          exclusive
-          onChange={handleModeChange}
-          aria-label="map view mode"
-          size="small"
-        >
-          <ToggleButton value="choropleth" aria-label="choropleth">
-            Shaded Map
-          </ToggleButton>
-          <ToggleButton value="bubble" aria-label="bubble map">
-            Bubble Map
+          <ToggleButton value="zip" aria-label="zip code level">
+            ZIP Code
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
@@ -344,88 +402,47 @@ export const AttorneyAgeMap = () => {
           />
 
           <GeoJSON
-            key={`geojson-${viewLevel}-${viewMode}`}
+            key={`geojson-${viewLevel}-${mapMetric}`}
             data={geoJson}
             style={feature => {
               const featureKey = feature ? getFeatureKey(feature as GeoJSON.Feature) : undefined
               const areaEntry = featureKey ? areaData[featureKey] : null
               const shouldShowRisk = hasAttorneys(areaEntry)
 
-              if (viewMode === 'choropleth') {
+              if (mapMetric === 'density') {
+                const showDensity = areaEntry && (areaEntry.population ?? 0) > 0
                 return {
-                  fillColor: shouldShowRisk ? getColorForRetirementRisk(areaEntry.percentOver60) : 'transparent',
+                  fillColor: showDensity ? getColorForDensity(areaEntry.attorneysPer1kPopulation ?? 0) : 'transparent',
                   weight: viewLevel === 'zip' ? 1 : 2,
                   opacity: 1,
                   color: 'white',
-                  fillOpacity: shouldShowRisk ? 0.8 : 0
+                  fillOpacity: showDensity ? 0.8 : 0
                 }
               }
 
               return {
+                fillColor: shouldShowRisk ? getColorForRetirementRisk(areaEntry.percentOver60) : 'transparent',
                 weight: viewLevel === 'zip' ? 1 : 2,
-                opacity: 0.55,
-                color: '#4f4f4f',
-                fillColor: 'transparent',
-                fillOpacity: 0
+                opacity: 1,
+                color: 'white',
+                fillOpacity: shouldShowRisk ? 0.8 : 0
               }
             }}
             onEachFeature={(feature, layer) => {
               const featureKey = getFeatureKey(feature)
               const areaEntry = featureKey ? areaData[featureKey] : null
+              const shouldShowTooltip = Boolean(
+                areaEntry && (areaEntry.totalAttorneys > 0 || (mapMetric === 'density' && (areaEntry.population ?? 0) > 0))
+              )
 
-              if (hasAttorneys(areaEntry) && featureKey) {
-                if (viewMode === 'choropleth') {
-                  layer.bindTooltip(buildTooltipHtml(getAreaLabel(featureKey, areaEntry), areaEntry))
-                  return
-                }
-
-                layer.on({
-                  mouseover: () => setActiveBubbleTooltipKey(featureKey),
-                  mouseout: () => setActiveBubbleTooltipKey(currentKey => (currentKey === featureKey ? null : currentKey))
-                })
+              if (featureKey && areaEntry && shouldShowTooltip) {
+                layer.bindTooltip(buildTooltipHtml(getAreaLabel(featureKey, areaEntry), areaEntry, mapMetric))
               }
             }}
           />
-
-          {viewMode === 'bubble' &&
-            Object.entries(areaData).map(([key, areaEntry]) => {
-              if (!areaEntry.centroid || areaEntry.totalAttorneys === 0) return null
-
-              const over60Count = getOver60Count(areaEntry)
-
-              return (
-                <CircleMarker
-                  key={`bubble-${viewLevel}-${key}`}
-                  center={[areaEntry.centroid[0], areaEntry.centroid[1]]}
-                  radius={Math.max(4, Math.sqrt(over60Count) * 2.5)}
-                  pathOptions={{
-                    fillColor: getColorForRetirementRisk(areaEntry.percentOver60),
-                    color: 'white',
-                    weight: 1,
-                    fillOpacity: 0.8,
-                    opacity: 1
-                  }}
-                  eventHandlers={{
-                    mouseover: () => setActiveBubbleTooltipKey(key),
-                    mouseout: () => setActiveBubbleTooltipKey(currentKey => (currentKey === key ? null : currentKey))
-                  }}
-                >
-                  {activeBubbleTooltipKey === key && (
-                    <Tooltip permanent direction="auto">
-                      <div
-                        style={{ lineHeight: 1.4 }}
-                        dangerouslySetInnerHTML={{
-                          __html: buildTooltipHtml(getAreaLabel(key, areaEntry), areaEntry)
-                        }}
-                      />
-                    </Tooltip>
-                  )}
-                </CircleMarker>
-              )
-            })}
         </MapContainer>
 
-        <Legend />
+        {mapMetric === 'density' ? <DensityLegend /> : <Legend />}
       </Box>
     </Box>
   )

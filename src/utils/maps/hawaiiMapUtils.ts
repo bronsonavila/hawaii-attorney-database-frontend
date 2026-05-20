@@ -1,10 +1,17 @@
-import { RETIREMENT_RISK_PALETTE } from '@/constants/colors'
+import { RETIREMENT_RISK_PALETTE, TEAL_NAVY } from '@/constants/colors'
 
 export const RETIREMENT_RISK_BUCKETS = [
   { label: '< 25%', min: 0 },
   { label: '25-49%', min: 25 },
   { label: '50-74%', min: 50 },
   { label: '75%+', min: 75 }
+]
+
+export const DENSITY_BUCKETS = [
+  { label: '< 1.0', min: 0 },
+  { label: '1.0-2.4', min: 1 },
+  { label: '2.5-4.4', min: 2.5 },
+  { label: '4.5+', min: 4.5 }
 ]
 
 /**
@@ -17,6 +24,17 @@ export const getColorForRetirementRisk = (percentOver60: number): string => {
   if (percentOver60 >= 25) return RETIREMENT_RISK_PALETTE[1]
 
   return RETIREMENT_RISK_PALETTE[0]
+}
+
+/**
+ * Maps the ratio of attorneys per 1k population to a density color (TEAL_NAVY).
+ */
+export const getColorForDensity = (attorneysPer1kPopulation: number): string => {
+  if (attorneysPer1kPopulation >= 4.5) return TEAL_NAVY[4][3]
+  if (attorneysPer1kPopulation >= 2.5) return TEAL_NAVY[4][2]
+  if (attorneysPer1kPopulation >= 1) return TEAL_NAVY[4][1]
+
+  return TEAL_NAVY[4][0]
 }
 
 /**

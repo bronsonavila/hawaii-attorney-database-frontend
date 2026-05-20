@@ -212,6 +212,15 @@ async function main() {
   const geoJson = JSON.parse(geoJsonText)
   const centroidsByZip = buildCentroidLookup(geoJson)
 
+  const populationByZip = {}
+  geoJson.features.forEach(feature => {
+    const zip = feature.properties?.zcta5ce20
+    const pop = feature.properties?.pop20
+    if (zip && pop !== undefined) {
+      populationByZip[zip] = pop
+    }
+  })
+
   const geoZips = new Set(geoJson.features.map(f => f.properties?.zcta5ce20).filter(Boolean))
 
   const { data: rows, errors } = Papa.parse(statisticsCsv, {
@@ -243,6 +252,21 @@ async function main() {
   }
 
   const zipData = {}
+  geoJson.features.forEach(feature => {
+    const zip = feature.properties?.zcta5ce20
+    if (!zip) return
+
+    zipData[zip] = {
+      zip,
+      locality: localityByZip[zip] ?? '',
+      population: populationByZip[zip] ?? 0,
+      totalAttorneys: 0,
+      ageSum: 0,
+      ageBrackets: createEmptyAgeBrackets(),
+      attorneys: []
+    }
+  })
+
   let totalIncluded = 0
   let totalExcludedNoZip = 0
   let totalExcludedNoStatus = 0
@@ -284,17 +308,6 @@ async function main() {
       }
     }
 
-    if (!zipData[resolvedZip]) {
-      zipData[resolvedZip] = {
-        zip: resolvedZip,
-        locality: localityByZip[resolvedZip] ?? '',
-        totalAttorneys: 0,
-        ageSum: 0,
-        ageBrackets: createEmptyAgeBrackets(),
-        attorneys: []
-      }
-    }
-
     const bracket = getAgeBracketLabel(age)
     const zipEntry = zipData[resolvedZip]
 
@@ -307,10 +320,16 @@ async function main() {
   })
 
   Object.values(zipData).forEach(zipEntry => {
-    zipEntry.averageAge = Number((zipEntry.ageSum / zipEntry.totalAttorneys).toFixed(1))
+    zipEntry.averageAge =
+      zipEntry.totalAttorneys > 0 ? Number((zipEntry.ageSum / zipEntry.totalAttorneys).toFixed(1)) : 0
 
     const over60Count = zipEntry.ageBrackets['60-69'] + zipEntry.ageBrackets['70-79'] + zipEntry.ageBrackets['80+']
-    zipEntry.percentOver60 = Number(((over60Count / zipEntry.totalAttorneys) * 100).toFixed(1))
+    zipEntry.percentOver60 =
+      zipEntry.totalAttorneys > 0 ? Number(((over60Count / zipEntry.totalAttorneys) * 100).toFixed(1)) : 0
+
+    zipEntry.attorneysPer1kPopulation = zipEntry.population > 0
+      ? Number(((zipEntry.totalAttorneys / zipEntry.population) * 1000).toFixed(2))
+      : 0
 
     zipEntry.centroid = centroidsByZip[zipEntry.zip] ?? null
     delete zipEntry.ageSum

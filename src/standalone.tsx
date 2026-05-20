@@ -23,7 +23,7 @@ createRoot(document.getElementById('root')!).render(
       >
         <Box sx={{ flexShrink: 0, pb: 1 }}>
           <Typography component="h1" sx={{ fontSize: 20, fontWeight: 600, lineHeight: 1.25 }} variant="h2">
-            HSBA Active Attorneys - Age Map
+            HSBA Active Attorneys - Geographic Map
           </Typography>
 
           <Typography sx={{ color: 'text.secondary', fontSize: 16 }} variant="body2">
