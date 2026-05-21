@@ -6,6 +6,7 @@ import 'leaflet/dist/leaflet.css'
 import {
   getColorForRetirementRisk,
   getTextColorForRetirementRisk,
+  RETIREMENT_RISK_NO_ATTORNEYS_FILL,
   getColorForDensity,
   getTextColorForDensity,
   getDensityBucketIndex,
@@ -88,8 +89,6 @@ const MapInteractionGuard = () => {
 const getOver60Count = (entry: AreaData) =>
   entry.ageBrackets['60-69'] + entry.ageBrackets['70-79'] + entry.ageBrackets['80+']
 
-const hasAttorneys = (entry: AreaData | null): entry is AreaData => Boolean(entry && entry.totalAttorneys > 0)
-
 const buildTooltipHtml = (title: string, entry: AreaData, mapMetric: MapMetric) => {
   const over60Count = getOver60Count(entry)
 
@@ -106,6 +105,19 @@ const buildTooltipHtml = (title: string, entry: AreaData, mapMetric: MapMetric) 
             <tr><td style="padding: 0 8px 0 0;">Active Attorneys:</td><td style="padding: 0; text-align: right;">${entry.totalAttorneys}</td></tr>
             <tr><td style="padding: 0 8px 0 0;">Population (2020):</td><td style="padding: 0; text-align: right;">${popText}</td></tr>
             <tr style="font-weight: 700; color: ${getTextColorForDensity(densityRaw)};"><td style="padding: 0 8px 0 0;">Attorneys per 1k:</td><td style="padding: 0; text-align: right;">${densityText}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    `
+  }
+
+  if (entry.totalAttorneys === 0) {
+    return `
+      <div style="font-family: monospace;">
+        <strong>${title}</strong><br/>
+        <table style="border-collapse: collapse;">
+          <tbody>
+            <tr><td style="padding: 0 8px 0 0;">Active Attorneys:</td><td style="padding: 0; text-align: right;">0</td></tr>
           </tbody>
         </table>
       </div>
@@ -484,7 +496,6 @@ export const AttorneyAgeMap = () => {
             style={feature => {
               const featureKey = feature ? getFeatureKey(feature as GeoJSON.Feature) : undefined
               const areaEntry = featureKey ? areaData[featureKey] : null
-              const hasAtts = hasAttorneys(areaEntry)
 
               if (mapMetric === 'density') {
                 const showDensity = areaEntry && (areaEntry.population ?? 0) > 0
@@ -505,10 +516,15 @@ export const AttorneyAgeMap = () => {
               const riskVal = areaEntry?.percentOver60 ?? 0
               const bucketIdx = getRetirementRiskBucketIndex(riskVal)
               const isVisible = visibleRiskBuckets.includes(bucketIdx)
-              const shouldDisplay = hasAtts && isVisible
+              const shouldDisplay = Boolean(areaEntry) && isVisible
+              const hasNoAttorneys = (areaEntry?.totalAttorneys ?? 0) === 0
 
               return {
-                fillColor: shouldDisplay ? getColorForRetirementRisk(riskVal) : 'transparent',
+                fillColor: shouldDisplay
+                  ? hasNoAttorneys
+                    ? RETIREMENT_RISK_NO_ATTORNEYS_FILL
+                    : getColorForRetirementRisk(riskVal)
+                  : 'transparent',
                 weight: viewLevel === 'zip' ? 1 : 2,
                 opacity: 1,
                 color: 'white',
@@ -531,7 +547,7 @@ export const AttorneyAgeMap = () => {
               } else {
                 const riskVal = areaEntry?.percentOver60 ?? 0
                 const bucketIdx = getRetirementRiskBucketIndex(riskVal)
-                isVisible = hasAttorneys(areaEntry) && visibleRiskBuckets.includes(bucketIdx)
+                isVisible = visibleRiskBuckets.includes(bucketIdx)
               }
 
               if (isVisible) {

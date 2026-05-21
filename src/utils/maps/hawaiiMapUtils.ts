@@ -1,5 +1,8 @@
 import { TEAL_NAVY } from '@/constants/colors'
 
+/** Fill for retirement-risk regions with no attorneys (not shown in legend). */
+export const RETIREMENT_RISK_NO_ATTORNEYS_FILL = '#e8e8e8'
+
 export const RETIREMENT_RISK_BUCKETS = [
   { label: '< 20%', min: 0 },
   { label: '20-39%', min: 20 },
