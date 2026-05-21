@@ -1,6 +1,13 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
+try {
+  // Load variables from .env.local into process.env
+  process.loadEnvFile(path.resolve(import.meta.dirname, '..', '.env.local'))
+} catch {
+  // Ignore if file doesn't exist
+}
+
 const projectRoot = path.resolve(import.meta.dirname, '..')
 const zipJsonPath = path.join(projectRoot, 'public', 'hawaii-attorney-by-zip.json')
 const cachePath = path.join(projectRoot, 'logs', 'zip-region-audit.json')
