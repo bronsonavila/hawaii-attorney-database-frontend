@@ -80,6 +80,25 @@ function unionFeatures(features) {
   return merged.geometry
 }
 
+function getPolygonArea(polygonCoordinates) {
+  return turf.area(turf.polygon(polygonCoordinates))
+}
+
+function sortMultiPolygonByArea(geometry) {
+  if (geometry.type !== 'MultiPolygon') {
+    return geometry
+  }
+
+  const sortedCoordinates = [...geometry.coordinates].sort(
+    (polygonA, polygonB) => getPolygonArea(polygonB) - getPolygonArea(polygonA)
+  )
+
+  return {
+    ...geometry,
+    coordinates: sortedCoordinates
+  }
+}
+
 function getFeaturesByDistrict(geoJson) {
   const featuresByDistrict = new Map()
 
@@ -102,7 +121,7 @@ function buildDistrictGeometries(featuresByDistrict) {
 
   for (const [districtName, features] of [...featuresByDistrict.entries()].sort(([a], [b]) => a.localeCompare(b))) {
     const districtId = getDistrictId(districtName)
-    const mergedGeometry = unionFeatures(features)
+    const mergedGeometry = sortMultiPolygonByArea(unionFeatures(features))
 
     if (!mergedGeometry) {
       throw new Error(`No GeoJSON polygons found for judicial district ${districtName}`)
