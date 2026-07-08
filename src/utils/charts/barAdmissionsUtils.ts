@@ -15,14 +15,16 @@ const normalizeBarAdmissionsLicenseType = (licenseType: string): string => {
   if (
     licenseType === 'Suspended - CLE' ||
     licenseType === 'Suspended - Disciplined' ||
-    licenseType === 'Suspended - Non-Payment'
+    licenseType === 'Suspended - Non-Payment' ||
+    licenseType === 'Suspended - Professionalism Course'
   )
     return 'Suspended'
   if (
     licenseType === 'Resigned - Discipline' ||
     licenseType === 'Resigned - Voluntary' ||
     licenseType === 'Restrained from Practice' ||
-    licenseType === 'Disbarred'
+    licenseType === 'Disbarred' ||
+    licenseType === 'Criminal Conviction'
   )
     return 'Resigned / Restrained / Disbarred'
 

@@ -25,11 +25,17 @@ export const splitSemicolonList = (value: string | null | undefined): string[] =
 const RAW_LICENSE_TYPE_ALIASES: Record<string, string> = {
   'Inactive Pro Bono': 'Inactive - Pro Bono',
   'Inactive Voluntary': 'Inactive - Voluntary',
-  'Suspended Non-Payment': 'Suspended - Non-Payment',
-  'Suspended for Non-Payment': 'Suspended - Non-Payment',
-  'Suspended Discipline': 'Suspended - Disciplined',
+  'Resign - Discipline': 'Resigned - Discipline',
+  'Resign - Voluntary': 'Resigned - Voluntary',
   'Resigned Discipline': 'Resigned - Discipline',
-  'Resigned Voluntary': 'Resigned - Voluntary'
+  'Resigned Voluntary': 'Resigned - Voluntary',
+  'Suspended - Discipline': 'Suspended - Disciplined',
+  'Suspended - Non Payment': 'Suspended - Non-Payment',
+  'Suspended CLE': 'Suspended - CLE',
+  'Suspended Discipline': 'Suspended - Disciplined',
+  'Suspended for Non-Payment': 'Suspended - Non-Payment',
+  'Suspended Non-Payment': 'Suspended - Non-Payment',
+  'Suspended Professionalism Course': 'Suspended - Professionalism Course'
 }
 
 const normalizeRawLicenseType = (value: string): string => RAW_LICENSE_TYPE_ALIASES[value] ?? value

@@ -2,7 +2,7 @@ import { BarChart } from '@mui/x-charts'
 import { ChartTestId, ViewType } from '@/types/chart'
 import { DatasetType } from '@mui/x-charts/internals'
 import { getTopLawSchools } from '@/utils/charts/commonUtils'
-import { LICENSE_TYPE_COLOR_PALETTE, LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '@/constants/chartConstants'
+import { getLicenseTypeColor, LICENSE_TYPE_ORDER, LAW_SCHOOL_COLOR_PALETTE } from '@/constants/chartConstants'
 import { TEAL_NAVY } from '@/constants/colors'
 import { Row } from '@/types/row'
 
@@ -45,9 +45,7 @@ export const BarAdmissionsChart = ({ data, rows, viewType }: BarAdmissionsChartP
         return a.localeCompare(b)
       })
 
-    const licenseTypeColors = Object.fromEntries(
-      licenseTypes.map((type, index) => [type, LICENSE_TYPE_COLOR_PALETTE[index % LICENSE_TYPE_COLOR_PALETTE.length]])
-    )
+    const licenseTypeColors = Object.fromEntries(licenseTypes.map(type => [type, getLicenseTypeColor(type)]))
 
     return (
       <BarChart

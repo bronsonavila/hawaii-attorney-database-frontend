@@ -90,6 +90,27 @@ describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
     expect(year2002.Deceased).toBe(1)
   })
 
+  it('consolidates alternate spellings and remaining unmapped variants into canonical buckets', () => {
+    const rows: Row[] = [
+      makeRow({ barAdmissionDate: '1/15/2000', id: 'a', licenseType: 'Resigned - Voluntary' }),
+      makeRow({ barAdmissionDate: '2/15/2000', id: 'b', licenseType: 'Resigned - Discipline' }),
+      makeRow({ barAdmissionDate: '3/15/2000', id: 'c', licenseType: 'Suspended - Non-Payment' }),
+      makeRow({ barAdmissionDate: '4/15/2000', id: 'd', licenseType: 'Suspended - CLE' }),
+      makeRow({ barAdmissionDate: '5/15/2000', id: 'e', licenseType: 'Suspended - Professionalism Course' }),
+      makeRow({ barAdmissionDate: '6/15/2000', id: 'f', licenseType: 'Criminal Conviction' })
+    ]
+
+    const data = calculateBarAdmissions(rows, ViewType.BY_LICENSE_TYPE) as Array<Record<string, unknown>>
+    const year2000 = data[0] as Record<string, number | string>
+
+    expect(year2000.count).toBe(6)
+    expect(year2000['Resigned / Restrained / Disbarred']).toBe(3)
+    expect(year2000.Suspended).toBe(3)
+    expect('Resigned - Voluntary' in year2000).toBe(false)
+    expect('Suspended - Non-Payment' in year2000).toBe(false)
+    expect('Criminal Conviction' in year2000).toBe(false)
+  })
+
   it('consolidates unknown law schools into Other for the Law School view', () => {
     const rows: Row[] = [
       makeRow({ barAdmissionDate: '1/15/2000', id: 'a', lawSchool: 'Top School' }),
@@ -134,5 +155,22 @@ describe('calculateBarAdmissions (Bar Admissions Over Time)', () => {
     if (licenseTypes.includes('Unknown')) {
       expect(licenseTypes[licenseTypes.length - 1]).toBe('Unknown')
     }
+  })
+
+  it('uses only LICENSE_TYPE_ORDER keys when using real CSV data', () => {
+    const rows = loadTestRows()
+    const data = calculateBarAdmissions(rows, ViewType.BY_LICENSE_TYPE) as Array<Record<string, unknown>>
+
+    const licenseTypes = new Set<string>()
+
+    data.forEach(yearData => {
+      Object.keys(yearData).forEach(key => {
+        if (key !== 'year' && key !== 'count') licenseTypes.add(key)
+      })
+    })
+
+    ;[...licenseTypes].forEach(type => {
+      expect(LICENSE_TYPE_ORDER).toContain(type)
+    })
   })
 })

@@ -1,6 +1,6 @@
 const BASE_URL = 'https://www.hawaiiattorneydatabase.com'
 
-export const LAST_UPDATED = '6/2/2026'
+export const LAST_UPDATED = '7/7/2026'
 
 export const METADATA = {
   alternativeHeadline:
